@@ -22,7 +22,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.39" level="application_server_libraries" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat" level="application_server_libraries" />
     <orderEntry type="library" name="JAX-WS-Apache Axis" level="project" />
   </component>
 </module>
