@@ -9,9 +9,10 @@
   src > dao : DB 관련 처리 자바파일 담아둘 폴더<br/><br/>
   src > vo : 자바 데이터 클래스<br/><br/>
 
-  web > html&jsp : 화면 구성 관련 문서<br/><br/>
+  web > html : 화면 구성 관련 문서<br/><br/>
   web > js : 스크립트 관련 문서<br/><br/>
-  web > style : css 처리 문서<br/><br/>
+  web > css : css 처리 문서<br/><br/>
 
+  <a href = "https://www.webjangi.com/"><h2>템플릿사이트</h2></a>
   </body>
 </html>
