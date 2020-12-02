@@ -6,17 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eafb6d9e-ffa5-45dd-9dca-686acc3aa29d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Group3_war_exploded/html&amp;jsp/Homepage.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Group3_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Group3_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Group3_war_exploded/한번 읽어주세요~~.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Group3_war_exploded/한번 읽어주세요~~.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Group3/META-INF/Group3.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/html&amp;jsp/Homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/html/Homepage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/한번 읽어주세요~~.txt" beforeDir="false" afterPath="$PROJECT_DIR$/web/한번 읽어주세요~~.txt" afterDir="false" />
-    </list>
+    <list default="true" id="eafb6d9e-ffa5-45dd-9dca-686acc3aa29d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/html/BookPreview-master/BookPreview-master/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="150" lean-forward="true" selection-start-line="21" selection-start-column="150" selection-end-line="22" selection-end-column="177" />
+            <state relative-caret-position="57">
+              <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -132,6 +122,17 @@
             <path>
               <item name="Group3" type="b2602c69:ProjectViewProjectNode" />
               <item name="Group3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Group3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Group3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Group3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Group3" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -151,7 +152,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1606909921857" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1606909990544" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -302,16 +303,15 @@
       <workItem from="1606875191639" duration="1284000" />
       <workItem from="1606885043928" duration="634000" />
       <workItem from="1606901567424" duration="2096000" />
-      <workItem from="1606906691276" duration="3163000" />
+      <workItem from="1606906691276" duration="3232000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7177000" />
+    <option name="totallyTimeSpent" value="7246000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19029851" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -500,8 +500,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/html/BookPreview-master/BookPreview-master/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="150" lean-forward="true" selection-start-line="21" selection-start-column="150" selection-end-line="22" selection-end-column="177" />
+        <state relative-caret-position="57">
+          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
         </state>
       </provider>
     </entry>
