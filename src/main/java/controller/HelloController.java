@@ -18,5 +18,11 @@ public class HelloController {
         return mv;
     }
 
+    @RequestMapping("/start.ing")
+    public String test2(){
+        System.out.println("start 요청");
+
+        return "hello";
+    }
 
 }
