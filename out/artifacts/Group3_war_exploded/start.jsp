@@ -5,6 +5,6 @@
     <title>start.jsp</title>
   </head>
   <body>
-  <a href="start.do">시작</a>
+  <a href="start.ing">시작</a>
   </body>
 </html>

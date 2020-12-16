@@ -9,8 +9,6 @@
         <mime-type>text/xml</mime-type>
     </mime-mapping>
 
-
-
     <!-- 리스너 : 응용프로그램에 적용-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -34,7 +32,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>servletMVC</servlet-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>*.ing</url-pattern>
     </servlet-mapping>
 
     <!-- 한글인코딩 -->

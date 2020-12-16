@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HelloController {
 
-    @RequestMapping("/start.do")
+    @RequestMapping("/start.ing")
     public ModelAndView test(){
         System.out.println("start 요청");
 
