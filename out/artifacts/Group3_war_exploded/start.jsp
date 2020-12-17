@@ -6,5 +6,8 @@
   </head>
   <body>
   <a href="start.ing">시작</a>
+  <table>
+
+  </table>
   </body>
 </html>
