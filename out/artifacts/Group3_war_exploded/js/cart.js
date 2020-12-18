@@ -1,7 +1,8 @@
 $(function(){
-    $('#cart').css({ cursor:'pointer'})
 
-    $('#cart').click(() => {
+
+    $('#cartButton').click(() => {
+        alert('카트 클릭')
         $('#cartTable').css({
             border : '1'
             })

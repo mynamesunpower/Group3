@@ -1,7 +1,7 @@
 create table manager ( id varchar2(20) primary key,
                 password varchar(20) not null);
                 
-create table Member( tel number(11) primary key,
+create table Member( tel varchar2(13) primary key,
                 name varchar2(10) not null,
                 id varchar2(20) not null,
                 jumin varchar2(14) UNIQUE,
@@ -11,27 +11,27 @@ create table Member( tel number(11) primary key,
                 grade varchar(10) default '일반',
                 point number (10) default 0);
                 
-create table custmoer_service ( wirting_time date,
+create table customer_service ( writing_time date,
                             content varchar2(300),
-                            tel number(11),
+                            tel varchar2(13),
                             id varchar2(20),
                             constraint customer_service_fk_tel foreign key(tel)
                             references member(tel),
                             constraint customer_service_fk_id foreign key(id)
                             references manager(id));
                             
-create table nonmember(tel number(11) primary key, 
+create table nonmember(tel varchar2(13) primary key, 
                     name varchar2(10) not null,
                     address varchar(50) not null);
                     
-create table publisher( publisher_number number(13) primary key,
+create table publisher( publisher_number varchar2(3) primary key,
                     publisher_name varchar(20) not null,
                     address varchar(50) not null,
-                    tel number(11) not null,
+                    tel varchar2(13) not null,
                     url varchar2(50));
                     
 create table book ( ISBN number(13) primary key,
-                publisher_number number(13),
+                publisher_number varchar2(3),
                 genre varchar(40) not null,
                 total_page number(4) not null,
                 price number(10) not null,
@@ -45,7 +45,7 @@ create table book ( ISBN number(13) primary key,
                 references publisher(publisher_number)); 
                 
 create table purchase ( order_number number(10) primary key,
-                    tel number(11),
+                    tel varchar2(13),
                     ISBN number(13),
                     quantity number(5) not null,
                     state varchar2(10) not null, -- 상태
@@ -61,7 +61,7 @@ create table purchase ( order_number number(10) primary key,
                     references book(isbn));
 
 
-create table shopping_cart ( tel number(11),
+create table shopping_cart ( tel varchar2(13),
                             isbn number(13),
                             quantity number(5) not null,
                             constraint shopping_cart_fk_tel foreign key(tel)
@@ -83,8 +83,8 @@ create table review (order_number number(10),
                     references purchase(order_number));
 
 create table sales_data (order_number number(10),
-                        amount_price number(11) not null,
-                        amount_quntity number(10) not null,
+                        amount_price varchar2(13) not null,
+                        amount_quantity number(10) not null,
                          constraint sales_data_fk_order_number foreign key(order_number)
                     references purchase(order_number));
 

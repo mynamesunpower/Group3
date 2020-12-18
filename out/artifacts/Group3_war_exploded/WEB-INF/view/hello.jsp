@@ -7,9 +7,10 @@
     <link rel="shortcut icon" href="../../imgs/favicon.ico">
     <link rel="icon" href="../../imgs/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../../js/cart.js"></script>
 </head>
 <body>
-
     <header>
         <span class="button">
             <input type="button" id="listButton" />
@@ -17,6 +18,7 @@
         <span class="header_text">Booktrain.ing</span>
         <span class="button">
             <input type="button" id="cartButton" />
+            <table id="cartTable"></table>
         </span>
         <span class="button">
             <input type="button" id="searchButton"/>
@@ -24,7 +26,14 @@
         <span class="button">
             <input type="button" id="memberButton"/>
         </span>
-    </header>
+    </header><br/><br/><br/>
 
+<div class="content">
+    <a href="/login.ing">로그인</a>
+    <br/>
+    ${sessionScope.name} 님 로그인
+    <br/><br/>
+    <a href="/showBook.ing"><img src="../../imgs/book/tobySpring.png" height="200px" width="200px"></a>
+</div>
 </body>
 </html>
