@@ -1,0 +1,90 @@
+create table manager ( id varchar2(20) primary key,
+                password varchar(20) not null);
+                
+create table Member( tel number(11) primary key,
+                name varchar2(10) not null,
+                id varchar2(20) not null,
+                jumin varchar2(14) UNIQUE,
+                email varchar2(50) UNIQUE,
+                password varchar2(20) not null,
+                address varchar(50) not null,
+                grade varchar(10) default '일반',
+                point number (10) default 0);
+                
+create table custmoer_service ( wirting_time date,
+                            content varchar2(300),
+                            tel number(11),
+                            id varchar2(20),
+                            constraint customer_service_fk_tel foreign key(tel)
+                            references member(tel),
+                            constraint customer_service_fk_id foreign key(id)
+                            references manager(id));
+                            
+create table nonmember(tel number(11) primary key, 
+                    name varchar2(10) not null,
+                    address varchar(50) not null);
+                    
+create table publisher( publisher_number number(13) primary key,
+                    publisher_name varchar(20) not null,
+                    address varchar(50) not null,
+                    tel number(11) not null,
+                    url varchar2(50));
+                    
+create table book ( ISBN number(13) primary key,
+                publisher_number number(13),
+                genre varchar(40) not null,
+                total_page number(4) not null,
+                price number(10) not null,
+                title varchar2(30) not null,
+                stock number(3) not null,
+                author varchar2(20) not null,
+                publication_date varchar2(20) not null, --생각해볼것
+                content varchar2(300) not null,
+                keyword varchar2(50),
+                constraint book_fk_publisher_number foreign key(publisher_number)
+                references publisher(publisher_number)); 
+                
+create table purchase ( order_number number(10) primary key,
+                    tel number(11),
+                    ISBN number(13),
+                    quantity number(5) not null,
+                    state varchar2(10) not null, -- 상태
+                    total_price number(10) not null,
+                    purchase_date date not null,
+                    expected_delivery_date date,
+                    -- tel 외래키 회원과 비회원 따로??
+                    constraint purchase_fk_membertel foreign key(tel) 
+                    references member(tel),
+                    constraint purchase_fk_nonmembertel foreign key(tel)
+                    references nonmember(tel),
+                    constraint purchase_fk_isbn foreign key(isbn)
+                    references book(isbn));
+
+
+create table shopping_cart ( tel number(11),
+                            isbn number(13),
+                            quantity number(5) not null,
+                            constraint shopping_cart_fk_tel foreign key(tel)
+                            references member(tel),
+                            constraint shopping_cart_fk_isbn foreign key(isbn)
+                            references book(isbn));
+                            
+create table payment (order_number number(10),
+                    payment_method varchar2 (20) not null, -- 결제 방식
+                    payment_state varchar2(20) not null, -- 결제 상태
+                    constraint payment_fk_order_number foreign key(order_number)
+                    references purchase(order_number));
+
+create table review (order_number number(10),
+                -- 이렇게 알아서 되는지 날짜가 기입되는지 확인
+                writing_time date default sysdate,
+                content varchar2(500),
+                constraint review_fk_order_number foreign key(order_number)
+                    references purchase(order_number));
+
+create table sales_data (order_number number(10),
+                        amount_price number(11) not null,
+                        amount_quntity number(10) not null,
+                         constraint sales_data_fk_order_number foreign key(order_number)
+                    references purchase(order_number));
+
