@@ -35,7 +35,8 @@
     </c:forEach>
 </table>
 <br/>
-<a href="../start.ing">홈으로</a> <br/>
+<a href="insertPublisher.ing"><input type="button" value="출판사 등록"/></a> <br/>
+<a href="../start.ing"><input type="button" value="홈으로"/></a>
 
 </body>
 </html>
