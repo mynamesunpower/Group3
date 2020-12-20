@@ -13,7 +13,6 @@ public class MemberDAOImpl implements MemberDAO {
 
     @Override
     public MemberVO login(MemberVO memberVO) {
-        System.out.println("MemberDaoImpl login메소드 실행");
         return mybatis.selectOne("member.login",memberVO);
     }
 }

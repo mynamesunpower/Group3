@@ -11,7 +11,7 @@
     <title>로그인하기</title>
 </head>
 <body>
-<form action="/doLogin.ing">
+<form action="/doLogin.ing" method="post">
     아이디 : <input type="text" name="id">
     비번 : <input type="password" name="password">
     <input type="submit" value="로그인">

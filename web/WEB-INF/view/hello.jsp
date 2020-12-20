@@ -33,7 +33,19 @@
     <br/>
     ${sessionScope.name} 님 로그인
     <br/><br/>
-    <a href="/showBook.ing"><img src="../../imgs/book/tobySpring.png" height="200px" width="200px"></a>
+    <a href="/showBook.ing?isbn=2222"><img src="../../imgs/book/tobySpring.png" height="200px" width="200px"></a>
+
+    <div class="content">
+        <a href="#">책 입력하기</a> <br/>
+        <a href="#">책 목록보기</a> <br/>
+        <a href="#">책 삭제하기</a> <br/>
+        <a href="#">책 수정하기</a> <br/>
+        <a href="publisher/insertPublisher.ing">출판사 입력하기</a> <br/>
+        <a href="publisher/listPublisher.ing">출판사 목록보기</a> <br/>
+        <%--<a href="publisher/modifyPublisher.ing">출판사 수정하기</a> <br/>
+        <a href="publisher/deletePublisher.ing">출판사 삭제하기</a> <br/>--%>
+        <a href="/cartList.ing">장바구니 보기</a>
+    </div>
 </div>
 </body>
 </html>
