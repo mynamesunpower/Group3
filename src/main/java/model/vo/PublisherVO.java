@@ -1,49 +1,62 @@
 package model.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlTransient;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class PublisherVO {
-    private String publisherNumber;
-    private String publisherName;
-    private String address;
-    private String tel;
-    private String url;
 
-    public String getPublisherNumber() {
-        return publisherNumber;
-    }
+        @XmlAttribute
+        private String publisherNumber;
+        private String publisherName;
+        private String address;
+        private String tel;
 
-    public void setPublisherNumber(String publisherNumber) {
-        this.publisherNumber = publisherNumber;
-    }
+        @XmlTransient
+        private String url;
 
-    public String getPublisherName() {
-        return publisherName;
-    }
+        public String getPublisherNumber() {
+            return publisherNumber;
+        }
 
-    public void setPublisherName(String publisherName) {
-        this.publisherName = publisherName;
-    }
+        public void setPublisherNumber(String publisherNumber) {
+            this.publisherNumber = publisherNumber;
+        }
 
-    public String getAddress() {
-        return address;
-    }
+        public String getPublisherName() {
+            return publisherName;
+        }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+        public void setPublisherName(String publisherName) {
+            this.publisherName = publisherName;
+        }
 
-    public String getTel() {
-        return tel;
-    }
+        public String getAddress() {
+            return address;
+        }
 
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
+        public void setAddress(String address) {
+            this.address = address;
+        }
 
-    public String getUrl() {
-        return url;
-    }
+        public String getTel() {
+            return tel;
+        }
 
-    public void setUrl(String url) {
-        this.url = url;
+        public void setTel(String tel) {
+            this.tel = tel;
+        }
+
+        @JsonIgnore
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
     }
-}

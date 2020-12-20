@@ -1,6 +1,5 @@
 package model.dao;
 
-import model.vo.MemberVO;
 import model.vo.PublisherVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +23,20 @@ public class PublisherDAOImpl implements PublisherDAO {
     public List<PublisherVO> listPublisher(PublisherVO publisherVO) {
         System.out.println("PublisherDAOImpl listPublisher()");
         return sqlSessionTemplate.selectList("booktrain.publisher.listPublisher", publisherVO);
+    }
+
+    @Override
+    public int deletePublisher(PublisherVO publisherVO) {
+        return sqlSessionTemplate.delete("booktrain.publisher.deletePublisher", publisherVO);
+    }
+
+    @Override
+    public int modifyPublisher(PublisherVO publisherVO) {
+        return sqlSessionTemplate.update("booktrain.publisher.modifyPublisher", publisherVO);
+    }
+
+    @Override
+    public PublisherVO viewPublisher(PublisherVO publisherVO) {
+        return sqlSessionTemplate.selectOne("booktrain.publisher.viewPublisher", publisherVO);
     }
 }
