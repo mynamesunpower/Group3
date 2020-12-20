@@ -1,10 +1,21 @@
 package model.vo;
+import com.fasterxml.jackson.annotation.JsonIgnore; // @JsonIgnore 어노테이션을 통해 출력 결과에서 제외하기 위해.
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlTransient;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class PublisherVO {
+
+    @XmlAttribute
     private String publisherNumber;
     private String publisherName;
     private String address;
     private String tel;
+
+    @XmlTransient
     private String url;
 
     public String getPublisherNumber() {
@@ -39,6 +50,7 @@ public class PublisherVO {
         this.tel = tel;
     }
 
+    @JsonIgnore
     public String getUrl() {
         return url;
     }
