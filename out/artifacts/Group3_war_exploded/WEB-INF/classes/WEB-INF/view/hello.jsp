@@ -44,7 +44,7 @@
         <a href="publisher/listPublisher.ing">출판사 목록보기</a> <br/>
         <%--<a href="publisher/modifyPublisher.ing">출판사 수정하기</a> <br/>
         <a href="publisher/deletePublisher.ing">출판사 삭제하기</a> <br/>--%>
-        <a href="/cartList.ing">장바구니 보기</a>
+        <a href="cart/cartList.ing">장바구니 보기</a>
     </div>
 </div>
 </body>

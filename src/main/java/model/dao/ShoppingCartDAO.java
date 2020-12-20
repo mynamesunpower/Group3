@@ -9,5 +9,6 @@ public interface ShoppingCartDAO {
 
     public List selectCart(String memberTel);
     public void insertCart(String memberTel, long isbn);
-    public void deleteCart(ShoppingCartVO shoppingCartVO);
+    public void deleteCartList(String memberTel);
+    public List deleteCart(String memberTel, long isbn);
 }

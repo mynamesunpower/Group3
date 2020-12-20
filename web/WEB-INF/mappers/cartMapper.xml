@@ -3,10 +3,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="booktrain.cart">
 
+    <select id="isContainList" parameterType="hashMap" resultType="cart">
+        SELECT * FROM SHOPPING_CART
+        WHERE ISBN = #{isbn} and TEL = #{memberTel}
+    </select>
+
     <insert id="addCart" parameterType="hashMap">
       INSERT INTO SHOPPING_CART(tel, isbn, quantity)
       VALUES (#{memberTel}, #{isbn}, 1)
     </insert>
+
+    <update id="plusCart" parameterType="hashMap">
+        UPDATE SHOPPING_CART
+        SET QUANTITY = QUANTITY + 1
+        WHERE tel = #{memberTel} AND isbn = #{isbn}
+    </update>
 
     <select id="cartList" parameterType="String" resultMap="cart">
       SELECT b.TITLE AS title, b.isbn AS isbn, (b.price*c.quantity) AS price, c.quantity AS quantity
@@ -35,5 +46,14 @@
         <result property="tel" column="tel"/>
     </resultMap>
 
+    <delete id="deleteCartList" parameterType="String">
+        DELETE FROM SHOPPING_CART
+        WHERE TEL = #{memberTel}
+    </delete>
+
+    <delete id="deleteBook" parameterType="hashMap">
+      DELETE FROM SHOPPING_CART
+      WHERE isbn = #{isbn} and tel = #{memberTel}
+    </delete>
 
 </mapper>

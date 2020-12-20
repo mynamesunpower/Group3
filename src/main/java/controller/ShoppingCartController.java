@@ -1,23 +1,26 @@
 package controller;
 
-import model.vo.BookVO;
+import model.vo.ShoppingCartVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import service.ShoppingCartService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
+@RequestMapping("/cart/")
 public class ShoppingCartController {
 
     @Autowired
     ShoppingCartService shoppingCartService;
 
+    //TODO isbn db에 number라 long 처리한거 나중에 varchar2로 바꾸면 타입에 맞게 변수 변경할것!
 
     @RequestMapping("addCart.ing")
     public String addCart(HttpServletRequest request, HttpSession httpSession){ // HttpServletRequest -> 뷰에서 요청을 받음
@@ -32,13 +35,28 @@ public class ShoppingCartController {
     @RequestMapping("cartList.ing")
     public String cartList(HttpSession httpSession, Model model){
         List cart = shoppingCartService.selectCart((String)httpSession.getAttribute("memberTel"));
-        System.out.println("cart() 리스트 사이즈 : " + cart.size());
-
-        for(Object result : cart){
-            System.out.println(result);
-        }
 
         model.addAttribute("cart",cart);
         return "cart/cartList";
     }
+
+    @RequestMapping("deleteCartList.ing")
+    public String deleteCartList(HttpSession httpSession){
+        shoppingCartService.deleteCartList((String)httpSession.getAttribute("memberTel"));
+
+        System.out.println("deleteCartList() listDelete Success");
+
+        return "redirect:../start.ing";
+    }
+
+    // 특정 상품 삭제
+    @RequestMapping(value = "deleteBook.ing", produces = "application/text;charset=utf-8")
+    @ResponseBody // AJAX 처리를 해주는 어노테이션
+    public String deleteBook(ShoppingCartVO shoppingCartVO,HttpSession httpSession,Model model){
+        System.out.println("deleteBook() 49Line" +  shoppingCartVO.getIsbn() );
+        List cart = shoppingCartService.deleteCart((String)httpSession.getAttribute("memberTel"),shoppingCartVO.getIsbn());
+
+        return "";
+    }
+
 }

@@ -12,7 +12,7 @@
 </head>
 <body>
 <img src="../../imgs/book/tobySpring.png" width="450px" height="450px">
-<form action="/addCart.ing" method="post">
+<form action="cart/addCart.ing" method="post">
     <input type="hidden" name = "isbn" value="${isbn}">
      <input type="submit" value="장바구니추가">
 </form>
