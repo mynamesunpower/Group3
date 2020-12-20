@@ -29,13 +29,13 @@
             <td>${publisher.address}</td>
             <td>${publisher.tel}</td>
             <td>${publisher.url}</td>
-            <td><a href="modifyPublisher.ing?publisherNumber=${publisher.publisherNumber}">수정</a></td>
-            <td><a href="deletePublisher.ing?publisherNumber=${publisher.publisherNumber}">삭제</a></td>
+            <td><a class="loadAjax" href="publisher/modifyPublisher.ing?publisherNumber=${publisher.publisherNumber}">수정</a></td>
+            <td><a class="loadAjax "href="publisher/deletePublisher.ing?publisherNumber=${publisher.publisherNumber}">삭제</a></td>
         </tr>
     </c:forEach>
 </table>
 <br/>
-<a href="insertPublisher.ing"><input type="button" value="출판사 등록"/></a> <br/>
+<a class="loadAjax" href="publisher/insertPublisher.ing"><input type="button" value="출판사 등록"/></a> <br/>
 <a href="../start.ing"><input type="button" value="홈으로"/></a>
 
 </body>

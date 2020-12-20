@@ -11,7 +11,7 @@
     <title>insertPublisher</title>
 </head>
 <body>
-<form action="insertPublisher_success.ing" method="post">
+<form action="publisher/insertPublisher_success.ing" method="post">
     출판사 입력하기 <br/>
 이름: <input type="text" name="publisherName"> <br/>
 주소: <input type="text" name="address"> <br/>

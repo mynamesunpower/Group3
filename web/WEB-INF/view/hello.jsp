@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
     <script src="../../js/index.js" type="text/javascript"></script>
 </head>
 <body>
@@ -20,7 +21,7 @@
 <div class="container">
     <div id="header" class="row center-align valign-wrapper">
         <div class="col s1 m1 l1">
-            <a href="" id="btn_list" data-target="slide-out" class="sidenav-trigger">
+            <a data-target="slide-out" class="sidenav-trigger">
                 <h5><i class="material-icons black-text">menu</i></h5>
             </a>
         </div>
@@ -65,8 +66,8 @@
                     <div class="collapsible-header">출판사 CRUD</div>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="publisher/insertPublisher.ing">출판사 정보 데이터베이스 입력</a></li>
-                            <li><a href="publisher/listPublisher.ing">ㅇ출판사 데이터베이스 목록 보기</a></li>
+                            <li><a class="loadAjax" href="publisher/insertPublisher.ing">출판사 정보 데이터베이스 입력</a></li>
+                            <li><a class="loadAjax" href="publisher/listPublisher.ing">출판사 데이터베이스 목록 보기</a></li>
                             <li><a href="#">출판사 데이터베이스 수정하기</a></li>
                             <li><a href="#">출판사 데이터베이스 삭제하기</a></li>
                         </ul>
