@@ -45,12 +45,11 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
     }
 
     @Override
-    public List deleteCart(String memberTel, long isbn) {
+    public void deleteCart(String memberTel, long isbn) {
         cartMap = new HashMap<>();
         cartMap.put("memberTel",memberTel);
         cartMap.put("isbn",isbn);
         sqlSessionTemplate.delete("booktrain.cart.deleteBook",cartMap);
-        return sqlSessionTemplate.selectList("booktrain.cart.cartList", memberTel);
 
 
     }
