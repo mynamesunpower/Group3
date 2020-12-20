@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookMapper">
+
+    <!--도서정보입력-->
+    <insert id="insertBook" parameterType="BookVO">
+        INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock, author, publication_date, content, keyword)
+        VALUES(#{isbn}, #{publisher_number}, #{genre}, #{total_page}, #{price},#{title}, #{stock}, #{author}, #{publication_date}, #{content}, #{keyword})
+    </insert>
+
+    <!--도서 리스트-->
+    <select id="bookList" resultType="BookVO">
+        	<![CDATA[
+		SELECT * FROM book ORDER BY ISBN DESC
+		]]>
+    </select>
+
+    <!--선택한 ISBN의 도서정보-->
+    <select id="selectBook" resultType="BookVO">
+        	<![CDATA[
+		SELECT * FROM book WHERE ISBN=#{isbn}
+		]]>
+    </select>
+
+    <!--선택한 ISBN의 도서정보 삭제-->
+    <delete id="deleteBook" parameterType="BookVO">
+         	<![CDATA[
+		DELETE FROM book WHERE ISBN=#{isbn}
+		]]>
+    </delete>
+
+    <!--선택한 ISBN의 도서정보 업데이트-->
+    <update id="updateBook" parameterType="BookVO">
+       <![CDATA[
+       UPDATE book SET PRICE= #{price} , CONTENT= #{content} WHERE ISBN= #{isbn}
+        ]]>
+    </update>
+
+    <!--통합검색-->
+    <select id="searchBook" parameterType="" resultType="">
+        <![CDATA[
+       SELECT * FROM book WHERE ((GENRE LIKE '%#{}%') OR (TITLE LIKE '%#{}%') OR (AUTHOR LIKE '%#{}%') OR (KEYWORD LIKE '%#{})%'))
+        ]]>
+    </select>
+
+</mapper>

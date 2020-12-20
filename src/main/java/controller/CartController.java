@@ -8,7 +8,7 @@ import service.ShoppingCartService;
 @Controller
 public class CartController {
 
-    @Autowired
+    /*@Autowired
     ShoppingCartService shoppingCartService;
 
     @RequestMapping("/showCart.ing")
@@ -16,5 +16,5 @@ public class CartController {
         System.out.println("showCart.ing 요청");
 
         return "main";
-    }
+    }*/
 }

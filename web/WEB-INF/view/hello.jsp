@@ -26,5 +26,24 @@
         </span>
     </header>
 
+    <div class="content">
+        <br/>
+        <br/>
+        <br/>
+
+
+        <a href="insertBook.ing">책 입력하기</a> <br/>
+        <a href="bookList.ing">책 목록보기</a> <br/>
+        <%--<a href="deleteBook.ing">책 삭제하기</a> <br/>--%>
+        <%--<a href="modifyBook.ing">책 수정하기</a> <br/>--%>
+
+        <a href="publisher/insertPublisher.ing">출판사 입력하기</a> <br/>
+        <a href="publisher/listPublisher.ing">출판사 목록보기</a> <br/>
+        <%--<a href="publisher/modifyPublisher.ing">출판사 수정하기</a> <br/>
+        <a href="publisher/deletePublisher.ing">출판사 삭제하기</a> <br/>--%>
+    </div>
+
+
+
 </body>
 </html>

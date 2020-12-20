@@ -7,7 +7,11 @@
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="board" type="model.vo.ShoppingCartVO" />
+		<typeAlias alias="BookVO" type="model.vo.BookVO" />
+		<typeAlias alias="publisher" type="model.vo.PublisherVO" />
 	</typeAliases>
+
+
 
 
 </configuration>

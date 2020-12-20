@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookMapper">
+
+    <insert id="insertBook" parameterType="BookVO">
+        INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock, author, publication_date, content, keyword)
+        VALUES(#{isbn}, #{publisher_number}, #{genre}, #{total_page}, #{price},#{title}, #{stock}, #{author}, #{publication_date}, #{content}, #{keyword})
+    </insert>
+
+    <select id="bookList" resultType="BookVO">
+        	<![CDATA[
+		SELECT * FROM book ORDER BY ISBN DESC
+		]]>
+    </select>
+
+    <select id="selectBook" resultType="BookVO">
+        	<![CDATA[
+		SELECT * FROM book WHERE ISBN=#{isbn}
+		]]>
+    </select>
+
+    <delete id="deleteBook" parameterType="BookVO">
+         	<![CDATA[
+		DELETE FROM book WHERE ISBN=#{isbn}
+		]]>
+    </delete>
+
+    <update id="updateBook" parameterType="BookVO">
+       <![CDATA[
+       UPDATE book SET PRICE= #{price} , CONTENT= #{content} WHERE ISBN= #{isbn}
+        ]]>
+
+    </update>
+
+</mapper>
