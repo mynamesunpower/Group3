@@ -1,7 +1,6 @@
 package service;
 
 import model.dao.PublisherDAO;
-import model.dao.PublisherDAOImpl;
 import model.vo.PublisherVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

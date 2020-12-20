@@ -19,9 +19,9 @@
 <body>
 
 <div class="container">
-    <div id="header" class="row center-align valign-wrapper">
+    <div id="header" class="row center-align">
         <div class="col s1 m1 l1">
-            <a data-target="slide-out" class="sidenav-trigger">
+            <a data-target="slide-out" class="sidenav-trigger btn-flat tooltipped" data-position="bottom" data-tooltip="메뉴">
                 <h5><i class="material-icons black-text">menu</i></h5>
             </a>
         </div>
@@ -35,15 +35,19 @@
         <div class="col s1 m1 l1"></div>
         <div class="col s4 m2 l2">
             <h5>
-            <a href="" id="btn_cart">
+            <a class="loadAjax btn-flat tooltipped" href="" data-position="bottom" data-tooltip="장바구니">
                 <i class="material-icons black-text">shopping_cart</i>
             </a>
-            <a href="" id="btn_search">
+            <a class="loadAjax btn-flat tooltipped" href="" data-position="bottom" data-tooltip="통합 검색">
                 <i class="material-icons black-text">search</i>
             </a>
-            <a href="" id="btn_login">
+            <a class="dropdown-trigger btn-flat white" href="#" data-target="login">
                 <i class="material-icons black-text">person</i>
             </a>
+            <ul id="login" class="dropdown-content">
+                <li><a class="loadAjax" href="login.ing">로그인</a></li>
+                <li><a class="loadAjax" href="">회원가입</a></li>
+            </ul>
             </h5>
         </div>
     </div>
@@ -55,8 +59,8 @@
                     <div class="collapsible-header">책 CRUD</div>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="#">책 정보 데이터베이스 입력</a></li>
-                            <li><a href="#">책 데이터베이스 목록 보기</a></li>
+                            <li><a class="loadAjax" href="insertBook.ing">책 정보 데이터베이스 입력</a></li>
+                            <li><a class="loadAjax" href="rbookList.ing">책 데이터베이스 목록 보기</a></li>
                             <li><a href="#">책 데이터베이스 수정하기</a></li>
                             <li><a href="#">책 데이터베이스 삭제하기</a></li>
                         </ul>
@@ -82,6 +86,7 @@
             컨텐츠 부분
         </div>
     </div>
-</div> <!-- end of container (마지막 div) -->
+</div>
+
 </body>
 </html>

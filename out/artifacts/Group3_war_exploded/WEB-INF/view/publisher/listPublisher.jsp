@@ -31,10 +31,12 @@
             <td>${publisher.url}</td>
             <td><a class="loadAjax" href="publisher/modifyPublisher.ing?publisherNumber=${publisher.publisherNumber}">수정</a></td>
             <td><a class="loadAjax "href="publisher/deletePublisher.ing?publisherNumber=${publisher.publisherNumber}">삭제</a></td>
+
         </tr>
     </c:forEach>
 </table>
 <br/>
+
 <a class="loadAjax" href="publisher/insertPublisher.ing"><input type="button" value="출판사 등록"/></a> <br/>
 <a href="../start.ing"><input type="button" value="홈으로"/></a>
 

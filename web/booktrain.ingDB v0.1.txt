@@ -88,3 +88,5 @@ create table sales_data (order_number number(10),
                          constraint sales_data_fk_order_number foreign key(order_number)
                     references purchase(order_number));
 
+-- 시퀀스 생성
+create sequence seq_publisher_number;

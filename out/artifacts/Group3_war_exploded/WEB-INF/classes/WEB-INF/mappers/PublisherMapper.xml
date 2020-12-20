@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="booktrain.publisher">
+
+    <select id="listPublisher" resultMap="getPublisherList">
+        SELECT publisher_number, publisher_name, address, tel, url
+        FROM publisher
+        ORDER BY publisher_number desc
+    </select>
+
+    <select id="listPublisher" resultMap="getPublisherList">
+    SELECT publisher_number, publisher_name, address, tel, url
+    FROM publisher
+    ORDER BY publisher_number desc
+    </select>
+
+    <select id="viewPublisher" parameterType="publisher" resultMap="getPublisherList">
+        SELECT *
+        FROM PUBLISHER
+        WHERE PUBLISHER_NUMBER = #{publisherNumber}
+    </select>
+
+    <resultMap id="getPublisherList" type="publisher">
+        <result property="publisherNumber" column="publisher_number"/>
+        <result property="publisherName" column="publisher_name" />
+        <result property="address" column="address" />
+        <result property="tel" column="tel" />
+        <result property="url" column="url" />
+    </resultMap>
+
+    <delete id="deletePublisher" parameterType="publisher">
+    DELETE
+    FROM PUBLISHER
+    WHERE PUBLISHER_NUMBER = #{publisherNumber}
+    </delete>
+
+    <update id="modifyPublisher" parameterType="publisher">
+        UPDATE PUBLISHER
+        SET PUBLISHER_NAME = #{publisherName}, ADDRESS = #{address}, TEL = #{tel}, URL = #{url}
+        WHERE PUBLISHER_NUMBER = #{publisherNumber}
+    </update>
+
+</mapper>

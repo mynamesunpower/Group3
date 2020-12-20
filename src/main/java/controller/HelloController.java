@@ -8,7 +8,7 @@ public class HelloController {
 
     @RequestMapping("/start.ing")
     public String test() {
-        System.out.println("start 요청");
+        System.out.println("start");
 
        return "hello";
     }

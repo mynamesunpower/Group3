@@ -2,8 +2,12 @@ package model.vo;
 
 public class ShoppingCartVO {
     private String tel;
-    private int isbn;
+    private Long isbn;
     private int quantity;
+
+    private BookVO bookVO;
+    private MemberVO memberVO;
+
 
     public ShoppingCartVO() {
     }
@@ -16,16 +20,32 @@ public class ShoppingCartVO {
         this.tel = tel;
     }
 
-    public int getIsbn() {
+    public Long getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(Long isbn) {
         this.isbn = isbn;
     }
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public BookVO getBookVO() {
+        return bookVO;
+    }
+
+    public void setBookVO(BookVO bookVO) {
+        this.bookVO = bookVO;
+    }
+
+    public MemberVO getMemberVO() {
+        return memberVO;
+    }
+
+    public void setMemberVO(MemberVO memberVO) {
+        this.memberVO = memberVO;
     }
 
     public void setQuantity(int quantity) {

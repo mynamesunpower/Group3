@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="booktrain.publisher">
-    <insert id="insertPublisher" parameterType="publisher">
-        INSERT INTO publisher(publisher_number, publisher_name, address, tel, url)
-        VALUES (seq_publisher_number.nextval, #{publisherName}, #{address}, #{tel}, #{url})
-    </insert>
+
+    <select id="insertPublisher" parameterType="publisher">
+        INSERT INTO PUBLISHER(PUBLISHER_NUMBER, PUBLISHER_NAME, ADDRESS, TEL, URL)
+        VALUES (SEQ_PUBLISHER_NUMBER.nextval, #{publisherName}, #{address}, #{tel}, #{url})
+    </select>
 
     <select id="listPublisher" resultMap="getPublisherList">
     SELECT publisher_number, publisher_name, address, tel, url
