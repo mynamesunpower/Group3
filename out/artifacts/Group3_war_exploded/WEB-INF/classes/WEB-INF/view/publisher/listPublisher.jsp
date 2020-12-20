@@ -20,7 +20,7 @@
         <th>주소</th>
         <th>전화번호</th>
         <th>URL</th>
-        <th></th>
+        <th colspan="2"></th>
     </tr>
     <c:forEach var="publisher" items="${publisherList}">
         <tr>
@@ -29,14 +29,16 @@
             <td>${publisher.address}</td>
             <td>${publisher.tel}</td>
             <td>${publisher.url}</td>
-            <td><a href="#">삭제</a></td>
+            <td><a class="loadAjax" href="publisher/modifyPublisher.ing?publisherNumber=${publisher.publisherNumber}">수정</a></td>
+            <td><a class="loadAjax "href="publisher/deletePublisher.ing?publisherNumber=${publisher.publisherNumber}">삭제</a></td>
+
         </tr>
     </c:forEach>
 </table>
 <br/>
-<a href="../start.ing">홈으로</a> <br/>
-삭제 쿼리
-DELETE FROM publisher WHERE publisher_number = ?
-실행 어떻게하죠??뭐지..ㅋㅋ
+
+<a class="loadAjax" href="publisher/insertPublisher.ing"><input type="button" value="출판사 등록"/></a> <br/>
+<a href="../start.ing"><input type="button" value="홈으로"/></a>
+
 </body>
 </html>

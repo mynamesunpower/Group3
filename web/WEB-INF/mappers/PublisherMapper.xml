@@ -3,11 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="booktrain.publisher">
 
-    <insert id="insertPublisher" parameterType="publisher">
-        INSERT INTO publisher(publisher_number, publisher_name, address, tel, url)
-        VALUES (seq_publisher_number.nextval, #{publisherName}, #{address}, #{tel}, #{url})
-    </insert>
-
     <select id="listPublisher" resultMap="getPublisherList">
     SELECT publisher_number, publisher_name, address, tel, url
     FROM publisher
@@ -21,6 +16,7 @@
     </select>
 
     <resultMap id="getPublisherList" type="publisher">
+
         <result property="publisherNumber" column="publisher_number"/>
         <result property="publisherName" column="publisher_name" />
         <result property="address" column="address" />

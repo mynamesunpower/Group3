@@ -16,6 +16,7 @@ public class PublisherDAOImpl implements PublisherDAO {
     @Override
     public int insertPublisher(PublisherVO publisherVO) {
 
+
         return sqlSessionTemplate.insert("booktrain.publisher.insertPublisher", publisherVO);
     }
 
@@ -39,4 +40,5 @@ public class PublisherDAOImpl implements PublisherDAO {
     public PublisherVO viewPublisher(PublisherVO publisherVO) {
         return sqlSessionTemplate.selectOne("booktrain.publisher.viewPublisher", publisherVO);
     }
+
 }

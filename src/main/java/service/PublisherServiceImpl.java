@@ -28,6 +28,7 @@ public class PublisherServiceImpl implements PublisherService{
     public List<PublisherVO> listPublisher(PublisherVO publisherVO) {
         return publisherDAO.listPublisher(publisherVO);
     }
+
     @Override
     public int deletePublisher(PublisherVO publisherVO) {
         return publisherDAO.deletePublisher(publisherVO);
