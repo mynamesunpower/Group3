@@ -37,11 +37,11 @@
         ]]>
     </update>
 
-    <!--통합검색-->
+  <!--  &lt;!&ndash;통합검색&ndash;&gt;
     <select id="searchBook" parameterType="" resultType="">
         <![CDATA[
        SELECT * FROM book WHERE ((GENRE LIKE '%#{}%') OR (TITLE LIKE '%#{}%') OR (AUTHOR LIKE '%#{}%') OR (KEYWORD LIKE '%#{})%'))
         ]]>
-    </select>
+    </select>-->
 
 </mapper>
