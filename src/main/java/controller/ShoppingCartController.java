@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
+ * TODO isbn db에 number라 long 처리한거 나중에 varchar2로 바꾸면 타입에 맞게 변수 변경할것!
  * 장바구니 Controller
  */
 @Controller
@@ -21,8 +22,6 @@ public class ShoppingCartController {
 
     @Autowired
     ShoppingCartService shoppingCartService;
-
-    //TODO isbn db에 number라 long 처리한거 나중에 varchar2로 바꾸면 타입에 맞게 변수 변경할것!
 
     // 장바구니에 상품 추가
     @RequestMapping("addCart.ing")
