@@ -28,6 +28,7 @@ public class PublisherController {
     @RequestMapping(value = "insertPublisher_success.ing")
     public String insertPublisher(PublisherVO publisherVO) {
         System.out.println("insertPublisher() : " +publisherVO.getPublisherName());
+        System.out.println("insertPublisher() : " +publisherVO.getPublisherName());
         System.out.println("insertPublisher() : " +publisherVO.getAddress());
         System.out.println("insertPublisher() : " +publisherVO.getUrl());
 
@@ -63,17 +64,8 @@ public class PublisherController {
     @RequestMapping(value = "listPublisher.ing")
     public String listPublisher(PublisherVO publisherVO, Model model) {
         model.addAttribute("publisherList", publisherService.listPublisher(publisherVO)); // 뷰페이지로 publisherList 보냄
-        return _url + "listPublisher"; // 얘가 강제로 보내버려 페이지를 아아.. 오늘 이거만 해결하면 수월할거같은디 ㅠ 한번 저도 알아보겠습니당
+        return _url + "listPublisher";
     }
-
-    /*@RequestMapping("listPublisher.ing")
-    @ResponseBody
-    public PublisherListVO dataTransform(PublisherVO publisherVO) {
-        List<PublisherVO> list = publisherService.listPublisher(publisherVO);
-        PublisherListVO publisherListVO = new PublisherListVO();
-        publisherListVO.setPublisherList(list);
-        return publisherListVO;
-    }*/
 
     @RequestMapping(value = "deletePublisher.ing")
     public String deletePublisher(PublisherVO publisherVO) {

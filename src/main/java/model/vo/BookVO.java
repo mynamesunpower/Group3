@@ -1,5 +1,7 @@
 package model.vo;
 
+import java.util.Date;
+
 /**
  * TODO Book테이블 타입 명확히할것
  * ex) publisher_number isbn total_page 등등 ==> 연산할 필요가없어서 varchar2로 해도될거같음

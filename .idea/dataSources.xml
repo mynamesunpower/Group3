@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@localhost" uuid="fb09063a-6043-44eb-a8f6-e84b429db572">
+    <data-source source="LOCAL" name="@localhost" uuid="b855f4e1-e881-4065-b53b-737f8993c57e">
       <driver-ref>oracle</driver-ref>
       <synchronize>true</synchronize>
       <auto-commit>false</auto-commit>
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
-<<<<<<< HEAD
-      <jdbc-url>jdbc:oracle:thin:@localhost:1521:orcl</jdbc-url>
-      <driver-properties>
-        <property name="v$session.program" value="DataGrip" />
-      </driver-properties>
-=======
       <jdbc-url>jdbc:oracle:thin:@localhost:1521:sunnydbs</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
->>>>>>> sunny
     </data-source>
   </component>
 </project>

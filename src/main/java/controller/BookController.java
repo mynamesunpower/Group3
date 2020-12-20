@@ -42,7 +42,7 @@ public class BookController {
         System.out.println("insertBook_success.ing 요청");
         System.out.println(vo.getPublicationDate());
         bookService.insertBook(vo);
-        return "book/insertBook_success";
+        return "book/bookList";
     }
 
     //도서 삭제하기
