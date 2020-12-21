@@ -20,10 +20,28 @@ $(document).ready(function(){
       });
    });
 
+   $('#searchAnchor').click(function () {
+      $('#searchForm').submit();
+   });
+   
+   $('#search').click(function (evt) {
+      evt.stopPropagation();
+      $('#searchBox').show();
+      $('#searchBox').animate({
+         top: '-10vh'
+      });
+   });
+
+   $('#searchBox_close').on('click', function (evt) {
+      evt.stopPropagation();
+      $('#searchBox').hide();
+   });
+
    $('.sidenav').sidenav();
    $('.collapsible').collapsible();
    $('.dropdown-trigger').dropdown();
    $('.tooltipped').tooltip();
+   $('select').formSelect();
 });
 
 /*

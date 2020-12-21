@@ -51,4 +51,9 @@ public class BookDAOImpl implements BookDAO {
         System.out.println("===> Mybatis bookList() 호출");
         return mybatis.selectList("BookMapper.bookList", vo);
     }
+
+    @Override
+    public List<BookVO> searchBook(String keyword) {
+        return mybatis.selectList("BookMapper.searchBook", keyword);
+    }
 }
