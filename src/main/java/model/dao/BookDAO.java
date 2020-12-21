@@ -18,4 +18,5 @@ public interface BookDAO {
 
     public List<BookVO> bookList(BookVO  vo) ;
 
+    List<BookVO> searchBook(String keyword);
 }

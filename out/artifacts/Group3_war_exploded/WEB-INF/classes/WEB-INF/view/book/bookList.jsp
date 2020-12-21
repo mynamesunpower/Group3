@@ -31,7 +31,7 @@
     </tr>
 <c:forEach items="${bookList}" var="book">
     <tr>
-        <td><a href="selectBook.ing?isbn=${book.isbn}">${book.isbn}</a></td>
+        <td><a class="loadAjax" href="selectBook.ing?isbn=${book.isbn}">${book.isbn}</a></td>
         <td>${book.publisherNumber}</td>
         <td>${book.title}</td>
         <td>${book.author}</td>

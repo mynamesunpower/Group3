@@ -28,6 +28,18 @@ body {
 
 #header {
     border-bottom: 1px solid black;
+    z-index: 2;
+}
+
+#searchBox {
+    display: none;
+    position: relative;
+    top: -10vh;
+    z-index: 100;
+}
+
+i#searchIcon {
+    line-height: 0;
 }
 
 

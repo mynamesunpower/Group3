@@ -13,7 +13,7 @@
 <body>
 
 도서정보가 삭제되었습니다.
-<a href="rbookList.ing">목록보기</a>
+<a class="loadAjax" href="rbookList.ing">목록보기</a>
 
 </body>
 </html>

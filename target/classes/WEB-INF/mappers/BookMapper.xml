@@ -36,6 +36,13 @@
        UPDATE book SET PRICE= #{price} , CONTENT= #{content} WHERE ISBN= #{isbn}
         ]]>
     </update>
+이렇게 검색하니까 아무데서나 잘 걸리더라구 이제 어떻게 할거냐면
+    조건별로 처리하는거 해봐야대대    <select id="searchBook" parameterType="String" resultType="book">
+        SELECT *
+        FROM BOOK
+        WHERE ((GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR
+               (AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))
+    </select>
 
   <!--  &lt;!&ndash;통합검색&ndash;&gt;
     <select id="searchBook" parameterType="" resultType="">

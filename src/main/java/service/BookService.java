@@ -12,4 +12,6 @@ public interface BookService {
 
     BookVO selectBook(BookVO vo);
     List<BookVO> bookList(BookVO vo);
+
+    List<BookVO> searchBook(String keyword);
 }

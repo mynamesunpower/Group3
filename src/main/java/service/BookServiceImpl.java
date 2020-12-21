@@ -47,4 +47,9 @@ public class BookServiceImpl implements BookService {
 
         return bookdao.bookList(vo);
     }
+
+    @Override
+    public List<BookVO> searchBook(String keyword) {
+        return bookdao.searchBook(keyword);
+    }
 }

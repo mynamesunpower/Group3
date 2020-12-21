@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import service.BookServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class BookController {
@@ -20,6 +21,14 @@ public class BookController {
     public String showBook(HttpServletRequest request, Model model) {
         model.addAttribute("isbn", request.getParameter("isbn"));   // 선택한 책에 맞는 isbn 넘겨줌
         return "showBook";
+    }
+
+    @RequestMapping("/searchBook.ing")
+    public String searchBook(String keyword, Model model) {
+        System.out.println(keyword);
+        List<BookVO> bookList = bookService.searchBook(keyword);
+        model.addAttribute("bookList", bookList);
+        return "book/bookList";
     }
 
     //페이지 넘김
