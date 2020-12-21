@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<h2>도서목록</h2>
+<h5>도서목록</h5>
 
 <table border="1">
     <tr>
@@ -32,14 +32,14 @@
 <c:forEach items="${bookList}" var="book">
     <tr>
         <td><a href="selectBook.ing?isbn=${book.isbn}">${book.isbn}</a></td>
-        <td>${book.publisher_number}</td>
+        <td>${book.publisherNumber}</td>
         <td>${book.title}</td>
         <td>${book.author}</td>
         <td>${book.genre}</td>
-        <td>${book.total_page}</td>
+        <td>${book.totalPage}</td>
         <td>${book.price}</td>
         <td>${book.stock}</td>
-        <td>${book.publication_date}</td>
+        <td>${book.publicationDate}</td>
         <td>${book.content}</td>
         <td>${book.keyword}</td>
 

@@ -1,19 +1,35 @@
 package model.vo;
 
+import java.util.Date;
 
+/**
+ * TODO Book테이블 타입 명확히할것
+ * ex) publisher_number isbn total_page 등등 ==> 연산할 필요가없어서 varchar2로 해도될거같음
+ */
 public class BookVO {
-
+    //    private long isbn;
+    private String publisherNumber;
     private String isbn;
-    private int publisher_number;
     private String genre;
-    private int total_page;
+    private int totalPage;
     private int price;
     private String title;
     private int stock;
     private String author;
-    private String publication_date;
+    private String publicationDate;
     private String content;
     private String keyword;
+
+    public BookVO() {
+    }
+
+    public String getPublisherNumber() {
+        return publisherNumber;
+    }
+
+    public void setPublisherNumber(String publisherNumber) {
+        this.publisherNumber = publisherNumber;
+    }
 
     public String getIsbn() {
         return isbn;
@@ -21,14 +37,6 @@ public class BookVO {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
-    }
-
-    public int getPublisher_number() {
-        return publisher_number;
-    }
-
-    public void setPublisher_number(int publisher_number) {
-        this.publisher_number = publisher_number;
     }
 
     public String getGenre() {
@@ -39,12 +47,12 @@ public class BookVO {
         this.genre = genre;
     }
 
-    public int getTotal_page() {
-        return total_page;
+    public int getTotalPage() {
+        return totalPage;
     }
 
-    public void setTotal_page(int total_page) {
-        this.total_page = total_page;
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
     }
 
     public int getPrice() {
@@ -79,12 +87,12 @@ public class BookVO {
         this.author = author;
     }
 
-    public String getPublication_date() {
-        return publication_date;
+    public String getPublicationDate() {
+        return publicationDate;
     }
 
-    public void setPublication_date(String publication_date) {
-        this.publication_date = publication_date;
+    public void setPublicationDate(String publicationDate) {
+        this.publicationDate = publicationDate;
     }
 
     public String getContent() {

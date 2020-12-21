@@ -1,14 +1,14 @@
 package controller;
 
-
 import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import service.BookServiceImpl;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class BookController {
@@ -16,11 +16,11 @@ public class BookController {
     @Autowired
     private BookServiceImpl bookService;
 
-//    @RequestMapping("/insertBook.ing")
-//    public String insertBook(){
-//        System.out.println("insertBook.ing 요청");
-//        return "book/insertBook";
-//    }
+    @RequestMapping("showBook.ing")
+    public String showBook(HttpServletRequest request, Model model) {
+        model.addAttribute("isbn", request.getParameter("isbn"));   // 선택한 책에 맞는 isbn 넘겨줌
+        return "showBook";
+    }
 
     //페이지 넘김
     @RequestMapping("/{ing}")
@@ -40,9 +40,9 @@ public class BookController {
     @RequestMapping("/insertBook_success.ing")
     public String insertBook_success(BookVO vo){
         System.out.println("insertBook_success.ing 요청");
-        System.out.println(vo.getPublication_date());
+        System.out.println(vo.getPublicationDate());
         bookService.insertBook(vo);
-        return "book/insertBook_success";
+        return "book/bookList";
     }
 
     //도서 삭제하기

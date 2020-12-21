@@ -14,10 +14,10 @@
 <h2>도서정보</h2><hr/>
 
 <!--도서목록보기-->
-<a href="bookList.ing">도서목록</a>&nbsp;&nbsp;&nbsp;
+<a class="loadAjax" href="bookList.ing">도서목록</a>&nbsp;&nbsp;&nbsp;
 
 <!--도서삭제하기-->
-<a href="deleteBook_success.ing?isbn=${selectBook.isbn}">도서삭제</a>
+<a class="loadAjax" href="deleteBook_success.ing?isbn=${selectBook.isbn}">도서삭제</a>
 <br/>
 <br/>
 
@@ -31,7 +31,7 @@
         </tr>
         <tr>
             <td bgcolor="#ffebcd">출판사번호</td>
-            <td align="left">${selectBook.publisher_number}</td>
+            <td align="left">${selectBook.publisherNumber}</td>
         </tr>
         <tr>
             <td bgcolor="#ffebcd">제목</td>
@@ -47,7 +47,7 @@
         </tr>
         <tr>
             <td bgcolor="#ffebcd">총페이지</td>
-            <td align="left">${selectBook.total_page }</td>
+            <td align="left">${selectBook.totalPage}</td>
         </tr>
         <tr>
             <td bgcolor="#ffebcd">가격</td>
@@ -59,7 +59,7 @@
         </tr>
         <tr>
             <td bgcolor="#ffebcd">출판날짜</td>
-            <td align="left">${selectBook.publication_date }</td>
+            <td align="left">${selectBook.publicationDate }</td>
         </tr>
         <tr>
             <td bgcolor="#ffebcd">내용</td>
