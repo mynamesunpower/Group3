@@ -22,7 +22,7 @@
             <input type="button" id="searchButton"/>
         </span>
         <span class="button">
-            <input type="button" id="memberButton" onclick="location.href='/login.ing'"/>
+            <input type="button" id="memberButton"/>
         </span>
     </header>
 

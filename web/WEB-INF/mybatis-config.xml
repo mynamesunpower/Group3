@@ -7,14 +7,8 @@
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="board" type="model.vo.ShoppingCartVO" />
-
-
-		<typeAlias alias="member" type="model.vo.NoMemberVO" />
-		<typeAlias alias="nomember" type="model.vo.MemberVO" />
-
 	</typeAliases>
 
 
-
-		</configuration>
+</configuration>
 
