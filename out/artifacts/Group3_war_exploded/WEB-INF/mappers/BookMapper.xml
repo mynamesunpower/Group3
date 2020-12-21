@@ -44,4 +44,33 @@
         ]]>
     </select>-->
 
+    <!-- 장르검색-->
+   <!-- <select id="searchBook" parameterType="" resultType="">
+        <![CDATA[
+       SELECT * FROM book WHERE GENRE LIKE '%#{}%'
+        ]]>
+    </select>-->
+
+
+    <!-- 제목검색-->
+    <!-- <select id="searchBook" parameterType="" resultType="">
+         <![CDATA[
+        SELECT * FROM book WHERE TITLE LIKE '%#{}%'
+         ]]>
+     </select>-->
+
+    <!-- 저자검색-->
+    <!-- <select id="searchBook" parameterType="" resultType="">
+         <![CDATA[
+        SELECT * FROM book WHERE AUTHOR LIKE '%#{}%'
+         ]]>
+     </select>-->
+
+    <!-- 키워드검색-->
+    <!-- <select id="searchBook" parameterType="" resultType="">
+         <![CDATA[
+        SELECT * FROM book WHERE KEYWORD LIKE '%#{})%'
+         ]]>
+     </select>-->
+
 </mapper>
