@@ -26,9 +26,9 @@ public class MemberController {
             System.out.println("회원정보가 틀렸습니다");
             return "login";
         }else{
-            session.setAttribute("name", member.getName());
-            session.setAttribute("memberTel", member.getTel());
-            return "hello";
+                session.setAttribute("name", member.getName());
+                session.setAttribute("memberTel", member.getTel());
+                return "redirect:start.ing";
         }
 
     }

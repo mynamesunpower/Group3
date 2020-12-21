@@ -6,35 +6,60 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <html>
 <head>
     <title>장바구니 목록</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="../../../js/cart.js"></script>
 </head>
 <body>
-<form id="cartForm" action="/cart/deleteCartList.ing" method="post">
-<table id="cartTable" border="1">
-    <tr>
-        <td>책</td>
-        <td>isbn</td>
-        <td>가격</td>
-        <td>수량</td>
-    </tr>
+    <div id="cart" class="row">
+        <form id="cartForm" action="" method="post">
+            <table id="cartTable" , class="highlight centered col s12">
+                <thead>
+                <tr>
+                    <th>상품명</th>
+                    <th>정가 (원)</th>
+                    <th>수량</th>
+                    <th>합계 (원)</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <c:forEach var="cart" items="${cart}">
+                    <tr class="bookList">
+                        <input type="hidden" class="isbn" name="isbn" value="${cart.isbn}">
+                        <td class="bookTitle">${cart.bookVO.title}</td>
+                        <td class="price">${cart.bookVO.price}</td>
+                        <td class="count">
+                            <button class="plusCount waves-effect waves-light btn-small white black-text btn-flat"><i
+                                    class="material-icons">arrow_drop_up</i></button>
+                            <br/>
+                            <span class="quantity">${cart.quantity}</span><br/>
+                            <button class="minusCount waves-effect waves-light btn-small white black-text btn-flat"><i
+                                    class="material-icons">arrow_drop_down</i></button>
+                        </td>
+                        <td class="totalPrice">(${cart.bookVO.price}*${cart.quantity})</td>
+                        <td>
+                            <button type="button" class="orderBook waves-effect waves-light btn-small white black-text"
+                                    value="주문"><i class="material-icons left">credit_card</i>주문
+                            </button>
+                            <br/><br/>
+                            <button class="deleteBook waves-effect waves-light btn-small white black-text" value="삭제">
+                                <i class="material-icons left">close</i>삭제
+                            </button>
+                        </td>
+                    </tr>
+                </c:forEach>
 
-    <c:forEach var="cart" items="${cart}">
-    <tr class="bookList">
-        <td>${cart.bookVO.title}</td>
-        <td><input type="hidden" class="isbn" name="isbn" value="${cart.isbn}"> ${cart.isbn}</td>
-        <td class="price">${cart.bookVO.price}원</td>
-        <td class="count"><input type="button" class="plusCount" value="+">${cart.quantity}<input type="button" class="minusCount" value="-"></td>
-        <td><input type="button" class = "deleteBook" value="삭제"> </td>
-    </tr>
-    </c:forEach>
-</table>
-    <input type="submit" id="deleteAll" value="전체삭제">
-    <input type="submit" id="orderBook"value="주문하기">
-</form>
+            </table>
+        </form>
+    </div>
 </body>
 </html>

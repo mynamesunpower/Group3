@@ -1,5 +1,6 @@
 package model.dao;
 
+import model.vo.ShoppingCartVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -37,6 +38,12 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
         }else{  // 기존에 상품이 카트에없으면 추가
             sqlSessionTemplate.insert("booktrain.cart.addCart",cartMap);
         }
+    }
+
+    @Override
+    public void modifyCart(ShoppingCartVO shoppingCartVO) {
+        System.out.println("ShoppingCartDaoImpl modifyCart() : " + shoppingCartVO.getIsbn());
+        sqlSessionTemplate.update("booktrain.cart.modifyCount", shoppingCartVO);
     }
 
     @Override

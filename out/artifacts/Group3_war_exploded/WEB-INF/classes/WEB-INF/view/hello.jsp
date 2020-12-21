@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html>
 <head>
@@ -35,7 +36,7 @@
         <div class="col s1 m1 l1"></div>
         <div class="col s4 m2 l2">
             <h5>
-            <a class="loadAjax btn-flat tooltipped" href="" data-position="bottom" data-tooltip="장바구니">
+            <a class="loadAjax btn-flat tooltipped" href="/cart/cartList.ing" data-position="bottom" data-tooltip="장바구니">
                 <i class="material-icons black-text">shopping_cart</i>
             </a>
             <a class="loadAjax btn-flat tooltipped" href="" data-position="bottom" data-tooltip="통합 검색">
@@ -46,6 +47,9 @@
             </a>
             <ul id="login" class="dropdown-content">
                 <li><a class="loadAjax" href="login.ing">로그인</a></li>
+                <c:if test="${sessionScope.name!=null}" >
+                    ${sessionScope.name}님 로그인
+                </c:if>
                 <li><a class="loadAjax" href="">회원가입</a></li>
             </ul>
             </h5>
