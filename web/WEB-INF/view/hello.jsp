@@ -4,17 +4,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booktrain.ing - 나만의 작은 공부 서점</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="shortcut icon" href="../../imgs/favicon.ico">
     <link rel="icon" href="../../imgs/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../css/slide.css">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
     <script src="../../js/index.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div id="header" class="row center-align">
@@ -113,7 +118,53 @@
 
     <div class="row center-align">
         <div id="content" class="col s8 offset-s2">
-            컨텐츠 부분
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- 슬라이더 순서 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- 슬라이더 이미지 부분-->
+                <div class="carousel-inner">
+
+                    <div class="item active">
+                        <img class="d-block" src="../../imgs/book/s1.png" alt="book1" style="width:100% ;">
+                        <div class="carousel-caption">
+                            <h3>Book1</h3>
+                            <p>감사합니다! Book1</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img class="d-block" src="../../imgs/book/tobySpring.png" alt="Book2" style="width:100%;">
+                        <div class="carousel-caption">
+                            <h3>Book2</h3>
+                            <p>Thank you, Book2</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img class="d-block" src="../../imgs/book/image.png" alt="Book3" style="width:100%;">
+                        <div class="carousel-caption">
+                            <h3>Book3</h3>
+                            <p>I LOVE Book3</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 좌 우 이동 버튼 -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div>
     </div>
 </div>
