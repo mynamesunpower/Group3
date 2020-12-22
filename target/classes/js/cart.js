@@ -61,6 +61,39 @@ $(function () {
             }
         })
     })
+    
+    // 해당 상품 주문
+    $('#cartTable').on('click','.orderBook',function () {
+        $.ajax({
+            type:'get',
+            url:'/purchase/orderBook.ing',
+            contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
+            data:{
+                
+            },
+            success:()=>{
+                alert('상품 주문으로~')
+            },error:(error)=>{
+                alert('상품 주문 실패')
+                console.log(err)
+        }
+        })
+    })
+
+    // 전체삭제
+    $('#deleteAll').click(()=>{
+        $.ajax({
+            type:'post',
+            url:'/cart/deleteCartList.ing',
+            contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
+            success:()=>{
+                $('.bookList').remove();
+            },error:(error)=>{
+                alert('장바구니 전체삭제 실패')
+                console.log(error)
+            }
+        })
+    })
 
 
 })  // function(){} END

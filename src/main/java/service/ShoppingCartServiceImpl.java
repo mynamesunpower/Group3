@@ -27,7 +27,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public void modifyCart(ShoppingCartVO shoppingCartVO) {
-        System.out.println(shoppingCartVO.getIsbn() + "/" + shoppingCartVO.getTel());
         shoppingCartDAO.modifyCart(shoppingCartVO);
     }
 

@@ -24,6 +24,7 @@
     <table id="cartTable" , class="highlight centered">
         <thead>
         <tr>
+            <th></th>
             <th>상품명</th>
             <th>정가 (원)</th>
             <th>수량</th>
@@ -35,32 +36,51 @@
             <form id="cartForm" action="" method="post">
                 <tr class="bookList">
                     <input type="hidden" class="isbn" name="isbn" value="${cart.isbn}">
+                    <td class="checkedBook">
+                        <label>
+                            <input class="checkedBook" type="checkbox" name="isbn" value="${cart.isbn}" checked="checked" /><span></span>
+                        </label>
+                    </td>
                     <td class="bookTitle">${cart.bookVO.title}</td>
                     <td class="price">${cart.bookVO.price}</td>
                     <td class="count">
-                        <button type="button" class="plusCount waves-effect waves-light btn-small white black-text btn-flat"><i
+                        <button type="button"
+                                class="plusCount waves-effect waves-light btn-small white black-text btn-flat"><i
                                 class="material-icons">arrow_drop_up</i></button>
                         <br/>
                         <span class="quantity">${cart.quantity}</span><br/>
-                        <button type="button" class="minusCount waves-effect waves-light btn-small white black-text btn-flat"><i
+                        <button type="button"
+                                class="minusCount waves-effect waves-light btn-small white black-text btn-flat"><i
                                 class="material-icons">arrow_drop_down</i></button>
                     </td>
                     <td class="totalPrice">${cart.bookVO.price * cart.quantity}</td>
                     <td>
-                        <button type="button" class="orderBook waves-effect waves-light btn-small white black-text"
-                                value="주문"><i class="material-icons left">credit_card</i>주문
+                        <button type="button" class="orderBook waves-effect waves-light btn-small white black-text">
+                            <i class="material-icons left">credit_card</i>
+                            주문
                         </button>
                         <br/><br/>
-                        <button type="button" class="deleteBook waves-effect waves-light btn-small white black-text"
-                                value="삭제">
-                            <i class="material-icons left">close</i>삭제
+                        <button type="button" class="deleteBook waves-effect waves-light btn-small white black-text">
+                            <i class="material-icons left">close</i>
+                            삭제
                         </button>
                     </td>
                 </tr>
             </form>
         </c:forEach>
-
     </table>
+</div>
+<div class="row">
+    <div col col s2 offset s2>
+        <button type="button" id = "deleteAll" class="waves-effect waves-light btn-small white black-text">전체삭제
+        </button>
+    </div>
+    <br/>
+    <div col col s6 offset-s6>
+        <button type="button" id="checkedBook_order" class="waves-effect waves-light btn-small white black-text" >선택상품
+            주문
+        </button>
+    </div>
 </div>
 </body>
 </html>

@@ -72,7 +72,6 @@ public class ShoppingCartController {
     // 특정 상품 삭제
     @RequestMapping(value = "deleteBook.ing", produces = "application/text;charset=utf-8")
     public String deleteBook(ShoppingCartVO shoppingCartVO) {
-        System.out.println("deleteBook() 49Line" + shoppingCartVO.getIsbn());
         shoppingCartService.deleteCart((String) httpSession.getAttribute("memberTel"), shoppingCartVO.getIsbn());
 
         return "redirect:/cart/cartList.ing";

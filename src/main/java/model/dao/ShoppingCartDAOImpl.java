@@ -42,8 +42,8 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
 
     @Override
     public void modifyCart(ShoppingCartVO shoppingCartVO) {
-        System.out.println("ShoppingCartDaoImpl modifyCart() : " + shoppingCartVO.getIsbn());
 
+        // 수량이 0이되면 DB삭제 쿼리 실행
         if (shoppingCartVO.getQuantity() == 0) {
             cartMap = new HashMap();
             cartMap.put("memberTel", shoppingCartVO.getTel());
@@ -65,7 +65,5 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
         cartMap.put("memberTel",memberTel);
         cartMap.put("isbn",isbn);
         sqlSessionTemplate.delete("booktrain.cart.deleteBook",cartMap);
-
-
     }
 }
