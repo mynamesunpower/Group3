@@ -21,7 +21,25 @@ $(document).ready(function(){
    });
 
    $('#searchAnchor').click(function () {
-      $('#searchForm').submit();
+      //$('#searchForm').submit();
+      let content = $("#content");
+      let queryString = $('#searchForm').serialize();
+      alert(queryString);
+      $.ajax({
+         url : "./searchBook.ing",
+         type : 'get',
+         data : queryString,
+         success : function (data) {
+            console.log(data);
+            content.children().remove();
+            content.html(data);
+            $('#searchBox').hide();
+         },
+         error : function (err, evt) {
+            console.log(err);
+            $('#searchBox').hide();
+         }
+      });
    });
    
    $('#search').click(function (evt) {
@@ -42,7 +60,6 @@ $(document).ready(function(){
    $('.dropdown-trigger').dropdown();
    $('.tooltipped').tooltip();
    $('select').formSelect();
-
 });
 
 /*

@@ -5,6 +5,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Repository
@@ -53,7 +54,8 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
-    public List<BookVO> searchBook(String keyword) {
-        return mybatis.selectList("BookMapper.searchBook", keyword);
+    public List<BookVO> searchBook(HashMap map) {
+
+        return mybatis.selectList("BookMapper.searchBook",map);
     }
 }

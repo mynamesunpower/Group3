@@ -2,6 +2,7 @@ package model.dao;
 
 import model.vo.BookVO;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface BookDAO {
@@ -18,5 +19,5 @@ public interface BookDAO {
 
     public List<BookVO> bookList(BookVO  vo) ;
 
-    List<BookVO> searchBook(String keyword);
+    List<BookVO> searchBook(HashMap map);
 }
