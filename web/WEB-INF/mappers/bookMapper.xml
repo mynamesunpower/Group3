@@ -36,17 +36,47 @@
        UPDATE book SET PRICE= #{price} , CONTENT= #{content} WHERE ISBN= #{isbn}
         ]]>
     </update>
-    <select id="searchBook" parameterType="String" resultType="book">
+
+    <!--<select id="searchBook" parameterType="String" resultMap="getBook">-->
+        <!--SELECT *-->
+        <!--FROM BOOK-->
+        <!--WHERE ((GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR-->
+               <!--(AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))-->
+    <!--</select>-->
+
+    <select id="searchBook" parameterType="HashMap" resultMap="getBook">
         SELECT *
         FROM BOOK
-        WHERE ((GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR
-               (AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))
+        WHERE (
+          <if test="sbox == null">
+              (GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR
+              (AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))
+          </if>
+
+        <if test="sbox != null">
+           
+        </if>
+
     </select>
+
+    <resultMap id="getBook" type="book">
+        <result property="isbn" column="isbn"/>
+        <result property="publisherNumber" column="publisher_number"/>
+        <result property="genre" column="genre"/>
+        <result property="totalPage" column="total_page"/>
+        <result property="price" column="price"/>
+        <result property="title" column="title"/>
+        <result property="stock" column="stock"/>
+        <result property="author" column="author"/>
+        <result property="publicationDate" column="publication_date"/>
+        <result property="content" column="content"/>
+        <result property="keyword" column="keyword"/>
+    </resultMap>
 
   <!--  &lt;!&ndash;통합검색&ndash;&gt;
     <select id="searchBook" parameterType="" resultType="">
         <![CDATA[
-       SELECT * FROM book WHERE ((GENRE LIKE '%#{}%') OR (TITLE LIKE '%#{}%') OR (AUTHOR LIKE '%#{}%') OR (KEYWORD LIKE '%#{})%'))
+               SELECT * FROM book WHERE ((GENRE LIKE '%'||#{}||'%') OR (TITLE LIKE '%#{}%') OR (AUTHOR LIKE '%#{}%') OR (KEYWORD LIKE '%#{})%'))
         ]]>
     </select>-->
 

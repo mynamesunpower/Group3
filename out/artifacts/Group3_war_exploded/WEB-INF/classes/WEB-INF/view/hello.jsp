@@ -54,36 +54,39 @@
         </h5>
     </div>
 </div>
-<div id="searchBox" class="searchBox">
-    <div class="row">
-        <div class="col s12 m12 z-depth-1">
-            <div class="row"></div>
-            <div class="row">
-                <div class="col s1 push-s11 right-align">
-                    <a id="searchBox_close" class="btn-flat tooltipped" data-position="bottom" data-tooltip="닫기"><i class="material-icons">close</i></a>
+<form id="searchForm" action="./searchBook.ing">
+    <div id="searchBox" class="searchBox">
+        <div class="row">
+            <div class="col s12 m12 z-depth-1">
+                <div class="row"></div>
+                <div class="row">
+                    <div class="col s1 push-s11 right-align">
+                        <a id="searchBox_close" class="btn-flat tooltipped" data-position="bottom" data-tooltip="닫기"><i
+                                class="material-icons">close</i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="row"></div>
-            <div class="row">
-                <div class="input-field col s3 offset-s1">
-                    <select multiple>
-                        <option value="title">제목</option>
-                        <option value="author">작가명</option>
-                        <option value="publisher">출판사</option>
-                        <option value="keyword">키워드</option>
-                    </select>
-                    <label class="right-align">검색 조건</label>
-                </div>
-                <div class="input-field col s7">
-                    <form id="searchForm" action="./searchBook.ing">
+                <div class="row"></div>
+                <div class="row">
+                            <div class="input-field col s3 offset-s1">
+                                <select multiple name="sbox" id="sbox">
+                                    <option value="1" >제목</option>
+                                    <option value="2" >작가명</option>
+                                    <option value="3">장르</option>
+                                    <option value="4">키워드</option>
+                                </select>
+                        <label class="right-align">검색 조건</label>
+                    </div>
+                    <div class="input-field col s7">
+                        <%--<form id="searchForm" action="./searchBook.ing">--%>
                         <input id="icon_prefix" name="keyword" type="text" class="validate">
-                        <label for="icon_prefix"><a id="searchAnchor" class="loadAjax" href="./searchBook.ing"><i id="searchIcon" class="material-icons prefix">search</i></a></label>
-                    </form>
-                </div>
-            </div>
-            <div class="row"></div>
-        </div>
-    </div>
+                        <label for="icon_prefix"><a id="searchAnchor" class="loadAjax"><i
+                                id="searchIcon" class="material-icons prefix">search</i></a></label>
+</form>
+</div>
+</div>
+<div class="row"></div>
+</div>
+</div>
 </div>
 <div class="container">
 
@@ -168,9 +171,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 
 </body>

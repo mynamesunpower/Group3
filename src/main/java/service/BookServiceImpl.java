@@ -6,6 +6,7 @@ import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -62,7 +63,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookVO> searchBook(String keyword) {
-        return bookdao.searchBook(keyword);
+    public List<BookVO> searchBook(HashMap map) {
+
+        return bookdao.searchBook(map);
     }
 }

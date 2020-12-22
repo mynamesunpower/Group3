@@ -4,11 +4,11 @@ import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import service.BookServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -24,9 +24,19 @@ public class BookController {
     }
 
     @RequestMapping("/searchBook.ing")
-    public String searchBook(String keyword, Model model) {
-        System.out.println(keyword);
-        List<BookVO> bookList = bookService.searchBook(keyword);
+
+    public String searchBook(String keyword,@RequestParam(required=false) String sbox, Model model) {
+        System.out.println("keyword:" + keyword);
+        System.out.println("sbox:" + sbox);
+
+        HashMap map = new HashMap();
+        map.put("keyword",keyword);
+        map.put("sbox",sbox);
+
+        List<BookVO> bookList = bookService.searchBook(map);
+        for (BookVO book : bookList) {
+            System.out.println(book);
+        }
         model.addAttribute("bookList", bookList);
         return "book/bookList";
     }

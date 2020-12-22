@@ -21,6 +21,7 @@ $(document).ready(function(){
    });
 
    $('#searchAnchor').click(function () {
+      //$('#searchForm').submit();
       let content = $("#content");
       let queryString = $('#searchForm').serialize();
       alert(queryString);
