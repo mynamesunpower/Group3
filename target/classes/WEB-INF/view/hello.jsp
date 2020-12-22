@@ -70,10 +70,10 @@
                 <div class="row">
                             <div class="input-field col s3 offset-s1">
                                 <select multiple name="sbox" id="sbox">
-                                    <option value="1" >제목</option>
-                                    <option value="2" >작가명</option>
-                                    <option value="3">장르</option>
-                                    <option value="4">키워드</option>
+                                    <option value="title" >제목</option>
+                                    <option value="author" >작가명</option>
+                                    <option value="genre">장르</option>
+                                    <option value="keyword">키워드</option>
                                 </select>
                         <label class="right-align">검색 조건</label>
                     </div>

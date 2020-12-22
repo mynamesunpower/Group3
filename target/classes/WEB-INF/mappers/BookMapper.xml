@@ -37,27 +37,24 @@
         ]]>
     </update>
 
-    <!--<select id="searchBook" parameterType="String" resultMap="getBook">-->
-        <!--SELECT *-->
-        <!--FROM BOOK-->
-        <!--WHERE ((GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR-->
-               <!--(AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))-->
-    <!--</select>-->
-
-    <select id="searchBook" parameterType="HashMap" resultMap="getBook">
-        SELECT *
-        FROM BOOK
-        WHERE (
-          <if test="sbox == null">
-              (GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR
-              (AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))
-          </if>
-
-        <if test="sbox != null">
-
-        </if>
-
+    <select id="searchBook" parameterType="list" resultMap="getBook">
+        <bind name="keyword" value="#{list}.get(0)"/>
+        SELECT * FROM BOOK
+        <where>
+            <choose>
+                <when test="list.size > 1">
+                    #{keyword} in
+                    <foreach collection="list" item="item" index="#{index}+1" open="(" separator=", " close=")">
+                        #{item}.toString()
+                    </foreach>
+                </when>
+                <otherwise>
+                    #{keyword} in (TITLE, AUTHOR, GENRE, KEYWORD)
+                </otherwise>
+            </choose>
+        </where>
     </select>
+
 
     <resultMap id="getBook" type="book">
         <result property="isbn" column="isbn"/>
@@ -72,41 +69,5 @@
         <result property="content" column="content"/>
         <result property="keyword" column="keyword"/>
     </resultMap>
-
-  <!--  &lt;!&ndash;통합검색&ndash;&gt;
-    <select id="searchBook" parameterType="" resultType="">
-        <![CDATA[
-               SELECT * FROM book WHERE ((GENRE LIKE '%'||#{}||'%') OR (TITLE LIKE '%#{}%') OR (AUTHOR LIKE '%#{}%') OR (KEYWORD LIKE '%#{})%'))
-        ]]>
-    </select>-->
-
-    <!-- 장르검색-->
-   <!-- <select id="searchBook" parameterType="" resultType="">
-        <![CDATA[
-       SELECT * FROM book WHERE GENRE LIKE '%#{}%'
-        ]]>
-    </select>-->
-
-
-    <!-- 제목검색-->
-    <!-- <select id="searchBook" parameterType="" resultType="">
-         <![CDATA[
-        SELECT * FROM book WHERE TITLE LIKE '%#{}%'
-         ]]>
-     </select>-->
-
-    <!-- 저자검색-->
-    <!-- <select id="searchBook" parameterType="" resultType="">
-         <![CDATA[
-        SELECT * FROM book WHERE AUTHOR LIKE '%#{}%'
-         ]]>
-     </select>-->
-
-    <!-- 키워드검색-->
-    <!-- <select id="searchBook" parameterType="" resultType="">
-         <![CDATA[
-        SELECT * FROM book WHERE KEYWORD LIKE '%#{})%'
-         ]]>
-     </select>-->
 
 </mapper>

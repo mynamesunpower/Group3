@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import service.BookServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,18 +26,27 @@ public class BookController {
     }
 
     @RequestMapping("/searchBook.ing")
+    public String searchBook(String keyword,
+                             @RequestParam(defaultValue = "false") String sbox, Model model) {
 
-    public String searchBook(String keyword,@RequestParam(required=false) String sbox, Model model) {
-        System.out.println("keyword:" + keyword);
-        System.out.println("sbox:" + sbox);
+        HashMap<String, List<String>> map = new HashMap<>();
 
-        HashMap map = new HashMap();
-        map.put("keyword",keyword);
-        map.put("sbox",sbox);
+        List<String> list = new ArrayList<>();
+        list.add(keyword);
+
+        if (sbox != null) {
+            String[] array = sbox.split(",");
+            System.out.println("list: " + list);
+            for(String s : array) {
+                list.add(s);
+            }
+            System.out.println("list: " + list);
+        }
+        map.put("list", list);
 
         List<BookVO> bookList = bookService.searchBook(map);
-        for (BookVO book : bookList) {
-            System.out.println(book);
+        for (BookVO vo : bookList) {
+            System.out.println(vo.getTitle());
         }
         model.addAttribute("bookList", bookList);
         return "book/bookList";

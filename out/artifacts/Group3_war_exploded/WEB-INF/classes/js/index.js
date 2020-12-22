@@ -10,7 +10,6 @@ $(document).ready(function(){
          url : url,
          type : 'get',
          success : function (data) {
-            console.log(data);
             content.children().remove();
             content.html(data);
          },
@@ -30,9 +29,9 @@ $(document).ready(function(){
          type : 'get',
          data : queryString,
          success : function (data) {
-            console.log(data);
             content.children().remove();
             content.html(data);
+            $('#header').show();
             $('#searchBox').hide();
          },
          error : function (err, evt) {
