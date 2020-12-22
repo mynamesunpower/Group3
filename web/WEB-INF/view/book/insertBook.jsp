@@ -57,11 +57,6 @@
         <td bgcolor="#fafad2">내용</td>
         <td><textarea type="text" cols="40" rows="10" name="content" id="Content"></textarea></td>
     </tr>
-
-    <tr>
-        <td bgcolor="#fafad2">키워드</td>
-        <td><input type="text" name="keyword" id="Keyword"></td>
-    </tr>
     <tr>
         <td colspan="2" align="center"><input type="submit" value="도서 등록" /></td>
     </tr>

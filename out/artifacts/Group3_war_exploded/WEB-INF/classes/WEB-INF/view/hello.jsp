@@ -67,17 +67,17 @@
             <div class="row">
                 <div class="input-field col s3 offset-s1">
                     <select multiple>
-                        <option value="1">제목</option>
-                        <option value="2">작가명</option>
-                        <option value="3">출판사</option>
-                        <option value="4">키워드</option>
+                        <option value="title">제목</option>
+                        <option value="author">작가명</option>
+                        <option value="publisher">출판사</option>
+                        <option value="keyword">키워드</option>
                     </select>
                     <label class="right-align">검색 조건</label>
                 </div>
                 <div class="input-field col s7">
                     <form id="searchForm" action="./searchBook.ing">
-                    <input id="icon_prefix" name="keyword" type="text" class="validate">
-                    <label for="icon_prefix"><a id="searchAnchor" class="loadAjax" href="./searchBook.ing"><i id="searchIcon" class="material-icons prefix">search</i></a></label>
+                        <input id="icon_prefix" name="keyword" type="text" class="validate">
+                        <label for="icon_prefix"><a id="searchAnchor" class="loadAjax" href="./searchBook.ing"><i id="searchIcon" class="material-icons prefix">search</i></a></label>
                     </form>
                 </div>
             </div>
@@ -117,7 +117,7 @@
     </ul>
 
     <div class="row center-align">
-        <div id="content" class="col s8 offset-s2">
+        <div id="content" class="col s12">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- 슬라이더 순서 -->
                 <ol class="carousel-indicators">

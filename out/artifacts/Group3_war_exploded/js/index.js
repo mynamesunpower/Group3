@@ -21,20 +21,41 @@ $(document).ready(function(){
    });
 
    $('#searchAnchor').click(function () {
-      $('#searchForm').submit();
+      let content = $("#content");
+      let queryString = $('#searchForm').serialize();
+      alert(queryString);
+      $.ajax({
+         url : "./searchBook.ing",
+         type : 'get',
+         data : queryString,
+         success : function (data) {
+            console.log(data);
+            content.children().remove();
+            content.html(data);
+            $('#searchBox').hide();
+         },
+         error : function (err, evt) {
+            console.log(err);
+            $('#searchBox').hide();
+         }
+      });
    });
-   
+
+   let searchBox = $('#searchBox');
    $('#search').click(function (evt) {
       evt.stopPropagation();
-      $('#searchBox').show();
-      $('#searchBox').animate({
-         top: '-10vh'
-      });
+      $('#header').hide();
+      searchBox.show();
+      searchBox.animate({
+         top: '0vh'
+      }, 100, 'linear');
    });
 
    $('#searchBox_close').on('click', function (evt) {
       evt.stopPropagation();
-      $('#searchBox').hide();
+      $('#header').show();
+      searchBox.hide();
+      searchBox.css('top', '-10vh');
    });
 
    $('.sidenav').sidenav();
