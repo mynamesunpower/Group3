@@ -37,6 +37,24 @@
         ]]>
     </update>
 
+
+    <select id="searchBook" parameterType="java.util.Map" resultMap="getBook">
+        SELECT * FROM BOOK
+        WHERE #{keyword} in
+            <choose>
+                <when test="sbox==null">
+                    (TITLE, AUTHOR, GENRE, KEYWORD)
+
+                </when>
+                <otherwise>
+                    <foreach collection="searchList" item="book"  open="(" separator="," close=")">
+                        #{book}
+                    </foreach>
+                </otherwise>
+            </choose>
+
+    </select>
+
     <!--<select id="searchBook" parameterType="String" resultMap="getBook">-->
         <!--SELECT *-->
         <!--FROM BOOK-->
@@ -44,27 +62,61 @@
                <!--(AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))-->
     <!--</select>-->
 
-    <select id="searchBook" parameterType="HashMap" resultMap="getBook">
-        SELECT *
-        FROM BOOK
-        WHERE
-                <if test="sbox == null">
-                     ((GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR
-                    (AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))
-                </if>
-                <if test='sbox == "1"'>
-                    (TITLE LIKE '%'||#{keyword}||'%')
-                </if>
-                <if test='sbox == "2"'>
-                    (AUTHOR LIKE '%'||#{keyword}||'%')
-                </if>
-                <if test='sbox == "3"'>
-                    (GENRE LIKE '%'||#{keyword}||'%')
-                </if>
-                <if test='sbox == "4"'>
-                    (KEYWORD LIKE '%'||#{keyword}||'%')
-                </if>
-    </select>
+    <!--<select id="searchBook" parameterType="HashMap" resultMap="getBook">-->
+
+
+
+        <!--SELECT * FROM BOOK-->
+        <!--<where>-->
+            <!--<foreach collection="list" item="book" open="(" separator=";" close=")">#{book} like '%'||#{keyword}||'%'</foreach>-->
+        <!--</where>-->
+
+
+
+    <!--<select id="searchBook" parameterType="java.util.Map" resultMap="getBook">-->
+        <!--SELECT *-->
+        <!--FROM BOOK-->
+        <!--WHERE-->
+
+                <!--<if test="sbox == null">-->
+                     <!--((GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR-->
+                    <!--(AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))-->
+                <!--</if>-->
+                <!--<if test='list.contains(1)'>-->
+                    <!--(TITLE LIKE '%'||#{keyword}||'%')-->
+                <!--</if>-->
+                <!--<if test='sbox =="2"'>-->
+                    <!--(AUTHOR LIKE '%'||#{keyword}||'%')-->
+                <!--</if>-->
+                <!--<if test='sbox == "3"'>-->
+                    <!--(GENRE LIKE '%'||#{keyword}||'%')-->
+                <!--</if>-->
+                <!--<if test='sbox == "4"'>-->
+                    <!--(KEYWORD LIKE '%'||#{keyword}||'%')-->
+                <!--</if>-->
+    <!--</select>-->
+        <!--<choose>-->
+            <!--<when test="sbox != null">-->
+                <!--<choose>-->
+                    <!--<when test='sbox == "1"'>-->
+                        <!--OR TITLE LIKE '%'||#{keyword}||'%'-->
+                    <!--</when>-->
+                    <!--<when test='sbox == "2"'>-->
+                        <!--OR AUTHOR LIKE '%'||#{keyword}||'%'-->
+                    <!--</when>-->
+                    <!--<when test='sbox == "3"'>-->
+                        <!--OR GENRE LIKE '%'||#{keyword}||'%'-->
+                    <!--</when>-->
+                    <!--<when test='sbox == "4"'>-->
+                        <!--OR KEYWORD LIKE '%'||#{keyword}||'%'-->
+                    <!--</when>-->
+                <!--</choose>-->
+            <!--</when>-->
+            <!--<otherwise>-->
+                <!--AND #{keyword} IN (TITLE, GENRE, AUTHOR, KEYWORD)-->
+            <!--</otherwise>-->
+        <!--</choose>-->
+    <!--</select>-->
 
     <resultMap id="getBook" type="book">
         <result property="isbn" column="isbn"/>

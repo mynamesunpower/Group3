@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -50,7 +51,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookVO> searchBook(HashMap map) {
+    public List<BookVO> searchBook(Map<String, Object> map) {
 
         return bookdao.searchBook(map);
     }

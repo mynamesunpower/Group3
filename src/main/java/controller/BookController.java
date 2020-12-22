@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import service.BookServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class BookController {
@@ -24,18 +26,34 @@ public class BookController {
     }
 
     @RequestMapping("/searchBook.ing")
-
-    public String searchBook(String keyword,@RequestParam(required=false) String sbox, Model model) {
-        System.out.println("keyword:" + keyword);
-        System.out.println("sbox:" + sbox);
-
-        HashMap map = new HashMap();
+    public String searchBook(String keyword, @RequestParam(required=false) String sbox, Model model) {
+        Map<String, Object> map = new HashMap<>();
         map.put("keyword",keyword);
         map.put("sbox",sbox);
+        System.out.println(sbox);
+        if (sbox != null) {
+            System.out.println(sbox);
+            String[] array = sbox.split(",");
+            List<String> list = new ArrayList<>();
+            System.out.println("keyword: " + keyword);
+            for(String s : array) {
+                list.add(s);
 
+            }
+            map.put("searchList", list);
+            System.out.println("list0" + list.get(0));
+            System.out.println("list1" + list.get(1));
+            System.out.println("list2" + list.get(2));
+            System.out.println("list3" + list.get(3));
+
+
+        }
+        else {
+            map.put("searchList", null);
+        }
         List<BookVO> bookList = bookService.searchBook(map);
-        for (BookVO book : bookList) {
-            System.out.println(book);
+        for (BookVO vo : bookList) {
+            System.out.println(vo.getTitle());
         }
         model.addAttribute("bookList", bookList);
         return "book/bookList";

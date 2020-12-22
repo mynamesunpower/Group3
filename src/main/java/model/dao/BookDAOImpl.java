@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class BookDAOImpl implements BookDAO {
@@ -44,7 +45,9 @@ public class BookDAOImpl implements BookDAO {
     @Override
     public BookVO selectBook(BookVO vo) {
         System.out.println("===> Mybatis selectBook() 호출");
+
         return mybatis.selectOne("BookMapper.selectBook",vo);
+
     }
 
     @Override
@@ -54,7 +57,7 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
-    public List<BookVO> searchBook(HashMap map) {
+    public List<BookVO> searchBook(Map<String, Object> map) {
 
         return mybatis.selectList("BookMapper.searchBook",map);
     }
