@@ -47,16 +47,23 @@
     <select id="searchBook" parameterType="HashMap" resultMap="getBook">
         SELECT *
         FROM BOOK
-        WHERE (
-          <if test="sbox == null">
-              (GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR
-              (AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))
-          </if>
-
-        <if test="sbox != null">
-           
-        </if>
-
+        WHERE
+                <if test="sbox == null">
+                     ((GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR
+                    (AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))
+                </if>
+                <if test='sbox == "1"'>
+                    (TITLE LIKE '%'||#{keyword}||'%')
+                </if>
+                <if test='sbox == "2"'>
+                    (AUTHOR LIKE '%'||#{keyword}||'%')
+                </if>
+                <if test='sbox == "3"'>
+                    (GENRE LIKE '%'||#{keyword}||'%')
+                </if>
+                <if test='sbox == "4"'>
+                    (KEYWORD LIKE '%'||#{keyword}||'%')
+                </if>
     </select>
 
     <resultMap id="getBook" type="book">
