@@ -27,14 +27,14 @@ public class ShoppingCartController {
 
     // 장바구니 목록 불러오기
     @RequestMapping("cartList.ing")
-    public String cartList(Model model){
-        String memberTel = (String)httpSession.getAttribute("memberTel");
+    public String cartList(Model model) {
+        String memberTel = (String) httpSession.getAttribute("memberTel");
 
-        if(memberTel != null){
-            List cart = shoppingCartService.selectCart((String)httpSession.getAttribute("memberTel"));
-            model.addAttribute("cart",cart);
+        if (memberTel != null) {
+            List cart = shoppingCartService.selectCart((String) httpSession.getAttribute("memberTel"));
+            model.addAttribute("cart", cart);
             return "cart/cartList";
-        }else{
+        } else {
             model.addAttribute("alert", "로그인을 해주세요");
             return "redirect:../start.ing";
         }
@@ -42,11 +42,11 @@ public class ShoppingCartController {
 
     // 장바구니에 상품 추가
     @RequestMapping("addCart.ing")
-    public String addCart(HttpServletRequest request){ // HttpServletRequest -> 뷰에서 요청을 받음
-        String strIsbn =request.getParameter("isbn");
+    public String addCart(HttpServletRequest request) { // HttpServletRequest -> 뷰에서 요청을 받음
+        String strIsbn = request.getParameter("isbn");
         long isbn = Long.parseLong(strIsbn);
 
-        shoppingCartService.insertCart((String)httpSession.getAttribute("memberTel"),isbn);
+        shoppingCartService.insertCart((String) httpSession.getAttribute("memberTel"), isbn);
 
         return "redirect:/cart/cartList.ing";
     }
@@ -54,26 +54,26 @@ public class ShoppingCartController {
     // 장바구니 상품 수량 변경
     @RequestMapping("modifyCart.ing")
 //    @ResponseBody
-    public String modifyCart(ShoppingCartVO shoppingCartVO){   // TODO 변수명 생각해볼것
-        shoppingCartVO.setTel((String)httpSession.getAttribute("memberTel"));
+    public String modifyCart(ShoppingCartVO shoppingCartVO) {
+        shoppingCartVO.setTel((String) httpSession.getAttribute("memberTel"));
         shoppingCartService.modifyCart(shoppingCartVO);
 
-        return "redirect:../start.ing";
+        return "redirect:/cart/cartList.ing";
     }
 
     // 장바구니 전체삭제
-   @RequestMapping("deleteCartList.ing")
-    public String deleteCartList(){
-        shoppingCartService.deleteCartList((String)httpSession.getAttribute("memberTel"));
+    @RequestMapping("deleteCartList.ing")
+    public String deleteCartList() {
+        shoppingCartService.deleteCartList((String) httpSession.getAttribute("memberTel"));
 
         return "redirect:../start.ing";
     }
 
-    // 특정 상품 삭제d
+    // 특정 상품 삭제
     @RequestMapping(value = "deleteBook.ing", produces = "application/text;charset=utf-8")
-    public String deleteBook(ShoppingCartVO shoppingCartVO){
-        System.out.println("deleteBook() 49Line" +  shoppingCartVO.getIsbn() );
-        shoppingCartService.deleteCart((String)httpSession.getAttribute("memberTel"),shoppingCartVO.getIsbn());
+    public String deleteBook(ShoppingCartVO shoppingCartVO) {
+        System.out.println("deleteBook() 49Line" + shoppingCartVO.getIsbn());
+        shoppingCartService.deleteCart((String) httpSession.getAttribute("memberTel"), shoppingCartVO.getIsbn());
 
         return "redirect:/cart/cartList.ing";
     }

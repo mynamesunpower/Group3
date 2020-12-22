@@ -43,7 +43,15 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
     @Override
     public void modifyCart(ShoppingCartVO shoppingCartVO) {
         System.out.println("ShoppingCartDaoImpl modifyCart() : " + shoppingCartVO.getIsbn());
-        sqlSessionTemplate.update("booktrain.cart.modifyCount", shoppingCartVO);
+
+        if (shoppingCartVO.getQuantity() == 0) {
+            cartMap = new HashMap();
+            cartMap.put("memberTel", shoppingCartVO.getTel());
+            cartMap.put("isbn",shoppingCartVO.getIsbn());
+            sqlSessionTemplate.delete("booktrain.cart.deleteBook",cartMap);
+        }else{
+            sqlSessionTemplate.update("booktrain.cart.modifyCount", shoppingCartVO);
+        }
     }
 
     @Override
