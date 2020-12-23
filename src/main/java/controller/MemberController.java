@@ -43,7 +43,7 @@ public class MemberController {
         @RequestMapping("/logout.ing")
         public String logout(HttpSession session) {
             System.out.println("로그아웃페이지로 이동~~~~");
-            session.removeAttribute("name");
+            session.removeAttribute("memberName");
             return "/hello";
         }//end logout
 

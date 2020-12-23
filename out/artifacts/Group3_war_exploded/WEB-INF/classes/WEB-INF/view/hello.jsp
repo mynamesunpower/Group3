@@ -21,6 +21,14 @@
     <script src="../../js/index.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="../../js/hello.js" type="javascript"></script>
+
+    <!-- Compiled and minified CSS 드랍다운 구버전 지우지마세요-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript 드랍다운 구버전 지우지마세요-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
 </head>
 <body>
 
@@ -119,17 +127,17 @@
     <div class="row center-align">
         <div id="content" class="col s12">
             <c:choose>
-                <c:when test="${sessionScope.name eq null}">
+                <c:when test="${sessionScope.memberName eq null}">
                     <span class="button">
                         <input type="button" id="memberButton" onclick="location.href='/login.ing'"/>
                     </span>
                 </c:when>
-                <c:when test="${sessionScope.name ne null}">
+                <c:when test="${sessionScope.memberName ne null}">
 
                     <div>
                         <!-- Dropdown Trigger -->
                         <a class='dropdown-button btn blue' href='#' data-activates='dropdown1' id="dropdownbox">
-                                ${sessionScope.name}님</a>
+                                ${sessionScope.memberName}님</a>
 
                         <!-- Dropdown Structure -->
                         <ul id='dropdown1' class='dropdown-content'>
@@ -137,7 +145,8 @@
                                 <a href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
                             </a></li>
                             <li class="divider"></li>
-                            <li><a href="#!" class="blue-text">주문목록확인</a></li>
+                            <li><a href="#!" class="blue-text">
+                                <a href="/orderlist.ing"> 주문목록확인</a></a></li>
                             <li class="divider"></li>
                             <li><a href="#!" class="blue-text">
                                 <a href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
