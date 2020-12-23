@@ -55,4 +55,8 @@ public class BookServiceImpl implements BookService {
 
         return bookdao.searchBook(map);
     }
+
+    public List<BookVO> genrebookList(String genre ){
+        return bookdao.genrebookList(genre);
+    }
 }

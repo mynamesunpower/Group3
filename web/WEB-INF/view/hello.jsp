@@ -93,6 +93,7 @@
     <ul id="slide-out" class="sidenav">
         <li class="no-padding">
             <ul class="collapsible expandable">
+
                 <li>
                     <div class="collapsible-header">책 CRUD</div>
                     <div class="collapsible-body">
@@ -116,12 +117,28 @@
                         </ul>
                     </div>
                 </li>
+                <li>
+                    <div class="collapsible-header">책</div>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="loadAjax" href="genrebookList.ing?genre=교육">교육</a></li>
+                            <li><a class="loadAjax" href="genrebookList.ing?genre=참고서">참고서</a></li>
+                            <li><a class="loadAjax" href="genrebookList.ing?genre=EBS">EBS</a></li>
+                            <li><a class="loadAjax" href="genrebookList.ing?genre=어학">어학</a></li>
+                            <li><a class="loadAjax" href="genrebookList.ing?genre=자격증">자격증</a></li>
+                            <li><a class="loadAjax" href="genrebookList.ing?genre=고시">고시</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </li>
     </ul>
 
     <div class="row center-align">
+        <!--컨텐츠 부분-->
         <div id="content" class="col s8 offset-s2">
+
+            <!--캐러셀-->
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- 슬라이더 순서 -->
                 <ol class="carousel-indicators">
@@ -169,9 +186,64 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+
+            <br/>
+            <br/>
+            <br/>
+
+            <!-- 베스트셀러 부분???-->
+            <div>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
+                <tbody>
+                <tr>
+                    <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best!!</td>
+                    <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best!!</td>
+                    <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best!!</td>
+
+                </tr>
+
+                <tr>
+                    <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
+                        <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we">
+                            <img src="https://image.aladin.co.kr/product/25890/64/coversum/k142737568_1.jpg" alt="">
+                        </a>
+                    </td>
+
+                    <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
+                        <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213675&amp;start=we">
+                            <img src="https://image.aladin.co.kr/product/25834/32/coversum/k582736433_1.jpg" alt="">
+                        </a>
+                    </td>
+
+                    <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
+                        <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=212627&amp;start=we">
+                            <img src="https://image.aladin.co.kr/product/25613/11/coversum/k402735218_1.jpg" alt="">
+                        </a>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">&lt;1일 1클래식 1기쁨&gt;<a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we"></a></td>
+                    <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">1페이지 미술 365 (고흐 에디션)<a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213675&amp;start=we"></a></td>
+                    <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">&lt;아무도 아닌&gt; 리커버<a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=212627&amp;start=we"></a></td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <!--이주의 신작-->
+            <div style="height:225px;vertical-align:top;">
+                <div class="Wtitlebox" style="padding-bottom:8px;">
+                    <img  alt="알라딘 스페셜" border="0"></div>
+
+
+            </div>
+
         </div>
     </div>
 </div>
+
 
 
 </body>

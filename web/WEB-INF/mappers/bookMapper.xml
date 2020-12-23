@@ -37,6 +37,14 @@
         ]]>
     </update>
 
+    <!--메뉴에서 선택한 종류의 책정보 리스트-->
+    <select id="genrebookList" parameterType="String" resultType="book">
+                	<![CDATA[
+        SELECT * FROM book WHERE GENRE = #{GENRE}
+        ]]>
+    </select>
+
+
 
     <select id="searchBook" parameterType="java.util.Map" resultMap="getBook">
         SELECT * FROM BOOK

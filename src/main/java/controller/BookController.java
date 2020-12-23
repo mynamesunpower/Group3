@@ -112,4 +112,10 @@ public class BookController {
         model.addAttribute("selectBook",bookService.selectBook(vo));
         return "book/selectBook";
     }
+
+    @RequestMapping("/genrebookList.ing")
+    public String genrebookList(HttpServletRequest request, Model model){
+        model.addAttribute("bookList",bookService.genrebookList(request.getParameter("genre")));
+        return  "book/bookList";
+    }
 }
