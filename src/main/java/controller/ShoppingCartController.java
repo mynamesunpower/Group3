@@ -30,7 +30,9 @@ public class ShoppingCartController {
         String memberTel = (String) httpSession.getAttribute("memberTel");
 
         if (memberTel != null) {
-            List cart = shoppingCartService.selectCart(memberTel);
+            ShoppingCartVO shoppingCartVO = new ShoppingCartVO();
+            shoppingCartVO.setTel(memberTel);
+            List cart = shoppingCartService.selectCart(shoppingCartVO);
             model.addAttribute("cart", cart);
             return "cart/cartList";
         } else {

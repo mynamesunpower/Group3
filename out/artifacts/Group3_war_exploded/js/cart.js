@@ -74,7 +74,7 @@ $(function () {
             url:'/purchase/orderBook.ing',
             contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
             data:{
-
+                'isbn': $(this).parent().parent().children('.isbn').val()
             },
             success:(data)=>{
                 $('#content').children().remove();

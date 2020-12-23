@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -23,20 +22,21 @@
             </ul>
         </div>
 
-                <div id="test1" class="col s4">
-                    <form action="memberlogin.ing" name="memberlogin" id="memberlogin">
-                        <input type="text" id="id" name="id" placeholder="ID 입력">
-                        <input type="text" id="pass" name="pass" placeholder="비밀번호 입력"><br/>
-                        <input type="submit" id="memlogin" name="memlogin" value="로그인">
-        </form>      <%-- 회원 로그인확인 form --%>
+        <div id="test1" class="col s4">
+            <form action="memberlogin.ing" name="memberlogin" id="memberlogin">
+                <input type="text" id="id" name="id" placeholder="ID 입력">
+                <input type="text" id="pass" name="pass" placeholder="비밀번호 입력"><br/>
+                <input type="submit" id="memlogin" name="memlogin" value="로그인">
+            </form>
+            <%-- 회원 로그인확인 form --%>
 
-        <input type="button" id="memsearchid" name="memsearchid" value="아이디찾기">
-        &nbsp; / &nbsp;
-        <input type="button" id="memsearchpass" name="memsearchpass" value="비밀번호찾기"><br/><br/>
+            <input type="button" id="memsearchid" name="memsearchid" value="아이디찾기">
+            &nbsp; / &nbsp;
+            <input type="button" id="memsearchpass" name="memsearchpass" value="비밀번호찾기"><br/><br/>
 
 
-        <input type="button" id="memjoin" name="memjoin" value="회원가입" onclick="location.href='/memberjoin.ing'"/>
-    </div><!-- 회원로그인 탭 -->
+            <input type="button" id="memjoin" name="memjoin" value="회원가입" onclick="location.href='/memberjoin.ing'"/>
+        </div><!-- 회원로그인 탭 -->
 
 
         <div id="test2" class="col s3">
