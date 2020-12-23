@@ -96,17 +96,17 @@ public class MemberController {
 
         } else {
             System.out.println("로그인성공~~~~~~");
-            session.setAttribute("id",result.getId());
-            session.setAttribute("name", result.getName());
-            session.setAttribute("pass", result.getPass());
-            session.setAttribute("tel", result.getTel());
-            session.setAttribute("email", result.getEmail());
-            session.setAttribute("domain", result.getDomain());
-            session.setAttribute("addr1", result.getAddr1());
-            session.setAttribute("addr2", result.getAddr2());
-            session.setAttribute("addr3", result.getAddr3());
-            session.setAttribute("grade", result.getGrade());
-            session.setAttribute("point", result.getPoint());
+            session.setAttribute("memberId",result.getId());
+            session.setAttribute("memberName", result.getName());
+            session.setAttribute("memberPass", result.getPass());
+            session.setAttribute("memberTel", result.getTel());
+            session.setAttribute("memberEmail", result.getEmail());
+            session.setAttribute("memberDomain", result.getDomain());
+            session.setAttribute("memberAddr1", result.getAddr1());
+            session.setAttribute("memberAddr2", result.getAddr2());
+            session.setAttribute("memberAddr3", result.getAddr3());
+            session.setAttribute("memberGrade", result.getGrade());
+            session.setAttribute("memberPoint", result.getPoint());
             return "/hello";
         }
     }//end memberlogin

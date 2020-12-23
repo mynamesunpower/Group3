@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookMapper">
+
+    <!--도서정보입력-->
+    <insert id="insertBook" parameterType="book">
+        INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock, author, publication_date, content, keyword)
+        VALUES(#{isbn}, #{publisherNumber}, #{genre}, #{totalPage}, #{price},#{title}, #{stock}, #{author}, #{publicationDate}, #{content}, #{keyword})
+    </insert>
+
+    <!--도서 리스트-->
+    <select id="bookList" resultType="book">
+        	<![CDATA[
+		SELECT * FROM book ORDER BY ISBN DESC
+		]]>
+    </select>
+
+    <!--선택한 ISBN의 도서정보-->
+    <select id="selectBook" resultType="book">
+        	<![CDATA[
+		SELECT * FROM book WHERE ISBN=#{isbn}
+		]]>
+    </select>
+
+    <!--선택한 ISBN의 도서정보 삭제-->
+    <delete id="deleteBook" parameterType="book">
+         	<![CDATA[
+		DELETE FROM book WHERE ISBN=#{isbn}
+		]]>
+    </delete>
+
+    <!--선택한 ISBN의 도서정보 업데이트-->
+    <update id="updateBook" parameterType="book">
+       <![CDATA[
+       UPDATE book SET PRICE= #{price} , CONTENT= #{content} WHERE ISBN= #{isbn}
+        ]]>
+    </update>
+
+    <select id="searchBook" parameterType="list" resultMap="getBook">
+        <bind name="keyword" value="#{list}.get(0)"/>
+        SELECT * FROM BOOK
+        <where>
+            <choose>
+                <when test="list.size > 1">
+                    #{keyword} in
+                    <foreach collection="list" item="item" index="#{index}+1" open="(" separator="," close=")">
+                        #{item}
+                    </foreach>
+                </when>
+                <otherwise>
+                    #{keyword} in (TITLE, AUTHOR, GENRE, KEYWORD)
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+
+    <resultMap id="getBook" type="book">
+        <result property="isbn" column="isbn"/>
+        <result property="publisherNumber" column="publisher_number"/>
+        <result property="genre" column="genre"/>
+        <result property="totalPage" column="total_page"/>
+        <result property="price" column="price"/>
+        <result property="title" column="title"/>
+        <result property="stock" column="stock"/>
+        <result property="author" column="author"/>
+        <result property="publicationDate" column="publication_date"/>
+        <result property="content" column="content"/>
+        <result property="keyword" column="keyword"/>
+    </resultMap>
+
+</mapper>
