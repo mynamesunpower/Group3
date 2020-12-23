@@ -19,8 +19,21 @@ public class BookServiceImpl implements BookService {
     //도서등록
     @Override
     public void insertBook(BookVO vo) {
-
+        vo.setKeyword(vo.getGenre() + ", " +makeKeyword(vo.getTitle()));
         bookdao.insertBook(vo);
+    }
+
+    // 키워드 추출하는 메소드 (제목에서)
+    public String makeKeyword(String title) {
+        String keyword = "";
+        int length = 0;
+        for(String key : title.split(" ")) {
+            if (key.length() > length) {
+                keyword = key;
+                length = key.length();
+            }
+        }
+        return keyword;
     }
 
     //선택한 책 정보 불러오기
@@ -51,7 +64,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookVO> searchBook(Map<String, Object> map) {
+    public List<BookVO> searchBook(Map map) {
 
         return bookdao.searchBook(map);
     }

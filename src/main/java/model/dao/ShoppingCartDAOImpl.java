@@ -1,5 +1,6 @@
 package model.dao;
 
+import model.vo.ShoppingCartVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -40,6 +41,20 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
     }
 
     @Override
+    public void modifyCart(ShoppingCartVO shoppingCartVO) {
+
+        // 수량이 0이되면 DB삭제 쿼리 실행
+        if (shoppingCartVO.getQuantity() == 0) {
+            cartMap = new HashMap();
+            cartMap.put("memberTel", shoppingCartVO.getTel());
+            cartMap.put("isbn",shoppingCartVO.getIsbn());
+            sqlSessionTemplate.delete("booktrain.cart.deleteBook",cartMap);
+        }else{
+            sqlSessionTemplate.update("booktrain.cart.modifyCount", shoppingCartVO);
+        }
+    }
+
+    @Override
     public void deleteCartList(String memberTel) {
         sqlSessionTemplate.delete("deleteCartList",memberTel);
     }
@@ -50,7 +65,5 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
         cartMap.put("memberTel",memberTel);
         cartMap.put("isbn",isbn);
         sqlSessionTemplate.delete("booktrain.cart.deleteBook",cartMap);
-
-
     }
 }

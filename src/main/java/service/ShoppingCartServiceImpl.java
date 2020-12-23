@@ -26,6 +26,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
+    public void modifyCart(ShoppingCartVO shoppingCartVO) {
+        shoppingCartDAO.modifyCart(shoppingCartVO);
+    }
+
+    @Override
     public void deleteCartList(String memberTel) {
         shoppingCartDAO.deleteCartList(memberTel);
     }

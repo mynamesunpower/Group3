@@ -37,6 +37,7 @@
         ]]>
     </update>
 
+
     <!--메뉴에서 선택한 종류의 책정보 리스트-->
     <select id="genrebookList" parameterType="String" resultType="book">
                 	<![CDATA[
@@ -46,85 +47,24 @@
 
 
 
-    <select id="searchBook" parameterType="java.util.Map" resultMap="getBook">
+    <select id="searchBook" parameterType="list" resultMap="getBook">
+        <bind name="keyword" value="#{list}.get(0)"/>
         SELECT * FROM BOOK
-        WHERE #{keyword} in
+        <where>
             <choose>
-                <when test="sbox==null">
-                    (TITLE, AUTHOR, GENRE, KEYWORD)
-
+                <when test="list.size > 1">
+                    #{keyword} in
+                    <foreach collection="list" item="item" index="#{index}+1" open="(" separator="," close=")">
+                        #{item}
+                    </foreach>
                 </when>
                 <otherwise>
-                    <foreach collection="searchList" item="book"  open="(" separator="," close=")">
-                        #{book}
-                    </foreach>
+                    #{keyword} in (TITLE, AUTHOR, GENRE, KEYWORD)
                 </otherwise>
             </choose>
-
+        </where>
     </select>
 
-    <!--<select id="searchBook" parameterType="String" resultMap="getBook">-->
-        <!--SELECT *-->
-        <!--FROM BOOK-->
-        <!--WHERE ((GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR-->
-               <!--(AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))-->
-    <!--</select>-->
-
-    <!--<select id="searchBook" parameterType="HashMap" resultMap="getBook">-->
-
-
-
-        <!--SELECT * FROM BOOK-->
-        <!--<where>-->
-            <!--<foreach collection="list" item="book" open="(" separator=";" close=")">#{book} like '%'||#{keyword}||'%'</foreach>-->
-        <!--</where>-->
-
-
-
-    <!--<select id="searchBook" parameterType="java.util.Map" resultMap="getBook">-->
-        <!--SELECT *-->
-        <!--FROM BOOK-->
-        <!--WHERE-->
-
-                <!--<if test="sbox == null">-->
-                     <!--((GENRE LIKE '%'||#{keyword}||'%') OR (TITLE LIKE '%'||#{keyword}||'%') OR-->
-                    <!--(AUTHOR LIKE '%'||#{keyword}||'%') OR (KEYWORD LIKE '%'||#{keyword}||'%'))-->
-                <!--</if>-->
-                <!--<if test='list.contains(1)'>-->
-                    <!--(TITLE LIKE '%'||#{keyword}||'%')-->
-                <!--</if>-->
-                <!--<if test='sbox =="2"'>-->
-                    <!--(AUTHOR LIKE '%'||#{keyword}||'%')-->
-                <!--</if>-->
-                <!--<if test='sbox == "3"'>-->
-                    <!--(GENRE LIKE '%'||#{keyword}||'%')-->
-                <!--</if>-->
-                <!--<if test='sbox == "4"'>-->
-                    <!--(KEYWORD LIKE '%'||#{keyword}||'%')-->
-                <!--</if>-->
-    <!--</select>-->
-        <!--<choose>-->
-            <!--<when test="sbox != null">-->
-                <!--<choose>-->
-                    <!--<when test='sbox == "1"'>-->
-                        <!--OR TITLE LIKE '%'||#{keyword}||'%'-->
-                    <!--</when>-->
-                    <!--<when test='sbox == "2"'>-->
-                        <!--OR AUTHOR LIKE '%'||#{keyword}||'%'-->
-                    <!--</when>-->
-                    <!--<when test='sbox == "3"'>-->
-                        <!--OR GENRE LIKE '%'||#{keyword}||'%'-->
-                    <!--</when>-->
-                    <!--<when test='sbox == "4"'>-->
-                        <!--OR KEYWORD LIKE '%'||#{keyword}||'%'-->
-                    <!--</when>-->
-                <!--</choose>-->
-            <!--</when>-->
-            <!--<otherwise>-->
-                <!--AND #{keyword} IN (TITLE, GENRE, AUTHOR, KEYWORD)-->
-            <!--</otherwise>-->
-        <!--</choose>-->
-    <!--</select>-->
 
     <resultMap id="getBook" type="book">
         <result property="isbn" column="isbn"/>
@@ -139,41 +79,5 @@
         <result property="content" column="content"/>
         <result property="keyword" column="keyword"/>
     </resultMap>
-
-  <!--  &lt;!&ndash;통합검색&ndash;&gt;
-    <select id="searchBook" parameterType="" resultType="">
-        <![CDATA[
-               SELECT * FROM book WHERE ((GENRE LIKE '%'||#{}||'%') OR (TITLE LIKE '%#{}%') OR (AUTHOR LIKE '%#{}%') OR (KEYWORD LIKE '%#{})%'))
-        ]]>
-    </select>-->
-
-    <!-- 장르검색-->
-   <!-- <select id="searchBook" parameterType="" resultType="">
-        <![CDATA[
-       SELECT * FROM book WHERE GENRE LIKE '%#{}%'
-        ]]>
-    </select>-->
-
-
-    <!-- 제목검색-->
-    <!-- <select id="searchBook" parameterType="" resultType="">
-         <![CDATA[
-        SELECT * FROM book WHERE TITLE LIKE '%#{}%'
-         ]]>
-     </select>-->
-
-    <!-- 저자검색-->
-    <!-- <select id="searchBook" parameterType="" resultType="">
-         <![CDATA[
-        SELECT * FROM book WHERE AUTHOR LIKE '%#{}%'
-         ]]>
-     </select>-->
-
-    <!-- 키워드검색-->
-    <!-- <select id="searchBook" parameterType="" resultType="">
-         <![CDATA[
-        SELECT * FROM book WHERE KEYWORD LIKE '%#{})%'
-         ]]>
-     </select>-->
 
 </mapper>

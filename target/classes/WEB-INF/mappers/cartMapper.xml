@@ -19,8 +19,14 @@
         WHERE tel = #{memberTel} AND isbn = #{isbn}
     </update>
 
+    <update id="modifyCount" parameterType="cart">
+        UPDATE SHOPPING_CART
+        SET QUANTITY = #{quantity}
+        WHERE TEL = #{tel} and ISBN = #{isbn}
+    </update>
+
     <select id="cartList" parameterType="String" resultMap="cart">
-      SELECT b.TITLE AS title, b.isbn AS isbn, (b.price*c.quantity) AS price, c.quantity AS quantity
+      SELECT b.TITLE AS title, b.isbn AS isbn, b.price AS price, c.quantity AS quantity
       FROM shopping_cart c INNER JOIN book b
       ON c.isbn = b.isbn
       INNER JOIN member m
