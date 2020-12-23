@@ -1,8 +1,10 @@
 package service;
 
-import model.vo.MemberVO;
-
 public interface MemberService {
+//    public MemberVO idCheck_Login(MemberVO vo);
 
-    public MemberVO login(MemberVO memberVO);
+//    public int InsertMember(MemberVO vo );
+
+
 }
+

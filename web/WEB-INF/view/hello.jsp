@@ -5,7 +5,6 @@
     <title>Booktrain.ing - 나만의 작은 공부 서점</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="shortcut icon" href="../../imgs/favicon.ico">
@@ -172,7 +171,5 @@
         </div>
     </div>
 </div>
-
-
 </body>
 </html>
