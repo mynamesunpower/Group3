@@ -70,6 +70,10 @@
             <td align="left">${selectBook.keyword}</td>
         </tr>
         <tr>
+            <td bgcolor="#ffebcd">책 이미지</td>
+            <td align="left"><input name="title" type="text" value="${selectBook.bookimage}"></td>
+        </tr>
+        <tr>
             <td colspan="2" align="center"><input type="submit" value="도서 정보수정" /></td>
         </tr>
     </table>

@@ -58,6 +58,10 @@
         <td><textarea type="text" cols="40" rows="10" name="content" id="Content"></textarea></td>
     </tr>
     <tr>
+        <td bgcolor="#fafad2">이미지</td>
+        <td><input type="text" name="bookimage" id="BookImage"></td>
+    </tr>
+    <tr>
         <td colspan="2" align="center"><input type="submit" value="도서 등록" /></td>
     </tr>
 <%--출판사번호: <input type="text" name="Publisher_number" id="Publisher_number"><br/>--%>

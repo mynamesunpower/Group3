@@ -28,6 +28,7 @@
         <th bgcolor="#e9967a">출판날짜</th>
         <th bgcolor="#e9967a">내용</th>
         <th bgcolor="#e9967a">키워드</th>
+
     </tr>
 <c:forEach items="${bookList}" var="book">
     <tr>
