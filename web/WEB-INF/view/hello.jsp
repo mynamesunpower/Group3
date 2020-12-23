@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
     <script src="../../js/index.js" type="text/javascript"></script>
+    <script src="../../js/cart.js" type="text/javascript"></script>
 </head>
 <body>
 

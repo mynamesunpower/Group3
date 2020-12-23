@@ -33,7 +33,7 @@
         </tr>
         </thead>
         <c:forEach var="cart" items="${cart}">
-            <form id="cartForm" action="" method="post">
+            <form class="cartForm" action="" method="get">
                 <tr class="bookList">
                     <input type="hidden" class="isbn" name="isbn" value="${cart.isbn}">
                     <td class="checkedBook">
@@ -41,7 +41,8 @@
                             <input class="checkedBook" type="checkbox" name="isbn" value="${cart.isbn}" checked="checked" /><span></span>
                         </label>
                     </td>
-                    <td class="bookTitle">${cart.bookVO.title}</td>
+                    <%--TODO 책 주소 걸어줄것--%>
+                    <td class="bookTitle"><a href="">${cart.bookVO.title}</a></td>
                     <td class="price">${cart.bookVO.price}</td>
                     <td class="count">
                         <button type="button"
@@ -55,7 +56,7 @@
                     </td>
                     <td class="totalPrice">${cart.bookVO.price * cart.quantity}</td>
                     <td>
-                        <button type="button" class="orderBook waves-effect waves-light btn-small white black-text">
+                        <button type="submit" class="orderBook waves-effect waves-light btn-small white black-text">
                             <i class="material-icons left">credit_card</i>
                             주문
                         </button>
