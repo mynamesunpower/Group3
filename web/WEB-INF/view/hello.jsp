@@ -25,43 +25,37 @@
 </head>
 <body>
 
-    <div id="header" class="row center-align">
-        <div class="col s1 m1 l1">
+<div id="header" class="row center-align">
+    <div class="col s1 m1 l1">
             <a data-target="slide-out" class="sidenav-trigger btn-flat tooltipped" data-position="bottom" data-tooltip="메뉴">
                 <h5><i class="material-icons black-text">menu</i></h5>
             </a>
-        </div>
-        <div class="col s1 m1 l1"></div>
-        <div class="col s1 m1 l1"></div>
-        <div class="col s1 m1 l1"></div>
-        <div class="col s4 m4 l4">
+    </div>
+    <div class="col s1 m1 l1"></div>
+    <div class="col s1 m1 l1"></div>
+    <div class="col s1 m1 l1"></div>
+    <div class="col s4 m4 l4">
             <a id="title" href="" class="black-text"><h5>Booktrain.ing</h5></a>
-        </div>
-        <div class="col s1 m1 l1"></div>
-        <div class="col s1 m1 l1"></div>
-        <div class="col s4 m2 l2">
-            <h5>
+    </div>
+    <div class="col s1 m1 l1"></div>
+    <div class="col s1 m1 l1"></div>
+    <div class="col s4 m2 l2">
+        <h5>
             <a class="loadAjax btn-flat tooltipped" href="/cart/cartList.ing" data-position="bottom" data-tooltip="장바구니">
                 <i class="material-icons black-text">shopping_cart</i>
             </a>
             <a id="search" class="btn-flat tooltipped" data-position="bottom" data-tooltip="통합 검색">
                 <i class="material-icons black-text">search</i>
             </a>
-            <a class="dropdown-trigger btn-flat white" href="#" data-target="login">
-                <i class="material-icons black-text">person</i>
+            <a class="loadAjax btn-flat tooltipped" href="login.ing" data-position="bottom" data-tooltip="통합 검색">
+                <i class="material-icons black-text">account_box</i>
             </a>
-            <ul id="login" class="dropdown-content">
-                <li><a class="loadAjax" href="login.ing">로그인</a></li>
-                <c:if test="${sessionScope.name!=null}" >
-                    ${sessionScope.name}님 로그인
-                </c:if>
-                <li><a class="loadAjax" href="">회원가입</a></li>
-            </ul>
         </h5>
     </div>
+</div>
 
-<form id="searchForm" action="./searchBook.ing">
-    <div id="searchBox" class="searchBox">
+<div id="searchBox" class="searchBox">
+    <form id="searchForm" action="./searchBook.ing">
         <div class="row">
             <div class="col s12 m12 z-depth-1">
                 <div class="row"></div>
@@ -73,13 +67,13 @@
                 </div>
                 <div class="row"></div>
                 <div class="row">
-                            <div class="input-field col s3 offset-s1">
-                                <select multiple name="sbox" id="sbox">
-                                    <option value="title" >제목</option>
-                                    <option value="author" >작가명</option>
-                                    <option value="genre">장르</option>
-                                    <option value="keyword">키워드</option>
-                                </select>
+                    <div class="input-field col s3 offset-s1">
+                        <select multiple name="sbox" id="sbox">
+                            <option value="title" >제목</option>
+                            <option value="author" >작가명</option>
+                            <option value="genre">장르</option>
+                            <option value="keyword">키워드</option>
+                        </select>
                         <label class="right-align">검색 조건</label>
                     </div>
                     <div class="input-field col s7">
@@ -87,14 +81,12 @@
                         <input id="icon_prefix" name="keyword" type="text" class="validate">
                         <label for="icon_prefix"><a id="searchAnchor" class="loadAjax"><i
                                 id="searchIcon" class="material-icons prefix">search</i></a></label>
-</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-</div>
-<div class="row"></div>
-</div>
-</div>
-</div>
-<div class="container">
 
     <ul id="slide-out" class="sidenav">
         <li class="no-padding">
@@ -124,7 +116,7 @@
             </ul>
         </li>
     </ul>
-
+<div class="container">
     <div class="row center-align">
         <div id="content" class="col s12">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">

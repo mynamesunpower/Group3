@@ -44,8 +44,8 @@
             <choose>
                 <when test="list.size > 1">
                     #{keyword} in
-                    <foreach collection="list" item="item" index="#{index}+1" open="(" separator=", " close=")">
-                        #{item}.toString()
+                    <foreach collection="list" item="item" index="#{index}+1" open="(" separator="," close=")">
+                        #{item}
                     </foreach>
                 </when>
                 <otherwise>

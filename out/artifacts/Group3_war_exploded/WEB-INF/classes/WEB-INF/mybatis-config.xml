@@ -10,6 +10,7 @@
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="member" type="model.vo.MemberVO" />
+		<typeAlias alias="nomember" type="model.vo.NoMemberVO" />
 		<typeAlias alias="book" type="model.vo.BookVO"/>
 		<typeAlias alias="publisher" type="model.vo.PublisherVO" />
 		<typeAlias alias="cart" type="model.vo.ShoppingCartVO" />

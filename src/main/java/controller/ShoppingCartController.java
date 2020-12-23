@@ -32,10 +32,8 @@ public class ShoppingCartController {
 
         if (memberTel != null) {
             List cart = shoppingCartService.selectCart((String) httpSession.getAttribute("memberTel"));
-            model.addAttribute("cart", cart);
             return "cart/cartList";
         } else {
-            model.addAttribute("alert", "로그인을 해주세요");
             return "redirect:../start.ing";
         }
     }
