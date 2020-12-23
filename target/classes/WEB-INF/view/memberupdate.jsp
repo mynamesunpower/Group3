@@ -31,7 +31,7 @@
             전화번호     :    <input type="select" name="tel" id="tel" placeholder="-는 빼고 입력해주세요"  value="${sessionScope.tel}"><br/><br/>
 
             이메일       :    <input type="text" name="email" id="email"  value="${sessionScope.email}">
-            <input type="text"  id="domain" name="domain" class="box" value="${sessionScope.email}">
+            <input type="text"  id="domain" name="domain" class="box" value="${sessionScope.domain}">
 
             <select id="emailSelection" name="emailSelection">
                 <option value="1" selected="selected">직접입력</option>

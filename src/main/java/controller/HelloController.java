@@ -10,6 +10,6 @@ public class HelloController {
     public String test() {
         System.out.println("로그인페이지로 이동");
 
-        return "hello";
+        return "/hello";
     }
 }

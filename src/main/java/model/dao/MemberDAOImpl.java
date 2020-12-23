@@ -22,9 +22,9 @@ public class MemberDAOImpl {
       return mybatis.selectOne("member.login", vo );
     }
 
-    public void memberupdate(MemberVO vo){
+    public int memberupdate(MemberVO vo){
         System.out.println("===>  MemberMapper memberlogin() 호출");
-        mybatis.update("member.memberupdate", vo );
+        return mybatis.update("member.memberupdate", vo );
     }
 
 

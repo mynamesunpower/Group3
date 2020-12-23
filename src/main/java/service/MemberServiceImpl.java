@@ -22,8 +22,8 @@ private MemberDAOImpl memberDao;
                 return memberDao.memberlogin(vo);
         }
         @Override
-        public void memberupdate(MemberVO vo){
-                memberDao.memberlogin(vo);
+        public int memberupdate(MemberVO vo){
+                return memberDao.memberupdate(vo);
          }
 
 

@@ -9,7 +9,7 @@ public interface MemberService {
 
     public MemberVO memberlogin(MemberVO vo );
 
-    void memberupdate(MemberVO vo);
+    public int memberupdate(MemberVO vo);
 
 
 }

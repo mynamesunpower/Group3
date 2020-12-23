@@ -52,16 +52,15 @@
                         <li><a href="#!" class="blue-text">
                             <a href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
                         </a></li>
-                                <li class="divider"></li>
-                        <li><a href="#!" class="blue-text">주문목록확인</a></li>
-                                <li class="divider"></li>
+                        <li class="divider"></li>
+                        <li><a href="/orderlist.ing" id="orderlist" name="orderlist" class="blue-text">주문목록확인</a></li>
+                        <li class="divider"></li>
                         <li><a href="#!" class="blue-text">
                             <a href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
                         </a></li>
                     </ul>
                 </div>
-        <%--<input type="button" id="mypage" name="mypage" value="MYPAGE" onclick="location.href='/mypage.ing'">--%>
-        <%--<input type="button" id="logout" name="logout" value="로그아웃" onclick="location.href='/logout.ing'">--%>
+
         </c:when>
         </c:choose>
 

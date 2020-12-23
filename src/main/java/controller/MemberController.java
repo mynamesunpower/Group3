@@ -40,15 +40,15 @@ public class MemberController {
     }//end hello
 
 
-    @RequestMapping("/logout.ing")
+        @RequestMapping("/logout.ing")
         public String logout(HttpSession session) {
             System.out.println("로그아웃페이지로 이동~~~~");
             session.removeAttribute("name");
             return "/hello";
-    }//end logout
+        }//end logout
 
-    @RequestMapping("/memberjoin.ing")
-    public String memberjoin() {
+        @RequestMapping("/memberjoin.ing")
+        public String memberjoin() {
         System.out.println("회원가입페이지로 이동");
         return "/memberjoin";
     }//end memberlogin
@@ -58,23 +58,29 @@ public class MemberController {
         System.out.println("회원가입 성공페이지로 이동");
         int result = memberService.memberInsert(vo);
 
-        String message = "제대로 된 정보를 입력해주세요";
+        String msguserok = "제대로 된 정보를 입력해주세요";
         if (result > 0) {
-            message = vo.getName() + " 님 회원가입 성공ㅇㅇㅇㅇㅇ";
+            msguserok = vo.getName() + " 님 회원가입 성공ㅇㅇㅇㅇㅇ";
         }
-        m.addAttribute("message", message);
+        m.addAttribute("msguserok", msguserok);
         return "/userok";
     }//end userok
 
-    @RequestMapping("/updateok.ing")
-    public String updateok(MemberVO vo){
+        @RequestMapping("/updateok.ing")
+        public String updateok(MemberVO vo, Model m){
+            System.out.println("회원정보수정 완료페이지~~");
+            int result = memberService.memberupdate(vo);
 
-        memberService.memberupdate(vo);
+            String msgupdate = vo.getName() + " 님 회원정보가 수정되엇습니다~~~~";
+            if (result > 0) {
+                msgupdate= vo.getName() + " 님 회원정보가 수정되엇습니다~~~~다시 로그인해주세요~~~~";
+            } else {
+                msgupdate= vo.getName() + " 님 회원정보가 수정되지 않앗습니다. 다시 시도해주세요.";
+            }
+            m.addAttribute("msgupdate", msgupdate);
+        return "/updateok";
 
-        System.out.println("회원정보수정 완료페이지~~");
-        return "/hello";
-
-    }//end  회원정보수정
+}//end  회원정보수정
 
 
     @RequestMapping("/memberlogin.ing")
@@ -86,7 +92,7 @@ public class MemberController {
 
         if (result == null) {
             System.out.println("로그인실패~~~~~");
-            return "/login";
+            return "/memberlogin";
 
         } else {
             System.out.println("로그인성공~~~~~~");
@@ -105,5 +111,10 @@ public class MemberController {
         }
     }//end memberlogin
 
+    @RequestMapping("/orderlist.ing")
+    public String orderlist(MemberVO vo){
+        System.out.println("주문확인페이지입니다.");
+        return "/orderlist";
+    }
 
 }//end MemberController

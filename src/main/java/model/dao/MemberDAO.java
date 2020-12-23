@@ -8,5 +8,5 @@ public interface MemberDAO {
 
     MemberVO memberlogin(MemberVO vo);
 
-    void memberupdate(MemberVO vo);
+    int memberupdate(MemberVO vo);
 }
