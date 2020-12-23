@@ -3,14 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="member" type="model.vo.MemberVO" />
+		<typeAlias alias="nomember" type="model.vo.NonMemberVO" />
 		<typeAlias alias="book" type="model.vo.BookVO"/>
 		<typeAlias alias="publisher" type="model.vo.PublisherVO" />
 		<typeAlias alias="cart" type="model.vo.ShoppingCartVO" />
 	</typeAliases>
 
 </configuration>
+
 

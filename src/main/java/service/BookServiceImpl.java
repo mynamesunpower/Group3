@@ -6,7 +6,9 @@ import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -17,8 +19,21 @@ public class BookServiceImpl implements BookService {
     //도서등록
     @Override
     public void insertBook(BookVO vo) {
-
+        vo.setKeyword(vo.getGenre() + ", " +makeKeyword(vo.getTitle()));
         bookdao.insertBook(vo);
+    }
+
+    // 키워드 추출하는 메소드 (제목에서)
+    public String makeKeyword(String title) {
+        String keyword = "";
+        int length = 0;
+        for(String key : title.split(" ")) {
+            if (key.length() > length) {
+                keyword = key;
+                length = key.length();
+            }
+        }
+        return keyword;
     }
 
     //선택한 책 정보 불러오기
@@ -46,5 +61,11 @@ public class BookServiceImpl implements BookService {
     public List<BookVO> bookList(BookVO vo) {
 
         return bookdao.bookList(vo);
+    }
+
+    @Override
+    public List<BookVO> searchBook(Map map) {
+
+        return bookdao.searchBook(map);
     }
 }

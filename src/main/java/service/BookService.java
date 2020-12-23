@@ -2,7 +2,9 @@ package service;
 
 import model.vo.BookVO;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface BookService {
 
@@ -12,4 +14,6 @@ public interface BookService {
 
     BookVO selectBook(BookVO vo);
     List<BookVO> bookList(BookVO vo);
+
+    List<BookVO> searchBook(Map map);
 }

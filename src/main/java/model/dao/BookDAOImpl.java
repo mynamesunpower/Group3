@@ -5,7 +5,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import org.apache.log4j.Logger;
 
 @Repository
 public class BookDAOImpl implements BookDAO {
@@ -50,5 +53,10 @@ public class BookDAOImpl implements BookDAO {
     public List<BookVO> bookList(BookVO vo) {
         System.out.println("===> Mybatis bookList() 호출");
         return mybatis.selectList("BookMapper.bookList", vo);
+    }
+
+    @Override
+    public List<BookVO> searchBook(Map map) {
+        return mybatis.selectList("BookMapper.searchBook",map);
     }
 }

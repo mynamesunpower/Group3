@@ -28,7 +28,33 @@ body {
 
 #header {
     border-bottom: 1px solid black;
+    z-index: 2;
 }
 
+#searchBox {
+    display: none;
+    position: relative;
+    top: -10vh;
+    z-index: 100;
+}
+
+i#searchIcon {
+    line-height: 0;
+}
+
+
+input#memberButton {
+    position: relative;
+    background: url("../imgs/ui/group-profile-users.png") no-repeat;
+    left: 900px;
+    display: inline-block;
+    margin-right: 10px;
+    border: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+
+
+}
 
 

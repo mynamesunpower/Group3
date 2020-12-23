@@ -9,10 +9,7 @@ public class HelloController {
     @RequestMapping("/start.ing")
     public String test() {
         System.out.println("start");
-
-       return "hello";
+        System.out.println("로그인페이지로 이동");
+        return "hello";
     }
-
-
-
 }

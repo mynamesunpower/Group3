@@ -4,5 +4,9 @@ import model.vo.MemberVO;
 
 public interface MemberDAO {
 
-    public MemberVO login(MemberVO memberVO);
+    int memberInsert(MemberVO vo);
+
+    MemberVO memberlogin(MemberVO vo);
+
+    void memberupdate(MemberVO vo);
 }

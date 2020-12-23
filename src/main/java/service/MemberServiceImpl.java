@@ -1,20 +1,30 @@
 package service;
 
-import model.dao.MemberDAO;
+import model.dao.MemberDAOImpl;
 import model.vo.MemberVO;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
 
-    @Autowired
-    MemberDAO memberDAO;
+@Autowired
+private MemberDAOImpl memberDao;
 
-    @Override
-    public MemberVO login(MemberVO memberVO) {
+        @Override
+        public int memberInsert(MemberVO vo) {
 
-        return memberDAO.login(memberVO);
-    }
+                return memberDao.memberInsert(vo);
+        }
+
+        @Override
+        public MemberVO memberlogin(MemberVO vo) {
+                return memberDao.memberlogin(vo);
+        }
+        @Override
+        public void memberupdate(MemberVO vo){
+                memberDao.memberlogin(vo);
+         }
+
+
 }

@@ -4,11 +4,14 @@ import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import service.BookServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 @Controller
 public class BookController {
@@ -20,6 +23,33 @@ public class BookController {
     public String showBook(HttpServletRequest request, Model model) {
         model.addAttribute("isbn", request.getParameter("isbn"));   // 선택한 책에 맞는 isbn 넘겨줌
         return "showBook";
+    }
+
+    @RequestMapping("/searchBook.ing")
+    public String searchBook(String keyword,
+                             @RequestParam(defaultValue = "false") String sbox, Model model) {
+
+        HashMap<String, List<String>> map = new HashMap<>();
+
+        List<String> list = new ArrayList<>();
+        list.add(keyword);
+
+        if (sbox != null) {
+            String[] array = sbox.split(",");
+            System.out.println("list: " + list);
+            for(String s : array) {
+                list.add(s);
+            }
+            System.out.println("list: " + list);
+        }
+        map.put("list", list);
+
+        List<BookVO> bookList = bookService.searchBook(map);
+        for (BookVO vo : bookList) {
+            System.out.println(vo.getTitle());
+        }
+        model.addAttribute("bookList", bookList);
+        return "book/bookList";
     }
 
     //페이지 넘김
