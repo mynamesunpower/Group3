@@ -43,9 +43,18 @@ i#searchIcon {
 }
 
 
+input#memberButton {
+    position: relative;
+    background: url("../imgs/ui/group-profile-users.png") no-repeat;
+    left: 900px;
+    display: inline-block;
+    margin-right: 10px;
+    border: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
 
 
-
-
+}
 
 
