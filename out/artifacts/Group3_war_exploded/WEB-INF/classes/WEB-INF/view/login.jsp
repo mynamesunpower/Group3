@@ -35,7 +35,7 @@
 
                     <input type="button" id="memsearchid" name="memsearchid" value="아이디찾기">
                     <input type="button" id="memsearchpass" name="memsearchpass" value="비밀번호찾기"><br/><br/>
-                    <input type="button" id="memjoin" name="memjoin" value="회원가입"/>
+                    <input type="button" id="memjoin" class="memjoin" name="memjoin" value="회원가입"/>
                 </div><!-- 회원로그인 탭 -->
 
 

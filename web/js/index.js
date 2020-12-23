@@ -7,6 +7,7 @@ $(document).ready(function(){
    $('.tooltipped').tooltip();
    $('select').formSelect();
    $('#dropdownbox').dropdown();
+   $('#dropdownbox2').dropdown();
 
    //$('.carousel').carousel();
 

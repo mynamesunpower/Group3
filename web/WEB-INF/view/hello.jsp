@@ -17,14 +17,11 @@
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script src="../../js/index.js" type="text/javascript"></script>
     <script type="text/javascript">
+
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.carousel');
             var instances = M.Carousel.init(elems);
         });
-
-/*        function mypage_check(){
-            var memberName = '';*/
-
     </script>
 </head>
 
@@ -46,7 +43,7 @@
     <div class="col s1 m1 l1"></div>
     <div class="col s4 m2 l2">
         <h5>
-            <a class="loadAjax btn-flat tooltipped" href="/cart/cartList.ing" data-position="bottom" data-tooltip="장바구니">
+            <a id="shoppingCart" class="loadAjax btn-flat tooltipped" href="/cart/cartList.ing" data-position="bottom" data-tooltip="장바구니">
                 <i class="material-icons black-text">shopping_cart</i>
             </a>
             <a id="search" class="btn-flat tooltipped" data-position="bottom" data-tooltip="통합 검색">
@@ -54,9 +51,18 @@
             </a>
             <c:choose>
                 <c:when test="${sessionScope.memberName eq null}">
-                    <a class="loadAjax btn-flat tooltipped" href="login.ing" data-position="bottom" data-tooltip="로그인">
+                    <a id="dropdownbox2" class="dropdown-trigger btn-flat" data-target="dropdown2">
+                        <i class="material-icons black-text">account_box</i> </a>
+
+                    <ul id="dropdown2" class="dropdown-content">
+                        <li><a class="loadAjax" href="/login.ing">로그인</a></li>
+                        <li class="divider"></li>
+                        <li><a class="loadAjax" href="/memberjoin.ing">회원가입</a></li>
+                    </ul>
+
+                    <%--<a class="loadAjax btn-flat tooltipped" href="login.ing" data-position="bottom" data-tooltip="로그인">
                         <i class="material-icons black-text">account_box</i>
-                    </a>
+                    </a>--%>
                 </c:when>
                 <c:when test="${sessionScope.memberName ne null}">
                     <!-- Dropdown Trigger -->
@@ -66,13 +72,13 @@
                     <!-- Dropdown Structure -->
                     <ul id='dropdown1' class='dropdown-content'>
                         <li><a href="#!" class="blue-text">
-                            <a href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
+                            <a class="loadAjax" href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
                         </a></li>
                         <li class="divider"></li>
                         <li><a href="#!" class="blue-text">주문목록확인</a></li>
                         <li class="divider"></li>
                         <li><a href="#!" class="blue-text">
-                            <a href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
+                            <a class="loadAjax" href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
                         </a></li>
                     </ul>
                     <%--<input type="button" id="mypage" name="mypage" value="MYPAGE" onclick="location.href='/mypage.ing'">--%>
