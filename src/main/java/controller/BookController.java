@@ -74,7 +74,7 @@ public class BookController {
         System.out.println("insertBook_success.ing 요청");
         System.out.println(vo.getPublicationDate());
         bookService.insertBook(vo);
-        return "book/bookList";
+        return "start.ing";
     }
 
     //도서 삭제하기

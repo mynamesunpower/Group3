@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booktrain.ing - 나만의 작은 공부 서점</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="shortcut icon" href="../../imgs/favicon.ico">
@@ -15,16 +14,17 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
-    <script src="../../js/index.js" type="text/javascript"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script src="../../js/index.js" type="text/javascript"></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.carousel');
             var instances = M.Carousel.init(elems);
         });
+
+/*        function mypage_check(){
+            var memberName = '';*/
+
     </script>
 </head>
 
@@ -52,9 +52,33 @@
             <a id="search" class="btn-flat tooltipped" data-position="bottom" data-tooltip="통합 검색">
                 <i class="material-icons black-text">search</i>
             </a>
-            <a class="loadAjax btn-flat tooltipped" href="login.ing" data-position="bottom" data-tooltip="로그인">
-                <i class="material-icons black-text">account_box</i>
-            </a>
+            <c:choose>
+                <c:when test="${sessionScope.memberName eq null}">
+                    <a class="loadAjax btn-flat tooltipped" href="login.ing" data-position="bottom" data-tooltip="로그인">
+                        <i class="material-icons black-text">account_box</i>
+                    </a>
+                </c:when>
+                <c:when test="${sessionScope.memberName ne null}">
+                    <!-- Dropdown Trigger -->
+                    <a id="dropdownbox" class='dropdown-trigger btn blue' data-target='dropdown1'>
+                            ${sessionScope.memberName}님</a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="#!" class="blue-text">
+                            <a href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
+                        </a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!" class="blue-text">주문목록확인</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!" class="blue-text">
+                            <a href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
+                        </a></li>
+                    </ul>
+                    <%--<input type="button" id="mypage" name="mypage" value="MYPAGE" onclick="location.href='/mypage.ing'">--%>
+                    <%--<input type="button" id="logout" name="logout" value="로그아웃" onclick="location.href='/logout.ing'">--%>
+                </c:when>
+            </c:choose>
         </h5>
     </div>
 </div>
@@ -126,36 +150,6 @@
     <div class="container">
         <div class="row center-align">
             <div id="content" class="col s12">
-                <c:choose>
-                    <c:when test="${sessionScope.memberName eq null}">
-                        <span class="button">
-                            <input type="button" id="memberButton" onclick="location.href='/login.ing'"/>
-                        </span>
-                    </c:when>
-                    <c:when test="${sessionScope.memberName ne null}">
-
-                        <div>
-                            <!-- Dropdown Trigger -->
-                            <a class='dropdown-trigger btn blue' href='#' data-activates='dropdown1' id="dropdownbox">
-                                    ${sessionScope.memberName}님</a>
-
-                            <!-- Dropdown Structure -->
-                            <ul id='dropdown1' class='dropdown-content'>
-                                <li><a href="#!" class="blue-text">
-                                    <a href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
-                                </a></li>
-                                <li class="divider"></li>
-                                <li><a href="#!" class="blue-text">주문목록확인</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#!" class="blue-text">
-                                    <a href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
-                                </a></li>
-                            </ul>
-                        </div>
-                        <%--<input type="button" id="mypage" name="mypage" value="MYPAGE" onclick="location.href='/mypage.ing'">--%>
-                        <%--<input type="button" id="logout" name="logout" value="로그아웃" onclick="location.href='/logout.ing'">--%>
-                    </c:when>
-                </c:choose>
                 <div class="row">
                     <div class="col s6 offset-s3">
                         <div class="carousel">

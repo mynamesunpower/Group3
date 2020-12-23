@@ -3,10 +3,11 @@ $(document).ready(function(){
    $('.sidenav').sidenav();
    $('.collapsible').collapsible();
    //$('.dropdown-trigger').dropdown();
-   $('#dropdown1').dropdown();
+   //$('#dropdown1').dropdown();
    $('.tooltipped').tooltip();
    $('select').formSelect();
-   $('.tabs').tabs();
+   $('#dropdownbox').dropdown();
+
    //$('.carousel').carousel();
 
    //$(document).on('click', '#insertPublisher', asyncMovePage("publisher/insertPublisher.ing"));
