@@ -95,6 +95,8 @@ input#searchButton {
     cursor: pointer;
 }
 
+
+
 input#memberButton {
     position: relative;
     background: url("../imgs/ui/group-profile-users.png") no-repeat;
@@ -105,4 +107,7 @@ input#memberButton {
     width: 32px;
     height: 32px;
     cursor: pointer;
+
+
 }
+

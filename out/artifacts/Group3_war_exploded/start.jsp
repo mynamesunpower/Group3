@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body>
-<a href="/start.ing">start.jsp</a>s
+<a href="/start.ing">start.jsp</a>
+
 </body>
 </html>

@@ -20,6 +20,8 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: aspectj:aspectjrt:1.5.3" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="Group3/web/Web" />

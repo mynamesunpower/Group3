@@ -4,16 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+	<!--  출처: https://yamea-guide.tistory.com/entry/MyBatis-Oracle-
+부적합한-열유형-null-처리-방법-jdbcTypeVARCHAR-안쓰기 [기타치는 개발자의 야매 가이드] -->
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="board" type="model.vo.ShoppingCartVO" />
 
 
-		<typeAlias alias="member" type="model.vo.NoMemberVO" />
-		<typeAlias alias="nomember" type="model.vo.MemberVO" />
+		<typeAlias alias="nomember" type="model.vo.NonMemberVO" />
+		<typeAlias alias="member" type="model.vo.MemberVO" />
 
 	</typeAliases>
-
 
 
 		</configuration>
