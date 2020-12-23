@@ -10,7 +10,7 @@
     </insert>
 
     <!--도서 리스트-->
-    <select id="bookList" resultType="book">
+    <select id="bookList" resultMap="getBook">
         	<![CDATA[
 		SELECT * FROM book ORDER BY ISBN DESC
 		]]>
@@ -37,21 +37,21 @@
         ]]>
     </update>
 
-    <select id="searchBook" parameterType="list" resultMap="getBook">
-        <bind name="keyword" value="#{list}.get(0)"/>
+    <select id="searchBook" parameterType="hashmap" resultMap="getBook">
         SELECT * FROM BOOK
         <where>
             <choose>
-                <when test="list.size > 1">
-                    #{keyword} in
-                    <foreach collection="list" item="item" index="#{index}+1" open="(" separator="," close=")">
-                        #{item}
-                    </foreach>
+                <when test="sbox == null">
+                    title like #{keyword} or
+                    author like #{keyword} or
+                    genre like #{keyword} or
+                    keyword like #{keyword}
                 </when>
                 <otherwise>
-                    #{keyword} in (TITLE, AUTHOR, GENRE, KEYWORD)
+                    #{sbox} like #{keyword}
                 </otherwise>
             </choose>
+
         </where>
     </select>
 

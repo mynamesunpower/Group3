@@ -27,27 +27,29 @@ public class BookController {
 
     @RequestMapping("/searchBook.ing")
     public String searchBook(String keyword,
-                             @RequestParam(defaultValue = "false") String sbox, Model model) {
+                             @RequestParam(defaultValue = "false") String sbox,
+                             Model model) {
 
-        HashMap<String, List<String>> map = new HashMap<>();
+        HashMap map = new HashMap<>();
 
-        List<String> list = new ArrayList<>();
-        list.add(keyword);
+        map.put("keyword", keyword);
 
-        if (sbox != null) {
-            String[] array = sbox.split(",");
-            System.out.println("list: " + list);
-            for(String s : array) {
-                list.add(s);
-            }
-            System.out.println("list: " + list);
+        System.out.println(sbox + " , " + keyword);
+
+        if (!sbox.equals("false")) {
+            System.out.println("sbox sbox");
+            map.put("sbox", sbox);
         }
-        map.put("list", list);
+        else {
+            System.out.println("sbox null");
+            map.put("sbox", null);
+        }
 
         List<BookVO> bookList = bookService.searchBook(map);
-        for (BookVO vo : bookList) {
-            System.out.println(vo.getTitle());
-        }
+        System.out.println(bookList.size());
+
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("result", "1");
         model.addAttribute("bookList", bookList);
         return "book/bookList";
     }

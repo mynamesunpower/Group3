@@ -101,7 +101,7 @@ public class MemberController {
             session.setAttribute("memberAddr3", result.getAddr3());
             session.setAttribute("memberGrade", result.getGrade());
             session.setAttribute("memberPoint", result.getPoint());
-            return "/hello";
+            return "redirect:/hello.ing";
         }
     }//end memberlogin
 

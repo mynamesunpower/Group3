@@ -13,15 +13,21 @@
     <link rel="stylesheet" type="text/css" href="../../css/common.css">
     <link rel="stylesheet" type="text/css" href="../../css/slide.css">
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
     <script src="../../js/index.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="../../js/hello.js" type="javascript"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.carousel');
+            var instances = M.Carousel.init(elems);
+        });
+    </script>
 </head>
+
 <body>
 
 <div id="header" class="row center-align">
@@ -34,7 +40,7 @@
     <div class="col s1 m1 l1"></div>
     <div class="col s1 m1 l1"></div>
     <div class="col s4 m4 l4">
-            <a id="title" href="" class="black-text"><h5>Booktrain.ing</h5></a>
+            <a id="title" href="/start.ing" class="black-text"><h5>Booktrain.ing</h5></a>
     </div>
     <div class="col s1 m1 l1"></div>
     <div class="col s1 m1 l1"></div>
@@ -46,7 +52,7 @@
             <a id="search" class="btn-flat tooltipped" data-position="bottom" data-tooltip="통합 검색">
                 <i class="material-icons black-text">search</i>
             </a>
-            <a class="loadAjax btn-flat tooltipped" href="login.ing" data-position="bottom" data-tooltip="통합 검색">
+            <a class="loadAjax btn-flat tooltipped" href="login.ing" data-position="bottom" data-tooltip="로그인">
                 <i class="material-icons black-text">account_box</i>
             </a>
         </h5>
@@ -67,9 +73,10 @@
                 <div class="row"></div>
                 <div class="row">
                     <div class="input-field col s3 offset-s1">
-                        <select multiple name="sbox" id="sbox">
-                            <option value="title" >제목</option>
-                            <option value="author" >작가명</option>
+                        <select name="sbox" id="sbox">
+                            <option value="" disabled selected></option>
+                            <option value="title">제목</option>
+                            <option value="author">작가</option>
                             <option value="genre">장르</option>
                             <option value="keyword">키워드</option>
                         </select>
@@ -87,7 +94,7 @@
     </form>
 </div>
 
-    <ul id="slide-out" class="sidenav">
+    <ul id="slide-out" class="sidenav manager">
         <li class="no-padding">
             <ul class="collapsible expandable">
                 <li>
@@ -115,77 +122,55 @@
             </ul>
         </li>
     </ul>
+
     <div class="container">
-    <div class="row center-align">
-        <div id="content" class="col s12">
-            <c:choose>
-                <c:when test="${sessionScope.name eq null}">
-                    <span class="button">
-                        <input type="button" id="memberButton" onclick="location.href='/login.ing'"/>
-                    </span>
-                </c:when>
-                <c:when test="${sessionScope.name ne null}">
+        <div class="row center-align">
+            <div id="content" class="col s12">
+                <c:choose>
+                    <c:when test="${sessionScope.memberName eq null}">
+                        <span class="button">
+                            <input type="button" id="memberButton" onclick="location.href='/login.ing'"/>
+                        </span>
+                    </c:when>
+                    <c:when test="${sessionScope.memberName ne null}">
 
-                    <div>
-                        <!-- Dropdown Trigger -->
-                        <a class='dropdown-button btn blue' href='#' data-activates='dropdown1' id="dropdownbox">
-                                ${sessionScope.name}님</a>
+                        <div>
+                            <!-- Dropdown Trigger -->
+                            <a class='dropdown-trigger btn blue' href='#' data-activates='dropdown1' id="dropdownbox">
+                                    ${sessionScope.memberName}님</a>
 
-                        <!-- Dropdown Structure -->
-                        <ul id='dropdown1' class='dropdown-content'>
-                            <li><a href="#!" class="blue-text">
-                                <a href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
-                            </a></li>
-                            <li class="divider"></li>
-                            <li><a href="#!" class="blue-text">주문목록확인</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#!" class="blue-text">
-                                <a href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
-                            </a></li>
-                        </ul>
-                    </div>
-                    <%--<input type="button" id="mypage" name="mypage" value="MYPAGE" onclick="location.href='/mypage.ing'">--%>
-                    <%--<input type="button" id="logout" name="logout" value="로그아웃" onclick="location.href='/logout.ing'">--%>
-                </c:when>
-            </c:choose>
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- 슬라이더 순서 -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-
-                <!-- 슬라이더 이미지 부분-->
-                <div class="carousel-inner">
-
-                    <div class="item active">
-                        <img class="d-block" src="../../imgs/book/s1.png" alt="book1" style="width:100% ;">
-                        <div class="carousel-caption">
-                            <h3>Book1</h3>
-                            <p>감사합니다! Book1</p>
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown1' class='dropdown-content'>
+                                <li><a href="#!" class="blue-text">
+                                    <a href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
+                                </a></li>
+                                <li class="divider"></li>
+                                <li><a href="#!" class="blue-text">주문목록확인</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#!" class="blue-text">
+                                    <a href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
+                                </a></li>
+                            </ul>
+                        </div>
+                        <%--<input type="button" id="mypage" name="mypage" value="MYPAGE" onclick="location.href='/mypage.ing'">--%>
+                        <%--<input type="button" id="logout" name="logout" value="로그아웃" onclick="location.href='/logout.ing'">--%>
+                    </c:when>
+                </c:choose>
+                <div class="row">
+                    <div class="col s6 offset-s3">
+                        <div class="carousel">
+                            <h5>새로 들어온 책</h5>
+                            <a class="carousel-item" href="#one!"><img src="../../imgs/book/s1.png">book1</a>
+                            <a class="carousel-item" href="#two!"><img src="../../imgs/book/s2.png">book2</a>
+                            <a class="carousel-item" href="#three!"><img src="../../imgs/book/s3.png"></a>
+                            <a class="carousel-item" href="#four!"><img src="../../imgs/book/s3.png"></a>
+                            <a class="carousel-item" href="#five!"><img src="../../imgs/book/s3.png"></a>
                         </div>
                     </div>
-
-                    <div class="item">
-                        <img class="d-block" src="../../imgs/book/tobySpring.png" alt="Book2" style="width:100%;">
-                        <div class="carousel-caption">
-                            <h3>Book2</h3>
-                            <p>Thank you, Book2</p>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img class="d-block" src="../../imgs/book/image.png" alt="Book3" style="width:100%;">
-                        <div class="carousel-caption">
-                            <h3>Book3</h3>
-                            <p>I LOVE Book3</p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
