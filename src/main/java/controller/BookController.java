@@ -26,13 +26,30 @@ public class BookController {
     }
 
     @RequestMapping("/searchBook.ing")
-    public String searchBook(String keyword, Model model) {
+    public String searchBook(String keyword,
+                             @RequestParam(defaultValue = "false") String sbox,
+                             Model model) {
+
         HashMap map = new HashMap<>();
+
         map.put("keyword", keyword);
-        List<BookVO> bookList = bookService.searchBook(map);
-        for (BookVO vo : bookList) {
-            System.out.println(vo.getTitle());
+
+        System.out.println(sbox + " , " + keyword);
+
+        if (!sbox.equals("false")) {
+            System.out.println("sbox sbox");
+            map.put("sbox", sbox);
         }
+        else {
+            System.out.println("sbox null");
+            map.put("sbox", null);
+        }
+
+        List<BookVO> bookList = bookService.searchBook(map);
+        System.out.println(bookList.size());
+
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("result", "1");
         model.addAttribute("bookList", bookList);
         return "book/bookList";
     }
@@ -57,7 +74,7 @@ public class BookController {
         System.out.println("insertBook_success.ing 요청");
         System.out.println(vo.getPublicationDate());
         bookService.insertBook(vo);
-        return "book/bookList";
+        return "start.ing";
     }
 
     //도서 삭제하기

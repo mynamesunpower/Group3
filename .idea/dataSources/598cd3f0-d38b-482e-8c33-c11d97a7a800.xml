@@ -88,8 +88,8 @@
     <schema id="28" parent="1" name="SCOTT">
       <ObjectId>92</ObjectId>
       <CreatedTimestamp>2020-12-23.19:03:40</CreatedTimestamp>
-      <ModifiedTimestamp>2020-12-23.19:05:19</ModifiedTimestamp>
-      <IntrospectionTimestamp>2020-12-23.21:36:19</IntrospectionTimestamp>
+      <ModifiedTimestamp>2020-12-24.04:17:26</ModifiedTimestamp>
+      <IntrospectionTimestamp>2020-12-24.04:17:27</IntrospectionTimestamp>
       <Current>1</Current>
     </schema>
     <schema id="29" parent="1" name="SH">
@@ -34134,7 +34134,7 @@
     <table id="4898" parent="28" name="BOOK">
       <ObjectId>75682</ObjectId>
       <CreatedTimestamp>2020-12-23.19:04:05</CreatedTimestamp>
-      <ModifiedTimestamp>2020-12-23.19:04:05</ModifiedTimestamp>
+      <ModifiedTimestamp>2020-12-24.04:17:26</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="4899" parent="28" name="CUSTOMER_SERVICE">
@@ -34250,7 +34250,11 @@
       <Position>11</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <index id="4920" parent="4898" name="SYS_C0011517">
+    <column id="4920" parent="4898" name="IMAGE_URL">
+      <Position>12</Position>
+      <DataType>VARCHAR2(100 byte)|0s</DataType>
+    </column>
+    <index id="4921" parent="4898" name="SYS_C0011517">
       <ObjectId>75683</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-12-23.19:04:05</CreatedTimestamp>
@@ -34259,7 +34263,7 @@
       <ColNames>ISBN</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4921" parent="4898" name="SYS_C0011517">
+    <key id="4922" parent="4898" name="SYS_C0011517">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2020-12-23.19:04:05</ModifiedTimestamp>
       <ColNames>ISBN</ColNames>
@@ -34267,7 +34271,7 @@
       <UnderlyingIndexName>SYS_C0011517</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="4922" parent="4898" name="BOOK_FK_PUBLISHER_NUMBER">
+    <foreign-key id="4923" parent="4898" name="BOOK_FK_PUBLISHER_NUMBER">
       <ModifiedTimestamp>2020-12-23.19:04:05</ModifiedTimestamp>
       <ColNames>PUBLISHER_NUMBER</ColNames>
       <RefSchemaName>SCOTT</RefSchemaName>
@@ -34275,23 +34279,23 @@
       <RefKeyName>SYS_C0011508</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="4923" parent="4899" name="WRITING_TIME">
+    <column id="4924" parent="4899" name="WRITING_TIME">
       <Position>1</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="4924" parent="4899" name="CONTENT">
+    <column id="4925" parent="4899" name="CONTENT">
       <Position>2</Position>
       <DataType>VARCHAR2(300 byte)|0s</DataType>
     </column>
-    <column id="4925" parent="4899" name="TEL">
+    <column id="4926" parent="4899" name="TEL">
       <Position>3</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
     </column>
-    <column id="4926" parent="4899" name="ID">
+    <column id="4927" parent="4899" name="ID">
       <Position>4</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
     </column>
-    <foreign-key id="4927" parent="4899" name="CUSTOMER_SERVICE_FK_TEL">
+    <foreign-key id="4928" parent="4899" name="CUSTOMER_SERVICE_FK_TEL">
       <ModifiedTimestamp>2020-12-23.19:05:19</ModifiedTimestamp>
       <ColNames>TEL</ColNames>
       <RefSchemaName>SCOTT</RefSchemaName>
@@ -34299,7 +34303,7 @@
       <RefKeyName>SYS_C0011528</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="4928" parent="4899" name="CUSTOMER_SERVICE_FK_ID">
+    <foreign-key id="4929" parent="4899" name="CUSTOMER_SERVICE_FK_ID">
       <ModifiedTimestamp>2020-12-23.19:05:19</ModifiedTimestamp>
       <ColNames>ID</ColNames>
       <RefSchemaName>SCOTT</RefSchemaName>
@@ -34307,17 +34311,17 @@
       <RefKeyName>SYS_C0011504</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="4929" parent="4900" name="ID">
+    <column id="4930" parent="4900" name="ID">
       <Position>1</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4930" parent="4900" name="PASSWORD">
+    <column id="4931" parent="4900" name="PASSWORD">
       <Position>2</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="4931" parent="4900" name="SYS_C0011504">
+    <index id="4932" parent="4900" name="SYS_C0011504">
       <ObjectId>75678</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-12-23.19:03:40</CreatedTimestamp>
@@ -34326,7 +34330,7 @@
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4932" parent="4900" name="SYS_C0011504">
+    <key id="4933" parent="4900" name="SYS_C0011504">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2020-12-23.19:03:40</ModifiedTimestamp>
       <ColNames>ID</ColNames>
@@ -34334,71 +34338,71 @@
       <UnderlyingIndexName>SYS_C0011504</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="4933" parent="4901" name="TEL">
+    <column id="4934" parent="4901" name="TEL">
       <Position>1</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4934" parent="4901" name="NAME">
+    <column id="4935" parent="4901" name="NAME">
       <Position>2</Position>
       <DataType>VARCHAR2(10 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4935" parent="4901" name="ID">
+    <column id="4936" parent="4901" name="ID">
       <Position>3</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4936" parent="4901" name="JUMIN1">
+    <column id="4937" parent="4901" name="JUMIN1">
       <Position>4</Position>
       <DataType>VARCHAR2(6 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4937" parent="4901" name="JUMIN2">
+    <column id="4938" parent="4901" name="JUMIN2">
       <Position>5</Position>
       <DataType>VARCHAR2(7 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4938" parent="4901" name="EMAIL">
+    <column id="4939" parent="4901" name="EMAIL">
       <Position>6</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4939" parent="4901" name="DOMAIN">
+    <column id="4940" parent="4901" name="DOMAIN">
       <Position>7</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4940" parent="4901" name="PASSWORD">
+    <column id="4941" parent="4901" name="PASSWORD">
       <Position>8</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4941" parent="4901" name="ADDR1">
+    <column id="4942" parent="4901" name="ADDR1">
       <Position>9</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4942" parent="4901" name="ADDR2">
+    <column id="4943" parent="4901" name="ADDR2">
       <Position>10</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4943" parent="4901" name="ADDR3">
+    <column id="4944" parent="4901" name="ADDR3">
       <Position>11</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <column id="4944" parent="4901" name="GRADE">
+    <column id="4945" parent="4901" name="GRADE">
       <Position>12</Position>
       <DataType>VARCHAR2(10 byte)|0s</DataType>
       <DefaultExpression>&apos;일반&apos;</DefaultExpression>
     </column>
-    <column id="4945" parent="4901" name="POINT">
+    <column id="4946" parent="4901" name="POINT">
       <Position>13</Position>
       <DataType>NUMBER(10 digit)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <index id="4946" parent="4901" name="SYS_C0011528">
+    <index id="4947" parent="4901" name="SYS_C0011528">
       <ObjectId>75685</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-12-23.19:04:12</CreatedTimestamp>
@@ -34407,7 +34411,7 @@
       <ColNames>TEL</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="4947" parent="4901" name="SYS_C0011529">
+    <index id="4948" parent="4901" name="SYS_C0011529">
       <ObjectId>75686</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-12-23.19:04:12</CreatedTimestamp>
@@ -34416,7 +34420,7 @@
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="4948" parent="4901" name="SYS_C0011530">
+    <index id="4949" parent="4901" name="SYS_C0011530">
       <ObjectId>75687</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-12-23.19:04:12</CreatedTimestamp>
@@ -34425,7 +34429,7 @@
       <ColNames>JUMIN2</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="4949" parent="4901" name="SYS_C0011531">
+    <index id="4950" parent="4901" name="SYS_C0011531">
       <ObjectId>75688</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-12-23.19:04:12</CreatedTimestamp>
@@ -34434,7 +34438,7 @@
       <ColNames>EMAIL</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4950" parent="4901" name="SYS_C0011528">
+    <key id="4951" parent="4901" name="SYS_C0011528">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2020-12-23.19:04:12</ModifiedTimestamp>
       <ColNames>TEL</ColNames>
@@ -34442,67 +34446,67 @@
       <UnderlyingIndexName>SYS_C0011528</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="4951" parent="4901" name="SYS_C0011529">
+    <key id="4952" parent="4901" name="SYS_C0011529">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2020-12-23.19:04:12</ModifiedTimestamp>
       <ColNames>ID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>SYS_C0011529</UnderlyingIndexName>
     </key>
-    <key id="4952" parent="4901" name="SYS_C0011530">
+    <key id="4953" parent="4901" name="SYS_C0011530">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2020-12-23.19:04:12</ModifiedTimestamp>
       <ColNames>JUMIN2</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>SYS_C0011530</UnderlyingIndexName>
     </key>
-    <key id="4953" parent="4901" name="SYS_C0011531">
+    <key id="4954" parent="4901" name="SYS_C0011531">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2020-12-23.19:04:12</ModifiedTimestamp>
       <ColNames>EMAIL</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>SYS_C0011531</UnderlyingIndexName>
     </key>
-    <column id="4954" parent="4902" name="TEL">
+    <column id="4955" parent="4902" name="TEL">
       <Position>1</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4955" parent="4902" name="NAME">
+    <column id="4956" parent="4902" name="NAME">
       <Position>2</Position>
       <DataType>VARCHAR2(10 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4956" parent="4902" name="EMAIL">
+    <column id="4957" parent="4902" name="EMAIL">
       <Position>3</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4957" parent="4902" name="DOMAIN">
+    <column id="4958" parent="4902" name="DOMAIN">
       <Position>4</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4958" parent="4902" name="ADDR1">
+    <column id="4959" parent="4902" name="ADDR1">
       <Position>5</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4959" parent="4902" name="ADDR2">
+    <column id="4960" parent="4902" name="ADDR2">
       <Position>6</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4960" parent="4902" name="ADDR3">
+    <column id="4961" parent="4902" name="ADDR3">
       <Position>7</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <column id="4961" parent="4902" name="PASSWORD">
+    <column id="4962" parent="4902" name="PASSWORD">
       <Position>8</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="4962" parent="4902" name="SYS_C0011538">
+    <index id="4963" parent="4902" name="SYS_C0011538">
       <ObjectId>75690</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-12-23.19:04:12</CreatedTimestamp>
@@ -34511,7 +34515,7 @@
       <ColNames>TEL</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="4963" parent="4902" name="SYS_C0011539">
+    <index id="4964" parent="4902" name="SYS_C0011539">
       <ObjectId>75691</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-12-23.19:04:12</CreatedTimestamp>
@@ -34520,7 +34524,7 @@
       <ColNames>EMAIL</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4964" parent="4902" name="SYS_C0011538">
+    <key id="4965" parent="4902" name="SYS_C0011538">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2020-12-23.19:04:12</ModifiedTimestamp>
       <ColNames>TEL</ColNames>
@@ -34528,28 +34532,28 @@
       <UnderlyingIndexName>SYS_C0011538</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="4965" parent="4902" name="SYS_C0011539">
+    <key id="4966" parent="4902" name="SYS_C0011539">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2020-12-23.19:04:12</ModifiedTimestamp>
       <ColNames>EMAIL</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>SYS_C0011539</UnderlyingIndexName>
     </key>
-    <column id="4966" parent="4903" name="ORDER_NUMBER">
+    <column id="4967" parent="4903" name="ORDER_NUMBER">
       <Position>1</Position>
       <DataType>NUMBER(10 digit)|0s</DataType>
     </column>
-    <column id="4967" parent="4903" name="PAYMENT_METHOD">
+    <column id="4968" parent="4903" name="PAYMENT_METHOD">
       <Position>2</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4968" parent="4903" name="PAYMENT_STATE">
+    <column id="4969" parent="4903" name="PAYMENT_STATE">
       <Position>3</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <foreign-key id="4969" parent="4903" name="PAYMENT_FK_ORDER_NUMBER">
+    <foreign-key id="4970" parent="4903" name="PAYMENT_FK_ORDER_NUMBER">
       <ModifiedTimestamp>2020-12-23.19:05:11</ModifiedTimestamp>
       <ColNames>ORDER_NUMBER</ColNames>
       <RefSchemaName>SCOTT</RefSchemaName>
@@ -34557,31 +34561,31 @@
       <RefKeyName>SYS_C0011544</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="4970" parent="4904" name="PUBLISHER_NUMBER">
+    <column id="4971" parent="4904" name="PUBLISHER_NUMBER">
       <Position>1</Position>
       <DataType>VARCHAR2(3 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4971" parent="4904" name="PUBLISHER_NAME">
+    <column id="4972" parent="4904" name="PUBLISHER_NAME">
       <Position>2</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4972" parent="4904" name="ADDRESS">
+    <column id="4973" parent="4904" name="ADDRESS">
       <Position>3</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4973" parent="4904" name="TEL">
+    <column id="4974" parent="4904" name="TEL">
       <Position>4</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4974" parent="4904" name="URL">
+    <column id="4975" parent="4904" name="URL">
       <Position>5</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <index id="4975" parent="4904" name="SYS_C0011508">
+    <index id="4976" parent="4904" name="SYS_C0011508">
       <ObjectId>75681</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-12-23.19:03:59</CreatedTimestamp>
@@ -34590,7 +34594,7 @@
       <ColNames>PUBLISHER_NUMBER</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4976" parent="4904" name="SYS_C0011508">
+    <key id="4977" parent="4904" name="SYS_C0011508">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2020-12-23.19:03:59</ModifiedTimestamp>
       <ColNames>PUBLISHER_NUMBER</ColNames>
@@ -34598,48 +34602,48 @@
       <UnderlyingIndexName>SYS_C0011508</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="4977" parent="4905" name="ORDER_NUMBER">
+    <column id="4978" parent="4905" name="ORDER_NUMBER">
       <Position>1</Position>
       <DataType>NUMBER(10 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4978" parent="4905" name="MEMBERTEL">
+    <column id="4979" parent="4905" name="MEMBERTEL">
       <Position>2</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
     </column>
-    <column id="4979" parent="4905" name="NONMEMBERTEL">
+    <column id="4980" parent="4905" name="NONMEMBERTEL">
       <Position>3</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
     </column>
-    <column id="4980" parent="4905" name="ISBN">
+    <column id="4981" parent="4905" name="ISBN">
       <Position>4</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
     </column>
-    <column id="4981" parent="4905" name="QUANTITY">
+    <column id="4982" parent="4905" name="QUANTITY">
       <Position>5</Position>
       <DataType>NUMBER(5 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4982" parent="4905" name="STATE">
+    <column id="4983" parent="4905" name="STATE">
       <Position>6</Position>
       <DataType>VARCHAR2(10 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4983" parent="4905" name="TOTAL_PRICE">
+    <column id="4984" parent="4905" name="TOTAL_PRICE">
       <Position>7</Position>
       <DataType>NUMBER(10 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4984" parent="4905" name="PURCHASE_DATE">
+    <column id="4985" parent="4905" name="PURCHASE_DATE">
       <Position>8</Position>
       <DataType>DATE|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4985" parent="4905" name="EXPECTED_DELIVERY_DATE">
+    <column id="4986" parent="4905" name="EXPECTED_DELIVERY_DATE">
       <Position>9</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <index id="4986" parent="4905" name="SYS_C0011544">
+    <index id="4987" parent="4905" name="SYS_C0011544">
       <ObjectId>75693</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-12-23.19:04:16</CreatedTimestamp>
@@ -34648,7 +34652,7 @@
       <ColNames>ORDER_NUMBER</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4987" parent="4905" name="SYS_C0011544">
+    <key id="4988" parent="4905" name="SYS_C0011544">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2020-12-23.19:04:16</ModifiedTimestamp>
       <ColNames>ORDER_NUMBER</ColNames>
@@ -34656,7 +34660,7 @@
       <UnderlyingIndexName>SYS_C0011544</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="4988" parent="4905" name="PURCHASE_FK_MEMBERTEL">
+    <foreign-key id="4989" parent="4905" name="PURCHASE_FK_MEMBERTEL">
       <ModifiedTimestamp>2020-12-23.19:04:16</ModifiedTimestamp>
       <ColNames>MEMBERTEL</ColNames>
       <RefSchemaName>SCOTT</RefSchemaName>
@@ -34664,7 +34668,7 @@
       <RefKeyName>SYS_C0011528</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="4989" parent="4905" name="PURCHASE_FK_NONMEMBERTEL">
+    <foreign-key id="4990" parent="4905" name="PURCHASE_FK_NONMEMBERTEL">
       <ModifiedTimestamp>2020-12-23.19:04:16</ModifiedTimestamp>
       <ColNames>NONMEMBERTEL</ColNames>
       <RefSchemaName>SCOTT</RefSchemaName>
@@ -34672,7 +34676,7 @@
       <RefKeyName>SYS_C0011538</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="4990" parent="4905" name="PURCHASE_FK_ISBN">
+    <foreign-key id="4991" parent="4905" name="PURCHASE_FK_ISBN">
       <ModifiedTimestamp>2020-12-23.19:04:16</ModifiedTimestamp>
       <ColNames>ISBN</ColNames>
       <RefSchemaName>SCOTT</RefSchemaName>
@@ -34680,20 +34684,20 @@
       <RefKeyName>SYS_C0011517</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="4991" parent="4906" name="ORDER_NUMBER">
+    <column id="4992" parent="4906" name="ORDER_NUMBER">
       <Position>1</Position>
       <DataType>NUMBER(10 digit)|0s</DataType>
     </column>
-    <column id="4992" parent="4906" name="WRITING_TIME">
+    <column id="4993" parent="4906" name="WRITING_TIME">
       <Position>2</Position>
       <DataType>DATE|0s</DataType>
       <DefaultExpression>sysdate</DefaultExpression>
     </column>
-    <column id="4993" parent="4906" name="CONTENT">
+    <column id="4994" parent="4906" name="CONTENT">
       <Position>3</Position>
       <DataType>VARCHAR2(500 byte)|0s</DataType>
     </column>
-    <foreign-key id="4994" parent="4906" name="REVIEW_FK_ORDER_NUMBER">
+    <foreign-key id="4995" parent="4906" name="REVIEW_FK_ORDER_NUMBER">
       <ModifiedTimestamp>2020-12-23.19:05:11</ModifiedTimestamp>
       <ColNames>ORDER_NUMBER</ColNames>
       <RefSchemaName>SCOTT</RefSchemaName>
@@ -34701,21 +34705,21 @@
       <RefKeyName>SYS_C0011544</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="4995" parent="4907" name="ORDER_NUMBER">
+    <column id="4996" parent="4907" name="ORDER_NUMBER">
       <Position>1</Position>
       <DataType>NUMBER(10 digit)|0s</DataType>
     </column>
-    <column id="4996" parent="4907" name="AMOUNT_PRICE">
+    <column id="4997" parent="4907" name="AMOUNT_PRICE">
       <Position>2</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4997" parent="4907" name="AMOUNT_QUANTITY">
+    <column id="4998" parent="4907" name="AMOUNT_QUANTITY">
       <Position>3</Position>
       <DataType>NUMBER(10 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <foreign-key id="4998" parent="4907" name="SALES_DATA_FK_ORDER_NUMBER">
+    <foreign-key id="4999" parent="4907" name="SALES_DATA_FK_ORDER_NUMBER">
       <ModifiedTimestamp>2020-12-23.19:05:11</ModifiedTimestamp>
       <ColNames>ORDER_NUMBER</ColNames>
       <RefSchemaName>SCOTT</RefSchemaName>
@@ -34723,20 +34727,20 @@
       <RefKeyName>SYS_C0011544</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="4999" parent="4908" name="TEL">
+    <column id="5000" parent="4908" name="TEL">
       <Position>1</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
     </column>
-    <column id="5000" parent="4908" name="ISBN">
+    <column id="5001" parent="4908" name="ISBN">
       <Position>2</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
     </column>
-    <column id="5001" parent="4908" name="QUANTITY">
+    <column id="5002" parent="4908" name="QUANTITY">
       <Position>3</Position>
       <DataType>NUMBER(5 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <foreign-key id="5002" parent="4908" name="SHOPPING_CART_FK_TEL">
+    <foreign-key id="5003" parent="4908" name="SHOPPING_CART_FK_TEL">
       <ModifiedTimestamp>2020-12-23.19:05:03</ModifiedTimestamp>
       <ColNames>TEL</ColNames>
       <RefSchemaName>SCOTT</RefSchemaName>
@@ -34744,7 +34748,7 @@
       <RefKeyName>SYS_C0011528</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="5003" parent="4908" name="SHOPPING_CART_FK_ISBN">
+    <foreign-key id="5004" parent="4908" name="SHOPPING_CART_FK_ISBN">
       <ModifiedTimestamp>2020-12-23.19:05:03</ModifiedTimestamp>
       <ColNames>ISBN</ColNames>
       <RefSchemaName>SCOTT</RefSchemaName>

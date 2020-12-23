@@ -19,6 +19,7 @@ public class BookVO {
     private String publicationDate;
     private String content;
     private String keyword;
+    private String imageUrl;
 
     public BookVO() {
     }
@@ -109,5 +110,13 @@ public class BookVO {
 
     public void setKeyword(String keyword) {
         this.keyword = keyword;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

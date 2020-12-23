@@ -12,8 +12,9 @@
 </head>
 <body>
 
-<H2>도서 정보 입력</H2>
+<H5>도서 정보 입력</H5>
 <HR/>
+<div class="col s8 offset-2 center-align">
 <form action="insertBook_success.ing" name="insertBook" id="insertBook">
 
 <table border="2">
@@ -74,7 +75,7 @@
 <%--<input type="submit" name="confirm" id="confirm" value="도서 등록">--%>
 </table>
 </form>
-
+</div>
 
 </body>
 </html>
