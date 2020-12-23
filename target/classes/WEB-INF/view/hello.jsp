@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
     <script src="../../js/index.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../../js/hello.js" type="javascript"></script>
 </head>
 <body>
 
@@ -116,9 +115,39 @@
             </ul>
         </li>
     </ul>
-<div class="container">
+    <div class="container">
     <div class="row center-align">
         <div id="content" class="col s12">
+            <c:choose>
+                <c:when test="${sessionScope.name eq null}">
+                    <span class="button">
+                        <input type="button" id="memberButton" onclick="location.href='/login.ing'"/>
+                    </span>
+                </c:when>
+                <c:when test="${sessionScope.name ne null}">
+
+                    <div>
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-button btn blue' href='#' data-activates='dropdown1' id="dropdownbox">
+                                ${sessionScope.name}님</a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="#!" class="blue-text">
+                                <a href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
+                            </a></li>
+                            <li class="divider"></li>
+                            <li><a href="#!" class="blue-text">주문목록확인</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#!" class="blue-text">
+                                <a href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <%--<input type="button" id="mypage" name="mypage" value="MYPAGE" onclick="location.href='/mypage.ing'">--%>
+                    <%--<input type="button" id="logout" name="logout" value="로그아웃" onclick="location.href='/logout.ing'">--%>
+                </c:when>
+            </c:choose>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- 슬라이더 순서 -->
                 <ol class="carousel-indicators">
@@ -155,19 +184,8 @@
                     </div>
 
                 </div>
-
-                <!-- 좌 우 이동 버튼 -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>

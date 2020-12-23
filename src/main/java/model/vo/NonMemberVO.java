@@ -1,27 +1,15 @@
 package model.vo;
 
-public class MemberVO {
+public class NonMemberVO {
 
     private String tel;
-
     private String name;
-
-    private String id;
-
-    private String jumin1;
-    private String jumin2;
-
     private String email;
     private String domain;
-
-    private String pass;
-
     private String addr1;
     private String addr2;
     private String addr3;
-
-    private String grade;
-    private String point;
+    private String passowrd;
 
     public String getTel() {
         return tel;
@@ -31,28 +19,12 @@ public class MemberVO {
         return name;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getJumin1() {
-        return jumin1;
-    }
-
-    public String getJumin2() {
-        return jumin2;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public String getDomain() {
         return domain;
-    }
-
-    public String getPass() {
-        return pass;
     }
 
     public String getAddr1() {
@@ -67,12 +39,8 @@ public class MemberVO {
         return addr3;
     }
 
-    public String getGrade() {
-        return grade;
-    }
-
-    public String getPoint() {
-        return point;
+    public String getPassowrd() {
+        return passowrd;
     }
 
     public void setTel(String tel) {
@@ -83,28 +51,12 @@ public class MemberVO {
         this.name = name;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setJumin1(String jumin1) {
-        this.jumin1 = jumin1;
-    }
-
-    public void setJumin2(String jumin2) {
-        this.jumin2 = jumin2;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
     public void setDomain(String domain) {
         this.domain = domain;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
     }
 
     public void setAddr1(String addr1) {
@@ -119,11 +71,7 @@ public class MemberVO {
         this.addr3 = addr3;
     }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
-    public void setPoint(String point) {
-        this.point = point;
+    public void setPassowrd(String passowrd) {
+        this.passowrd = passowrd;
     }
 }
