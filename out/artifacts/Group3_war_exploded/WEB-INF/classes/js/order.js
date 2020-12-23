@@ -1,5 +1,5 @@
 
-function execPostCode{
+function execPostCode(){
     alert('주소찾기')
     new daum.Postcode({
         oncomplete: (data)=>{
@@ -28,7 +28,7 @@ function execPostCode{
 
         }
     }).open();
-})
+}
 
 $(function () {
     $('.returnCart').click(() => {

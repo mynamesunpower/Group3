@@ -65,7 +65,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<BookVO> searchBook(Map map) {
-
+        System.out.println("bookService 68Line : " + map.get("sbox"));
         return bookdao.searchBook(map);
     }
 }

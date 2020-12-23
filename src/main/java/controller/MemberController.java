@@ -92,14 +92,10 @@ public class MemberController {
             System.out.println("로그인성공~~~~~~");
             session.setAttribute("memberId",result.getId());
             session.setAttribute("memberName", result.getName());
-            session.setAttribute("memberPass", result.getPass());
             session.setAttribute("memberTel", result.getTel());
-            session.setAttribute("memberEmail", result.getEmail());
-            session.setAttribute("memberDomain", result.getDomain());
             session.setAttribute("memberAddr1", result.getAddr1());
             session.setAttribute("memberAddr2", result.getAddr2());
             session.setAttribute("memberAddr3", result.getAddr3());
-            session.setAttribute("memberGrade", result.getGrade());
             session.setAttribute("memberPoint", result.getPoint());
             return "redirect:/hello.ing";
         }
