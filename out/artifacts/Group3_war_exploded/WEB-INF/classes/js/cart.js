@@ -23,16 +23,20 @@ $(function () {
     // 수량 더하기 클릭시
     $('#cartTable').on('click', '.plusCount', function () {
         bookCount = parseInt($(this).parent().children('.quantity').text()) + 1
-        totalPrice = bookCount * parseInt($(this).parent().parent().children('.price').text())
-
+        totalPrice = (bookCount * parseInt($(this).parent().parent().children('#price').val())).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        alert(totalPrice)
         $.ajax({
             type: 'post',
             url: '/cart/modifyCart.ing',
             contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
-            data: 'isbn='+$(this).parent().parent().children('.isbn').val()+'&quantity='+bookCount,
+            data: {
+                'quantity': bookCount,
+                'isbn': $(this).parent().parent().children('.isbn').val()
+                // 'isbn='+$(this).parent().parent().children('.isbn').val()+'&quantity='+bookCount
+            },
             success: () => {
                 $(this).parent().children('.quantity').text(bookCount)
-                $(this).parent().parent().children('.totalPrice').text(totalPrice)
+                $(this).parent().parent().children('.totalPrice').text(totalPrice + '원')
             }, error: (error) => {
                 console.log(error);
             }
@@ -42,10 +46,10 @@ $(function () {
     // 수량 빼기 클릭시
     $('#cartTable').on('click', '.minusCount', function () {
         bookCount = parseInt($(this).parent().children('.quantity').text()) - 1
-        if(bookCount == 0){
+        if (bookCount == 0) {
             $(this).parent().parent().remove();
         }
-        totalPrice = bookCount * parseInt($(this).parent().parent().children('.price').text())
+        totalPrice = (bookCount * parseInt($(this).parent().parent().children('#price').val())).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         $.ajax({
             type: 'post',
             url: '/cart/modifyCart.ing',
@@ -55,51 +59,77 @@ $(function () {
                 'isbn': $(this).parent().parent().children('.isbn').val()
             },
             success: () => {
-                $(this).parent().parent().children('.totalPrice').text(totalPrice)
+                $(this).parent().parent().children('.totalPrice').text(totalPrice + '원')
                 $(this).parent().children('.quantity').text(bookCount)
             }, error: (error) => {
                 console.log(error);
             }
         })
     })
-    
+
     // 해당 상품 주문
-    $('#cartTable').on('click','.orderBook',function () {
-        // $(this).parent().parent().parent().prop('action','/purchase/orderBook.ing')
-        // $(this).parent().parent().parent().submit();
-        // alert($(this).parent().parent().parent().prop('class'))
-        // alert($(this).parent().parent().children('.isbn').val())
+    $('#cartTable').on('click', '.orderBook', function () {
         $.ajax({
-            type:'get',
-            url:'/purchase/orderBook.ing',
+            type: 'get',
+            url: '/purchase/orderBook.ing',
             contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
-            data:{
+            data: {
                 'isbn': $(this).parent().parent().children('.isbn').val()
             },
-            success:(data)=>{
+            success: (data) => {
                 $('#content').children().remove();
                 $('#content').html(data);
-            },error:(error)=>{
+            }, error: (error) => {
                 alert('상품 주문 실패')
                 console.log(error)
-        }
+            }
         })
     })
 
 
     // 전체삭제
-    $('#deleteAll').click(()=>{
+    $('#deleteAll').click(() => {
         $.ajax({
-            type:'post',
-            url:'/cart/deleteCartList.ing',
+            type: 'post',
+            url: '/cart/deleteCartList.ing',
             contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
-            success:()=>{
+            success: () => {
                 $('.bookList').remove();
-            },error:(error)=>{
+            }, error: (error) => {
                 alert('장바구니 전체삭제 실패')
                 console.log(error)
             }
         })
+    })
+
+    // 체크된 상품 주문
+    $('#checkedBook_order').click(() => {
+        let isbn = new Array();
+        let checkBox = $('.checkedBook:checked')
+
+        // 체크된 항목의 isbn값을 얻어옴
+        checkBox.each(function (i) {
+            let tr = checkBox.parent().parent().parent().eq(i);
+            let td = tr.children();
+            isbn.push(td.eq(0).val())
+        })
+        alert(isbn)
+        $.ajax({
+            type: 'post',
+            url: '/purchase/orderBooks.ing',
+            contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
+            data : {
+                isbn
+            },
+            success: (data) => {
+                $('#content').children().remove();
+                $('#content').html(data);
+            }, error: (error) => {
+                alert("상품주문으로 갈수가없어~~")
+                console.log(error)
+            }
+        })
+
     })
 
 

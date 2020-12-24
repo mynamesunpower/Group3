@@ -7,48 +7,58 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
     <title>주문</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/j1s/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/j1s/materialize.min.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script type="text/javascript" src="../../../js/order.js"></script>
 
 </head>
 <body>
-<form>
-    <div id="cart" class="row">
-        <table id="orderCartTable" class="hilight centerd">
-            <thead>
-            <tr>
-                <th>상품명</th>
-                <th>가격 (원)</th>
-                <th>수량</th>
-            </tr>
-            <!-- 주문 요청 책 -->
+<div id="cart" class="row">
+    <table id="orderCartTable" class="centerd col s9">
+        <thead>
+        <tr>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>수량</th>
+        </tr>
+        <!-- 주문 요청 책 -->
+        <c:set var="price" value="0"/> <!-- 총 금액 초기회를 위해 -->
+
         <c:forEach var="cart" items="${cart}">
             <tr>
                 <td>${cart.bookVO.title}</td>
-                <td>${cart.bookVO.price * cart.quantity}</td>
+                    <%--가격에 천단위 가격으로 formatting--%>
+                <td><fmt:formatNumber value="${cart.bookVO.price * cart.quantity}" pattern="#,###"/>원</td>
                 <td>${cart.quantity}</td>
             </tr>
+            <c:set var="totalPrice" value="${price+cart.bookVO.price * cart.quantity}"/>
         </c:forEach>
-            </thead>
-        </table>
+        </thead>
+    </table>
+</div>
+<br/>
+<form id="orderForm" method="post">
+    <div class="row">
+        <input type="hidden" id="totalPrice" name="totalPrice" value="${totalPrice}">
+        <div id="totalPrice" class="col s3">총 금액 : <fmt:formatNumber value="${totalPrice}" pattern="#,###"/>원</div>
+
+        <%-- TODO 회원등급에 따라 적립 비율 다르게 해주기--%>
+        <input type="hidden" id="point" name="point" value="${totalPrice * 0.05}">
+        <div class="col s8">적립예정 포인트 : <fmt:formatNumber value="${totalPrice * 0.05}" pattern="#,###"/> Point</div>
     </div>
     <div class="row">
-        <div class="col s3">총 금액 : </div>
-        <div class="col s9">적립예정금액 : </div>
-    </div>
-    <div class="row">
-        <div class="col s4 offset-s8">
-            <button class="returnCart cols s2 waves-effect waves-light btn-small white black-text" value="장바구니">
-                <i class="material-icons left">shopping_cart</i>장바구니로</button>
+        <div class="col s4 offset-s6">
+            <button id="returnCart" class="waves-effect waves-light btn-small white black-text" value="장바구니">
+                <i class="material-icons left">shopping_cart</i>장바구니로
+            </button>
         </div>
     </div>
     <br/><br/>
@@ -62,34 +72,37 @@
             </tr>
             <tr>
                 <th><span>*</span>받는사람</th>
-                <td><input type="text"></td>
+                <td><input type="text" id="receiver" name="receiver" value="${sessionScope.memberName}"></td>
             </tr>
             <tr>
                 <th rowspan="3"><span>*</span>주소</th>
-                <td><input type="text" name="addr1"  placeholder="우편번호"></td>
+                <td><input type="text" id="addr1" name="addr1" value="${sessionScope.memberAddr1}" placeholder="우편번호"></td>
                 <td>
-                    <button type="button" id = "findAddress"
+                    <%--TODO 시간나면 JQUERY 형식으로 맞추기--%>
+                    <button type="button" id="findAddress"
                             class="cols s2 waves-effect waves-light btn-small white black-text"
                             value="주소찾기" onclick="execPostCode();">주소찾기
                     </button>
                 </td>
             </tr>
             <tr>
-                <td><input type="text" name="addr2" placeholder="주소"></td>
+                <td><input type="text" id="addr2" name="addr2" value="${sessionScope.memberAddr2}" placeholder="주소"></td>
             </tr>
             <tr>
-                <td><input type="text" name="addr3" placeholder="상세주소"></td>
+                <td><input type="text" id="addr3" name="addr3" value="${sessionScope.memberAddr3}" placeholder="상세주소"></td>
             </tr>
             <tr>
                 <th><span>*</span>전화번호</th>
-                <td><input type="text" name="tel" value="${sessionScope.memberTel}" ></td>
+                <td>${sessionScope.memberTel}</td>
             </tr>
         </table>
     </div>
     <div class="row">
-        <button type="button" class="col s4 offset-s8 waves-effect waves-light btn-small white black-text"><i
-                class="material-icons left">credit_card</i>결제하기
-        </button>
+        <div class="col s4 offset-s6">
+            <button type="button" id="payOrder" class="waves-effect waves-light btn-small white black-text"><i
+                    class="material-icons left">credit_card</i>결제하기
+            </button>
+        </div>
     </div>
 </form>
 </body>

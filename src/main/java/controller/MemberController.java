@@ -72,17 +72,14 @@ public class MemberController {
         memberService.memberupdate(vo);
 
         System.out.println("회원정보수정 완료페이지~~");
-        return "/hello";
+        return "redirect:/start.ing";
 
     }//end  회원정보수정
 
 
     @RequestMapping("/memberlogin.ing")
     public String memberlogin(MemberVO vo, HttpSession session) {
-        System.out.println("멤버로그인으로 이동하겟습니다");
-
         MemberVO result = memberService.memberlogin(vo);
-
 
         if (result == null) {
             System.out.println("로그인실패~~~~~");
@@ -97,7 +94,7 @@ public class MemberController {
             session.setAttribute("memberAddr2", result.getAddr2());
             session.setAttribute("memberAddr3", result.getAddr3());
             session.setAttribute("memberPoint", result.getPoint());
-            return "redirect:/hello.ing";
+            return "redirect:/start.ing";
         }
     }//end memberlogin
 

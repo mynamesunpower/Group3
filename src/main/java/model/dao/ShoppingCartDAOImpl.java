@@ -19,8 +19,6 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
 
     @Override
     public List selectCart(ShoppingCartVO shoppingCartVO) {
-        System.out.println("ShoppingCartDAOImpl selectCart() vo" + shoppingCartVO.getTel());
-
         return sqlSessionTemplate.selectList("booktrain.cart.cartList", shoppingCartVO);
     }
 

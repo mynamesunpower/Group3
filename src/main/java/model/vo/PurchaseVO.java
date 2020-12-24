@@ -1,9 +1,10 @@
 package model.vo;
 
 public class PurchaseVO {
-    private int orderNumber;
+    private String orderNumber;
+    private String isbn;
+    private String receiver;
     private String tel;
-    private int isbn;
     private int quantity;
     private String state;
     private int totalPrice;
@@ -13,12 +14,29 @@ public class PurchaseVO {
     public PurchaseVO() {
     }
 
-    public int getOrderNumber() {
+
+    public String getOrderNumber() {
         return orderNumber;
     }
 
-    public void setOrderNumber(int orderNumber) {
+    public void setOrderNumber(String orderNumber) {
         this.orderNumber = orderNumber;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
     }
 
     public String getTel() {
@@ -29,13 +47,6 @@ public class PurchaseVO {
         this.tel = tel;
     }
 
-    public int getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(int isbn) {
-        this.isbn = isbn;
-    }
 
     public int getQuantity() {
         return quantity;

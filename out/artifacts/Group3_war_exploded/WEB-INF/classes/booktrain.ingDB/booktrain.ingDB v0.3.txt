@@ -50,6 +50,7 @@ create table book ( ISBN varchar2(13) primary key,
                     publication_date date not null,
                     content varchar2(300) not null,
                     keyword varchar2(50),
+                    imageUrl varchar2(60),
                     constraint book_fk_publisher_number foreign key(publisher_number)
                         references publisher(publisher_number));
                         
@@ -63,6 +64,7 @@ create table shopping_cart ( tel varchar2(13),
                                  on delete cascade);
                                  
 create table purchase ( order_number varchar2(10) primary key,
+                        receiver varchar2(10) not null,
                         membertel varchar2(13),  --회원전화번호
                         nonmembertel varchar2(13), --비회원전화번호
                         quantity number(5) not null,
@@ -102,6 +104,8 @@ create table sales_data (order_number varchar2(10),
                          amount_price varchar2(13) not null,
                          amount_quantity number(10) not null,
                          constraint sales_data_fk_orderNum foreign key(order_number,isbn)
-                            references purchase_book(order_number,isbn));
+                         references purchase_book(order_number,isbn));
                             
-                        
+create sequence seq_order_number;
+
+create sequence seq_publisher_number;
