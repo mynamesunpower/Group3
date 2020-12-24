@@ -16,5 +16,8 @@ public interface MemberDAO {
     List<PurchaseVO> memberOrderList(PurchaseVO purchaseVO);
 
     int memberDelete(MemberVO membervo);
+
+    MemberVO memberIdCheck(MemberVO membervo);
+
 }
 

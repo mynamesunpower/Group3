@@ -39,4 +39,10 @@ private MemberDAOImpl memberDao;
         public int memberDelete(MemberVO membervo){
                 return  memberDao.memberDelete(membervo);
         }
+
+        @Override
+        public MemberVO memberIdCheck(MemberVO membervo) {
+                return memberDao.memberIdCheck(membervo);
+        }
 }
+

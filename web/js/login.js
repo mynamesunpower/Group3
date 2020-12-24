@@ -1,4 +1,5 @@
 
 $(document).ready(function(){
     $('.tabs').tabs();
-});//마테리얼css 탭
+});//마테리얼 css 탭
+

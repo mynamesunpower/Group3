@@ -18,5 +18,6 @@ public interface MemberService {
 
     public int memberDelete(MemberVO membervo);
 
+    public MemberVO memberIdCheck(MemberVO membervo );
 }
 

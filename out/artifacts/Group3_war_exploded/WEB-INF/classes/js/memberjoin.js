@@ -40,34 +40,45 @@ function execPostCode() {
         }
     }).open();
 }//end 주소찾기 api
-
-
-
+// 이거 우선 중복이당 ㅋㅋ
 $(function(){
-    $(document).ready(function(){
+    //$(document).ready(function(){
 
-        $('select[name=emailSelection]').change(function() {
+        $('select[name=emailSelection]').change(function() {  //여기도 줄쳐져잇는데 셀렉트박스작동댐 응 되긴 될거야
             if($(this).val()=="1"){
                 $('#domain').val("");
-            } else {
-                $('#domain').val($(this).val());
-                $("#domain").attr("readonly", true);
-            }
+        } else {
+            $('#domain').val($(this).val());
+            $("#domain").attr("readonly", true);
+                }
         });
-    });  //end $(document).ready(function() 이메일셀렉트박스입력관련.
+       // });  //end $(document).ready(function() 이메일셀렉트박스입력관련.
 
-    $('#submit').click(function() {
-        if($.trim($('#password').val())==''){
-            alert("비번입력해주세요.");
-            $('#password').focus();
-            return;
-        }
-        if($.trim($('#password').val()) != $.trim($('#password2').val())){
-            alert("비밀번호가 일치하지 않습니다..");
-            $('#password2').focus();
-            return;
-        }//end pass1 pass2 비밀번호확인 알맞게 입력.
+    $('#userinput').oninvalid(swal('회원정보를 입력해주세요^ㅡ^'));
 
-    });// end submit폼
+
+//     $('#id').keyup(function(){
+//         // alert('키업 이벤트 발생'); 오우 여기에 아예 못들어오넹 #id한개박에없어서 댈텐데 오해안대지
+//         $.ajax({
+//             type : 'post',
+//             async : true,
+//             url : '/idCheck.ing',  //아에 이게 작동을모함 그러네..
+// //슬래시 붙여서인동적없는데 왜안대지 이거 나도 해볼게 지금  다른거 하고있어봐 상연아 ㅋㅋ
+    //ㅇㅋ 유효성검사는 다른사람....수고혀
+//             contentType : 'application/x-www-form-urlencoded;charset=utf-8',
+//             data : {
+//                 'id' : $('#id').val() // 보내는 데이터
+//             },
+//             success : function (result) {
+//                 $('#idCheckResult').text(result); // 성공했을 때
+//             },
+//             error : function (err) {
+//                 console.log(err);
+//             }
+//         });
+//     })
+
 }); //end $(function)
+
+
 

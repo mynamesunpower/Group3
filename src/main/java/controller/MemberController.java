@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import service.MemberService;
 
 import javax.servlet.http.HttpSession;
@@ -58,6 +59,7 @@ public class MemberController {
     @RequestMapping("/userok.ing")
     public String userok(MemberVO vo, Model m) {
         System.out.println("회원가입 성공페이지로 이동");
+
         int result = memberService.memberInsert(vo);
 
         String msguserok = "제대로 된 정보를 입력해주세요";
@@ -128,6 +130,24 @@ public class MemberController {
         return "/hello";
     }
 
+    @RequestMapping(value= "idCheck.ing" ,produces="application/text;charset=utf-8")
+    @ResponseBody
+    public String idCheck(MemberVO membervo){
+        System.out.println("아이디체크 됩니까?????");
 
+        String message = "이미 사용중인 아이디입니다.";
+        MemberVO result = memberService.memberlogin(membervo);
 
+        System.out.println(result.getId());
+
+        if(result == null) {
+            message="사용 가능한 아이디입니다.";
+            System.out.println("아이디찾기성공?");
+        }
+        System.out.println("아이디찾기실패?");
+        return message;
+    }
+//아이디 1 11 111 1111은 잇고 11111없어서 null나오는데 글씨가안찍힙니다 js문제일까요
+    // null 이면 아이디찾기성공? 나오는거 맞지 사용가능한 아이디라고 나와야대는데
+//    1 11 111 1111은 사용불가능아이디  값은 받아왓다는건데
 }//end MemberController

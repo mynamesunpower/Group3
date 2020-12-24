@@ -40,4 +40,9 @@ public class MemberDAOImpl {
         return mybatis.delete("member.memberDelete",membervo);
     }
 
+    public MemberVO memberIdCheck(MemberVO membervo){
+        System.out.println("===>  MemberMapper memberIdCheck() 호출");
+        return mybatis.selectOne("member.login", membervo );
+    }
+
 }

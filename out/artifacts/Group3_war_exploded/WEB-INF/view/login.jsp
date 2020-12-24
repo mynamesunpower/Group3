@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <%--sweetalert css 경고창
+    이쁜 alert창인데 한페이지에 맨 마지막에 만든 swal만 작동되는듯(?) --%>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../js/login.js" type="text/javascript"></script>
 </head>
 <body>
@@ -24,11 +28,14 @@
         </div>
 
                 <div id="test1" class="col s4">
-                    <form action="memberlogin.ing" name="memberlogin" id="memberlogin">
-                        <input type="text" id="id" name="id" placeholder="ID 입력">
-                        <input type="text" id="password" name="password" placeholder="비밀번호 입력"><br/>
+                    <form action="memberlogin.ing" name="memberlogin" id="memberlogin" method="post">
+                        <input type="text" id="id" name="id" placeholder="ID 입력"
+                               oninvalid="swal('아이디를 입력해주세요')" required>
+                        <input type="text" id="password" name="password" placeholder="비밀번호 입력"
+                               <%--oninvalid="swal('비밀번호를 입력해주세요')"--%>
+                               required><br/>
                         <input type="submit" id="memlogin" name="memlogin" value="로그인">
-        </form>      <%-- 회원 로그인확인 form --%>
+                    </form>      <%-- 회원 로그인확인 form --%>
 
         <input type="button" id="memsearchid" name="memsearchid" value="아이디찾기">
         &nbsp; / &nbsp;
