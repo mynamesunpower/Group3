@@ -19,9 +19,9 @@
 
 <c:forEach items="${bookList}" var="book">
     <div class="row">
-        <%--<div class="col s4 center-align">--%>
-            <%--<img src="../../../imgs/book/2222222222222.jpg">--%>
-        <%--</div>--%>
+        <div class="col s4 center-align">
+            <img src="../../../imgs/book/${book.isbn}.PNG">
+        </div>
         <div class="col s8">
             <div class="leftcol left-align"><h4>${book.title}</h4></div>
             <div class="leftcol left-align"><h5>${book.author}</h5></div>

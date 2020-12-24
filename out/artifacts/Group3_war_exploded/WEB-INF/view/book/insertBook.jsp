@@ -15,7 +15,7 @@
 <H5>도서 정보 입력</H5>
 <HR/>
 <div class="col s8 offset-2 center-align">
-<form action="insertBook_success.ing" name="insertBook" id="insertBook">
+<form action="insertBook_success.ing" name="insertBook" method="post" enctype="multipart/form-data">
 
 <table border="2">
     <tr>
@@ -57,6 +57,10 @@
     <tr>
         <td bgcolor="#fafad2">내용</td>
         <td><textarea type="text" cols="40" rows="10" name="content" id="Content"></textarea></td>
+    </tr>
+    <tr>
+        <td bgcolor="#fafad2">이미지 업로드</td>
+        <td> <input type="file" name="imageFile" maxlength="60"></td>
     </tr>
     <tr>
         <td colspan="2" align="center"><input type="submit" value="도서 등록" /></td>

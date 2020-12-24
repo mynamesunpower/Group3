@@ -1,5 +1,8 @@
 package model.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -19,7 +22,26 @@ public class BookVO {
     private String publicationDate;
     private String content;
     private String keyword;
-    private String imageUrl;
+
+    private MultipartFile imageFile;
+
+    public MultipartFile getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(MultipartFile imageFile) {
+        this.imageFile = imageFile;
+
+        if (!imageFile.isEmpty()) {
+            File file = new File("E:\\Group3\\Group3\\web\\imgs\\book\\"+isbn+".PNG");
+
+            try {
+                imageFile.transferTo(file);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     public BookVO() {
     }
@@ -112,11 +134,4 @@ public class BookVO {
         this.keyword = keyword;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
 }
