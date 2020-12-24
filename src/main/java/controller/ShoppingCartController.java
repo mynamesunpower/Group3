@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import service.ShoppingCartService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,10 +30,14 @@ public class ShoppingCartController {
         String memberTel = (String) httpSession.getAttribute("memberTel");
 
         if (memberTel != null) {
-            List cart = shoppingCartService.selectCart((String) httpSession.getAttribute("memberTel"));
+            ShoppingCartVO shoppingCartVO = new ShoppingCartVO();
+            shoppingCartVO.setTel(memberTel);
+            List cart = shoppingCartService.selectCart(shoppingCartVO);
             model.addAttribute("cart", cart);
             return "cart/cartList";
         } else {
+            // 비로그인시 홈으로 돌아감
+            //TODO 로그인이 안되어있을시 로그인 하라는 알림 띄워주기
             return "redirect:../start.ing";
         }
     }

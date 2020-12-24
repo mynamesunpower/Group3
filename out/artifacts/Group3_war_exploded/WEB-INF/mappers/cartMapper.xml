@@ -25,16 +25,19 @@
         WHERE TEL = #{tel} and ISBN = #{isbn}
     </update>
 
-    <select id="cartList" parameterType="String" resultMap="cart">
-      SELECT b.TITLE AS title, b.isbn AS isbn, b.price AS price, c.quantity AS quantity
-      FROM shopping_cart c INNER JOIN book b
-      ON c.isbn = b.isbn
-      INNER JOIN member m
-      ON m.tel = C.tel
-      where m.tel = #{memberTel}
+    <select id="cartList" parameterType="cart" resultMap="cart">
+        SELECT b.TITLE AS title, b.isbn AS isbn, b.price AS price, c.quantity AS quantity
+        FROM shopping_cart c INNER JOIN book b
+        ON c.isbn = b.isbn
+        INNER JOIN member m
+        ON m.tel = C.tel
+        where m.tel = #{tel}
+        <if test="isbn != null">
+            and b.isbn = #{isbn}
+        </if>
     </select>
 
-    <resultMap id ="cart" type="cart">
+    <resultMap id="cart" type="cart">
         <result property="tel" column="tel"/>
         <result property="isbn" column="isbn"/>
         <result property="quantity" column="quantity"/>

@@ -2,6 +2,7 @@ $(function () {
     let bookCount;
     let totalPrice;
 
+    // 해당 상품 삭제
     $('#cartTable').on('click', '.deleteBook', function () {
         // $(this).parent().parent().parent().attr('action','/cart/deleteBook.ing').submit();
         $.ajax({
@@ -64,21 +65,27 @@ $(function () {
     
     // 해당 상품 주문
     $('#cartTable').on('click','.orderBook',function () {
+        // $(this).parent().parent().parent().prop('action','/purchase/orderBook.ing')
+        // $(this).parent().parent().parent().submit();
+        // alert($(this).parent().parent().parent().prop('class'))
+        // alert($(this).parent().parent().children('.isbn').val())
         $.ajax({
             type:'get',
             url:'/purchase/orderBook.ing',
             contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
             data:{
-                
+                'isbn': $(this).parent().parent().children('.isbn').val()
             },
-            success:()=>{
-                alert('상품 주문으로~')
+            success:(data)=>{
+                $('#content').children().remove();
+                $('#content').html(data);
             },error:(error)=>{
                 alert('상품 주문 실패')
-                console.log(err)
+                console.log(error)
         }
         })
     })
+
 
     // 전체삭제
     $('#deleteAll').click(()=>{

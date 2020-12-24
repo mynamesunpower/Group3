@@ -57,6 +57,7 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     public List<BookVO> searchBook(Map map) {
+        System.out.println("searchBookDao searchBook() : " + map.get("sbox"));
         return mybatis.selectList("BookMapper.searchBook",map);
     }
 
