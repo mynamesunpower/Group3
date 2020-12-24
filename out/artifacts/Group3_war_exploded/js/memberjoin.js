@@ -57,14 +57,14 @@ $(function(){
     });  //end $(document).ready(function() 이메일셀렉트박스입력관련.
 
     $('#submit').click(function() {
-        if($.trim($('#pass').val())==''){
+        if($.trim($('#password').val())==''){
             alert("비번입력해주세요.");
-            $('#pass').focus();
+            $('#password').focus();
             return;
         }
-        if($.trim($('#pass').val()) != $.trim($('#pass2').val())){
+        if($.trim($('#password').val()) != $.trim($('#password2').val())){
             alert("비밀번호가 일치하지 않습니다..");
-            $('#pass2').focus();
+            $('#password2').focus();
             return;
         }//end pass1 pass2 비밀번호확인 알맞게 입력.
 

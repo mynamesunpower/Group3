@@ -1,9 +1,12 @@
 package model.dao;
 
 import model.vo.MemberVO;
+import model.vo.PurchaseVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository("memberDao")
 public class MemberDAOImpl {
@@ -27,5 +30,14 @@ public class MemberDAOImpl {
         return mybatis.update("member.memberupdate", vo );
     }
 
+    public List<PurchaseVO> memberOrderList(PurchaseVO purchaseVO){
+        System.out.println("===>  MemberMapper memberOrderList() 호출");
+        return mybatis.selectList("member.memberOrderList",purchaseVO);
+    }
+
+    public int memberDelete(MemberVO membervo){
+        System.out.println("===>  MemberMapper memberDelete() 호출");
+        return mybatis.delete("member.memberDelete",membervo);
+    }
 
 }

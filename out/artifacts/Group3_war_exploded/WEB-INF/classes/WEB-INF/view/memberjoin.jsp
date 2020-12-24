@@ -22,8 +22,8 @@
 <h1>기본 정보 입력</h1>
 
 아이디       :  <input type="text" name="id" id="id"><br/><br/>
-비밀번호     :  <input type="password" name="pass" id="pass"><br/><br/>
-비밀번호확인 :  <input type="password" name="pass2" id="pass2"><br/><br/>
+비밀번호     :  <input type="password" name="password" id="password"><br/><br/>
+비밀번호확인 :  <input type="password" name="password2" id="password2"><br/><br/>
 이름         :    <input type="text" name="name" id="name"><br/><br/>
 전화번호     :    <input type="select" name="tel" id="tel" placeholder="-는 빼고 입력해주세요"><br/><br/>
 주민등록번호   : <input type="text" name="jumin1" id="jumin1">

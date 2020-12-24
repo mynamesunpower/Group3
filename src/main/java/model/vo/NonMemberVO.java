@@ -9,7 +9,7 @@ public class NonMemberVO {
     private String addr1;
     private String addr2;
     private String addr3;
-    private String passowrd;
+    private String password;
 
     public String getTel() {
         return tel;
@@ -39,8 +39,8 @@ public class NonMemberVO {
         return addr3;
     }
 
-    public String getPassowrd() {
-        return passowrd;
+    public String getPassword() {
+        return password;
     }
 
     public void setTel(String tel) {
@@ -71,7 +71,7 @@ public class NonMemberVO {
         this.addr3 = addr3;
     }
 
-    public void setPassowrd(String passowrd) {
-        this.passowrd = passowrd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

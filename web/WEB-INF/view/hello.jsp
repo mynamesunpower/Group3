@@ -22,12 +22,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="../../js/hello.js" type="javascript"></script>
 
-    <!-- Compiled and minified CSS 드랍다운 구버전 지우지마세요-->
+    <!-- Compiled and minified CSS 드랍다운 최신버전으로하면 인식(?)을 못해서 이전버전적용햇어요-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript 드랍다운 구버전 지우지마세요-->
+    <!-- Compiled and minified JavaScript 드랍다운 최신버전으로하면 인식(?)을 못해서 이전버전적용햇어요 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
 
 </head>
 <body>
@@ -144,9 +143,12 @@
                             <li><a href="#!" class="blue-text">
                                 <a href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
                             </a></li>
+
                             <li class="divider"></li>
                             <li><a href="#!" class="blue-text">
-                                <a href="/orderlist.ing"> 주문목록확인</a></a></li>
+                                <a href="/orderList.ing" id="orderlist" name="orderlist">주문목록확인</a>
+                            </a></li>
+
                             <li class="divider"></li>
                             <li><a href="#!" class="blue-text">
                                 <a href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
@@ -184,17 +186,17 @@
                         </div>
                     </div>
 
-                    <div class="item">
-                        <img class="d-block" src="../../imgs/book/image.png" alt="Book3" style="width:100%;">
-                        <div class="carousel-caption">
-                            <h3>Book3</h3>
-                            <p>I LOVE Book3</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+<div class="item">
+    <img class="d-block" src="../../imgs/book/image.png" alt="Book3" style="width:100%;">
+    <div class="carousel-caption">
+        <h3>Book3</h3>
+        <p>I LOVE Book3</p>
     </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>

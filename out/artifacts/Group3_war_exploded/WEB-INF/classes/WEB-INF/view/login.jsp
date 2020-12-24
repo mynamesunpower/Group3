@@ -26,7 +26,7 @@
                 <div id="test1" class="col s4">
                     <form action="memberlogin.ing" name="memberlogin" id="memberlogin">
                         <input type="text" id="id" name="id" placeholder="ID 입력">
-                        <input type="text" id="pass" name="pass" placeholder="비밀번호 입력"><br/>
+                        <input type="text" id="password" name="password" placeholder="비밀번호 입력"><br/>
                         <input type="submit" id="memlogin" name="memlogin" value="로그인">
         </form>      <%-- 회원 로그인확인 form --%>
 

@@ -14,7 +14,7 @@ public class MemberVO {
     private String email;
     private String domain;
 
-    private String pass;
+    private String password;
 
     private String addr1;
     private String addr2;
@@ -51,8 +51,8 @@ public class MemberVO {
         return domain;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
     public String getAddr1() {
@@ -103,8 +103,8 @@ public class MemberVO {
         this.domain = domain;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setAddr1(String addr1) {

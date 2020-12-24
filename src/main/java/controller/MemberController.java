@@ -1,6 +1,7 @@
 package controller;
 
 import model.vo.MemberVO;
+import model.vo.PurchaseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,7 +44,8 @@ public class MemberController {
         @RequestMapping("/logout.ing")
         public String logout(HttpSession session) {
             System.out.println("로그아웃페이지로 이동~~~~");
-            session.removeAttribute("memberName");
+//            session.removeAttribute("memberName");
+            session.invalidate();
             return "/hello";
         }//end logout
 
@@ -98,7 +100,7 @@ public class MemberController {
             System.out.println("로그인성공~~~~~~");
             session.setAttribute("memberId",result.getId());
             session.setAttribute("memberName", result.getName());
-            session.setAttribute("memberPass", result.getPass());
+            session.setAttribute("memberPassword", result.getPassword());
             session.setAttribute("memberTel", result.getTel());
             session.setAttribute("memberEmail", result.getEmail());
             session.setAttribute("memberDomain", result.getDomain());
@@ -111,10 +113,21 @@ public class MemberController {
         }
     }//end memberlogin
 
-    @RequestMapping("/orderlist.ing")
-    public String orderlist(MemberVO vo){
+
+    @RequestMapping(value = "/orderList.ing")
+    public void orderlist(PurchaseVO purchaseVO, Model model){
         System.out.println("주문확인페이지입니다.");
-        return "/orderlist";
+        model.addAttribute("memberOrderList", memberService.memberOrderList(purchaseVO));
+//        return "/orderList";
     }
+    @RequestMapping(value = "/memberDelete.ing")
+    public String memberDelete(MemberVO membervo,HttpSession session){
+        System.out.println("회원탈퇴하겟습니다.");
+        int result = memberService.memberDelete(membervo);
+        session.invalidate();
+        return "/hello";
+    }
+
+
 
 }//end MemberController
