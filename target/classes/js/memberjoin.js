@@ -30,12 +30,8 @@ function execPostCode() {
             console.log(data.zonecode);
             console.log(fullRoadAddr);
 
-
             $("[name=addr1]").val(data.zonecode);
             $("[name=addr2]").val(fullRoadAddr);
-
-            document.getElementById('addr1').value = data.zonecode; //5자리 새우편번호 사용
-            document.getElementById('addr2').value = fullRoadAddr;
 
         }
     }).open();

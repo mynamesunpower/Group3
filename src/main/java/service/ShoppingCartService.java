@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ShoppingCartService {
 
-    public List selectCart(String memberTel);
+    public List selectCart(ShoppingCartVO shoppingCartVO);
     public void insertCart(String memberTel, long isbn);
     public void modifyCart(ShoppingCartVO shoppingCartVO);
     public void deleteCartList(String memberTel);

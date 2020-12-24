@@ -7,16 +7,8 @@
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>scott</user-name>
-      <schema-mapping>
-        <introspection-scope>
-          <node kind="schema">
-            <name qname="@" />
-            <name qname="PUBLIC" />
-          </node>
-        </introspection-scope>
-      </schema-mapping>
+      <user-name>group3</user-name>
+      <introspection-schemas>*:@,PUBLIC</introspection-schemas>
     </data-source>
   </component>
 </project>

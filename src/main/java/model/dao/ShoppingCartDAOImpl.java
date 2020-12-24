@@ -18,10 +18,10 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
     Map cartMap;
 
     @Override
-    public List selectCart(String memberTel) {
-        System.out.println("ShoppingCartDAOImpl selectCart()" + memberTel);
+    public List selectCart(ShoppingCartVO shoppingCartVO) {
+        System.out.println("ShoppingCartDAOImpl selectCart() vo" + shoppingCartVO.getTel());
 
-        return sqlSessionTemplate.selectList("booktrain.cart.cartList", memberTel);
+        return sqlSessionTemplate.selectList("booktrain.cart.cartList", shoppingCartVO);
     }
 
     @Override

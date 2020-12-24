@@ -16,8 +16,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     ShoppingCartDAOImpl shoppingCartDAO;
 
     @Override
-    public List selectCart(String memberTel) {
-        return shoppingCartDAO.selectCart(memberTel);
+    public List selectCart(ShoppingCartVO shoppingCartVO) {
+        return shoppingCartDAO.selectCart(shoppingCartVO);
     }
 
     @Override
