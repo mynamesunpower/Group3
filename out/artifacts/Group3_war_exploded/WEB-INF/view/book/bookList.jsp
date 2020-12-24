@@ -13,8 +13,8 @@
 </head>
 <body>
 
-<h5>${param.result} 건의 검색 결과</h5>
-<h6>검색어 : ${param.keyword}</h6>
+<h5>${result} 건의 검색 결과</h5>
+<h6>검색어 : ${keyword}</h6>
 <div class="row"></div>
 
 <c:forEach items="${bookList}" var="book">

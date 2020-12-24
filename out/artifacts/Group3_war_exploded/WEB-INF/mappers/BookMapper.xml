@@ -37,21 +37,31 @@
         ]]>
     </update>
 
-    <select id="searchBook" parameterType="hashmap" resultMap="getBook">
+    <select id="searchBook" parameterType="hashMap" resultMap="getBook">
         SELECT * FROM BOOK
         <where>
+            <!--
+            title like #{keyword} or
+            author like #{keyword} or
+            genre like #{keyword} or
+            keyword like #{keyword}-->
             <choose>
-                <when test="sbox == null">
-                    title like #{keyword} or
-                    author like #{keyword} or
-                    genre like #{keyword} or
+                <when test='sbox != null and sbox.equals("title")'>
+                    title like #{keyword}
+                </when>
+                <when test='sbox != null and sbox.equals("author")'>
+                    author like #{keyword}
+                </when>
+                <when test='sbox != null and sbox.equals("genre")'>
+                    genre like #{keyword}
+                </when>
+                <when test='sbox != null and sbox.equals("keyword")'>
                     keyword like #{keyword}
                 </when>
                 <otherwise>
-                    #{sbox} like #{keyword}
+                    title like #{keyword} or author like #{keyword} or genre like #{keyword} or keyword like #{keyword}
                 </otherwise>
             </choose>
-
         </where>
     </select>
 

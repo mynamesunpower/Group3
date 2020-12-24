@@ -49,7 +49,7 @@ public class BookController {
         System.out.println(bookList.size());
 
         model.addAttribute("keyword", keyword);
-        model.addAttribute("result", "1");
+        model.addAttribute("result", bookList.size());
         model.addAttribute("bookList", bookList);
         return "book/bookList";
     }
