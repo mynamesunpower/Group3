@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import service.MemberService;
+import service.service.MemberService;
 
 import javax.servlet.http.HttpSession;
 
@@ -90,6 +90,8 @@ public class MemberController {
             session.setAttribute("memberId",result.getId());
             session.setAttribute("memberName", result.getName());
             session.setAttribute("memberTel", result.getTel());
+            session.setAttribute("memberEmail", result.getEmail());
+            session.setAttribute("domain", result.getDomain());
             session.setAttribute("memberAddr1", result.getAddr1());
             session.setAttribute("memberAddr2", result.getAddr2());
             session.setAttribute("memberAddr3", result.getAddr3());

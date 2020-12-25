@@ -8,9 +8,9 @@ function kakaoPay(data) {
         pay_method : 'card',
         // 가맹점에서 생성/관리하는 고유 주문번호
         merchant_uid : 'merchant_' + new Date().getTime(),
-        name : '주문명:결제테스트',
+        name : data.payName,
         amount : data.totalPrice,
-        buyer_email : 'sssw0101@naver.com',
+        buyer_email : data.email,
         buyer_name : data.name,
         buyer_tel : data.tel,
         buyer_addr : data.addr2 + data.addr3,

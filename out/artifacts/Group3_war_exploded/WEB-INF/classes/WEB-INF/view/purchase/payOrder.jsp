@@ -27,9 +27,14 @@
     <%--결제 후 필요한 항목들 hidden으로 넘겨줌--%>
     <input type="hidden" id="name" name="name" value="${sessionScope.memberName}">
         <input type="hidden" id="tel", name="tel" value="${sessionScope.memberTel}">
+        <input type="hidden" id="email" name="email" value="${sessionScope.memberEmail}"/>
+        <input type="hidden" id="domain" name="domain" value="${sessionScope.domain}"/>
         <input type="hidden" id="addr1" name="addr1" value="${memberVO.addr1}">
         <input type="hidden" id="addr1" name="addr2" value="${memberVO.addr2}">
         <input type="hidden" id="addr1" name="addr3" value="${memberVO.addr3}">
+        <input type="hidden" id="bookTitle" value="${bookTitle}">
+        <input type="hidden" id="bookQuantity" value="${bookQuantity}">
+        <input type="hidden" id="reciever" value="${receiver}">
         <input type="hidden" id="totalPrice" name="totalPrice" value="${purchaseVO.totalPrice}">
 
         <div class="row">

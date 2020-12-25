@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <html>
 <head>
     <title>주문</title>
@@ -31,16 +33,37 @@
         </tr>
         <!-- 주문 요청 책 -->
         <c:set var="price" value="0"/> <!-- 총 금액 초기회를 위해 -->
+        <input type="hidden" id="bookTitle" value="${title}"/>
+        <c:choose>
+            <c:when test="${cartList ne null}">
+                <input type="hidden" id="bookQuantity" value="${fn:length(cartList)}"/>
+                <c:forEach var="list" items="${cartList}">
+                    <c:forEach var="cart" items="${list}">
+                        <tr>
+                            <td>${cart.bookVO.title}</td>
+                                <%--가격에 천단위 가격으로 formatting--%>
+                            <td><fmt:formatNumber value="${cart.bookVO.price * cart.quantity}" pattern="#,###"/>원</td>
+                            <td>${cart.quantity}</td>
+                        </tr>
+                        <c:set var="price" value="${price+cart.bookVO.price * cart.quantity}"/>
+                    </c:forEach>
+                    <c:set var="totalPrice" value="${price}"/>
+                </c:forEach>
+            </c:when>
 
-        <c:forEach var="cart" items="${cart}">
-            <tr>
-                <td>${cart.bookVO.title}</td>
-                    <%--가격에 천단위 가격으로 formatting--%>
-                <td><fmt:formatNumber value="${cart.bookVO.price * cart.quantity}" pattern="#,###"/>원</td>
-                <td>${cart.quantity}</td>
-            </tr>
-            <c:set var="totalPrice" value="${price+cart.bookVO.price * cart.quantity}"/>
-        </c:forEach>
+            <c:otherwise>
+                <input type="hidden" id="bookQuantity" value="1"/>
+                <c:forEach var="cart" items="${cart}">
+                    <tr>
+                        <td>${cart.bookVO.title}</td>
+                            <%--가격에 천단위 가격으로 formatting--%>
+                        <td><fmt:formatNumber value="${cart.bookVO.price * cart.quantity}" pattern="#,###"/>원</td>
+                        <td>${cart.quantity}</td>
+                    </tr>
+                    <c:set var="totalPrice" value="${price+cart.bookVO.price * cart.quantity}"/>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
         </thead>
     </table>
 </div>

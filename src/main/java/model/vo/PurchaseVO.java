@@ -4,8 +4,8 @@ public class PurchaseVO {
     private String orderNumber;
     private String isbn;
     private String receiver;
-    private String tel;
-    private int quantity;
+    private String memberTel;
+    private String nonMemberTel;
     private String state;
     private int totalPrice;
     private String purchaseDate;
@@ -39,21 +39,20 @@ public class PurchaseVO {
         this.receiver = receiver;
     }
 
-    public String getTel() {
-        return tel;
+    public String getMemberTel() {
+        return memberTel;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setMemberTel(String memberTel) {
+        this.memberTel = memberTel;
     }
 
-
-    public int getQuantity() {
-        return quantity;
+    public String getNonMemberTel() {
+        return nonMemberTel;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setNonMemberTel(String nonMemberTel) {
+        this.nonMemberTel = nonMemberTel;
     }
 
     public String getState() {

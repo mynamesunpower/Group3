@@ -45,7 +45,9 @@
                         </label>
                     </td>
                     <%--TODO 책 주소 걸어줄것--%>
+                    <input type="hidden" id="title" class="title" name="title" value="${cart.bookVO.title}"/>
                     <td class="bookTitle"><a href="">${cart.bookVO.title}</a></td>
+
                     <input type="hidden" id="price" value="${cart.bookVO.price}">
                     <td class="price"><fmt:formatNumber value="${cart.bookVO.price}" pattern="#,###"/>원</td>
                     <td class="count">

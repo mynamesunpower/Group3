@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import service.ShoppingCartService;
+import service.service.ShoppingCartService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -45,10 +45,7 @@ public class ShoppingCartController {
     // 장바구니에 상품 추가
     @RequestMapping("addCart.ing")
     public String addCart(HttpServletRequest request) { // HttpServletRequest -> 뷰에서 요청을 받음
-        String strIsbn = request.getParameter("isbn");
-        long isbn = Long.parseLong(strIsbn);
-
-        shoppingCartService.insertCart((String) httpSession.getAttribute("memberTel"), isbn);
+        shoppingCartService.insertCart((String) httpSession.getAttribute("memberTel"), request.getParameter("isbn"));
 
         return "redirect:/cart/cartList.ing";
     }
