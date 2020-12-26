@@ -9,23 +9,26 @@ import service.service.MemberService;
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
 
-@Autowired
-private MemberDAOImpl memberDao;
+    @Autowired
+    private MemberDAOImpl memberDao;
 
-        @Override
-        public int memberInsert(MemberVO vo) {
+    @Override
+    public int memberInsert(MemberVO vo) {
+        return memberDao.memberInsert(vo);
+    }
 
-                return memberDao.memberInsert(vo);
-        }
+    @Override
+    public MemberVO memberlogin(MemberVO vo) {
+        return memberDao.memberlogin(vo);
+    }
 
-        @Override
-        public MemberVO memberlogin(MemberVO vo) {
-                return memberDao.memberlogin(vo);
-        }
-        @Override
-        public void memberupdate(MemberVO vo){
-                memberDao.memberlogin(vo);
-         }
+    @Override
+    public void memberupdate(MemberVO vo) {
+        memberDao.memberupdate(vo);
+    }
 
-
+    @Override
+    public void updateMemberPoint(MemberVO memberVO) {
+        memberDao.updateMemberPoint(memberVO);
+    }
 }

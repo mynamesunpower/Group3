@@ -4,19 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
-<insert id="memberjoin" parameterType="member">
+    <insert id="memberjoin" parameterType="member">
         Insert into member (id, password, name, tel,jumin1,jumin2,email,domain ,addr1,addr2,addr3)
         VALUES (  #{id},#{pass},#{name},#{tel}, #{jumin1},#{jumin2},
         #{email},#{domain}, #{addr1},#{addr2},#{addr3})
 </insert>
 
-<select id="login" parameterType="member" resultType="member">
+    <select id="login" parameterType="member" resultType="member">
      select *
     from member
     where id = #{id}  and PASSWORD = #{pass}
 </select>
 
-    <update id="memberupdate"  parameterType="member">
+    <update id="memberupdate" parameterType="member">
 update MEMBER
 set password = #{pass},
     name = #{name},
@@ -29,4 +29,10 @@ addr3 = #{addr3}
 where id = #{id}
     </update>
 
- </mapper>
+    <update id="updateMemberPoint" parameterType="member">
+        update MEMBER
+        SET POINT = POINT+#{point}
+        WHERE TEL = #{tel}
+    </update>
+
+</mapper>

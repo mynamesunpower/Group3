@@ -9,4 +9,6 @@ public interface MemberDAO {
     MemberVO memberlogin(MemberVO vo);
 
     void memberupdate(MemberVO vo);
+
+    public void updateMemberPoint(MemberVO memberVO);
 }

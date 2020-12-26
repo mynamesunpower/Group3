@@ -31,6 +31,7 @@
             <th>가격</th>
             <th>수량</th>
         </tr>
+        </thead>
         <!-- 주문 요청 책 -->
         <c:set var="price" value="0"/> <!-- 총 금액 초기회를 위해 -->
         <input type="hidden" id="bookTitle" value="${title}"/>
@@ -65,7 +66,6 @@
                 </c:forEach>
             </c:otherwise>
         </c:choose>
-        </thead>
     </table>
 </div>
 <br/>

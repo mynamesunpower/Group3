@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import service.service.MemberService;
 import service.service.PurchaseService;
 import service.service.ShoppingCartService;
 
@@ -31,6 +32,8 @@ public class PurchaseController {
     ShoppingCartService shoppingCartService;
     @Autowired
     PurchaseService purchaseService;
+    @Autowired
+    MemberService memberService;
 
 
     // 상품 주문
@@ -59,6 +62,11 @@ public class PurchaseController {
         return "purchase/orderBook";
     }
 
+    /**
+     * @param isbnList 결제시 선택한 책들의 isbn 리스트
+     * @param titleList 결제시 선택한 책들의 title 리스트
+     * @return
+     */
     @RequestMapping("/orderBooks.ing")
     public String orderBooks(@RequestParam(value = "isbn[]") List<String> isbnList,
                              @RequestParam(value = "title[]") List<String> titleList, Model model) {
@@ -96,11 +104,17 @@ public class PurchaseController {
         return "purchase/orderBook";
     }
 
-    // 주문 결제
+    /**
+     * @param bookTitle : 결제 성공 시, 보여줄 대표 책 이름
+     * @param bookKind : 책 종류 권수
+     *                 결제 성공시 => JSP2 WEB PROGRAMMING(bookTitle) 외 2(bookKind)
+     */
     @RequestMapping("/payOrder.ing")
     public String payOrder(PurchaseVO purchaseVO, MemberVO memberVO,
                            @RequestParam(value = "bookTitle") String bookTitle,
                            @RequestParam(value = "bookKind") String bookKind, Model model) {
+
+        memberVO.setTel((String)httpSession.getAttribute("memberTel"));
 
         System.out.println("payOrder() 확인 : " + bookTitle + " / " + bookKind);
         System.out.println("PurchaseController payOrder Point: " + memberVO.getPoint());
@@ -115,8 +129,11 @@ public class PurchaseController {
         // 결제 성공시(PurchaseController payComplete()) 쓰일 세션 정보들
         httpSession.setAttribute("payMember" , memberVO);
         httpSession.setAttribute("payPurchase", purchaseVO);
-        httpSession.setAttribute("bookTitle",bookTitle);
-        httpSession.setAttribute("bookKind", bookKind);
+        if (bookKind.equals("0")) {
+            httpSession.setAttribute("payName", bookTitle);
+        }else{
+            httpSession.setAttribute("payName", bookTitle + " 외 " + bookKind);
+        }
 
         return "purchase/payOrder";
     }
@@ -124,10 +141,9 @@ public class PurchaseController {
     // TODO 트랜잭션 적용할것
     // 결제 성공시
     @RequestMapping("payComplete")
-    public String payComplete() {
+    public String payComplete(Model model) {
         // payOrder()에서 저장한 세션값을 얻어옴
         MemberVO memberVO = (MemberVO)httpSession.getAttribute("payMember");
-        memberVO.setTel((String)httpSession.getAttribute("memberTel"));
         PurchaseVO purchaseVO = (PurchaseVO)httpSession.getAttribute("payPurchase");
 
         PurchaseBookVO purchaseBookVO = new PurchaseBookVO();
@@ -158,6 +174,12 @@ public class PurchaseController {
             // 구매상품 장바구니에서 삭제
             shoppingCartService.deleteCart((String)httpSession.getAttribute("memberTel"),purchaseBookVO.getIsbn());
         }
+        // 포인트 적립
+        memberService.updateMemberPoint((MemberVO) httpSession.getAttribute("payMember"));
+
+
+        model.addAttribute("purchaseVO",purchaseVO);
+        model.addAttribute("purchaseBookVO" , purchaseBookVO);
 
         return "purchase/payComplete";
     }

@@ -100,23 +100,23 @@ $(function () {
             'totalPrice': $('#totalPrice').val(),
         }
         // paymentMethos.js의 kakaoPay함수 호출
-        kakaoPay(data)
+        // kakaoPay(data)
 
-        // $.ajax({
-        //     type: 'post',
-        //     url: '/purchase/payComplete.ing',
-        //     contentType: 'application/json; charset=utf-8',
-        //     data: {
-        //         'totalPrice': $('#totalPrice').val()
-        //     }, success: (data) => {
-        //         $('#content').children().remove();
-        //         $('#content').html(data);
-        //     }, error: (error) => {
-        //         alert("결제완료창으로 못갑니당~")
-        //         console.log(error)
-        //     }
-        //
-        // })
+        $.ajax({
+            type: 'post',
+            url: '/purchase/payComplete.ing',
+            contentType: 'application/json; charset=utf-8',
+            data: {
+                'totalPrice': $('#totalPrice').val(),
+            }, success: (data) => {
+                $('#content').children().remove();
+                $('#content').html(data);
+            }, error: (error) => {
+                alert("결제완료창으로 못갑니당~")
+                console.log(error)
+            }
+
+        })
     })
 
 

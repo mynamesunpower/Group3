@@ -80,7 +80,6 @@ $(function () {
     // 결제 창 띄우기
     $('#doPay').click(() => {
         // 결제창에 보일 주문상품명
-        alert('결제 창 띄울때 보일 수량' +  $('#bookKind').val())
         let payName = $('#bookTitle').val() + ' 외 ' + $('#bookKind').val()
 
         // 구매가 한종류인 경우 상품명만 명시
@@ -101,23 +100,23 @@ $(function () {
             'totalPrice': $('#totalPrice').val(),
         }
         // paymentMethos.js의 kakaoPay함수 호출
-        kakaoPay(data)
+        // kakaoPay(data)
 
-        // $.ajax({
-        //     type: 'post',
-        //     url: '/purchase/payComplete.ing',
-        //     contentType: 'application/json; charset=utf-8',
-        //     data: {
-        //         'totalPrice': $('#totalPrice').val()
-        //     }, success: (data) => {
-        //         $('#content').children().remove();
-        //         $('#content').html(data);
-        //     }, error: (error) => {
-        //         alert("결제완료창으로 못갑니당~")
-        //         console.log(error)
-        //     }
-        //
-        // })
+        $.ajax({
+            type: 'post',
+            url: '/purchase/payComplete.ing',
+            contentType: 'application/json; charset=utf-8',
+            data: {
+                'totalPrice': $('#totalPrice').val(),
+            }, success: (data) => {
+                $('#content').children().remove();
+                $('#content').html(data);
+            }, error: (error) => {
+                alert("결제완료창으로 못갑니당~")
+                console.log(error)
+            }
+
+        })
     })
 
 
