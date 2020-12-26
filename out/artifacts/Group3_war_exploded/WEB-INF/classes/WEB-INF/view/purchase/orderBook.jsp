@@ -36,13 +36,14 @@
         <input type="hidden" id="bookTitle" value="${title}"/>
         <c:choose>
             <c:when test="${cartList ne null}">
-                <input type="hidden" id="bookQuantity" value="${fn:length(cartList)}"/>
+                <input type="hidden" id="bookKind" value="${fn:length(cartList)}"/>
                 <c:forEach var="list" items="${cartList}">
                     <c:forEach var="cart" items="${list}">
                         <tr>
                             <td>${cart.bookVO.title}</td>
                                 <%--가격에 천단위 가격으로 formatting--%>
                             <td><fmt:formatNumber value="${cart.bookVO.price * cart.quantity}" pattern="#,###"/>원</td>
+
                             <td>${cart.quantity}</td>
                         </tr>
                         <c:set var="price" value="${price+cart.bookVO.price * cart.quantity}"/>
@@ -52,7 +53,7 @@
             </c:when>
 
             <c:otherwise>
-                <input type="hidden" id="bookQuantity" value="1"/>
+                <input type="hidden" id="bookKind" value="1"/>
                 <c:forEach var="cart" items="${cart}">
                     <tr>
                         <td>${cart.bookVO.title}</td>

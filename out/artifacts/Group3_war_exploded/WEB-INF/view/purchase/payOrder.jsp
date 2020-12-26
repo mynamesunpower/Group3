@@ -33,8 +33,8 @@
         <input type="hidden" id="addr1" name="addr2" value="${memberVO.addr2}">
         <input type="hidden" id="addr1" name="addr3" value="${memberVO.addr3}">
         <input type="hidden" id="bookTitle" value="${bookTitle}">
-        <input type="hidden" id="bookQuantity" value="${bookQuantity}">
-        <input type="hidden" id="reciever" value="${receiver}">
+        <input type="hidden" id="bookKind" value="${bookKind}">
+        <input type="hidden" id="receiver" value="${receiver}">
         <input type="hidden" id="totalPrice" name="totalPrice" value="${purchaseVO.totalPrice}">
 
         <div class="row">

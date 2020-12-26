@@ -50,6 +50,7 @@
 
                     <input type="hidden" id="price" value="${cart.bookVO.price}">
                     <td class="price"><fmt:formatNumber value="${cart.bookVO.price}" pattern="#,###"/>원</td>
+
                     <td class="count">
                         <button type="button"
                                 class="plusCount waves-effect waves-light btn-small white black-text btn-flat"><i

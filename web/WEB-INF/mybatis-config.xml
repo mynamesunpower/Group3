@@ -15,6 +15,7 @@
 		<typeAlias alias="publisher" type="model.vo.PublisherVO" />
 		<typeAlias alias="cart" type="model.vo.ShoppingCartVO" />
 		<typeAlias alias="purchase" type="model.vo.PurchaseVO" />
+		<typeAlias alias="purchaseBook" type="model.vo.PurchaseBookVO" />
 	</typeAliases>
 
 </configuration>

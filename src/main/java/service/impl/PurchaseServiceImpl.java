@@ -2,6 +2,7 @@ package service.impl;
 
 import model.dao.dao.PurchaseDAO;
 import model.dao.impl.PurchaseDAOImpl;
+import model.vo.PurchaseBookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.service.PurchaseService;
@@ -15,7 +16,12 @@ public class PurchaseServiceImpl implements PurchaseService {
     PurchaseDAOImpl purchaseDAO;
 
     @Override
-    public void insertPuchase(Map purchaseMap) {
-        purchaseDAO.insertPuchase(purchaseMap);
+    public String insertPurchase(Map purchaseMap) {
+        return purchaseDAO.insertPurchase(purchaseMap);
+    }
+
+    @Override
+    public void insertPurchaseBook(PurchaseBookVO purchaseBookVO) {
+        purchaseDAO.insertPurchaseBook(purchaseBookVO);
     }
 }

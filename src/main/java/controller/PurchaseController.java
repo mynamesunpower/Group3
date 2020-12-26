@@ -1,6 +1,7 @@
 package controller;
 
 import model.vo.MemberVO;
+import model.vo.PurchaseBookVO;
 import model.vo.PurchaseVO;
 import model.vo.ShoppingCartVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,23 +36,37 @@ public class PurchaseController {
     // 상품 주문
     @RequestMapping("/orderBook.ing")
     public String orderBook(ShoppingCartVO shoppingCartVO, String title, Model model) {
-        // cartList.jsp로부터 isbn을 넘겨 받음
-        System.out.println("PurchaseContoller orderBook() isbn : " + shoppingCartVO.getIsbn());
-        System.out.println("PurchaseContoller orderBook() title : " + title);
-
+        System.out.println("orderBook() title: " + title);
+        List<String> isbnList = new ArrayList<>();
+        List<Integer> quantityList = new ArrayList<>();
 
         shoppingCartVO.setTel((String) httpSession.getAttribute("memberTel"));
-        List cart = shoppingCartService.selectCart(shoppingCartVO);
+        List<ShoppingCartVO> cart = shoppingCartService.selectCart(shoppingCartVO);
+
+        for(ShoppingCartVO cartVO : cart){
+            isbnList.add(cartVO.getIsbn());
+            quantityList.add(cartVO.getQuantity());
+        }
+
         model.addAttribute("cart", cart);
         model.addAttribute("title", title);
+
+        // 구매 완료 후, purchase_book 테이블에 저장하기위해 쓰일용도
+        httpSession.setAttribute("isbnList", isbnList);
+        httpSession.setAttribute("quantityList", quantityList);
+
+
         return "purchase/orderBook";
     }
 
     @RequestMapping("/orderBooks.ing")
-    public String orderBooks(@RequestParam(value = "isbn[]") List<String> isbn,
-                             @RequestParam(value = "title[]") List<String> title, Model model) {
+    public String orderBooks(@RequestParam(value = "isbn[]") List<String> isbnList,
+                             @RequestParam(value = "title[]") List<String> titleList, Model model) {
 
-        System.out.println("PurchaseController orderBooks() size  : " + isbn.size());
+        // 각 상품의 수량을 담을 리스트 생성
+        List<Integer> quantityList = new ArrayList<>();
+
+        System.out.println("PurchaseController orderBooks() size  : " + isbnList.size());
 
         ShoppingCartVO shoppingCartVO = new ShoppingCartVO();
         shoppingCartVO.setTel((String) httpSession.getAttribute("memberTel"));
@@ -59,15 +74,24 @@ public class PurchaseController {
         List cartList = new ArrayList();
 
         // 각각의 isbn을 가지고 장바구니에 있는 해당 isbn 책의 정보를 가져옴
-        for (String sIsbn : isbn) {
+        for (String sIsbn : isbnList) {
             shoppingCartVO.setIsbn(sIsbn);
-            List cart = shoppingCartService.selectCart(shoppingCartVO);
+            List<ShoppingCartVO> cart = shoppingCartService.selectCart(shoppingCartVO);
+
+            // 각 상품의 수량을 저장
+            for(ShoppingCartVO result :cart){
+                quantityList.add(result.getQuantity());
+            }
+
             cartList.add(cart);
         }
         // 장바구니의 주문목록의 상품명 1개를 보냄
-        model.addAttribute("title", title.get(0));
-
+        model.addAttribute("title", titleList.get(0));
         model.addAttribute("cartList", cartList);
+
+        // 구매 완료 후, purchase_book 테이블에 저장하기위해 쓰일용도
+        httpSession.setAttribute("isbnList", isbnList);
+        httpSession.setAttribute("quantityList", quantityList);
 
         return "purchase/orderBook";
     }
@@ -76,15 +100,15 @@ public class PurchaseController {
     @RequestMapping("/payOrder.ing")
     public String payOrder(PurchaseVO purchaseVO, MemberVO memberVO,
                            @RequestParam(value = "bookTitle") String bookTitle,
-                           @RequestParam(value = "bookQuantity") String bookQuantity, Model model) {
+                           @RequestParam(value = "bookKind") String bookKind, Model model) {
 
-        System.out.println("payOrder() 확인 : " + bookTitle + " / " + bookQuantity);
+        System.out.println("payOrder() 확인 : " + bookTitle + " / " + bookKind);
         System.out.println("PurchaseController payOrder Point: " + memberVO.getPoint());
         System.out.println("PurchaseController payOrder totalPrice: " + purchaseVO.getTotalPrice());
         System.out.println("받는사람 : " + purchaseVO.getReceiver());
 
         model.addAttribute("bookTitle", bookTitle);
-        model.addAttribute("bookQuantity", bookQuantity);
+        model.addAttribute("bookKind", bookKind);
         model.addAttribute("purchaseVO", purchaseVO);
         model.addAttribute("memberVO", memberVO);
 
@@ -92,26 +116,48 @@ public class PurchaseController {
         httpSession.setAttribute("payMember" , memberVO);
         httpSession.setAttribute("payPurchase", purchaseVO);
         httpSession.setAttribute("bookTitle",bookTitle);
-        httpSession.setAttribute("bookQuantity", bookQuantity);
+        httpSession.setAttribute("bookKind", bookKind);
 
         return "purchase/payOrder";
     }
 
+    // TODO 트랜잭션 적용할것
     // 결제 성공시
     @RequestMapping("payComplete")
     public String payComplete() {
+        // payOrder()에서 저장한 세션값을 얻어옴
         MemberVO memberVO = (MemberVO)httpSession.getAttribute("payMember");
         memberVO.setTel((String)httpSession.getAttribute("memberTel"));
         PurchaseVO purchaseVO = (PurchaseVO)httpSession.getAttribute("payPurchase");
 
+        PurchaseBookVO purchaseBookVO = new PurchaseBookVO();
+
         // sql에 필요한 데이터들을 집어넣기위한 해쉬맵 생성
         Map purchaseMap = new HashMap();
+
+        // 첫 orderNumber초기화
         purchaseMap.put("orderNumber", 0);
         purchaseMap.put("memberTel", memberVO.getTel());
         purchaseMap.put("totalPrice",purchaseVO.getTotalPrice());
         purchaseMap.put("receiver", purchaseVO.getReceiver());
 
-        purchaseService.insertPuchase(purchaseMap);
+        // 구매 완료시 생성된 orderNumber를 저장
+        purchaseBookVO.setOrderNumber(purchaseService.insertPurchase(purchaseMap));
+
+        // 세션으로 저장되어있는 주문하고자 하는 상품의 isbn & 수량
+        List<String> isbn = (List<String>)httpSession.getAttribute("isbnList");
+        List<Integer> quantity = (List<Integer>)httpSession.getAttribute("quantityList");
+
+        // 각각의 상품 isbn & 갯수를 purchase_book에 저장
+        for(int i = 0; i<isbn.size(); i++){
+            purchaseBookVO.setIsbn(isbn.get(i));
+            purchaseBookVO.setQuantity(quantity.get(i));
+
+            //구매 상품 purchase_book 테이블에 추가
+            purchaseService.insertPurchaseBook(purchaseBookVO);
+            // 구매상품 장바구니에서 삭제
+            shoppingCartService.deleteCart((String)httpSession.getAttribute("memberTel"),purchaseBookVO.getIsbn());
+        }
 
         return "purchase/payComplete";
     }
