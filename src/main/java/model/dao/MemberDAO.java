@@ -9,15 +9,15 @@ public interface MemberDAO {
 
     int memberInsert(MemberVO vo);
 
-    int memberupdate(MemberVO vo);
+    int memberUpdate(MemberVO vo);
 
-    MemberVO memberlogin(MemberVO vo);
+    MemberVO memberLogin(MemberVO vo);
 
     List<PurchaseVO> memberOrderList(PurchaseVO purchaseVO);
 
     int memberDelete(MemberVO membervo);
 
-    MemberVO memberIdCheck(MemberVO membervo);
+    MemberVO memberIdFind(MemberVO membervo);
 
 }
 

@@ -10,14 +10,14 @@ public interface MemberService {
 
     public int memberInsert(MemberVO vo );
 
-    public MemberVO memberlogin(MemberVO vo );
+    public MemberVO memberLogin(MemberVO vo );
 
-    public int memberupdate(MemberVO vo);
+    public int memberUpdate(MemberVO vo);
 
     public List<PurchaseVO> memberOrderList(PurchaseVO purchaseVO);
 
     public int memberDelete(MemberVO membervo);
 
-    public MemberVO memberIdCheck(MemberVO membervo );
+    public MemberVO memberIdFind(MemberVO membervo );
 }
 

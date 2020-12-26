@@ -13,7 +13,7 @@
     이쁜 alert창인데 한페이지에 맨 마지막에 만든 swal만 작동되는듯(?) --%>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../js/login.js" type="text/javascript"></script>
-</head>
+
 <body>
 <section class="container section" id="services">
     <div class="row">
@@ -31,18 +31,16 @@
                     <form action="memberlogin.ing" name="memberlogin" id="memberlogin" method="post">
                         <input type="text" id="id" name="id" placeholder="ID 입력"
                                oninvalid="swal('아이디를 입력해주세요')" required>
-                        <input type="text" id="password" name="password" placeholder="비밀번호 입력"
-                               <%--oninvalid="swal('비밀번호를 입력해주세요')"--%>
-                               required><br/>
+                        <input type="text" id="password" name="password" placeholder="비밀번호 입력" required><br/>
                         <input type="submit" id="memlogin" name="memlogin" value="로그인">
                     </form>      <%-- 회원 로그인확인 form --%>
 
-        <input type="button" id="memsearchid" name="memsearchid" value="아이디찾기">
+        <input type="button" id="memsearchid" name="memsearchid" value="아이디찾기" >
         &nbsp; / &nbsp;
         <input type="button" id="memsearchpass" name="memsearchpass" value="비밀번호찾기"><br/><br/>
 
 
-        <input type="button" id="memjoin" name="memjoin" value="회원가입" onclick="location.href='/memberjoin.ing'"/>
+        <input type="button" id="memjoin" name="memjoin" value="회원가입"/>
     </div><!-- 회원로그인 탭 -->
 
 

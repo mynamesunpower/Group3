@@ -53,30 +53,7 @@ $(function(){
                 }
         });
        // });  //end $(document).ready(function() 이메일셀렉트박스입력관련.
-
     $('#userinput').oninvalid(swal('회원정보를 입력해주세요^ㅡ^'));
-
-
-//     $('#id').keyup(function(){
-//         // alert('키업 이벤트 발생'); 오우 여기에 아예 못들어오넹 #id한개박에없어서 댈텐데 오해안대지
-//         $.ajax({
-//             type : 'post',
-//             async : true,
-//             url : '/idCheck.ing',  //아에 이게 작동을모함 그러네..
-// //슬래시 붙여서인동적없는데 왜안대지 이거 나도 해볼게 지금  다른거 하고있어봐 상연아 ㅋㅋ
-    //ㅇㅋ 유효성검사는 다른사람....수고혀
-//             contentType : 'application/x-www-form-urlencoded;charset=utf-8',
-//             data : {
-//                 'id' : $('#id').val() // 보내는 데이터
-//             },
-//             success : function (result) {
-//                 $('#idCheckResult').text(result); // 성공했을 때
-//             },
-//             error : function (err) {
-//                 console.log(err);
-//             }
-//         });
-//     })
 
 }); //end $(function)
 

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository("memberDao")
-public class MemberDAOImpl {
+public class MemberDAOImpl implements MemberDAO{
 
     @Autowired
     private SqlSessionTemplate mybatis;
@@ -17,17 +17,17 @@ public class MemberDAOImpl {
 
     public int memberInsert(MemberVO vo) {
         System.out.println("===>  MemberMapper memberInsert() 호출");
-        return mybatis.insert("member.memberjoin", vo);
+        return mybatis.insert("member.memberJoin", vo);
     }
 
-    public MemberVO memberlogin(MemberVO vo){
-        System.out.println("===>  MemberMapper memberlogin() 호출");
-      return mybatis.selectOne("member.login", vo );
+    public MemberVO memberLogin(MemberVO vo){
+        System.out.println("===>  MemberMapper memberLogin() 호출");
+      return mybatis.selectOne("member.Login", vo );
     }
 
-    public int memberupdate(MemberVO vo){
+    public int memberUpdate(MemberVO vo){
         System.out.println("===>  MemberMapper memberlogin() 호출");
-        return mybatis.update("member.memberupdate", vo );
+        return mybatis.update("member.memberUpdate", vo );
     }
 
     public List<PurchaseVO> memberOrderList(PurchaseVO purchaseVO){
@@ -40,9 +40,9 @@ public class MemberDAOImpl {
         return mybatis.delete("member.memberDelete",membervo);
     }
 
-    public MemberVO memberIdCheck(MemberVO membervo){
+    public MemberVO memberIdFind(MemberVO membervo){
         System.out.println("===>  MemberMapper memberIdCheck() 호출");
-        return mybatis.selectOne("member.login", membervo );
+        return mybatis.selectOne("member.memberIdFind", membervo );
     }
 
 }

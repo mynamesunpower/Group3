@@ -21,6 +21,7 @@
     <script src="../../js/index.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="../../js/hello.js" type="javascript"></script>
+    <script src="../../js/login.js" type="text/javascript"></script>
 
     <!-- Compiled and minified CSS 드랍다운 최신버전으로하면 인식(?)을 못해서 이전버전적용햇어요-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">

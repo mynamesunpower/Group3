@@ -4,13 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
-<insert id="memberjoin" parameterType="member">
+<insert id="memberJoin" parameterType="member">
         Insert into member (id, password, name, tel,jumin1,jumin2,email,domain ,addr1,addr2,addr3)
         VALUES (  #{id},#{password},#{name},#{tel}, #{jumin1},#{jumin2},
         #{email},#{domain}, #{addr1},#{addr2},#{addr3})
 </insert>
 
-<select id="login" parameterType="member" resultType="member">
+<select id="Login" parameterType="member" resultType="member">
        select *
        from member
        where id = #{id}
@@ -20,7 +20,7 @@
     </if>
 </select>
 
-<update id="memberupdate" parameterType="member">
+<update id="memberUpdate" parameterType="member">
       update MEMBER
       set password = #{password},
           name = #{name},
@@ -42,11 +42,11 @@
         delete from member where password = #{password}
     </delete>
     
-    <!--<select id="memberIdCheck" parameterType="member" resultType="member">-->
-        <!--select *-->
-        <!--from member-->
-        <!--where id = #{id}-->
-    <!--</select>-->
+    <select id="memberIdFind" parameterType="member" resultType="member">
+        select id
+        from member
+        where tel=#{tel}
+    </select>
 
 
 

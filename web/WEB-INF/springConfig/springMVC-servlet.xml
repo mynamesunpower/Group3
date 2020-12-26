@@ -10,6 +10,9 @@
     <context:component-scan base-package="service"/>
     <context:component-scan base-package="model"/>
 
+    <!--이메일관련-->
+    <context:component-scan base-package="email"/>
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl1"></property>
@@ -28,6 +31,7 @@
 
     <!--TODO 연결설정이 안됨-->
     <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>-->
+
 
 
 </beans>

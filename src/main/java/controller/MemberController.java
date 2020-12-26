@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import service.MemberService;
 
 import javax.servlet.http.HttpSession;
@@ -73,25 +72,25 @@ public class MemberController {
         @RequestMapping("/updateok.ing")
         public String updateok(MemberVO vo, Model m){
             System.out.println("회원정보수정 완료페이지~~");
-            int result = memberService.memberupdate(vo);
+            int result = memberService.memberUpdate(vo);
 
-            String msgupdate = vo.getName() + " 님 회원정보가 수정되엇습니다~~~~";
+            String msgUpdate = vo.getName() + " 님 회원정보가 수정되엇습니다~~~~";
             if (result > 0) {
-                msgupdate= vo.getName() + " 님 회원정보가 수정되엇습니다~~~~다시 로그인해주세요~~~~";
+                msgUpdate= vo.getName() + " 님 회원정보가 수정되엇습니다~~~~다시 로그인해주세요~~~~";
             } else {
-                msgupdate= vo.getName() + " 님 회원정보가 수정되지 않앗습니다. 다시 시도해주세요.";
+                msgUpdate= vo.getName() + " 님 회원정보가 수정되지 않앗습니다. 다시 시도해주세요.";
             }
-            m.addAttribute("msgupdate", msgupdate);
+            m.addAttribute("msgupdate", msgUpdate);
         return "/updateok";
 
 }//end  회원정보수정
 
 
     @RequestMapping("/memberlogin.ing")
-    public String memberlogin(MemberVO vo, HttpSession session) {
+    public String memberLogin(MemberVO vo, HttpSession session) {
         System.out.println("멤버로그인으로 이동하겟습니다");
 
-        MemberVO result = memberService.memberlogin(vo);
+        MemberVO result = memberService.memberLogin(vo);
 
 
         if (result == null) {
@@ -130,24 +129,37 @@ public class MemberController {
         return "/hello";
     }
 
-    @RequestMapping(value= "idCheck.ing" ,produces="application/text;charset=utf-8")
-    @ResponseBody
-    public String idCheck(MemberVO membervo){
-        System.out.println("아이디체크 됩니까?????");
+    @RequestMapping(value = "/memberIdFind.ing")
+    public String memberIdFind(MemberVO membervo){
 
-        String message = "이미 사용중인 아이디입니다.";
-        MemberVO result = memberService.memberlogin(membervo);
-
-        System.out.println(result.getId());
-
-        if(result == null) {
-            message="사용 가능한 아이디입니다.";
-            System.out.println("아이디찾기성공?");
-        }
-        System.out.println("아이디찾기실패?");
-        return message;
+        System.out.println("아이디찾기 페이지로로 이동");
+        return "/memberIdFind";
     }
-//아이디 1 11 111 1111은 잇고 11111없어서 null나오는데 글씨가안찍힙니다 js문제일까요
-    // null 이면 아이디찾기성공? 나오는거 맞지 사용가능한 아이디라고 나와야대는데
-//    1 11 111 1111은 사용불가능아이디  값은 받아왓다는건데
+
+    @RequestMapping(value = "/memberIdFindOk.ing")
+    public String memberIdFindOk(MemberVO membervo, HttpSession session){
+        System.out.println("아이디찾기성공 페이지로로 이동");
+
+        MemberVO result = memberService.memberIdFind(membervo);
+
+        if (result == null) {
+            System.out.println("전화번호를 입력실패");
+            return "/hello";
+        }else {
+            System.out.println("전화번호입력성공");
+            session.setAttribute("memberId",result.getId());
+            return "/memberIdFindOk";
+        }
+    }
+
+    @RequestMapping(value = "/memberPassFind.ing")
+    public String memberPassFind(MemberVO membervo){
+
+        System.out.println("비밀번호찾기 페이지로 이동");
+        return "/memberPassFind";
+
+    }
+
+
+
 }//end MemberController

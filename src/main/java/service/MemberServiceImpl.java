@@ -21,14 +21,14 @@ private MemberDAOImpl memberDao;
         }
 
         @Override
-        public MemberVO memberlogin(MemberVO vo) {
+        public MemberVO memberLogin(MemberVO vo) {
 
-                return memberDao.memberlogin(vo);
+                return memberDao.memberLogin(vo);
         }
         @Override
-        public int memberupdate(MemberVO vo){
+        public int memberUpdate(MemberVO vo){
 
-                return memberDao.memberupdate(vo);
+                return memberDao.memberUpdate(vo);
          }
 
         @Override
@@ -41,8 +41,8 @@ private MemberDAOImpl memberDao;
         }
 
         @Override
-        public MemberVO memberIdCheck(MemberVO membervo) {
-                return memberDao.memberIdCheck(membervo);
+        public MemberVO memberIdFind(MemberVO membervo) {
+                return memberDao.memberIdFind(membervo);
         }
 }
 
