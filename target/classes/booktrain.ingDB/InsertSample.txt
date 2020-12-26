@@ -28,3 +28,15 @@ insert into book values ('1111111111112', '23', '교육', 1027, 155000, '머리 
 insert into book values ('1111111111113', '24', 'IT', 390, 20000, '인터넷 테크놀로지', 58, '랑', sysdate, '월드 웹 썰비씨스', '테크놀로지, IT');
 insert into book values ('1111111111114', '25', '요리', 123, 140000, '요리왕 치타', 200, '치타', sysdate, '야옹야옹 쥐 요리', '요리, 요리왕');
 insert into book values ('1111111111115', '26', '공무원', 457, 35000, '평생직장 공무원 되세요', 100, '곧무원', sysdate, '이 책만 보면 됩니다', '공무원, 평생직장');
+
+------ 테이블 채우기 PURCHASE_BOOK
+insert into PURCHASE_BOOK(ORDER_NUMBER, ISBN, QUANTITY) values ('1111111111', '1111111111111', 5);
+insert into PURCHASE_BOOK(ORDER_NUMBER, ISBN, QUANTITY) values ('1111111111', '1111111111112', 4);
+insert into PURCHASE_BOOK(ORDER_NUMBER, ISBN, QUANTITY) values ('1111111112', '1111111111111', 3);
+insert into PURCHASE_BOOK(ORDER_NUMBER, ISBN, QUANTITY) values ('1111111113', '1111111111113', 5);
+
+----- 테이블 채우기 Sales_data
+insert into SALES_DATA(order_number, isbn, amount_price, amount_quantity) values('1111111112', '1111111111111', 24000, 3);
+insert into SALES_DATA(order_number, isbn, amount_price, amount_quantity) values('1111111113', '1111111111113', 24000, 3);
+insert into SALES_DATA(order_number, isbn, amount_price, amount_quantity) values('1111111111', '1111111111112', 14000, 4);
+insert into SALES_DATA(order_number, isbn, amount_price, amount_quantity) values('1111111111', '1111111111111', 24000, 3);

@@ -1,10 +1,12 @@
 package controller;
 
+import model.dao.dao.MemberDAO;
 import model.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import service.service.MemberService;
 
 import javax.servlet.http.HttpSession;
@@ -15,7 +17,6 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
-
     @RequestMapping("/main.ing")
     public void main() {
         System.out.println("메인페이지 이동스");
@@ -25,8 +26,6 @@ public class MemberController {
     public void update() {
         System.out.println("회원정보수정 페이지로 이동스");
     }//end  회원정보수정
-
-
 
     @RequestMapping("/login.ing")
     public String test() {
@@ -54,17 +53,42 @@ public class MemberController {
     }//end memberlogin
 
     @RequestMapping("/userok.ing")
-    public String userok(MemberVO vo, Model m) {
+    public String userok(MemberVO vo, Model m, HttpSession session) {
         System.out.println("회원가입 성공페이지로 이동");
         int result = memberService.memberInsert(vo);
 
         String message = "제대로 된 정보를 입력해주세요";
         if (result > 0) {
-            message = vo.getName() + " 님 회원가입 성공ㅇㅇㅇㅇㅇ";
+            message = vo.getName() + " 님, Booktrain.ing에서 공부할 준비 되셨나요?";
         }
+        memberlogin(vo, session);
         m.addAttribute("message", message);
         return "/userok";
     }//end userok
+
+    @RequestMapping("idCheck.ing")
+    @ResponseBody
+    public String idCheck(MemberVO vo) {
+        System.out.println("Controller ID 체크 ->" + vo.getId());
+        int result = memberService.idCheck(vo);
+        String message = "이미 사용중인 아이디입니다.";
+        if (result == 0) {
+            message = "사용 가능한 아이디입니다.";
+        }
+        return message;
+    }
+
+    @RequestMapping("telCheck.ing")
+    @ResponseBody
+    public String telCheck(MemberVO vo) {
+        System.out.println("Controller TEL 체크 ->" + vo.getTel());
+        int result = memberService.telCheck(vo);
+        String message = "이미 사용 중인 전화번호입니다.";
+        if (result == 0) {
+            message = "사용 가능한 전화번호입니다.";
+        }
+        return message;
+    }
 
     @RequestMapping("/updateok.ing")
     public String updateok(MemberVO vo){
@@ -83,7 +107,7 @@ public class MemberController {
 
         if (result == null) {
             System.out.println("로그인실패~~~~~");
-            return "/login";
+            return "redirect:/login.ing";
 
         } else {
             System.out.println("로그인성공~~~~~~");

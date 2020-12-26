@@ -15,7 +15,7 @@
 <H5>도서 정보 입력</H5>
 <HR/>
 <div class="col s8 offset-2 center-align">
-<form action="insertBook_success.ing" name="insertBook" method="post" enctype="multipart/form-data">
+<form action="insertBook_success.ing" name="insertBook" id="insertBook" enctype="multipart/form-data">
 
 <table border="2">
     <tr>

@@ -27,5 +27,13 @@ private MemberDAOImpl memberDao;
                 memberDao.memberlogin(vo);
          }
 
+        @Override
+        public int idCheck(MemberVO vo) {
+            return memberDao.idCheck(vo);
+        }
 
+        @Override
+        public int telCheck(MemberVO vo) {
+            return memberDao.telCheck(vo);
+        }
 }

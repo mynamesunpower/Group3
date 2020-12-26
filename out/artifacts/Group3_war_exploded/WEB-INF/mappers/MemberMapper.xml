@@ -29,4 +29,14 @@ addr3 = #{addr3}
 where id = #{id}
     </update>
 
+    <select id="idCheck" parameterType="member" resultType="member">
+        SELECT * FROM MEMBER
+        WHERE id = #{id}
+    </select>
+
+    <select id="telCheck" parameterType="member" resultType="member">
+        SELECT * FROM MEMBER
+        WHERE tel = #{tel}
+    </select>
+
  </mapper>

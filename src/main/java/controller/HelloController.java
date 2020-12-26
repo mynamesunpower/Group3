@@ -12,4 +12,10 @@ public class HelloController {
         return "hello";
     }
 
+    @RequestMapping("/error.ing")
+    public String error(){
+        System.out.println("에러 발생");
+        return "error";
+    }
+
 }

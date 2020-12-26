@@ -1,2 +1,12 @@
 /.metadata/
 workspace.xml
+
+### Intelli J ignore ###
+/.idea/
+/.settings/
+
+#### Artifacts ignore ###
+/out/artifacts/
+
+#### Targets ignore ####
+/target/

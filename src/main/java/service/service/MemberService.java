@@ -11,6 +11,8 @@ public interface MemberService {
 
     void memberupdate(MemberVO vo);
 
+    public int idCheck(MemberVO vo);
 
+    public int telCheck(MemberVO vo);
 }
 

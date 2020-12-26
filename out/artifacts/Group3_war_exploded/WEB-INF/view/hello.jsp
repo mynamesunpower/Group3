@@ -16,7 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script src="../../js/index.js" type="text/javascript"></script>
-    <script src="../../js/hello.js" type="javascript"></script>
     <script src="../../js/cart.js" type="text/javascript"></script>
     <script src="../../js/order.js" type="text/javascript"></script>
     <script src="../../js/paymentMethod.js" type="text/javascript"></script>
