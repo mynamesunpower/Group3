@@ -16,8 +16,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script src="../../js/index.js" type="text/javascript"></script>
-    <script src="../../js/cart.js" type="text/javascript"></script>
     <script src="../../js/hello.js" type="javascript"></script>
+    <script src="../../js/cart.js" type="text/javascript"></script>
+    <script src="../../js/order.js" type="text/javascript"></script>
+    <script src="../../js/paymentMethod.js" type="text/javascript"></script>
     <script type="text/javascript">
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -125,80 +127,6 @@
         </div>
     </form>
 </div>
-
-<%--<<<<<<< HEAD--%>
-<%--<ul id="slide-out" class="sidenav">--%>
-    <%--<li class="no-padding">--%>
-        <%--<ul class="collapsible expandable">--%>
-            <%--<li>--%>
-                <%--<div class="collapsible-header">책 CRUD</div>--%>
-                <%--<div class="collapsible-body">--%>
-                    <%--<ul>--%>
-                        <%--<li><a class="loadAjax" href="insertBook.ing">책 정보 데이터베이스 입력</a></li>--%>
-                        <%--<li><a class="loadAjax" href="rbookList.ing">책 데이터베이스 목록 보기</a></li>--%>
-                        <%--<li><a href="#">책 데이터베이스 수정하기</a></li>--%>
-                        <%--<li><a href="#">책 데이터베이스 삭제하기</a></li>--%>
-                    <%--</ul>--%>
-                <%--</div>--%>
-            <%--</li>--%>
-            <%--<li>--%>
-                <%--<div class="collapsible-header">출판사 CRUD</div>--%>
-                <%--<div class="collapsible-body">--%>
-                    <%--<ul>--%>
-                        <%--<li><a class="loadAjax" href="publisher/insertPublisher.ing">출판사 정보 데이터베이스 입력</a></li>--%>
-                        <%--<li><a class="loadAjax" href="publisher/listPublisher.ing">출판사 데이터베이스 목록 보기</a></li>--%>
-                        <%--<li><a href="#">출판사 데이터베이스 수정하기</a></li>--%>
-                        <%--<li><a href="#">출판사 데이터베이스 삭제하기</a></li>--%>
-                    <%--</ul>--%>
-                <%--</div>--%>
-            <%--</li>--%>
-        <%--</ul>--%>
-    <%--</li>--%>
-<%--</ul>--%>
-<%--<div class="container">--%>
-    <%--<div class="row center-align">--%>
-        <%--<div id="content" class="col s12">--%>
-            <%--<c:choose>--%>
-                <%--<c:when test="${sessionScope.name eq null}">--%>
-                    <%--<span class="button">--%>
-                        <%--<input type="button" id="memberButton" onclick="location.href='/login.ing'"/>--%>
-                    <%--</span>--%>
-                <%--</c:when>--%>
-                <%--<c:when test="${sessionScope.name ne null}">--%>
-
-                    <%--<div>--%>
-                        <%--<!-- Dropdown Trigger -->--%>
-                        <%--<a class='dropdown-button btn blue' href='#' data-activates='dropdown1' id="dropdownbox">--%>
-                                <%--${sessionScope.name}님</a>--%>
-
-                        <%--<!-- Dropdown Structure -->--%>
-                        <%--<ul id='dropdown1' class='dropdown-content'>--%>
-                            <%--<li><a href="#!" class="blue-text">--%>
-                                <%--<a href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>--%>
-                            <%--</a></li>--%>
-                            <%--<li class="divider"></li>--%>
-                            <%--<li><a href="#!" class="blue-text">주문목록확인</a></li>--%>
-                            <%--<li class="divider"></li>--%>
-                            <%--<li><a href="#!" class="blue-text">--%>
-                                <%--<a href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>--%>
-                            <%--</a></li>--%>
-                        <%--</ul>--%>
-                    <%--</div>--%>
-                    <%--&lt;%&ndash;<input type="button" id="mypage" name="mypage" value="MYPAGE" onclick="location.href='/mypage.ing'">&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;<input type="button" id="logout" name="logout" value="로그아웃" onclick="location.href='/logout.ing'">&ndash;%&gt;--%>
-                <%--</c:when>--%>
-            <%--</c:choose>--%>
-            <%--<div id="myCarousel" class="carousel slide" data-ride="carousel">--%>
-                <%--<!-- 슬라이더 순서 -->--%>
-                <%--<ol class="carousel-indicators">--%>
-                    <%--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>--%>
-                    <%--<li data-target="#myCarousel" data-slide-to="1"></li>--%>
-                    <%--<li data-target="#myCarousel" data-slide-to="2"></li>--%>
-                <%--</ol>--%>
-
-                <%--<!-- 슬라이더 이미지 부분-->--%>
-                <%--<div class="carousel-inner">--%>
-<%--=======--%>
     <ul id="slide-out" class="sidenav manager">
         <li class="no-padding">
             <ul class="collapsible expandable">

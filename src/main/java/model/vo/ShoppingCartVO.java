@@ -2,7 +2,7 @@ package model.vo;
 
 public class ShoppingCartVO {
     private String tel;
-    private Long isbn;
+    private String isbn;
     private int quantity;
 
     private BookVO bookVO;
@@ -20,11 +20,11 @@ public class ShoppingCartVO {
         this.tel = tel;
     }
 
-    public Long getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(Long isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 

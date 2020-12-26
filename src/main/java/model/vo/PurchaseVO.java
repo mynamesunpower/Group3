@@ -1,10 +1,11 @@
 package model.vo;
 
 public class PurchaseVO {
-    private int orderNumber;
-    private String tel;
-    private int isbn;
-    private int quantity;
+    private String orderNumber;
+    private String isbn;
+    private String receiver;
+    private String memberTel;
+    private String nonMemberTel;
     private String state;
     private int totalPrice;
     private String purchaseDate;
@@ -13,36 +14,45 @@ public class PurchaseVO {
     public PurchaseVO() {
     }
 
-    public int getOrderNumber() {
+
+    public String getOrderNumber() {
         return orderNumber;
     }
 
-    public void setOrderNumber(int orderNumber) {
+    public void setOrderNumber(String orderNumber) {
         this.orderNumber = orderNumber;
     }
 
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getReceiver() {
+        return receiver;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
+    }
+
+    public String getMemberTel() {
+        return memberTel;
+    }
+
+    public void setMemberTel(String memberTel) {
+        this.memberTel = memberTel;
+    }
+
+    public String getNonMemberTel() {
+        return nonMemberTel;
+    }
+
+    public void setNonMemberTel(String nonMemberTel) {
+        this.nonMemberTel = nonMemberTel;
     }
 
     public String getState() {
