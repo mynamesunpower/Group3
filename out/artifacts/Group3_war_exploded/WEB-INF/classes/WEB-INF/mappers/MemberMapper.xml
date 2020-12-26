@@ -45,7 +45,7 @@
     <select id="memberIdFind" parameterType="member" resultType="member">
         select id
         from member
-        where tel=#{tel}
+        where tel=#{tel} and email=#{email} and domain = #{domain}
     </select>
 
 

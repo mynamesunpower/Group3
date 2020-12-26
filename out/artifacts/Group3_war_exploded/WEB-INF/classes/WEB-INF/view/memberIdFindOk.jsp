@@ -14,5 +14,7 @@
 
 아이디는 ${sessionScope.memberId}입니다.
 
+<a href="/login.ing">로그인하러 가기</a>
+
 </body>
 </html>

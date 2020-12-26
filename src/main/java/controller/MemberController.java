@@ -144,7 +144,7 @@ public class MemberController {
 
         if (result == null) {
             System.out.println("전화번호를 입력실패");
-            return "/hello";
+            return "/memberIdFindNo";
         }else {
             System.out.println("전화번호입력성공");
             session.setAttribute("memberId",result.getId());

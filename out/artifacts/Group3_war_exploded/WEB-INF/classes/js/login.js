@@ -5,13 +5,13 @@ $(document).ready(function(){
     // 이거 페이지는 어디에요?
     $('#memjoin').click(function () {
             location.href='/memberjoin.ing';
-        })
-    $('#memsearchid').window.open(function () {
+        });
+    $('#memsearchid').click(function () {
         location.href='/memberIdFind.ing';
-    })
+    });
     $('#memsearchpass').click(function () {
         location.href='/memberPassFind.ing';
-    })
+    });
 
 });
 

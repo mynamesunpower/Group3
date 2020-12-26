@@ -14,31 +14,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script type="text/javascript">
-//     //아이디 유효성검사.
-// $(document).ready(function () {
-//     $('#id').keyup(function(){
-//         $.ajax({
-//             type : 'post',
-//             async : true,
-//             url : 'idCheck.ing',
-//             contentType : 'application/x-www-form-urlencoded;charset=utf-8',
-//             data : {
-//                 'id' : $('#id').val() // 보내는 데이터 를 보냈으니 중복여부는 돌아왔을텐데
-//             }, // 뭘 해도 에러넹
-//             success : function (result) {
-//                 alert(result); // 요고 확인해보죵죵 이거 에러만뜸
-//                $('#idCheckResult').text(result); // 성공했을 때
-//             },
-//             error : function (err) {
-//                 alert("dddddddd");
-//                 console.log(err);
-//             }
-//         });
-//     })//
-// });
 
-</script>
 <script src="../../js/memberjoin.js"></script>
 
 <%--sweetalert css 경고창--%>

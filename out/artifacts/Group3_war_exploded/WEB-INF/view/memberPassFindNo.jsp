@@ -1,20 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: park
-  Date: 2020-12-26
-  Time: 오후 5:42
+  Date: 2020-12-27
+  Time: 오전 1:11
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>아이디찾기 성공페이지</title>
+    <title>비밀번호찾기</title>
 </head>
 <body>
-
-아이디는 ${sessionScope.memberId}입니다.
-
-<a href="/login.ing">로그인하러 가기</a>
-
+비밀번호찾기 실패햇습니다.
 </body>
 </html>
