@@ -95,9 +95,9 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
     </select>
 
     <select id="getGenreSalesList" resultType="map">
-        select GENRE, SUM(PRICE) price
+        select genre, sum(s.amount_price) price
         from SALES_DATA s INNER JOIN BOOK B on s.isbn = B.ISBN
-        GROUP BY GENRE
+        GROUP BY genre
     </select>
 
     <select id="carouselBook" resultType="book">
