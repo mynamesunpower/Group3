@@ -68,10 +68,10 @@ public class BookDAOImpl implements BookDAO {
     public List<Map<String, String>> getGenreSalesList() {
         List<Map<String, String>> list = mybatis.selectList("BookMapper.getGenreSalesList");
 
-        for (Map<String, String> map : list) {
-            System.out.println(map.get("GENRE"));
-            System.out.println(map.get("PRICE"));
-        }
+//        for (Map<String, String> map : list) {
+//            System.out.println(map.get("GENRE"));
+//            System.out.println(map.get("PRICE"));
+//        }
 
         return list;
     }

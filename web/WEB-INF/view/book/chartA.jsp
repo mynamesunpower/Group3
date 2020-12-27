@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sunny
@@ -15,7 +16,11 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var data = google.visualization.arrayToDataTable([ ['genre', 'price'], ${result} ]);
+            var data = google.visualization.arrayToDataTable([
+
+                ['genre', 'price'], ${chartA}
+
+            ]);
             var options = { title: '장르별 매출 비율' };
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
@@ -24,5 +29,6 @@
 </head>
 <body>
 <div id="piechart" style="width: 900px; height: 500px;"></div>
+
 </body>
 </html>

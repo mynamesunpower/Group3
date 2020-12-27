@@ -175,6 +175,7 @@
                     <div class="col s6 offset-s3">
                         <div class="carousel">
                             <h5>새로 들어온 책</h5>
+
                             <c:forEach items="${carouselBook}" var="book">
                                 <a class="carousel-item" href="selectBook.ing?isbn=${book.isbn}"><img src="../../imgs/book/${book.isbn}.PNG">${book.title}</a>
                             </c:forEach>

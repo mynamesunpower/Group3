@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import service.impl.BookServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -121,16 +122,33 @@ public class BookController {
 
         List<Map<String, String>> genreList = bookService.getGenreList();
 
-        String result = "";
-        //Set<String> salesKeys = genre.keySet();
+        Map<String, String> maps  = new HashMap<String, String>();
 
-        /*for (String key : salesKeys) {
+        for (Map<String, String> map : genreList) {
+            System.out.println(map.get("GENRE"));
+            System.out.println(map.get("PRICE"));
+            String key = map.get("GENRE");
+            String value = map.get("PRICE");
+            maps.put(key,value);
+
+        }
+
+        System.out.println("maps는" +maps);
+        String result = "";
+        Set<String> salesKeys = maps.keySet();
+
+        for (String key : salesKeys) {
             if (result != "") {
                 result += ",";
             }
-            result += "['" + key + "', " + genre.get("key") + "]";
-        }*/
+            result += "['" + key + "', " + maps.get(key) + "]";
+        }
+        System.out.println(1);
+        System.out.println(maps.get("모험"));
         System.out.println(result);
+        System.out.println(2);
+        System.out.println("이거슨 : "+genreList);
+        System.out.println("나는"+result);
         model.addAttribute("chartA", result);
 
         return "book/chartA";
