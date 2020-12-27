@@ -1,7 +1,7 @@
-$(function(){
-    function (check) {
-
-})
-
-
-
+// $(function(){
+//     function (check) {
+//
+// })
+//
+//
+//

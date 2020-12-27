@@ -18,6 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 </head>
 
+<%-- 만들지 못햇음 --%>
 주문확인 리스트<br/>
 주문확인 리스트<br/>
 주문확인 리스트<br/>
@@ -49,5 +50,7 @@
 
 </c:forEach>
 </table>
+<%-- 만들지 못햇음 --%>
+
 </body>
 </html>

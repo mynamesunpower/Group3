@@ -59,7 +59,7 @@ create table purchase ( order_number number(10) primary key,
                     references nonmember(tel),
                     constraint purchase_fk_isbn foreign key(isbn)
                     references book(isbn));
-
+alter table purchase add ship_address varchar2(600) not null;
 
 create table shopping_cart ( tel varchar2(13),
                             isbn number(13),
