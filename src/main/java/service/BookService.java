@@ -1,6 +1,7 @@
 package service;
 
 import model.vo.BookVO;
+import model.vo.Sales_DateVO;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,4 +18,8 @@ public interface BookService {
     List<BookVO> genrebookList(String genre);
 
     List<BookVO> searchBook(Map map);
+
+    List<BookVO> carouselBook();
+    List<BookVO> bestBook();
+    List<BookVO> hotBook();
 }

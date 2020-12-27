@@ -54,8 +54,14 @@ public class BookController {
     //페이지 넘김
     @RequestMapping("/{ing}")
     public String ing(@PathVariable String ing) {
-        System.out.println(ing + "요청");
-        return "book/" + ing;
+        System.out.println("BookController에서" +ing + "요청");
+        return ing;
+        //return "book/" + ing;
+    }
+
+    @RequestMapping("/insertBook.ing")
+    public String insertBook(){
+        return "book/insertBook";
     }
 
     //도서 입력 성공 페이지에서 도서목록보기
@@ -71,7 +77,8 @@ public class BookController {
         System.out.println("insertBook_success.ing 요청");
         System.out.println(vo.getPublicationDate());
         bookService.insertBook(vo);
-        return "start.ing";
+        System.out.println("성공");
+        return "book/insertBook_success";
     }
 
     //도서 삭제하기
@@ -110,4 +117,7 @@ public class BookController {
         model.addAttribute("bookList",bookService.genrebookList(request.getParameter("genre")));
         return  "book/bookList";
     }
+
+
+
 }

@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.vo.BookVO;
+import model.vo.Sales_DateVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -65,5 +66,24 @@ public class BookDAOImpl implements BookDAO {
     public List<BookVO> genrebookList(String genre) {
         System.out.println("===> Mybatis genrebookList() 호출");
         return mybatis.selectList("BookMapper.genrebookList",genre);
+    }
+
+
+    @Override
+    public List<BookVO> carouselBook() {
+        System.out.println("===> Mybatis carouselBook() 호출");
+        return mybatis.selectList("BookMapper.carouselBook");
+    }
+
+    @Override
+    public List<BookVO> bestBook() {
+        System.out.println("===> Mybatis bestBook() 호출");
+        return mybatis.selectList("BookMapper.bestBook");
+    }
+
+    @Override
+    public List<BookVO> hotBook() {
+        System.out.println("===> Mybatis hotBook() 호출");
+        return mybatis.selectList("BookMapper.hotBook");
     }
 }

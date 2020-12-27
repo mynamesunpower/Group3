@@ -22,6 +22,8 @@ public class BookVO {
 
     private String imageUrl;
 
+    private Sales_DateVO salesDataVO;
+
 
     public BookVO() {
     }
@@ -122,5 +124,13 @@ public class BookVO {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
 
+    }
+
+    public Sales_DateVO getSalesDataVO() {
+        return salesDataVO;
+    }
+
+    public void setSalesDataVO(Sales_DateVO salesDataVO) {
+        this.salesDataVO = salesDataVO;
     }
 }

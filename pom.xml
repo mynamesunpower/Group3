@@ -158,6 +158,13 @@
         </dependency>
 
 
+        <!-- 그래프 그리기-->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1</version>
+        </dependency>
+
 
     </dependencies>
 
