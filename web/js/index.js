@@ -102,7 +102,7 @@ $(document).ready(function(){
       });
    })
 
-   $(document).on('click', '#memberSubmit', function (evt) {
+   /*$(document).on('click', '#memberSubmit', function (evt) {
       evt.stopPropagation();
 
       let queryString = $('#userinput').serialize();
@@ -119,7 +119,7 @@ $(document).ready(function(){
             console.log(err);
          }
       });
-   })
+   })*/
 
 });
 

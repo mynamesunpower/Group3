@@ -3,11 +3,10 @@ package service.impl;
 
 import model.dao.impl.BookDAOImpl;
 import model.vo.BookVO;
-import model.vo.Sales_DateVO;
+import model.vo.SalesDataVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.service.BookService;
-
 import java.util.List;
 import java.util.Map;
 
@@ -72,10 +71,11 @@ public class BookServiceImpl implements BookService {
 
 
     @Override
-    public Map<String, Object> getGenreList() {
+    public List<Map<String, String>> getGenreList() {
         return bookdao.getGenreSalesList();
+    }
 
-    public List<BookVO> genrebookList(String genre ){
+    public List<BookVO> genrebookList(String genre){
         return bookdao.genrebookList(genre);
     }
 
@@ -86,7 +86,6 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<BookVO> bestBook() {
-
         return bookdao.bestBook();
     }
 

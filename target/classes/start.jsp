@@ -6,9 +6,8 @@
   <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body>
-<a href="/start.ing">start.jsp</a>
+<a href="/hello.ing">start.jsp</a>
 <a href="/purchase/payOrder.ing">결제창</a>
 <a href="/purchase/orderBook.ing">주문 화면</a>
 
 </body>
-</html>

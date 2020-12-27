@@ -17,12 +17,12 @@ public class MemberDAOImpl implements MemberDAO {
         System.out.println("===>  MemberMapper memberInsert() 호출");
         return mybatis.insert("member.memberjoin", vo);
     }
+
     @Override
     public MemberVO memberlogin(MemberVO vo){
         System.out.println("===>  MemberMapper memberlogin() 호출");
       return mybatis.selectOne("member.login", vo );
     }
-
 
     @Override
     public void memberupdate(MemberVO vo){
@@ -42,6 +42,7 @@ public class MemberDAOImpl implements MemberDAO {
     public int telCheck(MemberVO vo) {
         System.out.println("DAO tel 체크 ->" + vo.getTel());
         return mybatis.selectList("member.telCheck", vo).size();
+    }
 
     public void updateMemberPoint(MemberVO memberVO) {
         mybatis.update("member.updateMemberPoint",memberVO);

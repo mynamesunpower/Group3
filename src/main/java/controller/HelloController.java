@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import service.BookService;
-import service.BookServiceImpl;
+import service.impl.BookServiceImpl;
 
 @Controller
 public class HelloController {
@@ -30,8 +29,6 @@ public class HelloController {
         System.out.println("best북 나와라");
         System.out.println(bookService.carouselBook().size());
         System.out.println(bookService.bestBook().size());
-
-
 
         return "hello";
     }

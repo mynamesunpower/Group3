@@ -2,6 +2,8 @@ package controller;
 
 import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -117,23 +119,23 @@ public class BookController {
     public String chartA(Model model) throws Exception {
         System.out.println("chartA() 장르별 매출액 원 차트");
 
-        Map<String, Object> genreList = bookService.getGenreList();
-        Map<String, Integer> genre = (Map<String, Integer>) genreList.get("sales");
+        List<Map<String, String>> genreList = bookService.getGenreList();
 
         String result = "";
-        Set<String> salesKeys = genre.keySet();
+        //Set<String> salesKeys = genre.keySet();
 
-        for (String key : salesKeys) {
+        /*for (String key : salesKeys) {
             if (result != "") {
                 result += ",";
             }
             result += "['" + key + "', " + genre.get("key") + "]";
-        }
+        }*/
         System.out.println(result);
         model.addAttribute("chartA", result);
 
         return "book/chartA";
     }
+
 
     @RequestMapping("/genrebookList.ing")
     public String genrebookList(HttpServletRequest request, Model model){

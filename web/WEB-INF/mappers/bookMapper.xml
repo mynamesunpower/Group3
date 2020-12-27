@@ -99,13 +99,6 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
         from SALES_DATA s INNER JOIN BOOK B on s.isbn = B.ISBN
     </select>
 
-    <resultMap id="getGenre" type="book">
-        <result column="genre" property="genre"/>
-    </resultMap>
-    <resultMap id="getGenree" type="purchase">
-
-    </resultMap>
-
     <select id="carouselBook" resultType="book">
         <![CDATA[
         SELECT isbn,title, author,publication_date
@@ -155,9 +148,10 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
         ]]>
     </select>
 
-    <resultMap id="salesdata" type="salesdata">
+    <resultMap id="salesData" type="salesdata">
         <result property="isbn" column="isbn"/>
-        <result property="amountquantity" column="amount_quantity"/>
+        <result property="amountQuantity" column="amount_quantity"/>
+        <result property="amountPrice" column="amount_price"/>
     </resultMap>
 
 
@@ -175,7 +169,7 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
         <result property="keyword" column="keyword"/>
         <result property="image" column="image"/>
 
-        <collection property="salesDataVO" resultMap="salesdata"/>
+        <collection property="salesDataVO" resultMap="salesData"/>
     </resultMap>
 
 </mapper>

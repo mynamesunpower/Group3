@@ -1,7 +1,7 @@
 package model.dao.dao;
 
 import model.vo.BookVO;
-import model.vo.Sales_DateVO;
+import model.vo.SalesDataVO;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,8 +25,7 @@ public interface BookDAO {
     public List<BookVO> genrebookList(String genre) ;
     List<BookVO> searchBook(Map map);
 
-
-    Map<String, Object> getGenreSalesList();
+    List<Map<String, String>> getGenreSalesList();
 
     public List carouselBook();
      List<BookVO> bestBook();

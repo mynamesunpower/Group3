@@ -74,7 +74,7 @@ $(function () {
             contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
             data: {
                 'isbn': $(this).parent().parent().children('.isbn').val(),
-                'title' : $(this).parent().parent().children('.title').val()
+                'title' : $(this).parent().parent().children('.title').val(),
             },
             success: (data) => {
                 $('#content').children().remove();
@@ -102,14 +102,13 @@ $(function () {
             isbn.push(td.eq(0).val())
             title.push(td.eq(2).val())
         })
-
         $.ajax({
             type: 'post',
             url: '/purchase/orderBooks.ing',
             contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
             data :{
                 'isbn' : isbn,
-                'title' : title
+                'title' : title,
             },
             success: (data) => {
                 $('#content').children().remove();

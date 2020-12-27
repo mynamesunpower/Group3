@@ -43,8 +43,7 @@ public class BookVO {
         }
     }
 
-    private Sales_DateVO salesDataVO;
-
+    private SalesDataVO salesDataVO;
 
     public BookVO() {
     }

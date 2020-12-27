@@ -5,7 +5,7 @@
 
     <!--도서정보입력-->
     <insert id="insertBook" parameterType="book">
-        INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock, author, publication_date,
+INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock, author, publication_date,
                          content, keyword)
         VALUES (#{isbn}, #{publisherNumber}, #{genre}, #{totalPage}, #{price}, #{title}, #{stock}, #{author},
                 #{publicationDate}, #{content}, #{keyword})
@@ -48,7 +48,18 @@
         ]]>
     </update>
 
-    <select id="searchBook" parameterType="hashMap" resultMap="getBook">
+
+
+    <!--메뉴에서 선택한 종류의 책정보 리스트-->
+    <select id="genrebookList" parameterType="String" resultType="book">
+                	<![CDATA[
+        SELECT * FROM book WHERE GENRE = #{GENRE}
+        ]]>
+    </select>
+
+
+
+    <select id="searchBook" parameterType="hashmap" resultMap="getBook">
         SELECT * FROM BOOK
         <where>
             <!--
@@ -79,6 +90,7 @@
                     keyword like '%'||#{find}||'%'
                 </otherwise>
             </choose>
+
         </where>
     </select>
 
@@ -87,11 +99,59 @@
         from SALES_DATA s INNER JOIN BOOK B on s.isbn = B.ISBN
     </select>
 
-    <resultMap id="getGenre" type="book">
-        <result column="genre" property="genre"/>
-    </resultMap>
-    <resultMap id="getGenree" type="purchase">
+    <select id="carouselBook" resultType="book">
+        <![CDATA[
+        SELECT isbn,title, author,publication_date
+        FROM (select * from BOOK
+        ORDER BY PUBLICATION_DATE desc)
+        Where rownum <=10
+        ]]>
+    </select>
 
+    <select id="bestBook" resultMap="getBook">
+        <![CDATA[
+        SELECT s.isbn isbn, s.amountquantity amountquantity, b.title
+        FROM(select isbn, SUM(amount_quantity) amountquantity
+             from sales_Data
+             GROUP BY ISBN
+             ORDER BY SUM(amount_quantity) DESC) s
+                INNER JOIN book b on s.isbn=b.isbn
+        WHERE rownum<=3
+        ]]>
+
+    </select>
+
+    <select id="hotBook" resultMap="getBook">
+        <![CDATA[
+        SELECT *
+        FROM book b
+                 INNER JOIN(SELECT isbn, sum(amount_quantity) amountquantity, sum(amount_price) amountprice
+                            FROM sales_data sd
+                                     INNER JOIN(SELECT pb.order_number
+                                                FROM purchase_book pb
+                                                         INNER JOIN(SELECT *
+                                                                    FROM purchase p
+                                                                             INNER JOIN(SELECT *
+                                                                                        FROM member
+                                                                                        WHERE (to_char(sysdate,'yyyy')+1 -(substr(jumin1,0,2)+
+                                                                                                                           (case
+                                                                                                                                when substr(jumin2,0,1) <3 then 1900
+                                                                                                                                when substr(jumin2,0,1) >=3 then 2000
+                                                                                                                               end))) between 30 and 39) m
+                                                                                       ON m.tel = p.membertel
+                                                                    WHERE STATE='결제완료')P
+                                                                   ON pb.order_number = p.order_number) pb
+                                               ON sd.order_number=pb.order_number
+                            GROUP BY ISBN
+                            ORDER BY amountquantity desc) sd
+                           ON b.isbn=sd.isbn
+        ]]>
+    </select>
+
+    <resultMap id="salesData" type="salesdata">
+        <result property="isbn" column="isbn"/>
+        <result property="amountQuantity" column="amount_quantity"/>
+        <result property="amountPrice" column="amount_price"/>
     </resultMap>
 
 
@@ -107,6 +167,9 @@
         <result property="publicationDate" column="publication_date"/>
         <result property="content" column="content"/>
         <result property="keyword" column="keyword"/>
+        <result property="image" column="image"/>
+
+        <collection property="salesDataVO" resultMap="salesData"/>
     </resultMap>
 
 </mapper>

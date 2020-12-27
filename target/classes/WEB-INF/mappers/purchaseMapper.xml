@@ -14,4 +14,9 @@
     </otherwise>
 </choose>
     </insert>
+
+    <insert id="insertPurchaseBook" parameterType="purchaseBook">
+        INSERT INTO PURCHASE_BOOK (ORDER_NUMBER, ISBN, QUANTITY)
+        VALUES (${orderNumber}, ${isbn}, ${quantity})
+    </insert>
 </mapper>

@@ -58,6 +58,10 @@
         <td bgcolor="#fafad2">내용</td>
         <td><textarea type="text" cols="40" rows="10" name="content" id="Content"></textarea></td>
     </tr>
+    <%--<tr>--%>
+        <%--<td bgcolor="#fafad2">이미지</td>--%>
+        <%--<td><input type="text" name="bookimage" id="BookImage"></td>--%>
+    <%--</tr>--%>
     <tr>
         <td bgcolor="#fafad2">이미지 업로드</td>
         <td> <input type="file" name="imageFile" maxlength="60"></td>

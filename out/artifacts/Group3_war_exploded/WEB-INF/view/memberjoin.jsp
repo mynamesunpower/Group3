@@ -23,12 +23,13 @@ $(document).ready(function(){
             passEqual : false,
             tel : false,
             jumin : false,
-            email : false,
+            //email : false,
             name : false
         };
 
     $(document).on('click', '#memberSubmit', function (evt) {
         evt.stopPropagation();
+        evt.preventDefault();
 
         for (let key in validation) {
             if (validation[key] == false) {
@@ -167,7 +168,6 @@ $(document).ready(function(){
     $(document).on('focusout', '#jumin2', function () {
 
         let value = $('#jumin1').val() + "-" + $('#jumin2').val();
-        alert(value);
         let reg = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-4][0-9]{6}$/;
 
         if(!reg.test(value)) {
@@ -179,19 +179,8 @@ $(document).ready(function(){
         }
     })
 
-
-    $(document).on('focusout', '#domain', function () {
-
-        let value = $('#email').val() + $('#domain').val();
-        let reg = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/g;
-
-        if(!reg.test(value)) {
-            $("#valiEmail").text("올바른 이메일 형식이 아닙니다.");
-            validation.email = false;
-        } else {
-            $("#valiEmail").text("올바른 이메일 형식입니다.");
-            validation.email = true;
-        }
+    $(document).on('focusout', '#email', function () {
+        $('#email').val('#email'.val().trim());
     })
 
     $('select[name=emailSelection]').change(function() {

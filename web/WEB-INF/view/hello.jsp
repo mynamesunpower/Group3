@@ -20,7 +20,6 @@
     <script src="../../js/order.js" type="text/javascript"></script>
     <script src="../../js/paymentMethod.js" type="text/javascript"></script>
     <script type="text/javascript">
-
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.carousel');
             var instances = M.Carousel.init(elems);
@@ -177,17 +176,8 @@
                         <div class="carousel">
                             <h5>새로 들어온 책</h5>
                             <c:forEach items="${carouselBook}" var="book">
-                                <a class="carousel-item" href="#one!"><img src="../../imgs/book/${book.isbn}.PNG">${book.title}</a>
+                                <a class="carousel-item" href="selectBook.ing?isbn=${book.isbn}"><img src="../../imgs/book/${book.isbn}.PNG">${book.title}</a>
                             </c:forEach>
-
-
-                            <%--<h5>새로 들어온 책</h5>--%>
-                            <a class="carousel-item" href="#one!"><img src="../../imgs/book/2222222222.PNG">${book.title}</a>
-                            <a class="carousel-item" href="#two!"><img src="../../imgs/book/s2.png"></a>
-                            <a class="carousel-item" href="#three!"><img src="../../imgs/book/s3.png"></a>
-                            <a class="carousel-item" href="#four!"><img src="../../imgs/book/s3.png"></a>
-                            <a class="carousel-item" href="#five!"><img src="../../imgs/book/s3.png"></a>
-
                         </div>
                     </div>
                 </div>

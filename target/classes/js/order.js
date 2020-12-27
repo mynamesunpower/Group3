@@ -55,7 +55,7 @@ $(function () {
             contentType: 'application/x-www-form-urlencoded;charset=utf-8',
             data: {
                 'bookTitle': $('#bookTitle').val(),
-                'bookQuantity': parseInt($('#bookQuantity').val()) - 1,
+                'bookKind': parseInt($('#bookKind').val()) - 1,
                 'totalPrice': $('#totalPrice').val(),
                 'point': parseInt($('#point').val()),
                 'receiver': $('#receiver').val(),
@@ -80,10 +80,10 @@ $(function () {
     // 결제 창 띄우기
     $('#doPay').click(() => {
         // 결제창에 보일 주문상품명
-        let payName = $('#bookTitle').val() + ' 외 ' + $('#bookQuantity').val()
+        let payName = $('#bookTitle').val() + ' 외 ' + $('#bookKind').val()
 
         // 구매가 한종류인 경우 상품명만 명시
-        if (parseInt($('#bookQuantity').val()) == 0) {
+        if (parseInt($('#bookKind').val()) == 0) {
             payName = $('#bookTitle').val()
         }
 
@@ -107,7 +107,7 @@ $(function () {
             url: '/purchase/payComplete.ing',
             contentType: 'application/json; charset=utf-8',
             data: {
-                'totalPrice': $('#totalPrice').val()
+                'totalPrice': $('#totalPrice').val(),
             }, success: (data) => {
                 $('#content').children().remove();
                 $('#content').html(data);

@@ -4,9 +4,7 @@ import model.dao.dao.BookDAO;
 import model.vo.BookVO;
 
 import org.apache.ibatis.annotations.Mapper;
-
-import model.vo.Sales_DateVO;
-
+import model.vo.SalesDataVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -67,21 +65,21 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
+    public List<Map<String, String>> getGenreSalesList() {
+        List<Map<String, String>> list = mybatis.selectList("BookMapper.getGenreSalesList");
 
-    public Map<String, Object> getGenreSalesList() {
-        Map<String, Object> map2 = mybatis.selectMap("BookMapper.getGenreSalesList", "sales");
-        Map<String, Integer> map3 = (Map<String, Integer>)map2.get("sales");
-        Set<String> salesKeys = map3.keySet();
-        for (String key : salesKeys) {
-            System.out.println("key: " + key);
+        for (Map<String, String> map : list) {
+            System.out.println(map.get("GENRE"));
+            System.out.println(map.get("PRICE"));
         }
-        return mybatis.selectMap("BookMapper.getGenreSalesList", "sales");
+
+        return list;
+    }
 
     public List<BookVO> genrebookList(String genre) {
         System.out.println("===> Mybatis genrebookList() 호출");
         return mybatis.selectList("BookMapper.genrebookList",genre);
     }
-
 
     @Override
     public List<BookVO> carouselBook() {
