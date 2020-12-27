@@ -17,11 +17,29 @@ function kakaoPay(data) {
         buyer_postcode : data.addr1
     }, (rsp)=> {
         if ( rsp.success ) {
+            // TODO 완성되면 msg 지워주기
             var msg = '결제가 완료되었습니다.';
             msg += '고유ID : ' + rsp.imp_uid;
             msg += '상점 거래ID : ' + rsp.merchant_uid;
             msg += '결제 금액 : ' + rsp.paid_amount;
             msg += '카드 승인번호 : ' + rsp.apply_num;
+
+            // 결제가 성공하면 해당 url 요청
+            $.ajax({
+                type: 'post',
+                url: '/purchase/payComplete.ing',
+                contentType: 'application/json; charset=utf-8',
+                data: {
+                    'totalPrice': $('#totalPrice').val(),
+                }, success: (data) => {
+                    $('#content').children().remove();
+                    $('#content').html(data);
+                }, error: (error) => {
+                    alert("결제완료창으로 못갑니당~")
+                    console.log(error)
+                }
+
+            })
         } else {
             var msg = '결제에 실패하였습니다.';
             msg += '에러내용 : ' + rsp.error_msg;

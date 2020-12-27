@@ -21,6 +21,9 @@
 		<typeAlias alias="purchase" type="model.vo.PurchaseVO" />
 
 		<typeAlias alias="salesdata" type="model.vo.Sales_DateVO"/>
+
+		<typeAlias alias="purchaseBook" type="model.vo.PurchaseBookVO" />
+
 	</typeAliases>
 
 </configuration>

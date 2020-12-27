@@ -1,7 +1,11 @@
 package service.service;
 
+import model.vo.PurchaseBookVO;
+
 import java.util.Map;
 
 public interface PurchaseService {
-    public void insertPuchase(Map purchaseMap);
+    public String insertPurchase(Map purchaseMap);
+
+    public void insertPurchaseBook(PurchaseBookVO purchaseBookVO);
 }
