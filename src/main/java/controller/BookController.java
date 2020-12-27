@@ -11,6 +11,7 @@ import service.impl.BookServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Array;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -119,29 +120,24 @@ public class BookController {
     @RequestMapping(value = "/chartA.ing")
     public String chartA(Model model) throws Exception {
         System.out.println("chartA() 장르별 매출액 원 차트");
-
-        List<Map<String, String>> genreList = bookService.getGenreList();
-
-        Map<String, String> maps  = new HashMap<String, String>();
-
-        for (Map<String, String> map : genreList) {
+        List<Map<String, Object>> genreList = bookService.getGenreList();
+        Map<String, Integer> maps  = new HashMap<String, Integer>();
+        for (Map<String, Object> map : genreList) {
             System.out.println(map.get("GENRE"));
             System.out.println(map.get("PRICE"));
-            String key = map.get("GENRE");
-            String value = map.get("PRICE");
-            maps.put(key,value);
-
+            String key = (String)map.get("GENRE");
+            int value = ((BigDecimal)map.get("PRICE")).intValue();
+            maps.put(key,value); // 임포트~
         }
-
         System.out.println("maps는" +maps);
         String result = "";
         Set<String> salesKeys = maps.keySet();
-
         for (String key : salesKeys) {
             if (result != "") {
                 result += ",";
             }
             result += "['" + key + "', " + maps.get(key) + "]";
+            //((BigDecimal) hm.get("AGE")).intValue()
         }
         System.out.println(1);
         System.out.println(maps.get("모험"));
@@ -150,7 +146,6 @@ public class BookController {
         System.out.println("이거슨 : "+genreList);
         System.out.println("나는"+result);
         model.addAttribute("chartA", result);
-
         return "book/chartA";
     }
 
