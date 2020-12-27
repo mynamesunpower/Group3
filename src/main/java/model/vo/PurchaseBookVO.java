@@ -5,6 +5,8 @@ public class PurchaseBookVO {
     private String isbn;
     private int quantity;
 
+    private BookVO bookVO;
+
     public PurchaseBookVO() {
     }
 
@@ -30,5 +32,13 @@ public class PurchaseBookVO {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public BookVO getBookVO() {
+        return bookVO;
+    }
+
+    public void setBookVO(BookVO bookVO) {
+        this.bookVO = bookVO;
     }
 }

@@ -10,10 +10,15 @@ public class PurchaseVO {
     private int totalPrice;
     private String purchaseDate;
     private String deliveryDate;
+    private String shipAddress;
+
+    private MemberVO memberVO;
+    private NonMemberVO nonMemberVO;
+    private PurchaseBookVO purchaseBookVO;
+    private BookVO bookVO;
 
     public PurchaseVO() {
     }
-
 
     public String getOrderNumber() {
         return orderNumber;
@@ -85,5 +90,45 @@ public class PurchaseVO {
 
     public void setDeliveryDate(String deliveryDate) {
         this.deliveryDate = deliveryDate;
+    }
+
+    public String getShipAddress() {
+        return shipAddress;
+    }
+
+    public void setShipAddress(String shipAddress) {
+        this.shipAddress = shipAddress;
+    }
+
+    public MemberVO getMemberVO() {
+        return memberVO;
+    }
+
+    public void setMemberVO(MemberVO memberVO) {
+        this.memberVO = memberVO;
+    }
+
+    public NonMemberVO getNonMemberVO() {
+        return nonMemberVO;
+    }
+
+    public void setNonMemberVO(NonMemberVO nonMemberVO) {
+        this.nonMemberVO = nonMemberVO;
+    }
+
+    public PurchaseBookVO getPurchaseBookVO() {
+        return purchaseBookVO;
+    }
+
+    public void setPurchaseBookVO(PurchaseBookVO purchaseBookVO) {
+        this.purchaseBookVO = purchaseBookVO;
+    }
+
+    public BookVO getBookVO() {
+        return bookVO;
+    }
+
+    public void setBookVO(BookVO bookVO) {
+        this.bookVO = bookVO;
     }
 }

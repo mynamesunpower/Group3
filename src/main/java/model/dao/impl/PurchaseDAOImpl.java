@@ -2,10 +2,12 @@ package model.dao.impl;
 
 import model.dao.dao.PurchaseDAO;
 import model.vo.PurchaseBookVO;
+import model.vo.PurchaseVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Map;
 
 @Repository("purchaseDAO")
@@ -28,5 +30,47 @@ public class PurchaseDAOImpl implements PurchaseDAO {
     @Override
     public void insertPurchaseBook(PurchaseBookVO purchaseBookVO) {
         sqlSessionTemplate.insert("booktrain.purchase.insertPurchaseBook", purchaseBookVO);
+
+        if(sqlSessionTemplate.selectOne("booktrain.purchase.selectSalesData",purchaseBookVO) == null){
+            System.out.println("insertPurchaseBook() salesData 정보가 없음" +  purchaseBookVO.getIsbn());
+            sqlSessionTemplate.insert("booktrain.purchase.insertSalesData", purchaseBookVO);
+        }else{
+            System.out.println("insertPurchaseBook() salesData 정보가 있음" + purchaseBookVO.getIsbn());
+            sqlSessionTemplate.update("booktrain.purchase.updateSalesData", purchaseBookVO);
+        }
+    }
+
+    @Override
+    public List<String> selectOrderNumber(PurchaseVO purchaseVO) {
+        System.out.println("PurchaseDAO selectOrderNumber() : " + purchaseVO.getMemberTel());
+
+        return sqlSessionTemplate.selectList("booktrain.purchase.selectOrderNumber",purchaseVO);
+    }
+
+    @Override
+    public List<PurchaseVO> selectOrderList(PurchaseVO purchaseVO) {
+
+        return sqlSessionTemplate.selectList("booktrain.purchase.selectOrderList", purchaseVO);
+    }
+
+    @Override
+    public PurchaseVO purchaseInfo(PurchaseVO purchaseVO) {
+        return sqlSessionTemplate.selectOne("booktrain.purchase.purchaseInfo", purchaseVO);
+    }
+
+    @Override
+    public List<PurchaseVO> selectDetailOrder(PurchaseVO purchaseVO) {
+
+        return sqlSessionTemplate.selectList("booktrain.purchase.detailOrder", purchaseVO);
+    }
+
+    @Override
+    public void cancelOrder(PurchaseVO purchaseVO) {
+        // PURCHASE 테이블 state컬럼 주문취소로 변경
+        sqlSessionTemplate.update("booktrain.purchase.cancelOrder_purchase",purchaseVO);
+        sqlSessionTemplate.update("booktrain.purchase.cancelPoint",purchaseVO);
+        // PURCHASE_BOOK 테이블 해당 주문번호 컬럼 삭제
+        sqlSessionTemplate.delete("booktrain.purchase.cancelOrder_purchaseBook",purchaseVO);
+
     }
 }

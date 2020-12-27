@@ -37,8 +37,8 @@
     <schema id="12" parent="1" name="GROUP3">
       <ObjectId>93</ObjectId>
       <CreatedTimestamp>2020-12-20.03:00:39</CreatedTimestamp>
-      <ModifiedTimestamp>2020-12-26.10:06:08</ModifiedTimestamp>
-      <IntrospectionTimestamp>2020-12-26.10:06:57</IntrospectionTimestamp>
+      <ModifiedTimestamp>2020-12-28.09:21:08</ModifiedTimestamp>
+      <IntrospectionTimestamp>2020-12-28.09:21:25</IntrospectionTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -196,7 +196,7 @@
     <table id="52" parent="12" name="PURCHASE">
       <ObjectId>75867</ObjectId>
       <CreatedTimestamp>2020-12-24.08:14:33</CreatedTimestamp>
-      <ModifiedTimestamp>2020-12-26.10:06:08</ModifiedTimestamp>
+      <ModifiedTimestamp>2020-12-28.09:21:08</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="53" parent="12" name="PURCHASE_BOOK">
@@ -34671,7 +34671,16 @@
       <DataType>VARCHAR2(10 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="4991" parent="52" name="SYS_C0012082">
+    <column id="4991" parent="52" name="SHIP_ADDRESS">
+      <Position>8</Position>
+      <DataType>VARCHAR2(600 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="4992" parent="52" name="CANCEL_DATE">
+      <Position>9</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <index id="4993" parent="52" name="SYS_C0012082">
       <ObjectId>75868</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-12-24.08:14:33</CreatedTimestamp>
@@ -34680,7 +34689,7 @@
       <ColNames>ORDER_NUMBER</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4992" parent="52" name="SYS_C0012082">
+    <key id="4994" parent="52" name="SYS_C0012082">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2020-12-24.08:14:33</ModifiedTimestamp>
       <ColNames>ORDER_NUMBER</ColNames>
@@ -34688,7 +34697,7 @@
       <UnderlyingIndexName>SYS_C0012082</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="4993" parent="52" name="PURCHASE_FK_MEMBERTEL">
+    <foreign-key id="4995" parent="52" name="PURCHASE_FK_MEMBERTEL">
       <ModifiedTimestamp>2020-12-24.08:14:33</ModifiedTimestamp>
       <ColNames>MEMBERTEL</ColNames>
       <RefSchemaName>GROUP3</RefSchemaName>
@@ -34696,7 +34705,7 @@
       <RefKeyName>SYS_C0012047</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="4994" parent="52" name="PURCHASE_FK_NONMEMBERTEL">
+    <foreign-key id="4996" parent="52" name="PURCHASE_FK_NONMEMBERTEL">
       <ModifiedTimestamp>2020-12-24.08:14:33</ModifiedTimestamp>
       <ColNames>NONMEMBERTEL</ColNames>
       <RefSchemaName>GROUP3</RefSchemaName>
@@ -34704,22 +34713,22 @@
       <RefKeyName>SYS_C0012057</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="4995" parent="53" name="ORDER_NUMBER">
+    <column id="4997" parent="53" name="ORDER_NUMBER">
       <Position>1</Position>
       <DataType>VARCHAR2(10 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4996" parent="53" name="ISBN">
+    <column id="4998" parent="53" name="ISBN">
       <Position>2</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4997" parent="53" name="QUANTITY">
+    <column id="4999" parent="53" name="QUANTITY">
       <Position>3</Position>
       <DataType>NUMBER(5 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="4998" parent="53" name="PURCHASE_BOOK_PK_ORDERNUMISBN">
+    <index id="5000" parent="53" name="PURCHASE_BOOK_PK_ORDERNUMISBN">
       <ObjectId>75872</ObjectId>
       <CreatedTimestamp>2020-12-24.08:14:33</CreatedTimestamp>
       <ModifiedTimestamp>2020-12-24.08:14:33</ModifiedTimestamp>
@@ -34728,7 +34737,7 @@
 ISBN</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4999" parent="53" name="PURCHASE_BOOK_PK_ORDERNUMISBN">
+    <key id="5001" parent="53" name="PURCHASE_BOOK_PK_ORDERNUMISBN">
       <ModifiedTimestamp>2020-12-24.08:14:33</ModifiedTimestamp>
       <ColNames>ORDER_NUMBER
 ISBN</ColNames>
@@ -34736,7 +34745,7 @@ ISBN</ColNames>
       <UnderlyingIndexName>PURCHASE_BOOK_PK_ORDERNUMISBN</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="5000" parent="53" name="PURCHASE_BOOK_FK_ORDERNUM">
+    <foreign-key id="5002" parent="53" name="PURCHASE_BOOK_FK_ORDERNUM">
       <ModifiedTimestamp>2020-12-24.08:14:33</ModifiedTimestamp>
       <ColNames>ORDER_NUMBER</ColNames>
       <RefSchemaName>GROUP3</RefSchemaName>
@@ -34744,7 +34753,7 @@ ISBN</ColNames>
       <RefKeyName>SYS_C0012082</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="5001" parent="53" name="PURCHASE_BOOK_FK_ISBN">
+    <foreign-key id="5003" parent="53" name="PURCHASE_BOOK_FK_ISBN">
       <ModifiedTimestamp>2020-12-24.08:14:33</ModifiedTimestamp>
       <ColNames>ISBN</ColNames>
       <RefSchemaName>GROUP3</RefSchemaName>
@@ -34752,20 +34761,20 @@ ISBN</ColNames>
       <RefKeyName>SYS_C0012073</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="5002" parent="54" name="ORDER_NUMBER">
+    <column id="5004" parent="54" name="ORDER_NUMBER">
       <Position>1</Position>
       <DataType>VARCHAR2(10 byte)|0s</DataType>
     </column>
-    <column id="5003" parent="54" name="WRITING_TIME">
+    <column id="5005" parent="54" name="WRITING_TIME">
       <Position>2</Position>
       <DataType>DATE|0s</DataType>
       <DefaultExpression>sysdate</DefaultExpression>
     </column>
-    <column id="5004" parent="54" name="CONTENT">
+    <column id="5006" parent="54" name="CONTENT">
       <Position>3</Position>
       <DataType>VARCHAR2(500 byte)|0s</DataType>
     </column>
-    <foreign-key id="5005" parent="54" name="REVIEW_FK_ORDER_NUMBER">
+    <foreign-key id="5007" parent="54" name="REVIEW_FK_ORDER_NUMBER">
       <ModifiedTimestamp>2020-12-24.08:14:33</ModifiedTimestamp>
       <ColNames>ORDER_NUMBER</ColNames>
       <RefSchemaName>GROUP3</RefSchemaName>
@@ -34773,25 +34782,25 @@ ISBN</ColNames>
       <RefKeyName>SYS_C0012082</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="5006" parent="55" name="ORDER_NUMBER">
+    <column id="5008" parent="55" name="ORDER_NUMBER">
       <Position>1</Position>
       <DataType>VARCHAR2(10 byte)|0s</DataType>
     </column>
-    <column id="5007" parent="55" name="ISBN">
+    <column id="5009" parent="55" name="ISBN">
       <Position>2</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
     </column>
-    <column id="5008" parent="55" name="AMOUNT_PRICE">
+    <column id="5010" parent="55" name="AMOUNT_PRICE">
       <Position>3</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="5009" parent="55" name="AMOUNT_QUANTITY">
+    <column id="5011" parent="55" name="AMOUNT_QUANTITY">
       <Position>4</Position>
       <DataType>NUMBER(10 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <foreign-key id="5010" parent="55" name="SALES_DATA_FK_ORDERNUM">
+    <foreign-key id="5012" parent="55" name="SALES_DATA_FK_ORDERNUM">
       <ModifiedTimestamp>2020-12-24.08:14:33</ModifiedTimestamp>
       <ColNames>ORDER_NUMBER
 ISBN</ColNames>
@@ -34800,20 +34809,20 @@ ISBN</ColNames>
       <RefKeyName>PURCHASE_BOOK_PK_ORDERNUMISBN</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="5011" parent="56" name="TEL">
+    <column id="5013" parent="56" name="TEL">
       <Position>1</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
     </column>
-    <column id="5012" parent="56" name="ISBN">
+    <column id="5014" parent="56" name="ISBN">
       <Position>2</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
     </column>
-    <column id="5013" parent="56" name="QUANTITY">
+    <column id="5015" parent="56" name="QUANTITY">
       <Position>3</Position>
       <DataType>NUMBER(5 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <foreign-key id="5014" parent="56" name="SHOPPING_CART_FK_TEL">
+    <foreign-key id="5016" parent="56" name="SHOPPING_CART_FK_TEL">
       <ModifiedTimestamp>2020-12-24.08:14:33</ModifiedTimestamp>
       <ColNames>TEL</ColNames>
       <RefSchemaName>GROUP3</RefSchemaName>
@@ -34821,7 +34830,7 @@ ISBN</ColNames>
       <RefKeyName>SYS_C0012047</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="5015" parent="56" name="SHOPPING_CART_FK_ISBN">
+    <foreign-key id="5017" parent="56" name="SHOPPING_CART_FK_ISBN">
       <ModifiedTimestamp>2020-12-24.08:14:33</ModifiedTimestamp>
       <ColNames>ISBN</ColNames>
       <RefSchemaName>GROUP3</RefSchemaName>
@@ -34829,26 +34838,26 @@ ISBN</ColNames>
       <RefKeyName>SYS_C0012073</RefKeyName>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="5016" parent="57" name="TITLE">
+    <column id="5018" parent="57" name="TITLE">
       <Position>1</Position>
       <DataType>VARCHAR2(30 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="5017" parent="57" name="ISBN">
+    <column id="5019" parent="57" name="ISBN">
       <Position>2</Position>
       <DataType>NUMBER(13 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="5018" parent="57" name="PRICE">
+    <column id="5020" parent="57" name="PRICE">
       <Position>3</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="5019" parent="57" name="QUANTITY">
+    <column id="5021" parent="57" name="QUANTITY">
       <Position>4</Position>
       <DataType>NUMBER(5 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="5020" parent="57" name="TEL">
+    <column id="5022" parent="57" name="TEL">
       <Position>5</Position>
       <DataType>VARCHAR2(13 byte)|0s</DataType>
       <NotNull>1</NotNull>

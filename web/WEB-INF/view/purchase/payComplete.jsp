@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <html>
 <head>
     <title>결제 완료</title>
@@ -38,7 +40,7 @@
         </tr>
         <tr>
             <th>결제금액</th>
-            <td>${purchaseVO.totalPrice}</td>
+            <td><fmt:formatNumber value="${purchaseVO.totalPrice}" pattern="#,###"/>원</td>
         </tr>
         <tr>
             <th>적립포인트</th>

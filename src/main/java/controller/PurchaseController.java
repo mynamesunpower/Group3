@@ -37,7 +37,7 @@ public class PurchaseController {
 
 
     // 상품 주문
-    @RequestMapping("/orderBook.ing")
+    @RequestMapping("orderBook.ing")
     public String orderBook(ShoppingCartVO shoppingCartVO, String title, Model model) {
         System.out.println("orderBook() title: " + title);
         List<String> isbnList = new ArrayList<>();
@@ -67,7 +67,7 @@ public class PurchaseController {
      * @param titleList 결제시 선택한 책들의 title 리스트
      * @return
      */
-    @RequestMapping("/orderBooks.ing")
+    @RequestMapping("orderBooks.ing")
     public String orderBooks(@RequestParam(value = "isbn[]") List<String> isbnList,
                              @RequestParam(value = "title[]") List<String> titleList, Model model) {
 
@@ -109,7 +109,7 @@ public class PurchaseController {
      * @param bookKind : 책 종류 권수
      *                 결제 성공시 => JSP2 WEB PROGRAMMING(bookTitle) 외 2(bookKind)
      */
-    @RequestMapping("/payOrder.ing")
+    @RequestMapping("payOrder.ing")
     public String payOrder(PurchaseVO purchaseVO, MemberVO memberVO,
                            @RequestParam(value = "bookTitle") String bookTitle,
                            @RequestParam(value = "bookKind") String bookKind, Model model) {
@@ -120,6 +120,7 @@ public class PurchaseController {
         System.out.println("PurchaseController payOrder Point: " + memberVO.getPoint());
         System.out.println("PurchaseController payOrder totalPrice: " + purchaseVO.getTotalPrice());
         System.out.println("받는사람 : " + purchaseVO.getReceiver());
+        System.out.println("받는이 주소 : " +purchaseVO.getShipAddress());
 
         model.addAttribute("bookTitle", bookTitle);
         model.addAttribute("bookKind", bookKind);
@@ -140,7 +141,7 @@ public class PurchaseController {
 
     // TODO 트랜잭션 적용할것
     // 결제 성공시
-    @RequestMapping("payComplete")
+    @RequestMapping("payComplete.ing")
     public String payComplete(Model model) {
         // payOrder()에서 저장한 세션값을 얻어옴
         MemberVO memberVO = (MemberVO)httpSession.getAttribute("payMember");
@@ -156,6 +157,7 @@ public class PurchaseController {
         purchaseMap.put("memberTel", memberVO.getTel());
         purchaseMap.put("totalPrice",purchaseVO.getTotalPrice());
         purchaseMap.put("receiver", purchaseVO.getReceiver());
+        purchaseMap.put("shipAddress",purchaseVO.getShipAddress());
 
         // 구매 완료시 생성된 orderNumber를 저장
         purchaseBookVO.setOrderNumber(purchaseService.insertPurchase(purchaseMap));
@@ -185,4 +187,62 @@ public class PurchaseController {
     }
 
 
+    //주문 조회
+    @RequestMapping("orderList.ing")
+    public String orderList(Model model){
+        String memberTel = (String)httpSession.getAttribute("memberTel");
+        PurchaseVO purchaseVO = new PurchaseVO();
+        purchaseVO.setMemberTel(memberTel);
+        // 결제완료된 상품을 불러오기위함
+        purchaseVO.setState("결제완료");
+
+        List<List> orderList = new ArrayList<>();
+
+        List<String> orderNumberList = purchaseService.selectOrderNumber(purchaseVO);
+        System.out.println("orderList() orderNumberList size : " + orderNumberList.size());
+
+        for(String orderNumber : orderNumberList){
+            purchaseVO.setOrderNumber(orderNumber);
+            orderList.add(purchaseService.selectOrderList(purchaseVO));
+        }
+
+        for(List<PurchaseVO> list : orderList){
+            for(PurchaseVO result : list){
+                System.out.println("주문번호 : " + result.getOrderNumber());
+            }
+        }
+        model.addAttribute("orderList", orderList);
+
+        return "purchase/orderList";
+    }
+
+    // 주문 상세 조회
+    @RequestMapping("detailOrderList.ing")
+    public String detailOrderList(@RequestParam("orderNumber")String orderNumber, Model model){
+        System.out.println("detailOrderList() 주문번호 확인 : " + orderNumber);
+        PurchaseVO purchaseVO = new PurchaseVO();
+        purchaseVO.setOrderNumber(orderNumber);
+//        List<List> detailOrder_List = new ArrayList<>();
+
+
+        // 주문 상품과 수량을 가져옴
+        List<PurchaseVO> detailOrder_List = purchaseService.selectDetailOrder(purchaseVO);
+        purchaseVO = purchaseService.purchaseInfo(purchaseVO);
+        System.out.println("오다넘버 : " + purchaseVO.getOrderNumber() );
+
+        model.addAttribute("detailOrder_List", detailOrder_List);
+        model.addAttribute("purchaseInfo", purchaseVO);
+        return "purchase/detailOrderList";
+    }
+
+    // 결제 취소
+    @RequestMapping("cancelOrder")
+    public String cancelOrder(PurchaseVO purchaseVO){
+        System.out.println("cancelOrder() 오다넘버 : " + purchaseVO.getOrderNumber());
+        purchaseVO.setMemberTel((String)httpSession.getAttribute("memberTel"));
+        purchaseService.cancelOrder(purchaseVO);
+
+        System.out.println("결제 취소 완료");
+        return "redirect:../start.ing";
+    }
 }
