@@ -15,4 +15,6 @@ public interface BookService {
     List<BookVO> bookList(BookVO vo);
 
     List<BookVO> searchBook(Map map);
+
+    Map<String, Object> getGenreList();
 }

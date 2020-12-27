@@ -68,4 +68,9 @@ public class BookServiceImpl implements BookService {
         System.out.println("bookService 68Line : " + map.get("sbox"));
         return bookdao.searchBook(map);
     }
+
+    @Override
+    public Map<String, Object> getGenreList() {
+        return bookdao.getGenreSalesList();
+    }
 }

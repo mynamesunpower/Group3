@@ -135,7 +135,7 @@
                         <ul>
                             <li><a class="loadAjax" href="insertBook.ing">책 정보 데이터베이스 입력</a></li>
                             <li><a class="loadAjax" href="rbookList.ing">책 데이터베이스 목록 보기</a></li>
-                            <li><a href="#">책 데이터베이스 수정하기</a></li>
+                            <li><a class="loadAjax" href="chartA.ing">장르별 매출 비율</a></li>
                             <li><a href="#">책 데이터베이스 삭제하기</a></li>
                         </ul>
                     </div>

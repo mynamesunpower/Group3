@@ -10,6 +10,8 @@ import service.impl.BookServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Controller
 public class BookController {
@@ -99,5 +101,27 @@ public class BookController {
     public String selectBook(BookVO vo, Model model) {
         model.addAttribute("selectBook", bookService.selectBook(vo));
         return "book/selectBook";
+    }
+
+    @RequestMapping(value = "/chartA.ing")
+    public String chartA(Model model) throws Exception {
+        System.out.println("chartA() 장르별 매출액 원 차트");
+
+        Map<String, Object> genreList = bookService.getGenreList();
+        Map<String, Integer> genre = (Map<String, Integer>) genreList.get("sales");
+
+        String result = "";
+        Set<String> salesKeys = genre.keySet();
+
+        for (String key : salesKeys) {
+            if (result != "") {
+                result += ",";
+            }
+            result += "['" + key + "', " + genre.get("key") + "]";
+        }
+        System.out.println(result);
+        model.addAttribute("chartA", result);
+
+        return "book/chartA";
     }
 }

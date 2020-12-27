@@ -21,4 +21,6 @@ public interface BookDAO {
     public List<BookVO> bookList(BookVO  vo) ;
 
     List<BookVO> searchBook(Map map);
+
+    Map<String, Object> getGenreSalesList();
 }

@@ -82,6 +82,18 @@
         </where>
     </select>
 
+    <select id="getGenreSalesList" resultType="map">
+        select b.genre genre, s.AMOUNT_PRICE price
+        from SALES_DATA s INNER JOIN BOOK B on s.isbn = B.ISBN
+    </select>
+
+    <resultMap id="getGenre" type="book">
+        <result column="genre" property="genre"/>
+    </resultMap>
+    <resultMap id="getGenree" type="purchase">
+
+    </resultMap>
+
 
     <resultMap id="getBook" type="book">
         <result property="isbn" column="isbn"/>

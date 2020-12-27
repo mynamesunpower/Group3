@@ -2,12 +2,14 @@ package model.dao.impl;
 
 import model.dao.dao.BookDAO;
 import model.vo.BookVO;
+import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Repository
 public class BookDAOImpl implements BookDAO {
@@ -58,5 +60,16 @@ public class BookDAOImpl implements BookDAO {
     public List<BookVO> searchBook(Map map) {
         System.out.println("searchBookDao searchBook() : " + map.get("sbox"));
         return mybatis.selectList("BookMapper.searchBook",map);
+    }
+
+    @Override
+    public Map<String, Object> getGenreSalesList() {
+        Map<String, Object> map2 = mybatis.selectMap("BookMapper.getGenreSalesList", "sales");
+        Map<String, Integer> map3 = (Map<String, Integer>)map2.get("sales");
+        Set<String> salesKeys = map3.keySet();
+        for (String key : salesKeys) {
+            System.out.println("key: " + key);
+        }
+        return mybatis.selectMap("BookMapper.getGenreSalesList", "sales");
     }
 }
