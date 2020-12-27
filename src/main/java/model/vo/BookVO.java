@@ -43,6 +43,9 @@ public class BookVO {
         }
     }
 
+    private Sales_DateVO salesDataVO;
+
+
     public BookVO() {
     }
 

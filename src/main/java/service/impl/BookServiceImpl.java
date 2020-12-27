@@ -3,6 +3,7 @@ package service.impl;
 
 import model.dao.impl.BookDAOImpl;
 import model.vo.BookVO;
+import model.vo.Sales_DateVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.service.BookService;
@@ -69,8 +70,28 @@ public class BookServiceImpl implements BookService {
         return bookdao.searchBook(map);
     }
 
+
     @Override
     public Map<String, Object> getGenreList() {
         return bookdao.getGenreSalesList();
+
+    public List<BookVO> genrebookList(String genre ){
+        return bookdao.genrebookList(genre);
+    }
+
+    @Override
+    public List<BookVO> carouselBook() {
+        return bookdao.carouselBook();
+    }
+
+    @Override
+    public List<BookVO> bestBook() {
+
+        return bookdao.bestBook();
+    }
+
+    @Override
+    public List<BookVO> hotBook() {
+        return bookdao.hotBook();
     }
 }

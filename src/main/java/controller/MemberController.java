@@ -33,10 +33,10 @@ public class MemberController {
         return "/login";
     }//end login
 
-    @RequestMapping("/hello.ing")
+    /*@RequestMapping("/hello.ing")
     public void hello(){
         System.out.println("hello이동하나요????????");
-    }//end hello
+    }//end hello*/
 
 
     @RequestMapping("/logout.ing")
