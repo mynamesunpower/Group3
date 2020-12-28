@@ -242,6 +242,8 @@ public class PurchaseController {
         purchaseVO.setMemberTel((String)httpSession.getAttribute("memberTel"));
         purchaseService.cancelOrder(purchaseVO);
 
+        //TODO SALES_DATA 데이터도 차감해줄것
+
         System.out.println("결제 취소 완료");
         return "redirect:../start.ing";
     }
