@@ -1,5 +1,15 @@
 $(document).ready(function(){
 
+   $('.sidenav').sidenav();
+   $('.collapsible').collapsible();
+   //$('.dropdown-trigger').dropdown();
+   //$('#dropdown1').dropdown();
+   $('.tooltipped').tooltip();
+   $('select').formSelect();
+   $('#dropdownbox').dropdown();
+
+   //$('.carousel').carousel();
+
    //$(document).on('click', '#insertPublisher', asyncMovePage("publisher/insertPublisher.ing"));
    $(document).on("click", '.loadAjax', function(event) {
       event.preventDefault();
@@ -58,12 +68,58 @@ $(document).ready(function(){
       searchBox.css('top', '-10vh');
    });
 
-   $('.sidenav').sidenav();
-   $('.collapsible').collapsible();
-   $('.dropdown-trigger').dropdown();
-   $('.tooltipped').tooltip();
-   $('select').formSelect();
-   $('.tabs').tabs();
+   $(document).on('click', '#memjoin', function (evt) {
+      evt.stopPropagation();
+      $.ajax({
+         method: "post",
+         url: "/memberjoin.ing",
+         success : function (data) {
+            $('#content').children().remove();
+            $('#content').html(data);
+         },
+         error : function (err) {
+            console.log("memjoin err: " + err);
+         }
+      });
+   })
+
+   $(document).on('click', '#memlogin', function (evt) {
+      evt.stopPropagation();
+
+      let queryString = $('#memberlogin').serialize();
+
+      $.ajax({
+         method: 'post',
+         url: "/memberlogin.ing",
+         data: queryString,
+         success : function (data) {
+            location.replace('/hello.ing');
+         },
+         error : function (err) {
+            console.log(err);
+         }
+      });
+   })
+
+   $(document).on('click', '#memberSubmit', function (evt) {
+      evt.stopPropagation();
+
+      let queryString = $('#userinput').serialize();
+
+      $.ajax({
+         method: 'post',
+         url: "/userok.ing",
+         data: queryString,
+         success : function (data) {
+            $('#content').children().remove();
+            $('#content').html(data);
+         },
+         error : function (err) {
+            console.log(err);
+         }
+      });
+   })
+
 });
 
 /*

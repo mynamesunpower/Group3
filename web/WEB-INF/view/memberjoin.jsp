@@ -14,8 +14,28 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
 <script src="../../js/memberjoin.js"></script>
+<script type="text/javascript">
+$(document).ready(
+    $(document).on('click', '#memberSubmit', function (evt) {
+        evt.stopPropagation();
+        let queryString = $('#userinput').serialize();
+
+        $.ajax({
+            method: 'post',
+            url: "/userok.ing",
+            data: queryString,
+            success : function (data) {
+                $('#content').children().remove();
+                $('#content').html(data);
+            },
+            error : function (err) {
+                console.log(err);
+            }
+        });
+    })
+);
+</script>
 
 <%--sweetalert css 경고창--%>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -70,8 +90,10 @@
         <input class="form-control" placeholder="상세주소" name="addr3" id="addr3" type="text"/>
     </div>
     <br/><br/>
-    <input type="submit" name="submit" id="submit" value="등 록">
-    <input type="reset" name="reset" id="reset" value="취 소">
+
+<input type="button" name="submit" id="memberSubmit" value="등 록">
+<input type="reset" name="reset" id="reset" value="취 소">
+
 </form>
 
 </body>

@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
+
 <html>
 <head>
     <title>장바구니 목록</title>
@@ -26,14 +28,15 @@
         <tr>
             <th></th>
             <th>상품명</th>
-            <th>정가 (원)</th>
+            <th>정가</th>
             <th>수량</th>
-            <th>합계 (원)</th>
+            <th>합계</th>
             <th></th>
         </tr>
         </thead>
         <c:forEach var="cart" items="${cart}">
-            <form id="cartForm" action="" method="post">
+            <form class="cartForm" action="" method="get">
+
                 <tr class="bookList">
                     <input type="hidden" class="isbn" name="isbn" value="${cart.isbn}">
                     <td class="checkedBook">
@@ -41,8 +44,13 @@
                             <input class="checkedBook" type="checkbox" name="isbn" value="${cart.isbn}" checked="checked" /><span></span>
                         </label>
                     </td>
-                    <td class="bookTitle">${cart.bookVO.title}</td>
-                    <td class="price">${cart.bookVO.price}</td>
+                    <%--TODO 책 주소 걸어줄것--%>
+                    <input type="hidden" id="title" class="title" name="title" value="${cart.bookVO.title}"/>
+                    <td class="bookTitle"><a href="">${cart.bookVO.title}</a></td>
+
+                    <input type="hidden" id="price" value="${cart.bookVO.price}">
+                    <td class="price"><fmt:formatNumber value="${cart.bookVO.price}" pattern="#,###"/>원</td>
+
                     <td class="count">
                         <button type="button"
                                 class="plusCount waves-effect waves-light btn-small white black-text btn-flat"><i
@@ -53,9 +61,9 @@
                                 class="minusCount waves-effect waves-light btn-small white black-text btn-flat"><i
                                 class="material-icons">arrow_drop_down</i></button>
                     </td>
-                    <td class="totalPrice">${cart.bookVO.price * cart.quantity}</td>
+                    <td class="totalPrice"><fmt:formatNumber value="${cart.bookVO.price * cart.quantity}" pattern="#,###"/>원</td>
                     <td>
-                        <button type="button" class="orderBook waves-effect waves-light btn-small white black-text">
+                        <button type="submit" class="orderBook waves-effect waves-light btn-small white black-text">
                             <i class="material-icons left">credit_card</i>
                             주문
                         </button>

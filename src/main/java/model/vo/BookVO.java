@@ -1,7 +1,5 @@
 package model.vo;
 
-import java.util.Date;
-
 /**
  * TODO Book테이블 타입 명확히할것
  * ex) publisher_number isbn total_page 등등 ==> 연산할 필요가없어서 varchar2로 해도될거같음
@@ -19,6 +17,7 @@ public class BookVO {
     private String publicationDate;
     private String content;
     private String keyword;
+    private String imageUrl;
 
     public BookVO() {
     }
@@ -109,5 +108,13 @@ public class BookVO {
 
     public void setKeyword(String keyword) {
         this.keyword = keyword;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

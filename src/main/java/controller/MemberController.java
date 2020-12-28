@@ -7,7 +7,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import service.MemberService;
+import service.service.MemberService;
 
 import javax.servlet.http.HttpSession;
 
@@ -73,26 +73,15 @@ public class MemberController {
     @RequestMapping("/updateok.ing")
     public String updateok(MemberVO vo, Model m) {
         System.out.println("회원정보수정 완료페이지~~");
-        int result = memberService.memberUpdate(vo);
 
-        String msgUpdate = vo.getName() + " 님 회원정보가 수정되엇습니다~~~~";
-        if (result > 0) {
-            msgUpdate = vo.getName() + " 님 회원정보가 수정되엇습니다~~~~다시 로그인해주세요~~~~";
-        } else {
-            msgUpdate = vo.getName() + " 님 회원정보가 수정되지 않앗습니다. 다시 시도해주세요.";
-        }
-        m.addAttribute("msgupdate", msgUpdate);
-        return "/updateok";
-
+        return "redirect:/start.ing";
     }//end  회원정보수정
 
 
     @RequestMapping("/memberlogin.ing")
-    public String memberLogin(MemberVO vo, HttpSession session) {
-        System.out.println("멤버로그인으로 이동하겟습니다");
 
-        MemberVO result = memberService.memberLogin(vo);
-
+    public String memberlogin(MemberVO vo, HttpSession session) {
+        MemberVO result = memberService.memberlogin(vo);
 
         if (result == null) {
             System.out.println("로그인실패~~~~~");
@@ -102,16 +91,16 @@ public class MemberController {
             System.out.println("로그인성공~~~~~~");
             session.setAttribute("memberId", result.getId());
             session.setAttribute("memberName", result.getName());
-            session.setAttribute("memberPassword", result.getPassword());
+
+
             session.setAttribute("memberTel", result.getTel());
             session.setAttribute("memberEmail", result.getEmail());
-            session.setAttribute("memberDomain", result.getDomain());
+            session.setAttribute("domain", result.getDomain());
             session.setAttribute("memberAddr1", result.getAddr1());
             session.setAttribute("memberAddr2", result.getAddr2());
             session.setAttribute("memberAddr3", result.getAddr3());
-            session.setAttribute("memberGrade", result.getGrade());
             session.setAttribute("memberPoint", result.getPoint());
-            return "/hello";
+            return "redirect:/start.ing";
         }
     }//end memberlogin
 
