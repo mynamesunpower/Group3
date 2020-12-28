@@ -6,27 +6,31 @@
 
     <insert id="memberjoin" parameterType="member">
         Insert into member (id, password, name, tel,jumin1,jumin2,email,domain ,addr1,addr2,addr3)
-        VALUES (  #{id},#{pass},#{name},#{tel}, #{jumin1},#{jumin2},
+        VALUES (  #{id},#{password},#{name},#{tel}, #{jumin1},#{jumin2},
         #{email},#{domain}, #{addr1},#{addr2},#{addr3})
 </insert>
 
+
     <select id="login" parameterType="member" resultType="member">
-     select *
-    from member
-    where id = #{id}  and PASSWORD = #{pass}
-</select>
+      select *
+      from member
+      where id = #{id}
+        <if test="password != null">
+        and password = #{password}
+        </if>
+    </select>
 
     <update id="memberupdate" parameterType="member">
-update MEMBER
-set password = #{pass},
-    name = #{name},
-    tel = #{tel},
-    email = #{email},
-    domain = #{domain},
-    addr1 = #{addr1},
-addr2 = #{addr2},
-addr3 = #{addr3}
-where id = #{id}
+      update MEMBER
+      set password = #{password},
+          name = #{name},
+          tel = #{tel},
+          email = #{email},
+          domain = #{domain},
+          addr1 = #{addr1},
+      addr2 = #{addr2},
+      addr3 = #{addr3}
+      where id = #{id}
     </update>
 
     <select id="idCheck" parameterType="member" resultType="member">
@@ -44,5 +48,21 @@ where id = #{id}
         SET POINT = POINT+#{point}
         WHERE TEL = #{tel}
     </update>
+
+    <select id="memberOrderList" resultType="purchase">
+      select *
+      from PURCHASE
+    </select>
+
+    <delete id="memberDelete" parameterType="member">
+        delete from member where password = #{password}
+    </delete>
+
+    <select id="memberIdFind" parameterType="member" resultType="member">
+        select id
+        from member
+        where tel=#{tel} and email=#{email} and domain = #{domain}
+    </select>
+
 
 </mapper>

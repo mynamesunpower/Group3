@@ -1,32 +1,3 @@
-$(function(){
-    $(document).ready(function(){
-
-        $('select[name=emailSelection]').change(function() {
-            if($(this).val()=="1"){
-                $('#domain').val("");
-            } else {
-                $('#domain').val($(this).val());
-                $("#domain").attr("readonly", true);
-            }
-        });
-    });  //end $(document).ready(function() 이메일셀렉트박스입력관련.
-
-    $('#submit').click(function() {
-        if($.trim($('#pass').val())==''){
-            alert("비번입력해주세요.");
-            $('#pass').focus();
-            return;
-        }
-        if($.trim($('#pass').val()) != $.trim($('#pass2').val())){
-            alert("비밀번호가 일치하지 않습니다..");
-            $('#pass2').focus();
-            return;
-        }//end pass1 pass2 비밀번호확인 알맞게 입력.
-
-    });// end submit폼
-}); //end $(function)
-
-
 
 function execPostCode() {
     new daum.Postcode({
@@ -70,3 +41,38 @@ function execPostCode() {
         }
     }).open();
 }//end 주소찾기 api
+
+
+$(function(){
+    $(document).ready(function(){
+
+        $('select[name=emailSelection]').change(function() {
+            if($(this).val()=="1"){
+                $('#domain').val("");
+            } else {
+                $('#domain').val($(this).val());
+                $("#domain").attr("readonly", true);
+            }
+        });
+    });  //end $(document).ready(function() 이메일셀렉트박스입력관련.
+
+    $('#submit').click(function() {
+        if($.trim($('#password').val())==''){
+            alert("비번입력해주세요.");
+            $('#password').focus();
+            return;
+        }
+        if($.trim($('#password').val()) != $.trim($('#password2').val())){
+            alert("비밀번호가 일치하지 않습니다..");
+            $('#password2').focus();
+            return;
+        }//end pass1 pass2 비밀번호확인 알맞게 입력.
+
+    });// end submit폼
+
+$('#userDelete').click(function () {
+    alert("회원탈퇴되었습니다.이용해주셔서 감사합니다.")
+})//회원탈퇴 눌럿을때 알림창
+
+}); //end $(function)
+

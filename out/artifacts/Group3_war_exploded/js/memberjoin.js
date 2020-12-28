@@ -36,8 +36,3 @@ function execPostCode() {
         }
     }).open();
 }//end 주소찾기 api
-
-
-
-
-

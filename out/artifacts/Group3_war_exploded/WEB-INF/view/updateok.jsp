@@ -6,11 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>회원수정되엇습니다.</title>
+    <title>회원수정페이지</title>
 </head>
 <body>
-회원수정되엇습니다.회원수정되엇습니다.회원수정되엇습니다.회원수정되엇습니다.
+<h1>${msgupdate}<h1>
+
+    <a href="/logout.ing">로그아웃하기</a>
+
 </body>
 </html>

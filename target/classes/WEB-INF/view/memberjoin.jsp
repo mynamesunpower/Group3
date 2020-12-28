@@ -6,9 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%request.setCharacterEncoding("utf-8"); // post방식 한글깨짐 처리%>
 <html>
 <head>
-<title>회원가입페이지</title>
+    <title>회원가입페이지</title>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -195,6 +196,8 @@ $(document).ready(function(){
 });
 </script>
 
+<%--sweetalert css 경고창--%>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <body>
 <form action="userok.ing" name="userinput" id="userinput">
@@ -304,5 +307,6 @@ $(document).ready(function(){
 
 
 </form>
+
 </body>
 </html>
