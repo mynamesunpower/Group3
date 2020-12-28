@@ -152,18 +152,11 @@ public class BookController {
         return "book/chartA";
     }
 
+    //매출 차트
     @RequestMapping(value = "/chartB.ing")
     public String chartB(Model model){
-
         //매출 그래프
         System.out.println("chartA() booktrain 매출 line 차트");
-
-//        List<Object> list = new ArrayList<Object>();
-//        for(int i=1; i<=12; i++ ){
-//            list.add(i);
-//        }
-
-        //List salesprice = bookService.salesList(list);
 
         //-----------------30대
         HashMap<Integer,Integer> ageprice = bookService.ageList();
@@ -174,9 +167,6 @@ public class BookController {
         //--------------------총매출
         HashMap<Integer,Integer> salesprice = bookService.salesList();
 
-//        for(Object price : salesprice) {
-//            System.out.println("price: " + (Integer)price);
-//        }
         String result = "";
         Set<Integer> salesKeys = salesprice.keySet();
         for (Integer key : salesKeys) {
@@ -189,10 +179,28 @@ public class BookController {
         System.out.println("매출 result : "+result);
         model.addAttribute("chartB", result);
 
-
-
         //-----------------------------------------------------------
         return "book/chartB";
+    }
+
+    @RequestMapping("/chartC")
+    public String daysales(Model model){
+
+        HashMap<Integer,Integer> list = bookService.daychart();
+
+        String result = "";
+        Set<Integer> dayKeys = list.keySet();
+        for (Integer key : dayKeys) {
+            if (result != "") {
+                result += ",";
+            }
+            result += "['" +"day-" +key + "', " + list.get(key)+ "]";
+            //((BigDecimal) hm.get("AGE")).intValue()
+        }
+        System.out.println("매출 result : "+result);
+
+        model.addAttribute("chartC",result);
+        return "book/chartC";
     }
 
 

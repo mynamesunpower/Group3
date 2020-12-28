@@ -24,5 +24,6 @@ public interface BookService {
     HashMap<Integer,Integer> salesList();
     HashMap<Integer,Integer> ageList();
     HashMap<Integer,Integer> twentypriceList();
+    HashMap<Integer,Integer> daychart();
 
 }

@@ -33,4 +33,5 @@ public interface BookDAO {
      List<BookVO> hotBook();
  HashMap<Integer,Integer> ageList();
  HashMap<Integer,Integer> twentypriceList();
+ HashMap<Integer, Integer> daychart();
 }

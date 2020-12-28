@@ -168,6 +168,22 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
 
     </select>
 
+    <select id="daychart" parameterType="hashmap" resultType="int">
+        <![CDATA[
+        select sum(amount_price) amountprice
+        from sales_Data sd
+                 INNER JOIN(SELECT pb.order_number order_number
+                            FROM purchase_book pb
+                                     INNER JOIN (SELECT *
+                                                 FROM purchase
+                                                 WHERE state='결제완료' AND to_char(sysdate,'yy')=substr(purchase_date,1,2) AND
+                                                     to_char(purchase_date,'mm-dd')=to_char(sysdate-#{day},'mm-dd')) p
+                                                ON p.order_number = pb.order_number) pb
+                           ON sd.order_number = pb.order_number
+        ]]>
+
+    </select>
+
 
 
     <select id="carouselBook" resultType="book">

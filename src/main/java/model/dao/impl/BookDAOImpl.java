@@ -134,8 +134,6 @@ public class BookDAOImpl implements BookDAO {
         }
 
         //20대
-
-
     @Override
     public HashMap<Integer, Integer> twentypriceList() {
         HashMap<String,Integer> list = new HashMap<String, Integer>();
@@ -147,6 +145,24 @@ public class BookDAOImpl implements BookDAO {
             list2.put(i,j);
         }
 
+        return list2;
+    }
+
+    //최근 30일 매출
+    @Override
+    public HashMap<Integer, Integer> daychart() {
+        System.out.println("=====>지금부터 mybatis daychart() 시작");
+        HashMap<String,Integer> list = new HashMap<String, Integer>();
+        HashMap<Integer,Integer> list2 = new HashMap<Integer, Integer>();
+
+        for(int i=30; i>=0; i--){
+            list.put("day",i);
+            System.out.println(i);
+            Integer j = mybatis.selectOne("BookMapper.daychart",list);
+            list2.put(i,j);
+        }
+
+        System.out.println("=====>여기까지 mybatis daychart() 끝 리턴!");
         return list2;
     }
 

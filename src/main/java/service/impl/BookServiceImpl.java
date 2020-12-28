@@ -92,6 +92,11 @@ public class BookServiceImpl implements BookService {
         return bookdao.twentypriceList();
     }
 
+    @Override
+    public HashMap<Integer, Integer> daychart() {
+        return bookdao.daychart();
+    }
+
     public List<BookVO> genrebookList(String genre){
         return bookdao.genrebookList(genre);
     }
