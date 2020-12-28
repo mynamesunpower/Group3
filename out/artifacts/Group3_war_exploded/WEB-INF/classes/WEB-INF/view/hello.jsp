@@ -19,7 +19,6 @@
     <script src="../../js/index.js" type="text/javascript"></script>
     <script src="../../js/cart.js" type="text/javascript"></script>
     <script src="../../js/order.js" type="text/javascript"></script>
-    <script src="../../js/hello.js" type="javascript"></script>
     <script src="../../js/login.js" type="text/javascript"></script>
     <script src="../../js/paymentMethod.js" type="text/javascript"></script>
     <script type="text/javascript">

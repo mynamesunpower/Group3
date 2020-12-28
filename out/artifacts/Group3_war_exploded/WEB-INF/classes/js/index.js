@@ -86,7 +86,8 @@ $(document).ready(function(){
 
    $(document).on('click', '#memlogin', function (evt) {
       evt.stopPropagation();
-
+      evt.preventDefault();
+      alert("login");
       let queryString = $('#memberlogin').serialize();
 
       $.ajax({

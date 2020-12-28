@@ -20,7 +20,30 @@
     이쁜 alert창인데 한페이지에 맨 마지막에 만든 swal만 작동되는듯(?) --%>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../js/login.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '#memlogin', function (evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+                alert("login");
+                let queryString = $('#memberlogin').serialize();
+                //뭐가문제엿던거여?? 뭔가 이상해 이거 내부 스크립트만 먹네
+//내컴터만?? 응 왜그러는거닞 모르겠다 어쩐지 게속 그러던데
 
+                $.ajax({
+                    method: 'post',
+                    url: "/memberlogin.ing",
+                    data: queryString,
+                    success : function (data) {
+                        location.replace('/hello.ing');
+                    },
+                    error : function (err) {
+                        console.log(err);
+                    }
+                });
+            })
+        });
+    </script>
 </head>
 <body id="login_body">
     <div class="row"></div>

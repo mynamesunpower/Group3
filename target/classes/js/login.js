@@ -12,7 +12,7 @@ $(document).ready(function(){
     $('#memsearchpass').click(function () {
         location.href='/memberPassFind.ing';
     });
-
+//여기에없어서?없어도갠차나
 });
 
 
