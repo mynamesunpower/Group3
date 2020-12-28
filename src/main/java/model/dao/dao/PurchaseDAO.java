@@ -22,4 +22,7 @@ public interface PurchaseDAO {
 
     public void cancelOrder(PurchaseVO purchaseVO);
 
+    public List<PurchaseBookVO> selectIsbn(PurchaseVO purchaseVO);
+
+    public void cancel_salesData(PurchaseBookVO purchaseBookVO);
 }

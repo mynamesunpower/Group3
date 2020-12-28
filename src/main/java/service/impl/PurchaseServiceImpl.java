@@ -48,7 +48,19 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     @Override
+    public List<PurchaseBookVO> selectIsbn(PurchaseVO purchaseVO) {
+        return purchaseDAO.selectIsbn(purchaseVO);
+    }
+
+    @Override
+    public void cancel_salesData(PurchaseBookVO purchaseBookVO) {
+        purchaseDAO.cancel_salesData(purchaseBookVO);
+    }
+
+    @Override
     public void cancelOrder(PurchaseVO purchaseVO) {
         purchaseDAO.cancelOrder(purchaseVO);
     }
+
+
 }

@@ -228,10 +228,11 @@ public class PurchaseController {
         // 주문 상품과 수량을 가져옴
         List<PurchaseVO> detailOrder_List = purchaseService.selectDetailOrder(purchaseVO);
         purchaseVO = purchaseService.purchaseInfo(purchaseVO);
-        System.out.println("오다넘버 : " + purchaseVO.getOrderNumber() );
+        System.out.println("detailOrderList() 오다넘버 : " + purchaseVO.getOrderNumber() );
 
         model.addAttribute("detailOrder_List", detailOrder_List);
         model.addAttribute("purchaseInfo", purchaseVO);
+
         return "purchase/detailOrderList";
     }
 
@@ -240,10 +241,21 @@ public class PurchaseController {
     public String cancelOrder(PurchaseVO purchaseVO){
         System.out.println("cancelOrder() 오다넘버 : " + purchaseVO.getOrderNumber());
         purchaseVO.setMemberTel((String)httpSession.getAttribute("memberTel"));
+        PurchaseBookVO purchaseBookVO = new PurchaseBookVO();
+        purchaseBookVO.setOrderNumber(purchaseBookVO.getOrderNumber());
+
+        // Sales_Data 테이블에서 업데이트할 isbn을 얻어옴
+        List<PurchaseBookVO> isbnList = purchaseService.selectIsbn(purchaseVO);
+        for(PurchaseBookVO list : isbnList){
+            purchaseBookVO.setQuantity(list.getQuantity());
+            purchaseBookVO.setIsbn(list.getIsbn());
+            // 각가의 isbn 상품의 총 수량 및 가격 수정
+            purchaseService.cancel_salesData(purchaseBookVO);
+        }
+
+        // Purchase_Book & Member Point 수정
         purchaseService.cancelOrder(purchaseVO);
-
-        //TODO SALES_DATA 데이터도 차감해줄것
-
+        
         System.out.println("결제 취소 완료");
         return "redirect:../start.ing";
     }
