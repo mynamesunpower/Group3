@@ -18,6 +18,7 @@ public class PurchaseVO {
     private BookVO bookVO;
 
     public PurchaseVO() {
+
     }
 
     public String getOrderNumber() {

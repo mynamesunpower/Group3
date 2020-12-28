@@ -17,11 +17,29 @@
 <h6>검색어 : ${param.keyword}</h6>
 <div class="row"></div>
 
+
+<table border="1">
+    <tr>
+        <th bgcolor="#e9967a">ISBN</th>
+        <th bgcolor="#e9967a">출판사번호</th>
+        <th bgcolor="#e9967a">제목</th>
+        <th bgcolor="#e9967a">저자</th>
+        <th bgcolor="#e9967a">장르</th>
+        <th bgcolor="#e9967a">총페이지</th>
+        <th bgcolor="#e9967a">가격</th>
+        <th bgcolor="#e9967a">재고</th>
+        <th bgcolor="#e9967a">출판날짜</th>
+        <th bgcolor="#e9967a">내용</th>
+        <th bgcolor="#e9967a">키워드</th>
+
+    </tr>
+
+
 <c:forEach items="${bookList}" var="book">
     <div class="row">
-        <%--<div class="col s4 center-align">--%>
-            <%--<img src="../../../imgs/book/2222222222222.jpg">--%>
-        <%--</div>--%>
+        <div class="col s4 center-align">
+            <img src="../../../imgs/book/${book.isbn}.PNG">
+        </div>
         <div class="col s8">
             <div class="leftcol left-align"><h4>${book.title}</h4></div>
             <div class="leftcol left-align"><h5>${book.author}</h5></div>

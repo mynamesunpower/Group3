@@ -21,52 +21,57 @@
 <%--<!-- Compiled and minified CSS -->--%>
 <%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">--%>
 <%--<!-- Compiled and minified JavaScript -->--%>
-<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
-    <body>
-    <form action="updateok.ing" name="userinput" id="userinput">
-        아이디       :  <input type="text" name="id" id="id" value="${sessionScope.id}" readonly><br/><br/>
-        비밀번호     :  <input type="password" name="pass" id="pass"><br/><br/>
-        비밀번호확인 :  <input type="password" name="pass2" id="pass2"><br/><br/>
-        이름         :    <input type="text" name="name" id="name"  value="${sessionScope.name}"><br/><br/>
-            전화번호     :    <input type="select" name="tel" id="tel" placeholder="-는 빼고 입력해주세요"  value="${sessionScope.tel}"><br/><br/>
+                <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
+          <body>
+          <form action="updateok.ing" name="userinput" id="userinput">
+                아이디       :  <input type="text" name="id" id="id" value="${sessionScope.memberId}" readonly><br/><br/>
+                비밀번호     :  <input type="password" name="password" id="password"><br/><br/>
+                비밀번호확인 :  <input type="password" name="password2" id="password2"><br/><br/>
+                이름         :    <input type="text" name="name" id="name"  value="${sessionScope.memberName}"><br/><br/>
+                전화번호     :    <input type="select" name="tel" id="tel" placeholder="-는 빼고 입력해주세요"  value="${sessionScope.memberTel}"><br/><br/>
 
-            이메일       :    <input type="text" name="email" id="email"  value="${sessionScope.email}">
-            <input type="text"  id="domain" name="domain" class="box" value="${sessionScope.email}">
+                이메일       :    <input type="text" name="email" id="email"  value="${sessionScope.memberEmail}">
+                    <input type="text"  id="domain" name="domain" class="box" value="${sessionScope.memberDomain}">
 
-            <select id="emailSelection" name="emailSelection">
-                <option value="1" selected="selected">직접입력</option>
-                <option value="@gmail.com">@gmail.com</option>
-                <option value="@naver.com">@naver.com</option>
-                <option value="@nate.net">@nate.com</option>
+          <select id="emailSelection" name="emailSelection">
+                        <option value="1" selected="selected">직접입력</option>
+                        <option value="@gmail.com">@gmail.com</option>
+                        <option value="@naver.com">@naver.com</option>
+                        <option value="@nate.net">@nate.com</option>
                 <option value="@hanmail.net">@hanmail.net</option>
                 <option value="@daum.net">@daum.net</option>
-        </select>
+          </select>
 
 
-        <br/><br/><hr>
-        <h1>주소 수정</h1>
-        주소<br/>
-        <div class="form-group">
+          <br/><br/><hr>
+          <h1>주소 수정</h1>
+          주소<br/>
+          <div class="form-group">
             <input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호"
-                   name="addr1" id="addr1" type="text" readonly="readonly" value="${sessionScope.addr1}">
+                   name="addr1" id="addr1" type="text" readonly="readonly" value="${sessionScope.memberAddr1}">
             <button type="button" class="btn btn-default" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>
-        </div>
-        <div class="form-group">
+          </div>
+          <div class="form-group">
             <input class="form-control" style="top: 5px;" placeholder="도로명 주소"
-                   name="addr2" id="addr2" type="text" readonly="readonly"  value="${sessionScope.addr2}"/>
-        </div>
-        <div class="form-group">
+                   name="addr2" id="addr2" type="text" readonly="readonly"  value="${sessionScope.memberAddr2}"/>
+          </div>
+          <div class="form-group">
             <input class="form-control" placeholder="상세주소"
-                   name="addr3" id="addr3" type="text"  value="${sessionScope.addr3}" />
-        </div>
-        <br/><br/>
+                   name="addr3" id="addr3" type="text"  value="${sessionScope.memberAddr3}" />
+          </div>
+          <br/><br/>
 
-        등급   : <input type="text" name="grade" id="grade" value="${sessionScope.grade}" readonly><br/><br/>
-        포인트 : <input type="text" name="point" id="point" value="${sessionScope.point}" readonly><br/><br/>
+          등급   : <input type="text" name="grade" id="grade" value="${sessionScope.memberGrade}" readonly><br/><br/>
+          포인트 : <input type="text" name="point" id="point" value="${sessionScope.memberPoint}" readonly><br/><br/>
 
-        <input type="submit" name="submit" id="submit" value="수정완료">
+                    <input type="submit" name="submit" id="submit" value="수정완료">
 
+          </form>
+          <form action="memberDelete.ing" name="userDelete" id="userDelete">
 
+              <input type="hidden" name="password" value="${sessionScope.memberPassword}">
+              <input type="submit" name="memberDelete" id="memberDelete" value="회원탈퇴">
 
+          </form>
 </body>
 </html>

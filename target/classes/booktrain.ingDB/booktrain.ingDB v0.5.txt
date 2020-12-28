@@ -53,7 +53,6 @@ create table book ( ISBN varchar2(13) primary key,
                     publication_date date not null,
                     content varchar2(300) not null,
                     keyword varchar2(50),
-                    imageUrl varchar2(60),
                     constraint book_fk_publisher_number foreign key(publisher_number)
                         references publisher(publisher_number));
 
@@ -115,3 +114,4 @@ create sequence seq_order_number;
 create sequence seq_publisher_number;
 
 create sequence seq_order_id;
+
