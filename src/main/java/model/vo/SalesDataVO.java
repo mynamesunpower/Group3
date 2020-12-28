@@ -1,10 +1,14 @@
 package model.vo;
 
 public class SalesDataVO {
+
     private String orderNumber;
     private String isbn;
-    private int amountPrice;
     private int amountQuantity;
+    private int amountPrice;
+
+    public SalesDataVO() {
+    }
 
     public String getOrderNumber() {
         return orderNumber;
@@ -22,19 +26,19 @@ public class SalesDataVO {
         this.isbn = isbn;
     }
 
-    public int getAmountPrice() {
-        return amountPrice;
-    }
-
-    public void setAmountPrice(int amountPrice) {
-        this.amountPrice = amountPrice;
-    }
-
     public int getAmountQuantity() {
         return amountQuantity;
     }
 
     public void setAmountQuantity(int amountQuantity) {
         this.amountQuantity = amountQuantity;
+    }
+
+    public int getAmountPrice() {
+        return amountPrice;
+    }
+
+    public void setAmountPrice(int amountPrice) {
+        this.amountPrice = amountPrice;
     }
 }

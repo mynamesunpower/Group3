@@ -6,8 +6,6 @@
 	<settings>
 		<setting name="cacheEnabled" value="false" />
 		<setting name="jdbcTypeForNull" value="NULL" />
-
-		<!-- resultType HashMap(Map) 사용시 Map 테스트 -->
 		<setting name="callSettersOnNulls" value="true"/>
 	</settings>
 	<!-- Alias 설정 -->

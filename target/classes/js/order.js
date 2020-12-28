@@ -49,6 +49,7 @@ $(function () {
 
     // 결제버튼
     $('#payOrder').click(() => {
+        let shipAddress = '['+$('#addr1').val()+'] ' + $('#addr2').val() +' ' + $('#addr3').val()
         $.ajax({
             type: "post",
             url: "/purchase/payOrder.ing",
@@ -59,9 +60,7 @@ $(function () {
                 'totalPrice': $('#totalPrice').val(),
                 'point': parseInt($('#point').val()),
                 'receiver': $('#receiver').val(),
-                'addr1': $('#addr1').val(),
-                'addr2': $('#addr2').val(),
-                'addr3': $('#addr3').val()
+                'shipAddress' : shipAddress
             }, success: (data) => {
                 $('#content').children().remove();
                 $('#content').html(data);
@@ -99,6 +98,7 @@ $(function () {
             'payName': payName,
             'totalPrice': $('#totalPrice').val(),
         }
+        // TODO 시연할때는 주석 풀어주고 밑에 AJAX없애기
         // paymentMethos.js의 kakaoPay함수 호출
         // kakaoPay(data)
 
@@ -107,7 +107,6 @@ $(function () {
             url: '/purchase/payComplete.ing',
             contentType: 'application/json; charset=utf-8',
             data: {
-                'totalPrice': $('#totalPrice').val(),
             }, success: (data) => {
                 $('#content').children().remove();
                 $('#content').html(data);

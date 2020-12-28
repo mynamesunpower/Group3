@@ -77,7 +77,7 @@
                             <a class="loadAjax" href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
                         </a></li>
                         <li class="divider"></li>
-                        <li><a href="#!" class="blue-text">주문목록확인</a></li>
+                        <li><a class="loadAjax" href="/purchase/orderList.ing" class="blue-text">주문목록확인</a></li>
                         <li class="divider"></li>
                         <li><a href="#!" class="blue-text">
                             <a class="loadAjax" href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
