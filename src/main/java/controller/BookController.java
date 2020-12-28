@@ -30,7 +30,6 @@ public class BookController {
     }
 
     @RequestMapping("/searchBook.ing")
-
     public String searchBook(String keyword,
                              @RequestParam(defaultValue = "false") String sbox,
                              Model model) {

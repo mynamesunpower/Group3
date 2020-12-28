@@ -62,5 +62,8 @@ public class PurchaseServiceImpl implements PurchaseService {
         purchaseDAO.cancelOrder(purchaseVO);
     }
 
-
+    @Override
+    public void insertCancelBook(PurchaseBookVO purchaseBookVO) {
+        purchaseDAO.insertCancelBook(purchaseBookVO);
+    }
 }

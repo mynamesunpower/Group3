@@ -90,7 +90,7 @@
                             <a class="loadAjax" href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
                         </a></li>
                         <li class="divider"></li>
-                        <li><a class="loadAjax" href="/purchase/orderList.ing" class="blue-text">주문목록확인</a></li>
+                        <li><a class="loadAjax" href="/purchase/orderList.ing?state=결제완료" class="blue-text">주문목록확인</a></li>
                         <li class="divider"></li>
                         <li><a class="loadAjax btn-flat tooltipped" href="customerCenter.ing" data-position="bottom" data-tooltip="고객센터">고객센터</a></li>
                         <li class="divider"></li>
