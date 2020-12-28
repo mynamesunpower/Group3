@@ -6,6 +6,9 @@ import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.service.BookService;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -72,6 +75,26 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Map<String, Object>> getGenreList() {
         return bookdao.getGenreSalesList();
+    }
+
+    @Override
+    public HashMap<Integer,Integer> salesList() {
+        return bookdao.salesList();
+    }
+
+    @Override
+    public HashMap<Integer, Integer> ageList() {
+        return bookdao.ageList();
+    }
+
+    @Override
+    public HashMap<Integer, Integer> twentypriceList() {
+        return bookdao.twentypriceList();
+    }
+
+    @Override
+    public HashMap<Integer, Integer> daychart() {
+        return bookdao.daychart();
     }
 
     public List<BookVO> genrebookList(String genre){

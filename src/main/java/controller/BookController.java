@@ -13,10 +13,7 @@ import service.impl.BookServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class BookController {
@@ -141,9 +138,9 @@ public class BookController {
             System.out.println(map.get("PRICE"));
             String key = (String)map.get("GENRE");
             int value = ((BigDecimal)map.get("PRICE")).intValue();
-            maps.put(key,value); // 임포트~
+            maps.put(key,value);
         }
-        System.out.println("maps는" +maps);
+
         String result = "";
         Set<String> salesKeys = maps.keySet();
         for (String key : salesKeys) {
@@ -155,7 +152,61 @@ public class BookController {
         }
 
         model.addAttribute("chartA", result);
+
+
+
         return "book/chartA";
+    }
+
+    //매출 차트
+    @RequestMapping(value = "/chartB.ing")
+    public String chartB(Model model){
+        //매출 그래프
+        System.out.println("chartA() booktrain 매출 line 차트");
+
+        //-----------------30대
+        HashMap<Integer,Integer> ageprice = bookService.ageList();
+
+        //-----------------------20대
+        HashMap<Integer,Integer> twentyprice = bookService.twentypriceList();
+
+        //--------------------총매출
+        HashMap<Integer,Integer> salesprice = bookService.salesList();
+
+        String result = "";
+        Set<Integer> salesKeys = salesprice.keySet();
+        for (Integer key : salesKeys) {
+            if (result != "") {
+                result += ",";
+            }
+            result += "['" + key + "', " + salesprice.get(key)+"," +twentyprice.get(key)+","+ageprice.get(key) + "]";
+            //((BigDecimal) hm.get("AGE")).intValue()
+        }
+        System.out.println("매출 result : "+result);
+        model.addAttribute("chartB", result);
+
+        //-----------------------------------------------------------
+        return "book/chartB";
+    }
+
+    @RequestMapping("/chartC")
+    public String daysales(Model model){
+
+        HashMap<Integer,Integer> list = bookService.daychart();
+
+        String result = "";
+        Set<Integer> dayKeys = list.keySet();
+        for (Integer key : dayKeys) {
+            if (result != "") {
+                result += ",";
+            }
+            result += "['" +"day-" +key + "', " + list.get(key)+ "]";
+            //((BigDecimal) hm.get("AGE")).intValue()
+        }
+        System.out.println("매출 result : "+result);
+
+        model.addAttribute("chartC",result);
+        return "book/chartC";
     }
 
 

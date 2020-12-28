@@ -3,6 +3,8 @@ package service.service;
 import model.vo.BookVO;
 import model.vo.SalesDataVO;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,4 +21,9 @@ public interface BookService {
     List<BookVO> carouselBook();
     List<BookVO> bestBook();
     List<BookVO> hotBook();
+    HashMap<Integer,Integer> salesList();
+    HashMap<Integer,Integer> ageList();
+    HashMap<Integer,Integer> twentypriceList();
+    HashMap<Integer,Integer> daychart();
+
 }
