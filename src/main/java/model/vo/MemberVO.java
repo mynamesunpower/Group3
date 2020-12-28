@@ -79,14 +79,12 @@ public class MemberVO {
         this.domain = domain;
     }
 
-
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
-
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getAddr1() {

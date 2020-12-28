@@ -2,6 +2,7 @@ package model.dao.impl;
 
 import model.dao.dao.BookDAO;
 import model.vo.BookVO;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -58,5 +59,40 @@ public class BookDAOImpl implements BookDAO {
     public List<BookVO> searchBook(Map map) {
         System.out.println("searchBookDao searchBook() : " + map.get("sbox"));
         return mybatis.selectList("BookMapper.searchBook",map);
+    }
+
+    @Override
+    public List<Map<String, Object>> getGenreSalesList() {
+        List<Map<String, Object>> list = mybatis.selectList("BookMapper.getGenreSalesList");
+
+//        for (Map<String, String> map : list) {
+//            System.out.println(map.get("GENRE"));
+//            System.out.println(map.get("PRICE"));
+//        }
+
+        return list;
+    }
+
+    public List<BookVO> genrebookList(String genre) {
+        System.out.println("===> Mybatis genrebookList() 호출");
+        return mybatis.selectList("BookMapper.genrebookList",genre);
+    }
+
+    @Override
+    public List<BookVO> carouselBook() {
+        System.out.println("===> Mybatis carouselBook() 호출");
+        return mybatis.selectList("BookMapper.carouselBook");
+    }
+
+    @Override
+    public List<BookVO> bestBook() {
+        System.out.println("===> Mybatis bestBook() 호출");
+        return mybatis.selectList("BookMapper.bestBook");
+    }
+
+    @Override
+    public List<BookVO> hotBook() {
+        System.out.println("===> Mybatis hotBook() 호출");
+        return mybatis.selectList("BookMapper.hotBook");
     }
 }

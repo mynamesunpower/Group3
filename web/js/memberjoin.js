@@ -36,22 +36,3 @@ function execPostCode() {
         }
     }).open();
 }//end 주소찾기 api
-// 이거 우선 중복이당 ㅋㅋ
-$(function(){
-    //$(document).ready(function(){
-
-        $('select[name=emailSelection]').change(function() {  //여기도 줄쳐져잇는데 셀렉트박스작동댐 응 되긴 될거야
-            if($(this).val()=="1"){
-                $('#domain').val("");
-        } else {
-            $('#domain').val($(this).val());
-            $("#domain").attr("readonly", true);
-                }
-        });
-       // });  //end $(document).ready(function() 이메일셀렉트박스입력관련.
-    $('#userinput').oninvalid(swal('회원정보를 입력해주세요^ㅡ^'));
-
-}); //end $(function)
-
-
-

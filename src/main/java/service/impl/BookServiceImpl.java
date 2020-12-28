@@ -6,7 +6,6 @@ import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.service.BookService;
-
 import java.util.List;
 import java.util.Map;
 
@@ -67,5 +66,30 @@ public class BookServiceImpl implements BookService {
     public List<BookVO> searchBook(Map map) {
         System.out.println("bookService 68Line : " + map.get("sbox"));
         return bookdao.searchBook(map);
+    }
+
+
+    @Override
+    public List<Map<String, Object>> getGenreList() {
+        return bookdao.getGenreSalesList();
+    }
+
+    public List<BookVO> genrebookList(String genre){
+        return bookdao.genrebookList(genre);
+    }
+
+    @Override
+    public List<BookVO> carouselBook() {
+        return bookdao.carouselBook();
+    }
+
+    @Override
+    public List<BookVO> bestBook() {
+        return bookdao.bestBook();
+    }
+
+    @Override
+    public List<BookVO> hotBook() {
+        return bookdao.hotBook();
     }
 }

@@ -10,15 +10,11 @@
     <context:component-scan base-package="service"/>
     <context:component-scan base-package="model"/>
 
-
-
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl1"></property>
         <property name="username" value="scott"></property>
         <property name="password" value="tiger"></property>
-
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -31,8 +27,9 @@
     </bean>
 
     <!--TODO 연결설정이 안됨-->
-    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>-->
-
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10000000"/>
+        <property name="maxInMemorySize" value="10000000"/>
+    </bean>
 
 </beans>
-

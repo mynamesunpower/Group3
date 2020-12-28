@@ -3,21 +3,22 @@ package controller;
 import model.vo.MemberVO;
 import model.vo.PurchaseVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import service.service.MemberService;
 
 import javax.servlet.http.HttpSession;
 
+//import org.springframework.mail.javamail.JavaMailSender;
+
 @Controller
 public class MemberController {
 
-
     @Autowired
     private MemberService memberService;
-    JavaMailSender mailSender;          //이메일관련.
+    //JavaMailSender mailSender;  //이메일관련.
 
     @RequestMapping("/main.ing")
     public void main() {
@@ -39,7 +40,7 @@ public class MemberController {
     @RequestMapping("/hello.ing")
     public void hello() {
         System.out.println("hello이동하나요????????");
-    }//end hello
+    }//end hello*/
 
 
     @RequestMapping("/logout.ing")
@@ -57,42 +58,74 @@ public class MemberController {
     }//end memberlogin
 
     @RequestMapping("/userok.ing")
-    public String userok(MemberVO vo, Model m) {
+    public String userok(MemberVO vo, Model m, HttpSession session) {
         System.out.println("회원가입 성공페이지로 이동");
 
         int result = memberService.memberInsert(vo);
 
-        String msguserok = "제대로 된 정보를 입력해주세요";
+        String message = "제대로 된 정보를 입력해주세요";
         if (result > 0) {
-            msguserok = vo.getName() + " 님 회원가입 성공ㅇㅇㅇㅇㅇ";
+            message = vo.getName() + " 님, Booktrain.ing에서 공부할 준비 되셨나요?";
         }
-        m.addAttribute("msguserok", msguserok);
+        memberlogin(vo, session);
+        m.addAttribute("message", message);
         return "/userok";
     }//end userok
+
+    @RequestMapping("idCheck.ing")
+    @ResponseBody
+    public String idCheck(MemberVO vo) {
+        System.out.println("Controller ID 체크 ->" + vo.getId());
+        int result = memberService.idCheck(vo);
+        String message = "이미 사용중인 아이디입니다.";
+        if (result == 0) {
+            message = "사용 가능한 아이디입니다.";
+        }
+        return message;
+    }
+
+    @RequestMapping("telCheck.ing")
+    @ResponseBody
+    public String telCheck(MemberVO vo) {
+        System.out.println("Controller TEL 체크 ->" + vo.getTel());
+        int result = memberService.telCheck(vo);
+        String message = "이미 사용 중인 전화번호입니다.";
+        if (result == 0) {
+            message = "사용 가능한 전화번호입니다.";
+        }
+        return message;
+    }
 
     @RequestMapping("/updateok.ing")
     public String updateok(MemberVO vo, Model m) {
         System.out.println("회원정보수정 완료페이지~~");
 
-        return "redirect:/start.ing";
+        int result = memberService.memberUpdate(vo);
+
+        String msgUpdate = vo.getName() + " 님 회원정보가 수정되엇습니다~~~~";
+        if (result > 0) {
+            msgUpdate = vo.getName() + " 님 회원정보가 수정되엇습니다~~~~다시 로그인해주세요~~~~";
+        } else {
+            msgUpdate = vo.getName() + " 님 회원정보가 수정되지 않았습니다. 다시 시도해주세요.";
+        }
+        m.addAttribute("msgupdate", msgUpdate);
+        return "/updateok";
     }//end  회원정보수정
 
 
     @RequestMapping("/memberlogin.ing")
-
     public String memberlogin(MemberVO vo, HttpSession session) {
-        MemberVO result = memberService.memberlogin(vo);
+        MemberVO result = memberService.memberLogin(vo);
 
         if (result == null) {
             System.out.println("로그인실패~~~~~");
-            return "/memberlogin";
+            return "redirect:/login.ing";
 
         } else {
             System.out.println("로그인성공~~~~~~");
             session.setAttribute("memberId", result.getId());
             session.setAttribute("memberName", result.getName());
-
-
+            session.setAttribute("memberPassword", result.getPassword());
             session.setAttribute("memberTel", result.getTel());
             session.setAttribute("memberEmail", result.getEmail());
             session.setAttribute("domain", result.getDomain());

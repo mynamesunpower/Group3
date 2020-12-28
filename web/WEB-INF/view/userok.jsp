@@ -11,13 +11,13 @@
 <title>회원 가입이 완료되었습니다.</title>
 </head>
 <body>
-    <h1>회원 가입이 완료되었습니다.</h1>
-    ${msguserok}<br/><br/><br/>
+<h3>Hi! 반갑습니다.</h3>
+${message}<br/><br/><br/>
 
-    ~~~~~~~~~~~~~~~책읽는 행복한 삶되세용~~~~~<br/><br/>
-    좋은글귀들@@@@@@@@@@@@@@@@@@@<br/><br/>
+함께 즐겁게 공부합시다!<br/><br/>
+좋은글귀들@@@@@@@@@@@@@@@@@@@<br/><br/>
 
 
-    <h2><a href="start.ing">Booktrain 시작하기</a></h2>
+<h4><a href="start.ing">- Booktrain.ing 홈으로 -</a></h4>
 </body>
 </html>

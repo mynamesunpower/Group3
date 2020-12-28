@@ -7,6 +7,7 @@ $(document).ready(function(){
    $('.tooltipped').tooltip();
    $('select').formSelect();
    $('#dropdownbox').dropdown();
+   $('#dropdownbox2').dropdown();
 
    //$('.carousel').carousel();
 
@@ -101,7 +102,7 @@ $(document).ready(function(){
       });
    })
 
-   $(document).on('click', '#memberSubmit', function (evt) {
+   /*$(document).on('click', '#memberSubmit', function (evt) {
       evt.stopPropagation();
 
       let queryString = $('#userinput').serialize();
@@ -118,7 +119,7 @@ $(document).ready(function(){
             console.log(err);
          }
       });
-   })
+   })*/
 
 });
 

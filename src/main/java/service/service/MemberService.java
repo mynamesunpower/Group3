@@ -15,8 +15,16 @@ public interface MemberService {
     public int memberUpdate(MemberVO vo);
 
 
-    public void memberupdate(MemberVO vo);
+    public int idCheck(MemberVO vo);
+
+    public int telCheck(MemberVO vo);
 
     public void updateMemberPoint(MemberVO memberVO);
-}
 
+    public List<PurchaseVO> memberOrderList(PurchaseVO purchaseVO);
+
+    public int memberDelete(MemberVO membervo);
+
+    public MemberVO memberIdFind(MemberVO membervo );
+
+}
