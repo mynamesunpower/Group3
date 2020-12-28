@@ -8,8 +8,7 @@
         Insert into member (id, password, name, tel,jumin1,jumin2,email,domain ,addr1,addr2,addr3)
         VALUES (  #{id},#{password},#{name},#{tel}, #{jumin1},#{jumin2},
         #{email},#{domain}, #{addr1},#{addr2},#{addr3})
-</insert>
-
+    </insert>
 
     <select id="login" parameterType="member" resultType="member">
       select *
@@ -64,5 +63,23 @@
         where tel=#{tel} and email=#{email} and domain = #{domain}
     </select>
 
+    <select id="memberPassFind" parameterType="member" resultMap="getMember">
+        select *
+        from member
+        where id = #{id} and email=#{email} and domain = #{domain}
+    </select>
+
+    <resultMap id="getMember" type="model.vo.MemberVO">
+        <result property="tel" column="tel"/>
+        <result property="name" column="name"/>
+        <result property="id" column="id"/>
+        <result property="jumin1" column="jumin1"/>
+        <result property="jumin2" column="jumin2"/>
+        <result property="email" column="email"/>
+        <result property="domain" column="domain"/>
+        <result property="password" column="password"/>
+        <result property="grade" column="grade"/>
+        <result property="point" column="point"/>
+    </resultMap>
 
 </mapper>

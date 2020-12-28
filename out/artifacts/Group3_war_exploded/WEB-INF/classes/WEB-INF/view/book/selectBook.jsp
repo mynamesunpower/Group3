@@ -11,10 +11,10 @@
     <title>selectBook</title>
 </head>
 <body>
-<h2>도서정보</h2><hr/>
+<h2>도서 정보 수정</h2><hr/>
 
 <!--도서목록보기-->
-<a class="loadAjax" href="bookList.ing">도서목록</a>&nbsp;&nbsp;&nbsp;
+<a class="loadAjax" href="genrebookList.ing">도서목록</a>&nbsp;&nbsp;&nbsp;
 
 <!--도서삭제하기-->
 <a class="loadAjax" href="deleteBook_success.ing?isbn=${selectBook.isbn}">도서삭제</a>
@@ -27,7 +27,7 @@
     <table border="2" >
         <tr>
             <td bgcolor="#ffebcd" width="70">ISBN</td>
-            <td align="left">${selectBook.isbn}</td>
+            <td align="left"><input type="text" name="isbn" value="${selectBook.isbn}"></td>
         </tr>
         <tr>
             <td bgcolor="#ffebcd">출판사번호</td>
@@ -35,15 +35,15 @@
         </tr>
         <tr>
             <td bgcolor="#ffebcd">제목</td>
-            <td align="left">${selectBook.title}</td>
+            <td align="left"><input type="text" name="title" value="${selectBook.title}"></td>
         </tr>
         <tr>
             <td bgcolor="#ffebcd">저자</td>
-            <td align="left">${selectBook.author}</td>
+            <td align="left"><input type="text" name="author" value="${selectBook.author}"></td>
         </tr>
         <tr>
             <td bgcolor="#ffebcd">장르</td>
-            <td align="left">${selectBook.genre }</td>
+            <td align="left"><input type="text" name="genre" value="${selectBook.genre}"></td>
         </tr>
         <tr>
             <td bgcolor="#ffebcd">총페이지</td>
@@ -51,11 +51,11 @@
         </tr>
         <tr>
             <td bgcolor="#ffebcd">가격</td>
-            <td align="left"><input type="text" name="price" value="${selectBook.price }"></td>
+            <td align="left"><input type="text" name="price" value="${selectBook.price}"></td>
         </tr>
         <tr>
             <td bgcolor="#ffebcd">재고</td>
-            <td align="left"><input name="title" type="text" value="${selectBook.stock }"></td>
+            <td align="left"><input name="title" type="text" value="${selectBook.stock}"></td>
         </tr>
         <tr>
             <td bgcolor="#ffebcd">출판날짜</td>
@@ -71,7 +71,7 @@
         </tr>
         <tr>
             <td bgcolor="#ffebcd">책 이미지</td>
-            <td align="left"><input name="title" type="text" value="${selectBook.bookimage}"></td>
+            <%--<td align="left"><input name="title" type="text" value="${selectBook.bookimage}"></td>--%>
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="submit" value="도서 정보수정" /></td>

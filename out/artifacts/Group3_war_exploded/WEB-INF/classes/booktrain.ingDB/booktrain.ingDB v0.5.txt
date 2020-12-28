@@ -109,6 +109,15 @@ create table sales_data (order_number varchar2(10),
                          constraint sales_data_fk_orderNum foreign key(order_number,isbn)
                          references purchase_book(order_number,isbn));
 
+                         create table cancel_book ( order_number varchar2(10),
+                                                     ISBN varchar2(13),
+                                                     quantity number(5) not null,
+                                                     constraint cancel_book_pk_orderNumIsbn primary key(order_number,isbn),
+                                                     constraint cancel_book_fk_orderNum foreign key(order_number)
+                                                     references purchase(order_number),
+                                                     constraint cancel_book_fk_isbn foreign key(isbn)
+                                                     references book(isbn));
+
 create sequence seq_order_number;
 
 create sequence seq_publisher_number;

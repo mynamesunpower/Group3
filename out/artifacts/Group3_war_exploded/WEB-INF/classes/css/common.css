@@ -53,8 +53,20 @@ input#memberButton {
     width: 32px;
     height: 32px;
     cursor: pointer;
-
-
 }
+
+img {
+    min-width: 150px;
+    min-height: 250px;
+    width: 18vmin;
+    height: 30vmin;
+    object-fit: scale-down;
+}
+
+.valiText {
+    color: #ff0a4c;
+}
+
+
 
 

@@ -19,5 +19,4 @@ public interface BookService {
     List<BookVO> carouselBook();
     List<BookVO> bestBook();
     List<BookVO> hotBook();
-
 }

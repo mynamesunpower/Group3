@@ -16,8 +16,7 @@
 <h5>${result} 건의 검색 결과</h5>
 <h6>검색어 : ${param.keyword}</h6>
 <div class="row"></div>
-
-
+<%--
 <table border="1">
     <tr>
         <th bgcolor="#e9967a">ISBN</th>
@@ -31,19 +30,18 @@
         <th bgcolor="#e9967a">출판날짜</th>
         <th bgcolor="#e9967a">내용</th>
         <th bgcolor="#e9967a">키워드</th>
-
-    </tr>
+    </tr>--%>
 
 
 <c:forEach items="${bookList}" var="book">
     <div class="row">
-        <div class="col s4 center-align">
+        <div id="imgDivision" class="col s4 center-align">
             <img src="../../../imgs/book/${book.isbn}.PNG">
         </div>
         <div class="col s8">
             <div class="leftcol left-align"><h4>${book.title}</h4></div>
             <div class="leftcol left-align"><h5>${book.author}</h5></div>
-            <div class="leftcol left-align"><a class="loadAjax" href="selectBook.ing?isbn=${book.isbn}">ISBN: ${book.isbn}</a></div>
+            <div class="leftcol left-align"><a class="loadAjax" href="viewBook.ing?isbn=${book.isbn}">ISBN: ${book.isbn}</a></div>
             <div class="leftcol left-align">${book.genre} / ${book.publicationDate}</div>
             <div class="leftcol left-align">${book.totalPage}페이지 / ${book.publisherNumber} / <span class="right-align">${book.price}</span></div>
             <div class="left-align">내용: ${book.content}</div>

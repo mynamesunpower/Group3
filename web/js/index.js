@@ -84,8 +84,38 @@ $(document).ready(function(){
       });
    })
 
+   $(document).on('keydown', '#pass', function (key) {
+      if(key.keycode == 13) {
+         alert(key.keycode);
+         evt.stopPropagation();
+
+         let queryString = $('#memberlogin').serialize();
+
+         $.ajax({
+            method: 'post',
+            url: "/memberlogin.ing",
+            data: queryString,
+            success : function (data) {
+               alert(data);
+               location.replace('/start.ing');
+            },
+            error : function (err) {
+               alert("아이디와 비밀번호가 일치하지 않습니다.");
+            }
+         });
+      }
+   })
+
    $(document).on('click', '#memlogin', function (evt) {
+
       evt.stopPropagation();
+
+      let id = $('#id').val();
+      let pass= $('#pass').val();
+      if (id == "" || pass == "") {
+         alert("아이디나 비밀번호를 입력하지 않았습니다.");
+         return;
+      }
 
       let queryString = $('#memberlogin').serialize();
 
@@ -94,13 +124,22 @@ $(document).ready(function(){
          url: "/memberlogin.ing",
          data: queryString,
          success : function (data) {
-            location.replace('/hello.ing');
+            if (data === "성공") {
+               location.replace('/start.ing');
+            }
+            else {
+               alert("아이디나 비밀번호가 올바르지 않습니다.");
+               $('#id').val("");
+               $('#pass').val("");
+            }
          },
          error : function (err) {
-            console.log(err);
+            console.log("login 시도 에러 : " + err);
          }
       });
    })
+
+
 
    /*$(document).on('click', '#memberSubmit', function (evt) {
       evt.stopPropagation();

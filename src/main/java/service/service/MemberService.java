@@ -26,4 +26,5 @@ public interface MemberService {
 
     public MemberVO memberIdFind(MemberVO membervo );
 
+    public MemberVO memberPassFind(MemberVO memberVO);
 }

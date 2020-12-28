@@ -11,7 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import service.service.MemberService;
 
+import javax.mail.*;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
+import java.util.Properties;
 
 @Controller
 public class MemberController {
@@ -30,18 +35,11 @@ public class MemberController {
         System.out.println("회원정보수정 페이지로 이동스");
     }//end  회원정보수정
 
-
     @RequestMapping("/login.ing")
     public String test() {
         System.out.println("로그인 요청가나요??");
         return "/login";
     }//end login
-
-    @RequestMapping("/hello.ing")
-    public void hello() {
-        System.out.println("hello이동하나요????????");
-    }//end hello*/
-
 
     @RequestMapping("/logout.ing")
     public String logout(HttpSession session) {
@@ -114,14 +112,16 @@ public class MemberController {
 
 
     @RequestMapping("/memberlogin.ing")
+    @ResponseBody
     public String memberlogin(MemberVO vo, HttpSession session) {
         MemberVO result = memberService.memberLogin(vo);
+        String message = "성공";
 
         if (result == null) {
             System.out.println("로그인실패~~~~~");
-            return "redirect:/login.ing";
-
-        } else {
+            message = "실패";
+        }
+        else {
             System.out.println("로그인성공~~~~~~");
             session.setAttribute("memberId", result.getId());
             session.setAttribute("memberName", result.getName());
@@ -133,8 +133,8 @@ public class MemberController {
             session.setAttribute("memberAddr2", result.getAddr2());
             session.setAttribute("memberAddr3", result.getAddr3());
             session.setAttribute("memberPoint", result.getPoint());
-            return "redirect:/start.ing";
         }
+        return message;
     }//end memberlogin
 
 
@@ -161,24 +161,68 @@ public class MemberController {
     }
 
     @RequestMapping(value = "/memberIdFindOk.ing")
+    @ResponseBody
     public String memberIdFindOk(MemberVO membervo, HttpSession session) {
-        System.out.println("아이디찾기성공 페이지로로 이동");
 
         MemberVO result = memberService.memberIdFind(membervo);
 
         if (result == null) {
             System.out.println("전화번호를 입력실패");
-            return "/memberIdFindNo";
+            return "실패";
         } else {
             System.out.println("전화번호입력성공");
             session.setAttribute("memberId", result.getId());
-            return "/memberIdFindOk";
+            return result.getId();
         }
     }
 
     @RequestMapping(value = "/memberPassFind.ing")
-    public String memberPassFind() {
+    public String memberPassFind(MemberVO memberVO) {
         return "/memberPassFind";
+    }
+
+    @RequestMapping(value = "/memberPassFindOk.ing")
+    @ResponseBody
+    public String memberPassFindOK(MemberVO memberVO) {
+        final String user = "bitter.lemonseed@gmail.com";
+        final String pass = "java12345!";
+        MemberVO member = memberService.memberPassFind(memberVO);
+        String password = member.getPassword();
+        String email = member.getEmail()+member.getDomain();
+        System.out.println(email);
+
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com"); // 이메일을 처리해줄 SMTP 서버
+        prop.put("mail.smtp.port", 465); // 구글 465 // naver 587
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.ssl.enable", "true");
+        prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+
+        Session session = Session.getDefaultInstance(prop, new javax.mail.Authenticator(){
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user, pass);
+            }
+        });
+
+        try {
+            MimeMessage message = new MimeMessage(session);
+            System.out.println("여기까진 오나?");
+            message.setFrom(new InternetAddress("admin@booktrain.ing"));
+            System.out.println("여기까진 오나? 22");
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            message.setSubject("[Booktrain.ing] " + member.getName() + " 회원님의 비밀번호");
+            message.setText("안녕하세요. \n "+member.getName() +" 회원님의 비밀번호는 " + password + "입니다.");
+
+            Transport.send(message);
+            System.out.println("메일을 성공적으로 보냈습니다.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("나의 패스워드: " + password);
+
+        if (password == null) password = "실패";
+        return password;
     }
 
     @RequestMapping(value = "/customerCenter.ing")

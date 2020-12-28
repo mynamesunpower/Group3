@@ -181,7 +181,7 @@ $(document).ready(function(){
     })
 
     $(document).on('focusout', '#email', function () {
-        $('#email').val('#email'.val().trim());
+        $('#email').val($('#email').val().trim());
     })
 
     $('select[name=emailSelection]').change(function() {
@@ -216,7 +216,7 @@ $(document).ready(function(){
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        비밀번호: <input type="password" name="pass" id="pass">
+                        비밀번호: <input type="password" name="password" id="pass">
                         <span class="valiText" id="valiPass"></span>
                     </div>
                     <div class="input-field col s6">

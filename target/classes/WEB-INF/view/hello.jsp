@@ -13,19 +13,22 @@
     <link rel="stylesheet" type="text/css" href="../../css/slide.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script src="../../js/index.js" type="text/javascript"></script>
     <script src="../../js/cart.js" type="text/javascript"></script>
     <script src="../../js/order.js" type="text/javascript"></script>
-    <script src="../../js/hello.js" type="javascript"></script>
     <script src="../../js/login.js" type="text/javascript"></script>
     <script src="../../js/paymentMethod.js" type="text/javascript"></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.carousel');
             var instances = M.Carousel.init(elems);
+
+            $('.carousel.carousel-slider').carousel({
+                fullWidth: true,
+                indicators: true
+            });
         });
     </script>
     <!-- Compiled and minified CSS 드랍다운 최신버전으로하면 인식(?)을 못해서 이전버전적용햇어요-->
@@ -142,7 +145,7 @@
         </div>
     </form>
 </div>
-    <ul id="slide-out" class="sidenav manager">
+    <ul id="slide-out" class="sidenav">
         <li class="no-padding">
             <ul class="collapsible expandable">
 
@@ -170,8 +173,9 @@
                     </div>
                 </li>
                 </c:if>
+
                 <li>
-                    <div class="collapsible-header">책</div>
+                    <div class="collapsible-header">　책</div>
                     <div class="collapsible-body">
                         <ul>
                             <li><a class="loadAjax" href="genrebookList.ing?genre=교육">교육</a></li>
@@ -183,6 +187,10 @@
                         </ul>
                     </div>
                 </li>
+                <li class="no-padding"><a class="loadAjax" href="genrebookList.ing?">베스트셀러</a></li>
+                <li class="no-padding"><a class="loadAjax" href="genrebookList.ing?">새로 들어온 책</a></li>
+                <li class="no-padding"><a class="loadAjax" href="customerCenter.ing">FAQ</a></li>
+                <li class="no-padding"><a class="loadAjax" href="customerBoard.ing">고객 게시판</a></li>
             </ul>
         </li>
     </ul>
@@ -190,13 +198,43 @@
     <div class="container">
         <div class="row center-align">
             <div id="content" class="col s12">
+                <%--<div>
+                    <div class="carousel carousel-slider center">
+                        <div class="carousel-fixed-item center">
+                        </div>
+
+                        <div class="carousel-item red white-text" href="#one!">
+                            <h2>First Panel</h2>
+                            <img src="../../imgs/book/${book.get(0).isbn}.PNG">
+                            <p class="white-text">This is your first panel
+                                ${book[0].title}
+                            </p>
+                            <a class="btn waves-effect white grey-text darken-text-2" href=""selectBook.ing?isbn=${book[0].isbn}">상세정보</a>
+                        </div>
+                        <div class="carousel-item amber white-text" href="#two!">
+                            <h2>Second Panel</h2>
+                            <p class="white-text">This is your second panel</p>
+                        </div>
+                        <div class="carousel-item green white-text" href="#three!">
+                            <h2>Third Panel</h2>
+                            <p class="white-text">This is your third panel</p>
+                        </div>
+                        <div class="carousel-item blue white-text" href="#four!">
+                            <h2>Fourth Panel</h2>
+                            <p class="white-text">This is your fourth panel</p>
+                        </div>
+                        <div class="carousel-item blue white-text" href="#four!">
+                            <h2>Fourth Panel</h2>
+                            <p class="white-text">This is your fourth panel</p>
+                        </div>
+                    </div>
+                </div>--%>
                 <div class="row">
-                    <div class="col s6 offset-s3">
+                    <div class="col s12">
                         <div class="carousel">
                             <h5>새로 들어온 책</h5>
-
                             <c:forEach items="${carouselBook}" var="book">
-                                <a class="carousel-item" href="selectBook.ing?isbn=${book.isbn}"><img src="../../imgs/book/${book.isbn}.PNG">${book.title}</a>
+                                <a class="loadAjax carousel-item" href="viewBook.ing?isbn=${book.isbn}"><img src="../../imgs/book/${book.isbn}.PNG">${book.title}</a>
                             </c:forEach>
                         </div>
                     </div>
@@ -244,37 +282,37 @@
                     </table>
                 </div>--%>
 
-                <div>
-                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
-                        <th>베스트셀러!</th> <br/><br/><br/>
-                        <tbody>
+                <div class="row">
+                    <div class="col s12">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
+                            <th>전체 베스트셀러</th> <br/><br/>
+                            <tbody>
+                                <tr>
+                                    <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 1</td>
+                                    <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 2</td>
+                                    <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 3</td>
+                                </tr>
 
-                            <tr>
-                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 1</td>
-                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 2</td>
-                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 3</td>
+                                <tr>
+                                <c:forEach items="${bestBook}" var="bbook">
+                                    <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
+                                        <a class="loadAjax" href="viewBook.ing?isbn=${bbook.isbn}">
+                                            <img src="../../imgs/book/${bbook.isbn}.PNG" alt="">
+                                        </a>
+                                    </td>
+                                </c:forEach>
 
+                                </tr>
+
+                                <tr>
+                                <c:forEach items="${bestBook}" var="bbook">
+                                <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">&lt;${bbook.title}&gt;<a href=""></a></td>
+                                </c:forEach>
                             </tr>
 
-                            <tr>
-                            <c:forEach items="${bestBook}" var="bbook">
-                                <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                    <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we">
-                                        <img src="https://image.aladin.co.kr/product/25890/64/coversum/k142737568_1.jpg" alt="">
-                                    </a>
-                                </td>
-                            </c:forEach>
-
-                            </tr>
-
-                            <tr>
-                            <c:forEach items="${bestBook}" var="bbook">
-                            <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">&lt;${bbook.title}&gt;<a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we"></a></td>
-                            </c:forEach>
-                        </tr>
-
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <!--이주의 신작-->
@@ -283,7 +321,7 @@
                 <div>
 
                     <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
-                        <th>이주의신작!</th> <br/><br/>
+                        <th>30대가 가장 많이 구매한 도서</th> <br/><br/>
                         <tbody>
                         <tr>
                             <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">10대 HOT!!!</td>
@@ -335,5 +373,16 @@
     </div>
 </div>
 
+
+<footer class="page-footer no-padding">
+    <div class="container">
+        <div class="row"></div>
+        <div class="row">
+            © 2020 Copyright by Booktrain.ing
+            <span class="grey-text text-lighten-4 right">3조 김태양, 김용관, 박상연, 김형민</span>
+        </div>
+        <div class="row"></div>
+    </div>
+</footer>
 </body>
 </html>

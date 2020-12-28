@@ -51,8 +51,8 @@
                         <div class="row center-align">
                             <a id="memlogin" class="waves-effect waves-light btn">로그인</a>
                             <a id="memjoin" name="memjoin" class="waves-effect waves-light btn memjoin">회원가입</a>
-                            <a id="memsearchid" name="memsearchid" class="waves-effect waves-light btn">아이디 찾기</a>
-                            <a id="memsearchpass" name="memsearchpass" class="waves-effect waves-light btn">비밀번호 찾기</a>
+                            <a id="memsearchid" href="memberIdFind.ing" name="memsearchid" class="loadAjax waves-effect waves-light btn">아이디 찾기</a>
+                            <a id="memsearchpass" href="memberPassFind.ing" name="memsearchpass" class="loadAjax waves-effect waves-light btn">비밀번호 찾기</a>
                         </div>
                         </form>
                 </div>

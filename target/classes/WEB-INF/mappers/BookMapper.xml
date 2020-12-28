@@ -21,7 +21,7 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
     </select>
 
     <!--선택한 ISBN의 도서정보-->
-    <select id="selectBook" resultType="book">
+    <select id="selectBook" resultMap="getBook">
         	<![CDATA[
         SELECT *
         FROM book
@@ -51,8 +51,8 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
 
 
     <!--메뉴에서 선택한 종류의 책정보 리스트-->
-    <select id="genrebookList" parameterType="String" resultType="book">
-                	<![CDATA[
+    <select id="genrebookList" parameterType="String" resultMap="getBook">
+        <![CDATA[
         SELECT * FROM book WHERE GENRE = #{GENRE}
         ]]>
     </select>
@@ -168,9 +168,9 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
         <result property="publicationDate" column="publication_date"/>
         <result property="content" column="content"/>
         <result property="keyword" column="keyword"/>
-        <result property="image" column="image"/>
 
         <collection property="salesDataVO" resultMap="salesData"/>
     </resultMap>
+
 
 </mapper>
