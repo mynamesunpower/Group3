@@ -22,40 +22,47 @@
 </head>
 <body><br/>
 <div class="row">
-    <table class="centered">
+    <table class="centered col s10">
         <tr>
-            <td rowspan="${fn:length(detailOrder_List)+1}">상품명</td>
+            <th>상품명</th>
         </tr>
-        <c:forEach var="detailOrder_list" items="${detailOrder_List}">
-            <tr>
-                <td><a href="">${detailOrder_list.bookVO.title}</a> ${detailOrder_list.purchaseBookVO.quantity}권</td>
-            </tr>
-        </c:forEach>
-        <tr>
-            <td>주문인</td>
-            <td>${sessionScope.memberName}</td>
-        </tr>
-        <tr>
-            <td>받는사람</td>
-            <td>${purchaseInfo.receiver}</td>
-        </tr>
-        <tr>
-            <td>배송지</td>
-            <td>${purchaseInfo.shipAddress}</td>
-        </tr>
-        <tr>
-            <td>결제금액</td>
-            <td><fmt:formatNumber value="${purchaseInfo.totalPrice}" pattern="#,###"/>원</td>
-        </tr>
-        <tr>
-            <td>구매일</td>
-            <td>${purchaseInfo.purchaseDate}</td>
-        </tr>
-    </table><br/><br/>
-    <form action="/purchase/cancelOrder.ing" method="post" >
-        <input type="hidden" id="orderNumber" name="orderNumber" value="${purchaseInfo.orderNumber}">
-        <button type="submit" id="cancel_order" class="col s2 offset-s9 waves-effect waves-light btn-small white black-text">결제취소</button>
-    </form>
+        <table>
+            <c:forEach var="detailOrder_list" items="${detailOrder_List}">
+                <tr>
+                    <th>
+                        <a href="">${detailOrder_list.bookVO.title}</a> ${detailOrder_list.purchaseBookVO.quantity}권
+                    </th>
+                    <td>
+                        <c:if test="${purchaseInfo.cancelDate == null}">
+                            <a href="/hello.ing" id="write_review"
+                               class="col s2 offset-s9 waves-effect waves-light btn-small white black-text">리뷰쓰기
+                            </a>
+                        </c:if>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </table>
+    <p>주문인 : ${sessionScope.memberName}</p>
+    <p>받는사람 : ${purchaseInfo.receiver}</p>
+    <p>배송지 : ${purchaseInfo.shipAddress}</p>
+    <p>결제금액 : <fmt:formatNumber value="${purchaseInfo.totalPrice}" pattern="#,###"/>원</p>
+    <p>구매일 : ${purchaseInfo.purchaseDate}</p>
+    <%--취소날짜가 있다면 보이게 설정--%>
+    <c:if test="${purchaseInfo.cancelDate != null}">
+        <p>취소일자 : ${purchaseInfo.cancelDate}</p>
+    </c:if>
+    <br/><br/>
+
+    <%--결제 취소상세화면에서는 안보임--%>
+    <c:if test="${purchaseInfo.cancelDate == null}">
+        <form action="/purchase/cancelOrder.ing" method="post">
+            <input type="hidden" id="orderNumber" name="orderNumber" value="${purchaseInfo.orderNumber}">
+            <button type="submit" id="cancel_order"
+                    class="col s2 offset-s9 waves-effect waves-light btn-small white black-text">결제취소
+            </button>
+        </form>
+    </c:if>
 </div>
 </body>
 </html>

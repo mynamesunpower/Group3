@@ -9,6 +9,7 @@ public class PurchaseVO {
     private String state;
     private int totalPrice;
     private String purchaseDate;
+    private String cancelDate;
     private String deliveryDate;
     private String shipAddress;
 
@@ -83,6 +84,14 @@ public class PurchaseVO {
 
     public void setPurchaseDate(String purchaseDate) {
         this.purchaseDate = purchaseDate;
+    }
+
+    public String getCancelDate() {
+        return cancelDate;
+    }
+
+    public void setCancelDate(String cancelDate) {
+        this.cancelDate = cancelDate;
     }
 
     public String getDeliveryDate() {
