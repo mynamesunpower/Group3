@@ -7,9 +7,8 @@ public class PurchaseVO {
     private String memberTel;
     private String nonMemberTel;
     private String state;
-    private int totalPrice;
-    private String purchaseDate;
-    private String deliveryDate;
+    private int total_Price;
+    private String purchase_Date;
 
     public PurchaseVO() {
     }
@@ -59,31 +58,39 @@ public class PurchaseVO {
         return state;
     }
 
+    public int getTotal_Price() {
+        return total_Price;
+    }
+
+    public String getPurchase_Date() {
+        return purchase_Date;
+    }
+
+    public void setOrder_Number(int order_Number) {
+        this.order_Number = order_Number;
+    }
+
+    public void setMemberTel(String memberTel) {
+        this.memberTel = memberTel;
+    }
+
+    public void setNonMemberTel(String nonMemberTel) {
+        this.nonMemberTel = nonMemberTel;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public void setState(String state) {
         this.state = state;
     }
 
-    public int getTotalPrice() {
-        return totalPrice;
+    public void setTotal_Price(int total_Price) {
+        this.total_Price = total_Price;
     }
 
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public String getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(String purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
-
-    public String getDeliveryDate() {
-        return deliveryDate;
-    }
-
-    public void setDeliveryDate(String deliveryDate) {
-        this.deliveryDate = deliveryDate;
+    public void setPurchaseDate(String purchase_Date) {
+        this.purchase_Date = purchase_Date;
     }
 }

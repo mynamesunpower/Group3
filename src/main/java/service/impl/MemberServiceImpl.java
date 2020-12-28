@@ -2,9 +2,12 @@ package service.impl;
 
 import model.dao.impl.MemberDAOImpl;
 import model.vo.MemberVO;
+import model.vo.PurchaseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.service.MemberService;
+
+import java.util.List;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
@@ -18,13 +21,13 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberVO memberlogin(MemberVO vo) {
-        return memberDao.memberlogin(vo);
+    public MemberVO memberLogin(MemberVO vo) {
+        return memberDao.memberLogin(vo);
     }
 
     @Override
-    public void memberupdate(MemberVO vo) {
-        memberDao.memberupdate(vo);
+    public int memberUpdate(MemberVO vo) {
+        return memberDao.memberUpdate(vo);
     }
 
     @Override
@@ -40,5 +43,19 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void updateMemberPoint(MemberVO memberVO) {
         memberDao.updateMemberPoint(memberVO);
+    }
+
+    @Override
+    public List<PurchaseVO> memberOrderList(PurchaseVO purchaseVO) {
+        return memberDao.memberOrderList(purchaseVO);
+    }
+
+    public int memberDelete(MemberVO membervo){
+        return  memberDao.memberDelete(membervo);
+    }
+
+    @Override
+    public MemberVO memberIdFind(MemberVO membervo) {
+        return memberDao.memberIdFind(membervo);
     }
 }

@@ -13,11 +13,14 @@
     <link rel="stylesheet" type="text/css" href="../../css/slide.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script src="../../js/index.js" type="text/javascript"></script>
     <script src="../../js/cart.js" type="text/javascript"></script>
     <script src="../../js/order.js" type="text/javascript"></script>
+    <script src="../../js/hello.js" type="javascript"></script>
+    <script src="../../js/login.js" type="text/javascript"></script>
     <script src="../../js/paymentMethod.js" type="text/javascript"></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
@@ -25,6 +28,11 @@
             var instances = M.Carousel.init(elems);
         });
     </script>
+    <!-- Compiled and minified CSS 드랍다운 최신버전으로하면 인식(?)을 못해서 이전버전적용햇어요-->
+    <%-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> --%>
+
+    <!-- Compiled and minified JavaScript 드랍다운 최신버전으로하면 인식(?)을 못해서 이전버전적용햇어요 -->
+    <%-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> --%>
 </head>
 
 <body>
@@ -51,6 +59,7 @@
             <a id="search" class="btn-flat tooltipped" data-position="bottom" data-tooltip="통합 검색">
                 <i class="material-icons black-text">search</i>
             </a>
+
             <c:choose>
                 <c:when test="${sessionScope.memberName eq null}">
                     <a id="dropdownbox2" class="dropdown-trigger btn-flat" data-target="dropdown2">
@@ -60,6 +69,7 @@
                         <li><a class="loadAjax" href="/login.ing">로그인</a></li>
                         <li class="divider"></li>
                         <li><a class="loadAjax" href="/memberjoin.ing">회원가입</a></li>
+                        <li><a class="loadAjax btn-flat tooltipped" href="customerCenter.ing" data-position="bottom" data-tooltip="고객센터"><i class="material-icons black-text">고객센터</i></a></li>
                     </ul>
 
                     <%--<a class="loadAjax btn-flat tooltipped" href="login.ing" data-position="bottom" data-tooltip="로그인">
@@ -82,11 +92,13 @@
                         <li><a href="#!" class="blue-text">
                             <a class="loadAjax" href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
                         </a></li>
+
                     </ul>
                     <%--<input type="button" id="mypage" name="mypage" value="MYPAGE" onclick="location.href='/mypage.ing'">--%>
                     <%--<input type="button" id="logout" name="logout" value="로그아웃" onclick="location.href='/logout.ing'">--%>
                 </c:when>
             </c:choose>
+
         </h5>
     </div>
 </div>

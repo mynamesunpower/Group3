@@ -31,6 +31,7 @@ public class HelloController {
         System.out.println(bookService.bestBook().size());
 
         return "hello";
+
     }
 
     @RequestMapping("/error.ing")
