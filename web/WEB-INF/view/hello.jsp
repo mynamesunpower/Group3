@@ -53,9 +53,12 @@
     <div class="col s1 m1 l1"></div>
     <div class="col s4 m2 l2">
         <h5>
-            <a id="shoppingCart" class="loadAjax btn-flat tooltipped" href="/cart/cartList.ing" data-position="bottom" data-tooltip="장바구니">
+            <c:if test="${sessionScope.memberName ne null}">
+                <a id="shoppingCart" class="loadAjax btn-flat tooltipped" href="/cart/cartList.ing" data-position="bottom" data-tooltip="장바구니">
                 <i class="material-icons black-text">shopping_cart</i>
-            </a>
+                </a>
+            </c:if>
+
             <a id="search" class="btn-flat tooltipped" data-position="bottom" data-tooltip="통합 검색">
                 <i class="material-icons black-text">search</i>
             </a>
@@ -69,7 +72,7 @@
                         <li><a class="loadAjax" href="/login.ing">로그인</a></li>
                         <li class="divider"></li>
                         <li><a class="loadAjax" href="/memberjoin.ing">회원가입</a></li>
-                        <li><a class="loadAjax btn-flat tooltipped" href="customerCenter.ing" data-position="bottom" data-tooltip="고객센터"><i class="material-icons black-text">고객센터</i></a></li>
+                        <li><a class="loadAjax btn-flat tooltipped" href="customerCenter.ing" data-position="bottom" data-tooltip="고객센터">고객센터</a></li>
                     </ul>
 
                     <%--<a class="loadAjax btn-flat tooltipped" href="login.ing" data-position="bottom" data-tooltip="로그인">
@@ -88,6 +91,8 @@
                         </a></li>
                         <li class="divider"></li>
                         <li><a class="loadAjax" href="/purchase/orderList.ing" class="blue-text">주문목록확인</a></li>
+                        <li class="divider"></li>
+                        <li><a class="loadAjax btn-flat tooltipped" href="customerCenter.ing" data-position="bottom" data-tooltip="고객센터">고객센터</a></li>
                         <li class="divider"></li>
                         <li><a href="#!" class="blue-text">
                             <a class="loadAjax" href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
@@ -141,6 +146,7 @@
         <li class="no-padding">
             <ul class="collapsible expandable">
 
+                <c:if test="${sessionScope.memberId.toUpperCase() eq 'ADMIN'}">
                 <li>
                     <div class="collapsible-header">책 CRUD</div>
                     <div class="collapsible-body">
@@ -163,6 +169,7 @@
                         </ul>
                     </div>
                 </li>
+                </c:if>
                 <li>
                     <div class="collapsible-header">책</div>
                     <div class="collapsible-body">

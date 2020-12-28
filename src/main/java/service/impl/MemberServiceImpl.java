@@ -50,6 +50,7 @@ public class MemberServiceImpl implements MemberService {
         return memberDao.memberOrderList(purchaseVO);
     }
 
+    @Override
     public int memberDelete(MemberVO membervo){
         return  memberDao.memberDelete(membervo);
     }

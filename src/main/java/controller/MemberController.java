@@ -16,7 +16,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class MemberController {
 
-
     @Autowired
     private MemberService memberService;
     //JavaMailSender mailSender;  //이메일관련.
