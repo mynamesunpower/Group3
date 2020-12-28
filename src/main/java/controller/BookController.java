@@ -127,7 +127,7 @@ public class BookController {
             System.out.println(map.get("PRICE"));
             String key = (String)map.get("GENRE");
             int value = ((BigDecimal)map.get("PRICE")).intValue();
-            maps.put(key,value); // 임포트~
+            maps.put(key,value);
         }
         System.out.println("maps는" +maps);
         String result = "";
@@ -145,6 +145,13 @@ public class BookController {
         System.out.println(2);
         System.out.println("이거슨 : "+genreList);
         System.out.println("나는"+result);
+
+        //매출 그래프
+        System.out.println("chartA() booktrain 매출 line 차트");
+
+
+
+
         model.addAttribute("chartA", result);
         return "book/chartA";
     }
