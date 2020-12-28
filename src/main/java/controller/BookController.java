@@ -12,10 +12,7 @@ import service.impl.BookServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class BookController {
@@ -129,7 +126,7 @@ public class BookController {
             int value = ((BigDecimal)map.get("PRICE")).intValue();
             maps.put(key,value);
         }
-        System.out.println("maps는" +maps);
+
         String result = "";
         Set<String> salesKeys = maps.keySet();
         for (String key : salesKeys) {
@@ -146,14 +143,56 @@ public class BookController {
         System.out.println("이거슨 : "+genreList);
         System.out.println("나는"+result);
 
-        //매출 그래프
-        System.out.println("chartA() booktrain 매출 line 차트");
-
-
 
 
         model.addAttribute("chartA", result);
+
+
+
         return "book/chartA";
+    }
+
+    @RequestMapping(value = "/chartB.ing")
+    public String chartB(Model model){
+
+        //매출 그래프
+        System.out.println("chartA() booktrain 매출 line 차트");
+
+//        List<Object> list = new ArrayList<Object>();
+//        for(int i=1; i<=12; i++ ){
+//            list.add(i);
+//        }
+
+        //List salesprice = bookService.salesList(list);
+
+        //-----------------30대
+        HashMap<Integer,Integer> ageprice = bookService.ageList();
+
+        //-----------------------20대
+        HashMap<Integer,Integer> twentyprice = bookService.twentypriceList();
+
+        //--------------------총매출
+        HashMap<Integer,Integer> salesprice = bookService.salesList();
+
+//        for(Object price : salesprice) {
+//            System.out.println("price: " + (Integer)price);
+//        }
+        String result = "";
+        Set<Integer> salesKeys = salesprice.keySet();
+        for (Integer key : salesKeys) {
+            if (result != "") {
+                result += ",";
+            }
+            result += "['" + key + "', " + salesprice.get(key)+"," +twentyprice.get(key)+","+ageprice.get(key) + "]";
+            //((BigDecimal) hm.get("AGE")).intValue()
+        }
+        System.out.println("매출 result : "+result);
+        model.addAttribute("chartB", result);
+
+
+
+        //-----------------------------------------------------------
+        return "book/chartB";
     }
 
 

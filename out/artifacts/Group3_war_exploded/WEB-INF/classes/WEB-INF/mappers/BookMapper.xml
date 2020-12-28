@@ -94,11 +94,81 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
         </where>
     </select>
 
+    <!--장르별 통계-->
     <select id="getGenreSalesList" resultType="map">
         select genre, sum(s.amount_price) price
         from SALES_DATA s INNER JOIN BOOK B on s.isbn = B.ISBN
         GROUP BY genre
     </select>
+
+    <!--월별 매출 리스트-->
+    <select id="salesList" parameterType="hashmap" resultType="int">
+
+        select sum(sd.amount_price) amountprice
+        from sales_Data sd
+                 INNER JOIN(SELECT pb.order_number order_number
+                            FROM purchase_book pb
+                                     INNER JOIN (SELECT *
+                                                 FROM purchase
+                                                 WHERE state='결제완료' AND to_char(sysdate,'yy')=substr(purchase_date,1,2) AND
+                                                       substr(purchase_date,3,4)= '/'||#{month}||'/') p
+                                                ON p.order_number = pb.order_number) pb
+                           ON sd.order_number = pb.order_number
+    </select>
+
+    <!--30 매출 리스트-->
+    <select id="ageList" parameterType="hashmap" resultType="int">
+ <![CDATA[
+        SELECT sum(sd.amount_price) amountprice
+        FROM sales_data sd
+        INNER JOIN(select pb.order_number
+        from purchase_book pb
+        inner join(SELECT p.order_number
+        FROM purchase p
+        INNER JOIN (SELECT *
+        FROM member
+        WHERE (to_char(sysdate,'yyyy')+1 -(substr(jumin1,0,2)+
+        (case
+        when substr(jumin2,0,1) <3 then 1900
+        when substr(jumin2,0,1) >=3 then 2000
+        end))) between 30 and 39) m
+        ON p.membertel = m.tel
+        WHERE state='결제완료' AND to_char(sysdate,'yy')=substr(purchase_date,1,2) AND
+        substr(purchase_date,3,4)='/'||#{month}||'/')p
+        ON p.order_number = pb.order_number) pb
+        ON sd.order_number = pb.order_number
+        ]]>
+
+    </select>
+
+    <!--20대 매출 리스트-->
+    <select id="twentypriceList" parameterType="hashmap" resultType="int">
+        <![CDATA[
+        SELECT sum(sd.amount_price) amountprice
+        FROM sales_data sd
+                 INNER JOIN(select pb.order_number
+                            from purchase_book pb
+                                     inner join(SELECT p.order_number
+                                                FROM purchase p
+                                                         INNER JOIN (SELECT *
+                                                                     FROM member
+                                                                     WHERE (to_char(sysdate,'yyyy')+1 -(substr(jumin1,0,2)+
+                                                                                                        (case
+                                                                                                             when substr(jumin2,0,1) <3 then 1900
+                                                                                                             when substr(jumin2,0,1) >=3 then 2000
+                                                                                                            end))) between 20 and 29) m
+                                                                    ON p.membertel = m.tel
+                                                WHERE state='결제완료' AND to_char(sysdate,'yy')=substr(purchase_date,1,2) AND
+                                                    substr(purchase_date,3,4)='/'||#{month}||'/')p
+                                               ON p.order_number = pb.order_number) pb
+                           ON sd.order_number = pb.order_number
+
+
+          ]]>
+
+    </select>
+
+
 
     <select id="carouselBook" resultType="book">
         <![CDATA[
