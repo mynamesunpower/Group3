@@ -1,0 +1,10 @@
+#star_rate a {
+    font-size: 14px;
+    text-decoration: none;
+    color: gray;
+}
+
+#star_rate a.on {
+    font-size: 14px;
+    color: red;
+}

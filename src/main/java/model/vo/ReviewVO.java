@@ -3,6 +3,7 @@ package model.vo;
 public class ReviewVO {
     private String reveiwNumber;
     private String orderNumber;
+    private String isbn;
     private String writingTime;
     private String content;
     private Long score;
@@ -24,6 +25,14 @@ public class ReviewVO {
 
     public void setOrderNumber(String orderNumber) {
         this.orderNumber = orderNumber;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getWritingTime() {

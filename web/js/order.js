@@ -52,7 +52,7 @@ $(function () {
         $.ajax({
             type: "post",
             url: "/purchase/payOrder.ing",
-            contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+
             data: {
                 'bookTitle': $('#bookTitle').val(),
                 'bookKind': parseInt($('#bookKind').val()) - 1,

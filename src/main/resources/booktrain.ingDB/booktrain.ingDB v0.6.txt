@@ -1,6 +1,7 @@
 -- 수정 내용
 -- purchase T ship_address, cancel_date 추가 (v0.5)
--- cancel_book T 추가, review T score, review_number(PK) 컬럼 추가 (v0.6)
+-- cancel_book T 추가, review T score, review_number(PK) 컬럼 추가
+ -- sequence seq_review_number 추가(v0.6)
 
 create table manager ( id varchar2(20) primary key,
                        password varchar(20) not null);
@@ -89,12 +90,14 @@ create table payment (order_number varchar2(10),
 
 create table review (review_number varchar2(10) primary key,
                     order_number varchar2(10),
-    -- 이렇게 알아서 되는지 날짜가 기입되는지 확인
-                     writing_time date default sysdate,
+                    isbn varchar2(13),
+                     writing_time date,
                      content varchar2(500),
                      score number(2,1) not null,
                      constraint review_fk_order_number foreign key(order_number)
-                         references purchase(order_number));
+                         references purchase(order_number),
+                         constraint review_fk_isbn foreign key(isbn)
+                         references book(isbn));
 
 create table purchase_book ( order_number varchar2(10),
                             ISBN varchar2(13),
@@ -127,3 +130,4 @@ create sequence seq_publisher_number;
 
 create sequence seq_order_id;
 
+create sequence seq_review_number;

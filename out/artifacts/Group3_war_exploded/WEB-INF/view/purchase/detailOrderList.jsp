@@ -34,7 +34,7 @@
                     </th>
                     <td>
                         <c:if test="${purchaseInfo.cancelDate == null}">
-                            <a href="/hello.ing" id="write_review"
+                            <a href="/review/writeReview.ing?isbn=${detailOrder_list.purchaseBookVO.isbn}&orderNumber=${purchaseInfo.orderNumber}" id="write_review"
                                class="col s2 offset-s9 waves-effect waves-light btn-small white black-text">리뷰쓰기
                             </a>
                         </c:if>
