@@ -372,7 +372,7 @@
     </div><!-- end <div class="row"> -->
 </div><!-- end <div class="col s8">  세로탭 끝-->
 
-<a href="/customerBoard.ing">고객문의 게시판</a>
+<a href="/customerBoardList.ing">고객문의 게시판</a>
 
 </body>
 </html>

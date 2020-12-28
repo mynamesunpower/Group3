@@ -23,9 +23,9 @@
     <script>
         $(document).ready(function () {
             $(document).on('click', '#memlogin', function (evt) {
-                evt.stopPropagation();
-                evt.preventDefault();
-                alert("login");
+                // evt.stopPropagation();
+                // evt.preventDefault();
+                // alert("login");
                 let queryString = $('#memberlogin').serialize();
                 //뭐가문제엿던거여?? 뭔가 이상해 이거 내부 스크립트만 먹네
 //내컴터만?? 응 왜그러는거닞 모르겠다 어쩐지 게속 그러던데

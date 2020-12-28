@@ -1,10 +1,7 @@
 package controller;
 
-import model.dao.dao.MemberDAO;
 import model.vo.MemberVO;
-import model.vo.PurchaseVO;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import service.service.MemberService;
 
 import javax.servlet.http.HttpSession;
+
+//import org.springframework.mail.javamail.JavaMailSender;
 
 @Controller
 public class MemberController {
@@ -33,7 +32,7 @@ public class MemberController {
 
     @RequestMapping("/login.ing")
     public String test() {
-        System.out.println("로그인 요청가나요??");
+
         return "/login";
     }//end login
 
@@ -45,7 +44,7 @@ public class MemberController {
 
     @RequestMapping("/logout.ing")
     public String logout(HttpSession session) {
-        System.out.println("로그아웃페이지로 이동~~~~");
+
 //            session.removeAttribute("memberName");
         session.invalidate();
         return "/hello";
@@ -53,13 +52,12 @@ public class MemberController {
 
     @RequestMapping("/memberjoin.ing")
     public String memberjoin() {
-        System.out.println("회원가입페이지로 이동");
+
         return "/memberjoin";
     }//end memberlogin
 
     @RequestMapping("/userok.ing")
     public String userok(MemberVO vo, Model m, HttpSession session) {
-        System.out.println("회원가입 성공페이지로 이동");
 
         int result = memberService.memberInsert(vo);
 
@@ -118,11 +116,11 @@ public class MemberController {
         MemberVO result = memberService.memberLogin(vo);
 
         if (result == null) {
-            System.out.println("로그인실패~~~~~");
+
             return "redirect:/login.ing";
 
         } else {
-            System.out.println("로그인성공~~~~~~");
+
             session.setAttribute("memberId", result.getId());
             session.setAttribute("memberName", result.getName());
             session.setAttribute("memberPassword", result.getPassword());
@@ -138,12 +136,12 @@ public class MemberController {
     }//end memberlogin
 
 
-    @RequestMapping(value = "/orderList.ing")
-    public void orderlist(PurchaseVO purchaseVO, Model model) {
-        System.out.println("주문확인페이지입니다.");
-        model.addAttribute("memberOrderList", memberService.memberOrderList(purchaseVO));
-//        return "/orderList";
-    }
+//    @RequestMapping(value = "/orderList.ing")
+//    public void orderlist(PurchaseVO purchaseVO, Model model) {
+//        System.out.println("주문확인페이지입니다.");
+//        model.addAttribute("memberOrderList", memberService.memberOrderList(purchaseVO));
+////        return "/orderList";
+//    }
 
     @RequestMapping(value = "/memberDelete.ing")
     public String memberDelete(MemberVO membervo, HttpSession session) {
@@ -151,14 +149,14 @@ public class MemberController {
         int result = memberService.memberDelete(membervo);
         session.invalidate();
         return "/hello";
-    }
+    }// end 회원탈퇴
 
     @RequestMapping(value = "/memberIdFind.ing")
     public String memberIdFind(MemberVO membervo) {
 
         System.out.println("아이디찾기 페이지로로 이동");
         return "/memberIdFind";
-    }
+    }//end 아이디찾기페이지 이동
 
     @RequestMapping(value = "/memberIdFindOk.ing")
     public String memberIdFindOk(MemberVO membervo, HttpSession session) {
@@ -174,7 +172,7 @@ public class MemberController {
             session.setAttribute("memberId", result.getId());
             return "/memberIdFindOk";
         }
-    }
+    }//end 아이디찾기 기능.
 
     @RequestMapping(value = "/memberPassFind.ing")
     public String memberPassFind() {
@@ -183,19 +181,9 @@ public class MemberController {
 
     @RequestMapping(value = "/customerCenter.ing")
     public String cutomerCenter() {
-
-        System.out.println("고객센터페이지이동.");
-
         return "/customerCenter";
-    }
+    }//end 고객센터페이지 이동.
 
-    @RequestMapping(value = "/customerBoard.ing")
-    public String cutomerBoard() {
-
-        System.out.println("고객문의게시판이동.");
-
-        return "/customerBoard";
-    }
 
 //
 //    //    회원 이메일보내기
