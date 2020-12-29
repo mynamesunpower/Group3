@@ -2,11 +2,9 @@ package model.dao.impl;
 
 import model.dao.dao.BookDAO;
 import model.vo.BookVO;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
@@ -223,5 +221,17 @@ public class BookDAOImpl implements BookDAO {
     public List<BookVO> hotBook(String genre) {
         System.out.println("===> Mybatis hotBook() 호출");
         return mybatis.selectList("BookMapper.hotBook",genre);
+    }
+
+    @Override
+    public List<BookVO> bestbookList() {
+        return mybatis.selectList("BookMapper.bestbookList");
+    }
+
+    //출간일 순서 도서 리스트
+
+    @Override
+    public List<BookVO> newbookList() {
+        return mybatis.selectList("BookMapper.newbookList");
     }
 }

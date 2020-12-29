@@ -1,17 +1,15 @@
 package controller;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import service.impl.BookServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -50,7 +48,7 @@ public class BookController {
             System.out.println("sbox null");
             map.put("sbox", null);
         }
-
+        // 아 이거 망한각인데 ㅋㅋ...ㅋㅋㅋ모르겟다 검색 1회성 ㅋㅋㅋㅋㅋㅋㅋㅋㅋ 왜이렇게도ㅒㅆ재ㅣ;..다른것도 이상해지나 테스트해보자
         List<BookVO> bookList = bookService.searchBook(map);
 
         model.addAttribute("keyword", keyword);
@@ -59,7 +57,7 @@ public class BookController {
         return "book/bookList";
     }
 
-    //페이지 넘김
+    //페이지 넘김 얘는 또 왜이러지..
     @RequestMapping("/{ing}")
     public String ing(@PathVariable String ing) {
         System.out.println("BookController에서" +ing + "요청");
@@ -67,14 +65,15 @@ public class BookController {
         //return "book/" + ing;
     }
 
-    @RequestMapping("/hello.ing")
-    public String carousel(Model model,String genre){
-        model.addAttribute("carouselBook",bookService.carouselBook());
-        model.addAttribute("bestBook",bookService.bestBook());
-        model.addAttribute("hotBook",bookService.hotBook(genre));
-        return "hello";
-    }
+//    @RequestMapping("/hello.ing")
+//    public String carousel(Model model, String genre){
+//        model.addAttribute("carouselBook",bookService.carouselBook());
+//        model.addAttribute("bestBook",bookService.bestBook());
+//        model.addAttribute("hotBook",bookService.hotBook(genre));
+//        return "hello";
+//    }
 
+    //도서 등록
     @RequestMapping("/insertBook.ing")
     public String insertBook(){
         return "book/insertBook";
@@ -196,7 +195,7 @@ public class BookController {
         //-----------------------------------------------------------
         return "book/chartB";
     }
-
+//??? 형민아 우선 그럼
     //최근 30일 매출
     @RequestMapping("/chartC")
     public String daysales(Model model){
@@ -243,5 +242,24 @@ public class BookController {
         return  "book/genrebookList";
     }
 
+    //Best book 리스트 페이지
+    @RequestMapping("/bestbookList.ing")
+    public String bestbookList(Model model){
+
+        List<BookVO> best = bookService.bestbookList();
+        model.addAttribute("result", best.size());
+        model.addAttribute("bestbookList",best);
+        return "book/bestbookList";
+    }
+
+    @RequestMapping("/newbookList")
+    public String newbookList(Model model){
+
+        List<BookVO> newbook = bookService.newbookList();
+
+        model.addAttribute("result",newbook.size());
+        model.addAttribute("newbookList",newbook);
+        return "/book/newbookList";
+    }
 
 }

@@ -1,23 +1,40 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: hyeongmin
-  Date: 2020-12-23
-  Time: 오전 11:50
+  Date: 2020-12-19
+  Time: 오후 2:31
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <html>
 <head>
     <title>도서목록</title>
 </head>
 <body>
+
+<h4>Best Book 순위</h4>
 <div class="row"></div>
-<h5>${result} 건의 검색 결과</h5>
-<h6> 장르: ${genre} </h6>
+<%--
+<table border="1">
+    <tr>
+        <th bgcolor="#e9967a">ISBN</th>
+        <th bgcolor="#e9967a">출판사번호</th>
+        <th bgcolor="#e9967a">제목</th>
+        <th bgcolor="#e9967a">저자</th>
+        <th bgcolor="#e9967a">장르</th>
+        <th bgcolor="#e9967a">총페이지</th>
+        <th bgcolor="#e9967a">가격</th>
+        <th bgcolor="#e9967a">재고</th>
+        <th bgcolor="#e9967a">출판날짜</th>
+        <th bgcolor="#e9967a">내용</th>
+        <th bgcolor="#e9967a">키워드</th>
+    </tr>--%>
+
+
 <c:forEach items="${bestbookList}" var="book">
     <div class="row">
-        <div class="col s4 center-align">
+        <div id="imgDivision" class="col s4 center-align">
             <img src="../../../imgs/book/${book.isbn}.PNG">
         </div>
         <div class="col s8">
@@ -35,5 +52,6 @@
         </div>
     </div>
 </c:forEach>
+
 </body>
 </html>

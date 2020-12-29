@@ -5,10 +5,8 @@ import model.dao.impl.BookDAOImpl;
 import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import service.service.BookService;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -120,5 +118,18 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<BookVO> hotBook( String genre) {
         return bookdao.hotBook(genre);
+    }
+
+    //베스트도서 리스트
+    @Override
+    public List<BookVO> bestbookList() {
+        return bookdao.bestbookList();
+    }
+
+    //출간일 순서 리스트
+
+    @Override
+    public List<BookVO> newbookList() {
+        return bookdao.newbookList();
     }
 }

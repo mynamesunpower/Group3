@@ -276,7 +276,26 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
                <if test="_parameter.equals('genre')">
                    amountprice DESC
                </if>
+    </select>
 
+    <select id="bestbookList" resultMap="getBook">
+<![CDATA[
+        SELECT *
+        FROM book b
+                 INNER JOIN(select isbn, sum(amount_quantity) amountquantity
+                            from sales_data
+                            group by isbn
+                            order by amountquantity DESC) sd
+                           ON b.isbn=sd.isbn
+]]>
+    </select>
+
+    <select id="newbookList" resultType="book">
+<![CDATA[
+        select *
+        from book
+        order by publication_date desc
+]]>
 
     </select>
 

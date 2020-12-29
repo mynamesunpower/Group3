@@ -21,7 +21,6 @@
     <script src="../../js/login.js" type="text/javascript"></script>
     <script src="../../js/paymentMethod.js" type="text/javascript"></script>
     <script type="text/javascript">
-        <!-- 캐러셀 js -->
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.carousel');
             var instances = M.Carousel.init(elems);
@@ -194,8 +193,8 @@
                         </ul>
                     </div>
                 </li>
-                <li class="no-padding"><a class="loadAjax" href="genrebookList.ing?">베스트셀러</a></li>
-                <li class="no-padding"><a class="loadAjax" href="genrebookList.ing?">새로 들어온 책</a></li>
+                <li class="no-padding"><a class="loadAjax" href="bestbookList.ing?">베스트셀러</a></li>
+                <li class="no-padding"><a class="loadAjax" href="newbookList.ing?">새로 들어온 책</a></li>
                 <li class="no-padding"><a class="loadAjax" href="customerCenter.ing">FAQ</a></li>
                 <li class="no-padding"><a class="loadAjax" href="customerBoard.ing">고객 게시판</a></li>
             </ul>

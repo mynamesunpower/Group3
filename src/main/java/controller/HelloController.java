@@ -31,7 +31,7 @@ public class HelloController {
         model.addAttribute("genrehotBook",bookService.hotBook(genre));
         System.out.println(bookService.carouselBook().size());
         System.out.println(bookService.bestBook().size());
-        return "hello";
+        return "hello"; // 어 뭐야저 건 어따쓰는거에요? 너가 처음에 저기다 만ㄷ즐었나본ㄷ엥그랬나?? 지워도될듯
     }
 
     @RequestMapping("/error.ing")

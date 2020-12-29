@@ -1,10 +1,7 @@
 package service.service;
 
 import model.vo.BookVO;
-import model.vo.SalesDataVO;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,5 +24,6 @@ public interface BookService {
     HashMap<Integer,Integer> twentypriceList();
     HashMap<Integer,Integer> teenageList(String age);
     HashMap<Integer,Integer> daychart();
-
+    List<BookVO> bestbookList();
+    List<BookVO> newbookList();
 }

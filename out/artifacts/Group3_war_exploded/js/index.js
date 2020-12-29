@@ -30,8 +30,11 @@ $(document).ready(function(){
       });
    });
 
-   $('#searchAnchor').click(function () {
+
+   $('#searchAnchor').click(function (event) {
       //$('#searchForm').submit();
+      event.preventDefault();
+      event.stopPropagation();
       let content = $("#content");
       let queryString = $('#searchForm').serialize();
       alert(queryString);
@@ -40,6 +43,7 @@ $(document).ready(function(){
          type : 'get',
          data : queryString,
          success : function (data) {
+            console.log(data);
             content.children().remove();
             content.html(data);
             $('#header').show();
