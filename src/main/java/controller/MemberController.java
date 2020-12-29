@@ -17,6 +17,8 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 import java.util.Properties;
 
+//import org.springframework.mail.javamail.JavaMailSender;
+
 @Controller
 public class MemberController {
 
@@ -148,7 +150,7 @@ public class MemberController {
 
         // id로만 검색한 vo 객체 (비밀번호는 암호화되어있음)
         MemberVO result = memberService.memberLogin(vo);
-        
+
         // 비밀번호 검증
         boolean passwordMatch = passwordEncoder.matches(inputPassword, result.getPassword());
 
@@ -162,6 +164,8 @@ public class MemberController {
             session.setAttribute("memberName", result.getName());
             session.setAttribute("memberPassword", result.getPassword());
             session.setAttribute("memberTel", result.getTel());
+            session.setAttribute("memberJumin1", result.getJumin1());
+            session.setAttribute("memberJumin2", result.getJumin2());
             session.setAttribute("memberEmail", result.getEmail());
             session.setAttribute("domain", result.getDomain());
             session.setAttribute("memberAddr1", result.getAddr1());
@@ -287,5 +291,5 @@ public class MemberController {
     public String cutomerBoard() {
  return "/customerBoard";
     }
-    
+
 }//end MemberController

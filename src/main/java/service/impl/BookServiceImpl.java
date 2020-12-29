@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.service.BookService;
 
-import java.math.BigDecimal;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -93,6 +93,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public HashMap<Integer, Integer> teenageList(String age) {
+        return bookdao.teenageList(age);
+    }
+
+    @Override
     public HashMap<Integer, Integer> daychart() {
         return bookdao.daychart();
     }
@@ -112,7 +117,33 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookVO> hotBook() {
-        return bookdao.hotBook();
+    public List<BookVO> hotBook(String genre) {
+        return bookdao.hotBook(genre);
+    }
+
+    //베스트도서 리스트
+    @Override
+    public List<BookVO> bestbookList() {
+        return bookdao.bestbookList();
+    }
+
+    //출간일 순서 리스트
+
+    @Override
+    public List<BookVO> newbookList() {
+        return bookdao.newbookList();
+    }
+
+    //동적 책 장르 탭
+    @Override
+    public List<BookVO> bookTab() {
+        return bookdao.bookTab();
+    }
+
+    //동적 메인 베스트북
+
+    @Override
+    public List<BookVO> memberBook(HttpSession session,String genre) {
+        return bookdao.memberBook(session,genre);
     }
 }
