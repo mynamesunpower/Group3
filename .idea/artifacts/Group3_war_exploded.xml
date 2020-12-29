@@ -33,6 +33,8 @@
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.5" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
           <element id="library" level="project" name="Maven: com.googlecode.json-simple:json-simple:1.1" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4.7" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="Group3/web/Web" />

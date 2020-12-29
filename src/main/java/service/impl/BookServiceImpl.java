@@ -5,6 +5,7 @@ import model.dao.impl.BookDAOImpl;
 import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import service.service.BookService;
 
 import java.math.BigDecimal;
@@ -93,6 +94,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public HashMap<Integer, Integer> teenageList(String age) {
+        return bookdao.teenageList(age);
+    }
+
+    @Override
     public HashMap<Integer, Integer> daychart() {
         return bookdao.daychart();
     }
@@ -112,7 +118,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookVO> hotBook() {
-        return bookdao.hotBook();
+    public List<BookVO> hotBook( String genre) {
+        return bookdao.hotBook(genre);
     }
 }

@@ -34,6 +34,7 @@ public class BookController {
         return "book/viewBook";
     }
 
+    //책 검색
     @RequestMapping("/searchBook.ing")
     public String searchBook(String keyword,
                              @RequestParam(defaultValue = "false") String sbox,
@@ -67,10 +68,10 @@ public class BookController {
     }
 
     @RequestMapping("/hello.ing")
-    public String carousel(Model model){
+    public String carousel(Model model,String genre){
         model.addAttribute("carouselBook",bookService.carouselBook());
         model.addAttribute("bestBook",bookService.bestBook());
-        model.addAttribute("hotBook",bookService.hotBook());
+        model.addAttribute("hotBook",bookService.hotBook(genre));
         return "hello";
     }
 
@@ -128,6 +129,7 @@ public class BookController {
     }
 
 
+    //장르 별 매출 비율
     @RequestMapping(value = "/chartA.ing")
     public String chartA(Model model) throws Exception {
         System.out.println("chartA() 장르별 매출액 원 차트");
@@ -158,18 +160,24 @@ public class BookController {
         return "book/chartA";
     }
 
-    //매출 차트
+    //연령별, 총 매출 차트
     @RequestMapping(value = "/chartB.ing")
     public String chartB(Model model){
         //매출 그래프
         System.out.println("chartA() booktrain 매출 line 차트");
 
-        //-----------------30대
-        HashMap<Integer,Integer> ageprice = bookService.ageList();
-
+        //-----------------------10대
+        String age= "1";
+        HashMap<Integer,Integer> teenage = bookService.teenageList(age);
+        System.out.println("10대는:" +teenage);
         //-----------------------20대
         HashMap<Integer,Integer> twentyprice = bookService.twentypriceList();
-
+        //-----------------------30대 그대로 추가했는데도 오히려 안되는겨?? 좀 바꿔서 추가했는데 안되고있어요
+        HashMap<Integer,Integer> ageprice = bookService.ageList();
+        //-----------------------40대
+        age= "4";
+        HashMap<Integer,Integer> fortyage = bookService.teenageList(age);
+        System.out.println("40대는:" +fortyage);
         //--------------------총매출
         HashMap<Integer,Integer> salesprice = bookService.salesList();
 
@@ -179,7 +187,7 @@ public class BookController {
             if (result != "") {
                 result += ",";
             }
-            result += "['" + key + "', " + salesprice.get(key)+"," +twentyprice.get(key)+","+ageprice.get(key) + "]";
+            result += "['" + key + "', " + salesprice.get(key)+","+teenage.get(key)+"," +twentyprice.get(key)+","+ageprice.get(key)+","+fortyage.get(key)+ "]";
             //((BigDecimal) hm.get("AGE")).intValue()
         }
         System.out.println("매출 result : "+result);
@@ -189,20 +197,35 @@ public class BookController {
         return "book/chartB";
     }
 
+    //최근 30일 매출
     @RequestMapping("/chartC")
     public String daysales(Model model){
 
         HashMap<Integer,Integer> list = bookService.daychart();
 
         String result = "";
-        Set<Integer> dayKeys = list.keySet();
-        for (Integer key : dayKeys) {
+        Set<Integer> dayKeys = list.keySet(); // [0, 1, 2, ...., 30]
+        List list2 = new ArrayList(dayKeys);
+        Collections.sort(list2, Collections.reverseOrder()); // [30, 29, 28, ..., 0]
+
+        for (Object key : list2) {
             if (result != "") {
                 result += ",";
             }
-            result += "['" +"day-" +key + "', " + list.get(key)+ "]";
+
+            if ((int)key >= 10) {
+                result += "['" +(int)key + "일 전', " + list.get((int)key)+ "]";
+            }
+            else if ((int)key == 0) {
+                result += "['오늘', " + list.get((int)key)+ "]";
+            }
+            else {
+                result += "[' " +(int)key + " 일 전', " + list.get((int)key)+ "]";
+            }
+
             //((BigDecimal) hm.get("AGE")).intValue()
         }
+
         System.out.println("매출 result : "+result);
 
         model.addAttribute("chartC",result);

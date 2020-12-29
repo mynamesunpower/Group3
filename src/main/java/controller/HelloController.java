@@ -19,14 +19,16 @@ public class HelloController {
 //        return "hello";
 //    }
 
-    //캐러셀 이미지 뽑기
+    //메인페이지 책 이미지 뽑기
     @RequestMapping("/start.ing")
     public String carousel(Model model){
         System.out.println("helloController에서 hello.ing 요청");
         model.addAttribute("carouselBook",bookService.carouselBook());
         model.addAttribute("bestBook",bookService.bestBook());
-        model.addAttribute("hotBook",bookService.hotBook());
-        System.out.println("best북 나와라");
+        String genre = "age";
+        model.addAttribute("hotBook",bookService.hotBook(genre));
+        genre = "genre";
+        model.addAttribute("genrehotBook",bookService.hotBook(genre));
         System.out.println(bookService.carouselBook().size());
         System.out.println(bookService.bestBook().size());
         return "hello";
