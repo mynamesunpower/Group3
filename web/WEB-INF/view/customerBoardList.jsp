@@ -85,6 +85,7 @@
         <a href="/customerBoardInsert.ing"><input type="button" value="글쓰기"></a>
     </c:when>
 </c:choose>
+
 <form action="/customerBoardSearch.ing">
     <div class="row">
         <div class="input-field col s4">

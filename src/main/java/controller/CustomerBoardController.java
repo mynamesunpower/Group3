@@ -43,8 +43,7 @@ public class CustomerBoardController {
     }//end customerBoardOk 글등록하고 완료햇다는 페이지
 
     @RequestMapping("/customerBoard.ing")
-        public String customerBoard(CustomerBoardVO customerBoardvo , Model model, HttpServletRequest request){
-        customerBoardvo.setArticleId(Integer.parseInt(request.getParameter("articleId")));
+        public String customerBoard(CustomerBoardVO customerBoardvo , Model model){
         System.out.println("글 제목눌러서 들어가는 페이지 이동");
         model.addAttribute("customerBoard",customerBoardService.customerBoard(customerBoardvo));
 
@@ -55,14 +54,12 @@ public class CustomerBoardController {
 
     @RequestMapping("/customerBoardUpdate.ing")
     public String customerBoardUpdate(CustomerBoardVO customerBoardvo, HttpServletRequest request){
-        customerBoardvo.setArticleId(Integer.parseInt(request.getParameter("articleId")));
         System.out.println("글수정페이지로 이동");
         return "/customerBoardUpdate";
     }//글수정 페이지로 이동
 
     @RequestMapping("/customerBoardUpdateOk.ing")
     public String customerBoardUpdateOk(CustomerBoardVO customerBoardvo,HttpServletRequest request){
-        customerBoardvo.setArticleId(Integer.parseInt(request.getParameter("articleId")));
         int result = customerBoardService.customerBoardUpdate(customerBoardvo);
         System.out.println("업데이트 됫나???"+result);
         return "/customerBoardUpdateOk";
@@ -78,16 +75,16 @@ public class CustomerBoardController {
 
     @RequestMapping("/customerBoardReply.ing")
     public String customerBoardReply(CustomerBoardVO customerBoardvo){
-
+//        customerBoardvo.setOriginId(Integer.parseInt(request.getParameter("originId")));
         System.out.println("답글페이지로 이동");
         return "/customerBoardReply";
     }//글수정 페이지로 이동
 
     @RequestMapping("/customerBoardReplyOk.ing")
-    public String customerBoardReplyOk(CustomerBoardVO customerBoardvo){
+    public String customerBoardReplyOk(CustomerBoardVO customerBoardvo,HttpServletRequest request){
 //        int result = customerBoardService.customerBoardInsert(customerBoardvo);
         System.out.println("답글등록");
-
+        customerBoardvo.setOriginId(Integer.parseInt(request.getParameter("originId")));
         int reply = customerBoardService.customerBoardReply(customerBoardvo);
         return "/customerBoardReplyOk";
     }//답글달기.

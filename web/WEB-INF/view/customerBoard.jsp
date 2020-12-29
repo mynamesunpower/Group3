@@ -16,7 +16,7 @@
 
 </head>
 <body>
-
+${customerBoard.originId}
 <table class="highlight">
 <tr>
 <td>글번호</th>
@@ -40,7 +40,7 @@
 
 <a href="/customerBoardDelete.ing?articleId=${customerBoard.articleId}">글삭제</a> <br/><br/>
 
-<a href="/customerBoardReply.ing?articleId=${customerBoard.articleId}">답글</a> <br/><br/>
+<a href="/customerBoardReply.ing?articleId=${customerBoard.articleId}&originId=${customerBoard.originId}">답글</a> <br/><br/>
 
 <a href="/customerBoardList.ing">글목록으로 돌아가기</a><br/><br/>
 

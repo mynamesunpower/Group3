@@ -11,7 +11,7 @@
 <!--</select>-->
 
     <resultMap id="customerBoard" type="customerBoard">
-        <result column="ORIGINID" property="originid" />
+        <result column="ORIGINID" property="originId" />
         <result column="ARTICLE_ID" property="articleId" />
         <result column="WRITING_TIME" property="writingTime" />
         <result column="TITLE" property="title" />
@@ -24,7 +24,8 @@
     <select id="customerBoardList" resultMap="customerBoard">
   	select *
   	from CUSTOMER_SERVICE
-  	order by ARTICLE_ID desc, REPLYID asc
+--   	order by ARTICLE_ID desc, REPLYID asc,ORIGINID asc
+     order by ORIGINID desc , ARTICLE_ID asc, REPLYID asc
      </select>
 <!--글 목록리스트-->
 
@@ -32,21 +33,21 @@
     select *
     from CUSTOMER_SERVICE
     where title like '%' || #{title} || '%'
-    order by ARTICLE_ID desc , REPLYID asc
-
+--     order by ARTICLE_ID desc , REPLYID asc, ORIGINID asc
+     order by ORIGINID desc , ARTICLE_ID asc, REPLYID asc
     </select>
     <!-- 글제목검색.-->
 
     <insert id="customerBoardInsert" parameterType="customerBoard">
-insert into customer_service (article_id,writing_time,title,content,tel,read_count)
-values      (seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{readCount})
+insert into customer_service (ORIGINID,article_id,writing_time,title,content,tel,read_count)
+values      (seq_ORIGIN_ID.nextval,seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{readCount})
     </insert>
 <!--글 등록-->
 
     <select id="customerBoard" resultMap="customerBoard" parameterType="customerBoard">
       select *
       FROM CUSTOMER_SERVICE
-	  WHERE article_Id = #{articleId}
+	  WHERE ARTICLE_ID = #{articleId}
     </select>
 <!--글내용-->
 
@@ -54,25 +55,25 @@ values      (seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{rea
     update CUSTOMER_SERVICE
   set TITLE = #{title},
   CONTENT =#{content}
-  where article_Id = #{articleId}
+  where ARTICLE_ID = #{articleId}
     </update>
 <!--글 수정-->
 
     <update id="customerBoardReadCount" parameterType="customerBoard">
         update CUSTOMER_SERVICE
         set READ_COUNT= READ_COUNT+1
-        where article_Id = #{articleId}
+        where article_id = #{articleId}
     </update>
     <!--조회수증가-->
 
     <delete id="customerBoardDelete" parameterType="customerBoard">
         delete from CUSTOMER_SERVICE
-        where ARTICLE_ID = #{articleId}
+        where article_id = #{articleId}
     </delete>
 
     <update id="customerBoardReply" parameterType="customerBoard">
-insert into customer_service (article_id,writing_time,title,content,tel,read_count,REPLYID)
-values      (#{articleId},sysdate, #{title}, #{content}, #{tel}, #{readCount},1)
+insert into customer_service (ORIGINID,article_id,writing_time,title,content,tel,read_count,REPLYID)
+values      (#{originId},seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{readCount},1)
     </update>
 <!-- 답글아이디 + 1-->
 

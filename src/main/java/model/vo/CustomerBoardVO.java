@@ -4,7 +4,6 @@ public class CustomerBoardVO {
 
     private  int replyId;
     private  int originId;
-
     private int articleId;
     private String writingTime;
     private String title;
@@ -68,5 +67,19 @@ public class CustomerBoardVO {
     public void setReadCount(int readCount) {
         this.readCount = readCount;
     }
+    public int getReplyId() {
+        return replyId;
+    }
 
+    public void setReplyId(int replyId) {
+        this.replyId = replyId;
+    }
+
+    public int getOriginId() {
+        return originId;
+    }
+
+    public void setOriginId(int originId) {
+        this.originId = originId;
+    }
 }

@@ -18,6 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
+
 <form action="/customerBoardReplyOk.ing">
     <div class="row">
         <div class="input-field col s6 offset-s2">
@@ -33,7 +34,7 @@
         </div>
     </div>
 
-    <%--히든으로 값을 넘겨서 db에 저장시킨다.--%>
+    <input type="hidden" id="originId" name="originId" value="${param.originId}">
     <input type="hidden" id="articleId" name="articleId" value="${param.articleId}">
     <input type="hidden" id="tel" name="tel" value="${sessionScope.memberTel}">
     <button class="btn waves-effect waves-light" type="submit" name="action">글등록</button>
