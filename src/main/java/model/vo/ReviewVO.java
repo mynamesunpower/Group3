@@ -6,7 +6,10 @@ public class ReviewVO {
     private String isbn;
     private String writingTime;
     private String content;
-    private Long score;
+    private int score;
+
+    private MemberVO memberVO;
+    private PurchaseVO purchaseVO;
 
     public ReviewVO() {
     }
@@ -51,11 +54,27 @@ public class ReviewVO {
         this.content = content;
     }
 
-    public Long getScore() {
+    public int getScore() {
         return score;
     }
 
-    public void setScore(Long score) {
+    public void setScore(int score) {
         this.score = score;
+    }
+
+    public MemberVO getMemberVO() {
+        return memberVO;
+    }
+
+    public void setMemberVO(MemberVO memberVO) {
+        this.memberVO = memberVO;
+    }
+
+    public PurchaseVO getPurchaseVO() {
+        return purchaseVO;
+    }
+
+    public void setPurchaseVO(PurchaseVO purchaseVO) {
+        this.purchaseVO = purchaseVO;
     }
 }

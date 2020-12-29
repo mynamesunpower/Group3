@@ -8,8 +8,6 @@ $(function () {
     });
 
     $('#regist_review').click(() => {
-        alert('별점 확인 ' + rating)
-        alert($('#review_content').val())
         $.ajax({
             type: 'post',
             url: '/review/registReview.ing',
@@ -20,7 +18,8 @@ $(function () {
                 'content': $('#review_content').val(),
                 'score': rating
             }, success: (data) => {
-
+                $('#content').children().remove();
+                $('#content').html(data);
             }, error: (error) => {
                 alert("에에에~ 리뷰등록 실패~")
                 console.log(error)

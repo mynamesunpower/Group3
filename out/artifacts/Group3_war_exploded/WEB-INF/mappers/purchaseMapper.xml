@@ -76,6 +76,7 @@
                     INNER JOIN book b2 ON b.ISBN = b2.ISBN
                     INNER JOIN MEMBER mem ON pur.membertel = mem.tel
             WHERE pur.membertel = #{memberTel} and pur.order_number = #{orderNumber} AND pur.state = #{state} AND rownum = 1
+            ORDER BY pur.purchase_date DESC
         </when>
         <otherwise>
             SELECT pur.order_number as order_number,
@@ -94,6 +95,7 @@
                     INNER JOIN book b2 ON b.ISBN = b2.ISBN
                     INNER JOIN MEMBER mem ON pur.membertel = mem.tel
             WHERE pur.membertel = #{memberTel} and pur.order_number = #{orderNumber} AND pur.state = #{state} AND rownum = 1
+            ORDER BY pur.cancel_date DESC
         </otherwise>
     </choose>
        </select>
