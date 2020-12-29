@@ -2,16 +2,11 @@ $(document).ready(function(){
 
    $('.sidenav').sidenav();
    $('.collapsible').collapsible();
-   //$('.dropdown-trigger').dropdown();
-   //$('#dropdown1').dropdown();
    $('.tooltipped').tooltip();
    $('select').formSelect();
    $('#dropdownbox').dropdown();
    $('#dropdownbox2').dropdown();
 
-   //$('.carousel').carousel();
-
-   //$(document).on('click', '#insertPublisher', asyncMovePage("publisher/insertPublisher.ing"));
    $(document).on("click", '.loadAjax', function(event) {
       event.preventDefault();
       let url = $(this).attr("href");
@@ -84,6 +79,37 @@ $(document).ready(function(){
       });
    })
 
+   /*$(document).on('click', '#memberModify', function (evt) {
+      evt.stopPropagation();
+      $.ajax({
+         method: "post",
+         url: "/modifyok.ing",
+         data: $('#userinput').serialize(),
+         success : function (data) {
+            $('#content').children().remove();
+            $('#content').html(data);
+         },
+         error : function (err) {
+            console.log("회원정보수정 err: " + err);
+         }
+      });
+   })*/
+
+   $(document).on('click', '#memberDelete', function (evt) {
+      evt.stopPropagation();
+      $.ajax({
+         method: "post",
+         url: "/memberDelete.ing",
+         success : function (data) {
+            $('#content').children().remove();
+            $('#content').html(data);
+         },
+         error : function (err) {
+            console.log("회원정보수정 err: " + err);
+         }
+      });
+   })
+
    $(document).on('keydown', '#pass', function (key) {
       if(key.keycode == 13) {
          alert(key.keycode);
@@ -106,8 +132,14 @@ $(document).ready(function(){
       }
    })
 
+   /*
+   *
+   *  #memlogin 로그인 버튼 누를 때의 동작
+   *  로그인 처리.
+   * */
    $(document).on('click', '#memlogin', function (evt) {
-
+      // 기본 이벤트 막기
+      evt.preventDefault();
       evt.stopPropagation();
 
       let id = $('#id').val();
@@ -124,7 +156,8 @@ $(document).ready(function(){
          url: "/memberlogin.ing",
          data: queryString,
          success : function (data) {
-            if (data === "성공") {
+            console.log(data);
+            if (data.includes("성공")) {
                location.replace('/start.ing');
             }
             else {
@@ -161,22 +194,3 @@ $(document).ready(function(){
    })*/
 
 });
-
-/*
-function asyncMovePage(url) {
-   $.ajax({
-      url: url,
-      async: false,
-      type: "POST",
-      dataType: "html",
-      cache: false,
-      success: function (data) {
-         console.log(data);
-         $('#content').children().remove();
-         $('#content').html(data);
-      },
-      error: function (error) {
-         console.log(error);
-      }
-   });
-}*/

@@ -10,18 +10,18 @@
         #{email},#{domain}, #{addr1},#{addr2},#{addr3})
     </insert>
 
-    <select id="login" parameterType="member" resultType="member">
+    <select id="login" parameterType="member" resultMap="getMember">
       select *
       from member
       where id = #{id}
-        <if test="password != null">
+        <!--<if test="password != null">
         and password = #{password}
-        </if>
+        </if>-->
     </select>
 
     <update id="memberupdate" parameterType="member">
       update MEMBER
-      set password = #{password},
+      set /*password = #{password},*/
           name = #{name},
           tel = #{tel},
           email = #{email},
@@ -54,7 +54,7 @@
     </select>
 
     <delete id="memberDelete" parameterType="member">
-        delete from member where password = #{password}
+        delete from member where id = #{id} /*and password = #{password}*/
     </delete>
 
     <select id="memberIdFind" parameterType="member" resultType="member">
