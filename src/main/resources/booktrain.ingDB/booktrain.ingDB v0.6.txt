@@ -28,10 +28,13 @@ create table nonmember(tel varchar2(13) primary key,
                        addr3 varchar(200),
                        password varchar2(20) not null);
 
-create table customer_service ( writing_time date,
+create table customer_service ( article_id number(10),
+                                writing_time date,
+                                title VARCHAR2(100) not null,
                                 content varchar2(300),
                                 tel varchar2(13),
                                 id varchar2(20),
+                                read_count number(10) default 0,
                                 constraint customer_service_fk_tel foreign key(tel)
                                     references member(tel),
                                 constraint customer_service_fk_id foreign key(id)
@@ -89,12 +92,14 @@ create table payment (order_number varchar2(10),
 
 create table review (review_number varchar2(10) primary key,
                     order_number varchar2(10),
-    -- 이렇게 알아서 되는지 날짜가 기입되는지 확인
-                     writing_time date default sysdate,
+                    isbn varchar2(13),
+                     writing_time date,
                      content varchar2(500),
                      score number(2,1) not null,
                      constraint review_fk_order_number foreign key(order_number)
-                         references purchase(order_number));
+                     references purchase(order_number),
+                     constraint review_fk_isbn foreign key(isbn)
+                     references book(isbn));
 
 create table purchase_book ( order_number varchar2(10),
                             ISBN varchar2(13),
@@ -127,3 +132,4 @@ create sequence seq_publisher_number;
 
 create sequence seq_order_id;
 
+create sequence seq_article_id;

@@ -2,7 +2,6 @@
 
 function kakaoPay(data) {
     IMP.init('imp06146117')
-
     IMP.request_pay({
         pg : 'inicis',
         pay_method : 'card',

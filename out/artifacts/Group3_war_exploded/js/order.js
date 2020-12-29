@@ -30,7 +30,6 @@ function execPostCode() {
 }
 
 $(function () {
-
     // 장바구니로 돌아가기
     $('#returnCart').click(() => {
         $.ajax({
@@ -116,6 +115,17 @@ $(function () {
             }
 
         })
+    })
+
+    // 주문내역 & 취소내역 클릭시
+    $('#order_list').click(()=>{
+        $('#stateDay').empty();
+        $('#stateDay').append('구매일자')
+
+    })
+    $('#cancel_list').click(()=>{
+        $('#stateDay').empty();
+        $('#stateDay').append('취소일자')
     })
 
 

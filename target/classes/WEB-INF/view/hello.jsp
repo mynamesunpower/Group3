@@ -21,7 +21,8 @@
     <script src="../../js/login.js" type="text/javascript"></script>
     <script src="../../js/paymentMethod.js" type="text/javascript"></script>
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
+        <!-- 캐러셀 js -->
+        document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.carousel');
             var instances = M.Carousel.init(elems);
 
@@ -31,15 +32,11 @@
             });
         });
     </script>
-    <!-- Compiled and minified CSS 드랍다운 최신버전으로하면 인식(?)을 못해서 이전버전적용햇어요-->
-    <%-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> --%>
-
-    <!-- Compiled and minified JavaScript 드랍다운 최신버전으로하면 인식(?)을 못해서 이전버전적용햇어요 -->
-    <%-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> --%>
 </head>
 
 <body>
 
+<!-- 헤더 -->
 <div id="header" class="row center-align">
     <div class="col s1 m1 l1">
         <a data-target="slide-out" class="sidenav-trigger btn-flat tooltipped" data-position="bottom" data-tooltip="메뉴">
@@ -50,15 +47,16 @@
     <div class="col s1 m1 l1"></div>
     <div class="col s1 m1 l1"></div>
     <div class="col s4 m4 l4">
-            <a id="title" href="/start.ing" class="black-text"><h5>Booktrain.ing</h5></a>
+        <a id="title" href="/start.ing" class="black-text"><h5>Booktrain.ing</h5></a>
     </div>
     <div class="col s1 m1 l1"></div>
     <div class="col s1 m1 l1"></div>
     <div class="col s4 m2 l2">
         <h5>
             <c:if test="${sessionScope.memberName ne null}">
-                <a id="shoppingCart" class="loadAjax btn-flat tooltipped" href="/cart/cartList.ing" data-position="bottom" data-tooltip="장바구니">
-                <i class="material-icons black-text">shopping_cart</i>
+                <a id="shoppingCart" class="loadAjax btn-flat tooltipped" href="/cart/cartList.ing"
+                   data-position="bottom" data-tooltip="장바구니">
+                    <i class="material-icons black-text">shopping_cart</i>
                 </a>
             </c:if>
 
@@ -75,7 +73,8 @@
                         <li><a class="loadAjax" href="/login.ing">로그인</a></li>
                         <li class="divider"></li>
                         <li><a class="loadAjax" href="/memberjoin.ing">회원가입</a></li>
-                        <li><a class="loadAjax btn-flat tooltipped" href="customerCenter.ing" data-position="bottom" data-tooltip="고객센터">고객센터</a></li>
+                        <li><a class="loadAjax btn-flat tooltipped" href="customerCenter.ing" data-position="bottom"
+                               data-tooltip="고객센터">고객센터</a></li>
                     </ul>
 
                     <%--<a class="loadAjax btn-flat tooltipped" href="login.ing" data-position="bottom" data-tooltip="로그인">
@@ -93,12 +92,15 @@
                             <a class="loadAjax" href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
                         </a></li>
                         <li class="divider"></li>
-                        <li><a class="loadAjax" href="/purchase/orderList.ing" class="blue-text">주문목록확인</a></li>
+                        <li><a class="loadAjax" href="/purchase/orderList.ing?state=결제완료" class="blue-text">주문목록확인</a>
+                        </li>
                         <li class="divider"></li>
-                        <li><a class="loadAjax btn-flat tooltipped" href="customerCenter.ing" data-position="bottom" data-tooltip="고객센터">고객센터</a></li>
+                        <li><a class="loadAjax btn-flat tooltipped" href="customerCenter.ing" data-position="bottom"
+                               data-tooltip="고객센터">고객센터</a></li>
                         <li class="divider"></li>
                         <li><a href="#!" class="blue-text">
-                            <a class="loadAjax" href="/logout.ing" id="logout" name="logout" onclick="alert('로그아웃되었습니다.')">로그아웃</a>
+                            <a class="loadAjax" href="/logout.ing" id="logout" name="logout"
+                               onclick="alert('로그아웃되었습니다.')">로그아웃</a>
                         </a></li>
 
                     </ul>
@@ -109,8 +111,9 @@
 
         </h5>
     </div>
-</div>
+</div> <!-- 헤더 끝 -->
 
+<!-- 검색 박스 -->
 <div id="searchBox" class="searchBox">
     <form id="searchForm" action="./searchBook.ing">
         <div class="row">
@@ -144,12 +147,14 @@
             </div>
         </div>
     </form>
-</div>
-    <ul id="slide-out" class="sidenav">
+</div> <!-- 검색 박스 끝 -->
+
+<!-- 사이드 메뉴 (왼쪽) -->
+<ul id="slide-out" class="sidenav">
         <li class="no-padding">
             <ul class="collapsible expandable">
 
-                <c:if test="${sessionScope.memberId.toUpperCase() eq 'ADMIN'}">
+            <c:if test="${sessionScope.memberId.toUpperCase() eq 'ADMIN'}">
                 <li>
                     <div class="collapsible-header">책 CRUD</div>
                     <div class="collapsible-body">
@@ -157,6 +162,8 @@
                             <li><a class="loadAjax" href="insertBook.ing">책 정보 데이터베이스 입력</a></li>
                             <li><a class="loadAjax" href="rbookList.ing">책 데이터베이스 목록 보기</a></li>
                             <li><a class="loadAjax" href="chartA.ing">장르별 매출 비율</a></li>
+                            <li><a class="loadAjax" href="chartB.ing">Booktrain 총 매출</a></li>
+                            <li><a class="loadAjax" href="chartC.ing">Booktrain 최근 매출</a></li>
                             <li><a href="#">책 데이터베이스 삭제하기</a></li>
                         </ul>
                     </div>
@@ -193,42 +200,14 @@
                 <li class="no-padding"><a class="loadAjax" href="customerBoard.ing">고객 게시판</a></li>
             </ul>
         </li>
-    </ul>
+    </ul> <!-- 사이드 메뉴 (왼쪽) 끝 -->
 
+<!-- 페이지 컨텐츠 (내용) -->
     <div class="container">
         <div class="row center-align">
-            <div id="content" class="col s12">
-                <%--<div>
-                    <div class="carousel carousel-slider center">
-                        <div class="carousel-fixed-item center">
-                        </div>
+            <div id="content" class="col s12"> <!-- 여기부터 내용 -->
 
-                        <div class="carousel-item red white-text" href="#one!">
-                            <h2>First Panel</h2>
-                            <img src="../../imgs/book/${book.get(0).isbn}.PNG">
-                            <p class="white-text">This is your first panel
-                                ${book[0].title}
-                            </p>
-                            <a class="btn waves-effect white grey-text darken-text-2" href=""selectBook.ing?isbn=${book[0].isbn}">상세정보</a>
-                        </div>
-                        <div class="carousel-item amber white-text" href="#two!">
-                            <h2>Second Panel</h2>
-                            <p class="white-text">This is your second panel</p>
-                        </div>
-                        <div class="carousel-item green white-text" href="#three!">
-                            <h2>Third Panel</h2>
-                            <p class="white-text">This is your third panel</p>
-                        </div>
-                        <div class="carousel-item blue white-text" href="#four!">
-                            <h2>Fourth Panel</h2>
-                            <p class="white-text">This is your fourth panel</p>
-                        </div>
-                        <div class="carousel-item blue white-text" href="#four!">
-                            <h2>Fourth Panel</h2>
-                            <p class="white-text">This is your fourth panel</p>
-                        </div>
-                    </div>
-                </div>--%>
+                <!-- 새로 들어온 책 캐러셀 -->
                 <div class="row">
                     <div class="col s12">
                         <div class="carousel">
@@ -238,51 +217,9 @@
                             </c:forEach>
                         </div>
                     </div>
-                </div>
+                </div> <!-- 새로 들어온 책 캐러셀 끝 -->
 
-                <!-- 베스트셀러 부분???-->
-              <%--  <div>
-                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
-                        <th>베스트셀러!</th> <br/><br/><br/>
-                        <tbody>
-                        <tr>
-                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best!!</td>
-                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best!!</td>
-                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best!!</td>
-
-                        </tr>
-
-                        <tr>
-                            <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we">
-                                    <img src="https://image.aladin.co.kr/product/25890/64/coversum/k142737568_1.jpg" alt="">
-                                </a>
-                            </td>
-
-                            <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213675&amp;start=we">
-                                    <img src="https://image.aladin.co.kr/product/25834/32/coversum/k582736433_1.jpg" alt="">
-                                </a>
-                            </td>
-
-                            <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=212627&amp;start=we">
-                                    <img src="https://image.aladin.co.kr/product/25613/11/coversum/k402735218_1.jpg" alt="">
-                                </a>
-                            </td>
-
-                        </tr>
-
-                        <tr>
-                            <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">&lt;1일 1클래식 1기쁨&gt;<a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we"></a></td>
-                            <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">1페이지 미술 365 (고흐 에디션)<a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213675&amp;start=we"></a></td>
-                            <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">&lt;아무도 아닌&gt; 리커버<a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=212627&amp;start=we"></a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>--%>
-
-                <div class="row">
+                <div class="row"> <!-- 전체 베스트셀러 (매출액순) -->
                     <div class="col s12">
                         <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
                             <th>전체 베스트셀러</th> <br/><br/>
@@ -301,7 +238,6 @@
                                         </a>
                                     </td>
                                 </c:forEach>
-
                                 </tr>
 
                                 <tr>
@@ -313,67 +249,110 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> <!-- 전체 베스트셀러 (매출액순) 끝 -->
 
-                <!--이주의 신작-->
-                <br/>
+                <div class="row"> <!-- 30대가 가장 많이 구매한 도서 (매출액순) -->
+                    <div class="col s12">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
+                            <th>30대가 가장 많이 구매한 도서</th> <br/><br/>
+                            <tbody>
+                            <tr>
+                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">10대 HOT!!!</td>
+                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">20대 HOT!!!</td>
+                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">30대 HOT!!!</td>
 
-                <div>
+                            </tr>
 
-                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
-                        <th>30대가 가장 많이 구매한 도서</th> <br/><br/>
-                        <tbody>
-                        <tr>
-                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">10대 HOT!!!</td>
-                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">20대 HOT!!!</td>
-                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">30대 HOT!!!</td>
+                            <tr>
+                                <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
+                                    <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we">
+                                        <img src="https://image.aladin.co.kr/product/25890/64/coversum/k142737568_1.jpg"
+                                             alt="">
+                                    </a>
+                                </td>
+                            </tr>
 
-                        </tr>
+                            <tr>
+                                <c:forEach items="${bestBook}" var="bbook">
+                                    <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">
+                                        &lt;${bbook.title}&gt;<a
+                                            href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we"></a>
+                                    </td>
+                                </c:forEach>
+                            </tr>
 
-                        <tr>
-                            <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we">
-                                    <img src="https://image.aladin.co.kr/product/25890/64/coversum/k142737568_1.jpg" alt="">
-                                </a>
-                            </td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <!-- 30대가 가장 많이 구매한 도서 (매출액순) 끝 -->
 
-                            <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213675&amp;start=we">
-                                    <img src="https://image.aladin.co.kr/product/25834/32/coversum/k582736433_1.jpg" alt="">
-                                </a>
-                            </td>
+                <!-- 이번 달의 신작 -->
+                <div class="row">
+                    <div class="col s12">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
+                            <th>이주의신작!</th>
+                            <br/><br/>
+                            <tbody>
+                            <tr>
+                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">10대
+                                    HOT!!!
+                                </td>
+                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">20대
+                                    HOT!!!
+                                </td>
+                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">30대
+                                    HOT!!!
+                                </td>
 
-                            <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=212627&amp;start=we">
-                                    <img src="https://image.aladin.co.kr/product/25613/11/coversum/k402735218_1.jpg" alt="">
-                                </a>
-                            </td>
+                            </tr>
 
-                        </tr>
+                            <tr>
+                                <td width="25%" height="136" valign="bottom"
+                                    style="color:#33afe9; text-align:center;padding:0 9px;">
+                                    <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we">
+                                        <img src="https://image.aladin.co.kr/product/25890/64/coversum/k142737568_1.jpg" alt="">
+                                    </a>
+                                </td>
 
-                        <tr>
-                            <c:forEach items="${hotBook}" var="hot">
-                            <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">&lt;${hot.title}&gt;<a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we"></a></td>
-                            </c:forEach>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                                <td width="25%" height="136" valign="bottom"
+                                    style="color:#33afe9; text-align:center;padding:0 9px;">
+                                    <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213675&amp;start=we">
+                                        <img src="https://image.aladin.co.kr/product/25834/32/coversum/k582736433_1.jpg" alt="">
+                                    </a>
+                                </td>
 
-            </div>
+                                <td width="25%" height="136" valign="bottom"
+                                    style="color:#33afe9; text-align:center;padding:0 9px;">
+                                    <a href="https://www.aladin.co.kr/events/wevent.aspx?EventId=212627&amp;start=we">
+                                        <img src="https://image.aladin.co.kr/product/25613/11/coversum/k402735218_1.jpg" alt="">
+                                    </a>
+                                </td>
 
-            <br/>
-            <br/>
-            <br/>
+                            </tr>
 
+                            <tr>
+                                <c:forEach items="${hotBook}" var="hot">
+                                    <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">
+                                        &lt;${hot.title}&gt;<a
+                                            href="https://www.aladin.co.kr/events/wevent.aspx?EventId=213773&amp;start=we"></a>
+                                    </td>
+                                </c:forEach>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <!-- 이번 달의 신작 끝 -->
 
+            </div> <!-- 내용은 이 div 안에 들어갈 것 -->
 
+        </div>
 
+                <br/><br/><br/>
         </div>
     </div>
 </div>
 
-
+<!-- footer -->
 <footer class="page-footer no-padding">
     <div class="container">
         <div class="row"></div>
@@ -383,6 +362,7 @@
         </div>
         <div class="row"></div>
     </div>
-</footer>
+</footer> <!-- footer 끝 -->
+
 </body>
 </html>
