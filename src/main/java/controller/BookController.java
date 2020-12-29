@@ -1,15 +1,17 @@
 package controller;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import service.impl.BookServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -25,7 +27,6 @@ public class BookController {
         return "showBook";
     }
 
-
     //선택한 ISBN의 도서 정보 보기
     @RequestMapping(value = "viewBook.ing")
     public String viewBook(BookVO vo, Model model) {
@@ -34,9 +35,7 @@ public class BookController {
     }
 
     //책 검색
-
     @RequestMapping("/searchBook.ing")
-
     public String searchBook(String keyword,
                              @RequestParam(defaultValue = "false") String sbox,
                              Model model) {
@@ -53,7 +52,6 @@ public class BookController {
         }
 
         List<BookVO> bookList = bookService.searchBook(map);
-        System.out.println(bookList.size());
 
         model.addAttribute("keyword", keyword);
         model.addAttribute("result", bookList.size());
@@ -69,7 +67,6 @@ public class BookController {
         //return "book/" + ing;
     }
 
-
     @RequestMapping("/hello.ing")
     public String carousel(Model model,String genre){
         model.addAttribute("carouselBook",bookService.carouselBook());
@@ -77,7 +74,6 @@ public class BookController {
         model.addAttribute("hotBook",bookService.hotBook(genre));
         return "hello";
     }
-
 
     @RequestMapping("/insertBook.ing")
     public String insertBook(){
@@ -125,7 +121,7 @@ public class BookController {
         return "book/bookList";
     }
 
-    //선택한 ISBN의 도서정보 보기
+    //선택한 ISBN의 도서정보 수정페이지
     @RequestMapping("/selectBook.ing")
     public String selectBook(BookVO vo, Model model) {
         model.addAttribute("selectBook", bookService.selectBook(vo));
@@ -144,9 +140,9 @@ public class BookController {
             System.out.println(map.get("PRICE"));
             String key = (String)map.get("GENRE");
             int value = ((BigDecimal)map.get("PRICE")).intValue();
-            maps.put(key,value); // 임포트~
+            maps.put(key,value);
         }
-        System.out.println("maps는" +maps);
+
         String result = "";
         Set<String> salesKeys = maps.keySet();
         for (String key : salesKeys) {
@@ -156,16 +152,13 @@ public class BookController {
             result += "['" + key + "', " + maps.get(key) + "]";
             //((BigDecimal) hm.get("AGE")).intValue()
         }
-        System.out.println(1);
-        System.out.println(maps.get("모험"));
-        System.out.println(result);
-        System.out.println(2);
-        System.out.println("이거슨 : "+genreList);
-        System.out.println("나는"+result);
+
         model.addAttribute("chartA", result);
+
+
+
         return "book/chartA";
     }
-
 
     //연령별, 총 매출 차트
     @RequestMapping(value = "/chartB.ing")
@@ -240,11 +233,14 @@ public class BookController {
     }
 
 
-
     @RequestMapping("/genrebookList.ing")
     public String genrebookList(HttpServletRequest request, Model model){
-        model.addAttribute("bookList",bookService.genrebookList(request.getParameter("genre")));
-        return  "book/bookList";
+        String genre = request.getParameter("genre");
+        List<BookVO> list = bookService.genrebookList(genre);
+        model.addAttribute("result", list.size());
+        model.addAttribute("genre", genre);
+        model.addAttribute("bookList", list);
+        return  "book/genrebookList";
     }
 
 

@@ -42,14 +42,11 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 
     @Override
     public List<String> selectOrderNumber(PurchaseVO purchaseVO) {
-        System.out.println("PurchaseDAO selectOrderNumber() : " + purchaseVO.getMemberTel());
-
         return sqlSessionTemplate.selectList("booktrain.purchase.selectOrderNumber",purchaseVO);
     }
 
     @Override
     public List<PurchaseVO> selectOrderList(PurchaseVO purchaseVO) {
-
         return sqlSessionTemplate.selectList("booktrain.purchase.selectOrderList", purchaseVO);
     }
 
@@ -64,6 +61,18 @@ public class PurchaseDAOImpl implements PurchaseDAO {
         return sqlSessionTemplate.selectList("booktrain.purchase.detailOrder", purchaseVO);
     }
 
+
+    @Override
+    public List<PurchaseBookVO> selectIsbn(PurchaseVO purchaseVO) {
+        return sqlSessionTemplate.selectList("booktrain.purchase.selectIsbn", purchaseVO);
+    }
+
+
+    @Override
+    public void cancel_salesData(PurchaseBookVO purchaseBookVO) {
+        sqlSessionTemplate.update("booktrain.purchase.cancel_salesData", purchaseBookVO);
+    }
+
     @Override
     public void cancelOrder(PurchaseVO purchaseVO) {
         // PURCHASE 테이블 state컬럼 주문취소로 변경
@@ -71,6 +80,10 @@ public class PurchaseDAOImpl implements PurchaseDAO {
         sqlSessionTemplate.update("booktrain.purchase.cancelPoint",purchaseVO);
         // PURCHASE_BOOK 테이블 해당 주문번호 컬럼 삭제
         sqlSessionTemplate.delete("booktrain.purchase.cancelOrder_purchaseBook",purchaseVO);
+    }
 
+    @Override
+    public void insertCancelBook(PurchaseBookVO purchaseBookVO) {
+        sqlSessionTemplate.insert("booktrain.purchase.insertCancelBook",purchaseBookVO);
     }
 }

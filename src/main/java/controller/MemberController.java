@@ -1,16 +1,22 @@
 package controller;
 
+import model.dao.dao.MemberDAO;
 import model.vo.MemberVO;
+import model.vo.PurchaseVO;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import service.service.MemberService;
 
+import javax.mail.*;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
-
-//import org.springframework.mail.javamail.JavaMailSender;
+import java.util.Properties;
 
 @Controller
 public class MemberController {
@@ -19,35 +25,39 @@ public class MemberController {
     private MemberService memberService;
     //JavaMailSender mailSender;  //이메일관련.
 
+    @RequestMapping("/main.ing")
+    public void main() {
+        System.out.println("메인페이지 이동스");
+    }//end  main이동
+
     @RequestMapping("/memberupdate.ing")
     public void update() {
         System.out.println("회원정보수정 페이지로 이동스");
     }//end  회원정보수정
 
-
     @RequestMapping("/login.ing")
     public String test() {
-
+        System.out.println("로그인 요청가나요??");
         return "/login";
     }//end login
 
-
     @RequestMapping("/logout.ing")
     public String logout(HttpSession session) {
-
+        System.out.println("로그아웃페이지로 이동~~~~");
 //            session.removeAttribute("memberName");
         session.invalidate();
-        return "/start";
+        return "/hello";
     }//end logout
 
     @RequestMapping("/memberjoin.ing")
     public String memberjoin() {
-
+        System.out.println("회원가입페이지로 이동");
         return "/memberjoin";
     }//end memberlogin
 
     @RequestMapping("/userok.ing")
     public String userok(MemberVO vo, Model m, HttpSession session) {
+        System.out.println("회원가입 성공페이지로 이동");
 
         int result = memberService.memberInsert(vo);
 
@@ -102,15 +112,17 @@ public class MemberController {
 
 
     @RequestMapping("/memberlogin.ing")
+    @ResponseBody
     public String memberlogin(MemberVO vo, HttpSession session) {
         MemberVO result = memberService.memberLogin(vo);
+        String message = "성공";
 
         if (result == null) {
-
-            return "redirect:/login.ing";
-
-        } else {
-
+            System.out.println("로그인실패~~~~~");
+            message = "실패";
+        }
+        else {
+            System.out.println("로그인성공~~~~~~");
             session.setAttribute("memberId", result.getId());
             session.setAttribute("memberName", result.getName());
             session.setAttribute("memberPassword", result.getPassword());
@@ -121,17 +133,17 @@ public class MemberController {
             session.setAttribute("memberAddr2", result.getAddr2());
             session.setAttribute("memberAddr3", result.getAddr3());
             session.setAttribute("memberPoint", result.getPoint());
-            return "redirect:/start.ing";
         }
+        return message;
     }//end memberlogin
 
 
-//    @RequestMapping(value = "/orderList.ing")
-//    public void orderlist(PurchaseVO purchaseVO, Model model) {
-//        System.out.println("주문확인페이지입니다.");
-//        model.addAttribute("memberOrderList", memberService.memberOrderList(purchaseVO));
-////        return "/orderList";
-//    }
+    @RequestMapping(value = "/orderList.ing")
+    public void orderlist(PurchaseVO purchaseVO, Model model) {
+        System.out.println("주문확인페이지입니다.");
+        model.addAttribute("memberOrderList", memberService.memberOrderList(purchaseVO));
+//        return "/orderList";
+    }
 
     @RequestMapping(value = "/memberDelete.ing")
     public String memberDelete(MemberVO membervo, HttpSession session) {
@@ -139,41 +151,95 @@ public class MemberController {
         int result = memberService.memberDelete(membervo);
         session.invalidate();
         return "/hello";
-    }// end 회원탈퇴
+    }
 
     @RequestMapping(value = "/memberIdFind.ing")
     public String memberIdFind(MemberVO membervo) {
 
         System.out.println("아이디찾기 페이지로로 이동");
         return "/memberIdFind";
-    }//end 아이디찾기페이지 이동
+    }
 
     @RequestMapping(value = "/memberIdFindOk.ing")
+    @ResponseBody
     public String memberIdFindOk(MemberVO membervo, HttpSession session) {
-        System.out.println("아이디찾기성공 페이지로로 이동");
 
         MemberVO result = memberService.memberIdFind(membervo);
 
         if (result == null) {
             System.out.println("전화번호를 입력실패");
-            return "/memberIdFindNo";
+            return "실패";
         } else {
             System.out.println("전화번호입력성공");
             session.setAttribute("memberId", result.getId());
-            return "/memberIdFindOk";
+            return result.getId();
         }
-    }//end 아이디찾기 기능 그
+    }
 
     @RequestMapping(value = "/memberPassFind.ing")
-    public String memberPassFind() {
+    public String memberPassFind(MemberVO memberVO) {
         return "/memberPassFind";
+    }
+
+    @RequestMapping(value = "/memberPassFindOk.ing")
+    @ResponseBody
+    public String memberPassFindOK(MemberVO memberVO) {
+        final String user = "bitter.lemonseed@gmail.com";
+        final String pass = "java12345!";
+        MemberVO member = memberService.memberPassFind(memberVO);
+        String password = member.getPassword();
+        String email = member.getEmail()+member.getDomain();
+        System.out.println(email);
+
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com"); // 이메일을 처리해줄 SMTP 서버
+        prop.put("mail.smtp.port", 465); // 구글 465 // naver 587
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.ssl.enable", "true");
+        prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+
+        Session session = Session.getDefaultInstance(prop, new javax.mail.Authenticator(){
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user, pass);
+            }
+        });
+
+        try {
+            MimeMessage message = new MimeMessage(session);
+            System.out.println("여기까진 오나?");
+            message.setFrom(new InternetAddress("admin@booktrain.ing"));
+            System.out.println("여기까진 오나? 22");
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            message.setSubject("[Booktrain.ing] " + member.getName() + " 회원님의 비밀번호");
+            message.setText("안녕하세요. \n "+member.getName() +" 회원님의 비밀번호는 " + password + "입니다.");
+
+            Transport.send(message);
+            System.out.println("메일을 성공적으로 보냈습니다.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("나의 패스워드: " + password);
+
+        if (password == null) password = "실패";
+        return password;
     }
 
     @RequestMapping(value = "/customerCenter.ing")
     public String cutomerCenter() {
-        return "/customerCenter";
-    }//end 고객센터페이지 이동.
 
+        System.out.println("고객센터페이지이동.");
+
+        return "/customerCenter";
+    }
+
+    @RequestMapping(value = "/customerBoard.ing")
+    public String cutomerBoard() {
+
+        System.out.println("고객문의게시판이동.");
+
+        return "/customerBoard";
+    }
 
 //
 //    //    회원 이메일보내기

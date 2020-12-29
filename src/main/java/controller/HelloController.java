@@ -31,9 +31,7 @@ public class HelloController {
         model.addAttribute("genrehotBook",bookService.hotBook(genre));
         System.out.println(bookService.carouselBook().size());
         System.out.println(bookService.bestBook().size());
-
         return "hello";
-
     }
 
     @RequestMapping("/error.ing")

@@ -3,6 +3,7 @@ package model.dao.dao;
 import model.vo.BookVO;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,16 +27,13 @@ public interface BookDAO {
     List<BookVO> searchBook(Map map);
 
     List<Map<String, Object>> getGenreSalesList();
+    HashMap<Integer,Integer> salesList();
 
-     List carouselBook();
+    public List carouselBook();
      List<BookVO> bestBook();
- HashMap<Integer,Integer> salesList();
      List<BookVO> hotBook(String genre);
-    HashMap<Integer,Integer> ageList();
-   HashMap<Integer,Integer> twentypriceList();
+ HashMap<Integer,Integer> ageList();
+ HashMap<Integer,Integer> twentypriceList();
  HashMap<Integer, Integer> teenageList(String age);
  HashMap<Integer, Integer> daychart();
-
-
-
 }
