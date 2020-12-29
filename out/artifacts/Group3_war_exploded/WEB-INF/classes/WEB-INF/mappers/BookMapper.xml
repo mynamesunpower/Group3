@@ -254,9 +254,9 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
         <result property="publicationDate" column="publication_date"/>
         <result property="content" column="content"/>
         <result property="keyword" column="keyword"/>
-
         <collection property="salesDataVO" resultMap="salesData"/>
     </resultMap>
+
 
 
 </mapper>

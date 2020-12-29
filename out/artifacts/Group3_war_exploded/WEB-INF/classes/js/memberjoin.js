@@ -6,7 +6,7 @@ $(document).ready(function () {
         passEqual : false,
         tel : false,
         jumin : false,
-        //email : false,
+        email : false,
         name : false
     };
 
@@ -204,12 +204,7 @@ $(document).ready(function () {
         }
     })
 
-    $(document).on('focusout', '#email', function () {
-        $('#email').val($('#email').val().trim());
-    })
-
-
-    $('select[name=emailSelection]').change(function() {
+    $(document).on('change', '#emailSelection', function () {
         if($(this).val()=="1"){
             $('#domain').val("");
             $('#domain').attr("readonly", false);
@@ -217,7 +212,60 @@ $(document).ready(function () {
             $('#domain').val($(this).val());
             $("#domain").attr("readonly", true);
         }
-    });
+
+        let email = $('#email').val() + $('#domain').val();
+        let reg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+        if(!reg.test(email)) {
+            $("#valiEmail").text("올바른 이메일 형식이 아닙니다.");
+            validation.email = false;
+        } else {
+            $.ajax({
+                type : 'post',
+                url : 'emailCheck.ing',
+                data : "email="+$('#email').val(),
+                success : function (data) {
+                    let result = data.substring(1, data.length-1);
+                    $('#valiEmail').text(result);
+                    validation.email = true;
+                },
+                error : function (error) {
+                    alert("실패");
+                    console.log(error);
+                }
+            });
+            //$("#valiEmail").text("올바른 이메일 형식입니다.");
+            validation.email = true;
+        }
+
+    })
+
+    $(document).on('focusout', '#domain', function () {
+        let email = $('#email').val() + $('#domain').val();
+        let reg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+        if(!reg.test(email)) {
+            $("#valiEmail").text("올바른 이메일 형식이 아닙니다.");
+            validation.email = false;
+        } else {
+            $.ajax({
+                type : 'post',
+                url : 'emailCheck.ing',
+                data : "email="+$('#email').val(),
+                success : function (data) {
+                    let result = data.substring(1, data.length-1);
+                    $('#valiEmail').text(result);
+                    validation.email = true;
+                },
+                error : function (error) {
+                    alert("실패");
+                    console.log(error);
+                }
+            });
+            //$("#valiEmail").text("올바른 이메일 형식입니다.");
+            validation.email = true;
+        }
+    })
+
 });
 
 

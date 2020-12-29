@@ -71,4 +71,9 @@ public class MemberDAOImpl implements MemberDAO {
     public MemberVO memberPassFind(MemberVO memberVO) {
         return mybatis.selectOne("member.memberPassFind", memberVO);
     }
+
+    @Override
+    public int emailCheck(MemberVO vo) {
+        return mybatis.selectList("member.emailCheck", vo).size();
+    }
 }

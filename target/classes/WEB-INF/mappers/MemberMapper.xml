@@ -21,7 +21,7 @@
 
     <update id="memberupdate" parameterType="member">
       update MEMBER
-      set /*password = #{password},*/
+      set password = #{password},
           name = #{name},
           tel = #{tel},
           email = #{email},
@@ -40,6 +40,11 @@
     <select id="telCheck" parameterType="member" resultType="member">
         SELECT * FROM MEMBER
         WHERE tel = #{tel}
+    </select>
+
+    <select id="emailCheck" parameterType="member" resultType="member">
+        SELECT * FROM MEMBER
+        WHERE email = #{email}
     </select>
 
     <update id="updateMemberPoint" parameterType="member">

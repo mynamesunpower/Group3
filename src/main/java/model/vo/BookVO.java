@@ -22,8 +22,25 @@ public class BookVO {
     private String publicationDate;
     private String content;
     private String keyword;
+    private PublisherVO publisherVO;
 
     private MultipartFile imageFile;
+
+    public PublisherVO getPublisherVO() {
+        return publisherVO;
+    }
+
+    public void setPublisherVO(PublisherVO publisherVO) {
+        this.publisherVO = publisherVO;
+    }
+
+    public SalesDataVO getSalesDataVO() {
+        return salesDataVO;
+    }
+
+    public void setSalesDataVO(SalesDataVO salesDataVO) {
+        this.salesDataVO = salesDataVO;
+    }
 
     public MultipartFile getImageFile() {
         return imageFile;

@@ -1,24 +1,26 @@
 $(function(){
-    let isEmail = false;
-    let isTel = false;
+
+    let isEmail2 = false;
+    let isId = false;
+
 
     $(document).on('focusout', '#email2', function () {
         $('#email2').val($('#email2').val().trim());
     })
 
-    $(document).on('focusout', '#tel2', function () {
-        let tel = $('#tel2');
-        let telValue = tel.val();
-        let telReg = /^[0-9]{10,11}$/;
-        if(!telReg.test(telValue)){
-            $('#telCheckResult').text("전화번호는 10~11자리 숫자만 입력 가능합니다.");
-            isTel = false;
+    $(document).on('focusout', '#id2', function () {
+        let id = $('#id');
+        let idReg = /[a-z0-9]{5,12}/g;
+        if(!idReg.test($('#id').val())){
+            $('#idCheckResult').text("아이디는 5자 이상 12자 이하의 영문자나 숫자만 가능합니다.");
+            isId = false;
             return;
-        } else {
-            $('#telCheckResult').text("올바른 형식의 전화번호입니다.");
-            isTel = true;
         }
-    })
+        else {
+            $('#idCheckResult').text("올바른 형식의 아이디입니다.");
+            isId = true;
+        }
+    });
 
     $(document).on('change', '#emailSelection2', function () {
         if ($(this).val() == "1") {
@@ -34,10 +36,10 @@ $(function(){
 
         if (!reg.test(email)) {
             $("#valiEmail").text("올바른 이메일 형식이 아닙니다.");
-            isEmail = false;
+            isEmail2 = false;
         } else {
             $("#valiEmail").text("올바른 이메일 형식입니다.");
-            isEmail = true;
+            isEmail2 = true;
         }
     })
 
@@ -46,38 +48,37 @@ $(function(){
         let reg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
         if(!reg.test(email)) {
             $("#valiEmail").text("올바른 이메일 형식이 아닙니다.");
-            isEmail = false;
+            isEmail2 = false;
         } else {
             $("#valiEmail").text("올바른 이메일 형식입니다.");
-            isEmail = true;
+            isEmail2 = true;
         }
     })
 
-    $(document).on('click', '#findIdBtn', function (evt) {
+    $(document).on('click', '#findPassBtn', function (evt) {
         evt.stopPropagation();
-        evt.preventDefault();
 
-        let queryString = $('#memberIdFind').serialize();
+        let queryString = $('#memberPassFind').serialize();
 
         $.ajax({
             method: "post",
-            url: "/memberIdFindOk.ing",
+            url: "/memberPassFindOk.ing",
             data: queryString,
             success : function (data) {
                 let result = data.trim().replaceAll("\"", "");
                 if (result == "실패") {
-                    alert("입력한 전화번호와 이메일이 올바르지 않습니다.");
-                    $('#tel2').val("");
+                    alert("입력한 아이디와 이메일이 올바르지 않습니다.");
+                    $('#id2').val("");
                     $('#email2').val("");
                     $('#domain2').val("");
                 }
                 else {
-                    alert("회원님의 아이디는 " + result + " 입니다. 다시 로그인해주세요.");
+                    alert("회원님의 비밀번호를 이메일로 전송해드렸습니다.");
                     location.replace("start.ing");
                 }
             },
             error : function (err) {
-                console.log("memberIdFindOK err: " + err);
+                console.log("memberPassFindOK err: " + err);
             }
         });
     })

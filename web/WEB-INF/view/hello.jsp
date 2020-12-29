@@ -21,8 +21,8 @@
     <script src="../../js/login.js" type="text/javascript"></script>
     <script src="../../js/paymentMethod.js" type="text/javascript"></script>
     <script src="../../js/memberjoin.js" type="text/javascript"></script>
+
     <script type="text/javascript">
-        <!-- 캐러셀 js -->
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.carousel');
             var instances = M.Carousel.init(elems);

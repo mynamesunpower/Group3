@@ -7,6 +7,7 @@ $(document).ready(function(){
    $('#dropdownbox').dropdown();
    $('#dropdownbox2').dropdown();
 
+
    $(document).on("click", '.loadAjax', function(event) {
       event.preventDefault();
       let url = $(this).attr("href");
@@ -194,3 +195,4 @@ $(document).ready(function(){
    })*/
 
 });
+

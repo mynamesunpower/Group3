@@ -7,12 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.service.MemberService;
 
-import javax.mail.*;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import java.util.List;
-import java.util.Properties;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
@@ -69,5 +64,10 @@ public class MemberServiceImpl implements MemberService {
     public MemberVO memberPassFind(MemberVO memberVO) {
         MemberVO member = memberDao.memberPassFind(memberVO);
         return member;
+    }
+
+    @Override
+    public int emailCheck(MemberVO vo) {
+        return memberDao.emailCheck(vo);
     }
 }

@@ -15,7 +15,11 @@
     <%--sweetalert css 경고창
     이쁜 alert창인데 한페이지에 맨 마지막에 만든 swal만 작동되는듯(?) --%>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="../../js/login.js" type="text/javascript"></script>
+    <script type="text/javascript">
+$(document).ready(function () {
+    $('.tabs').tabs();
+});
+    </script>
 
 </head>
 <body id="login_body">
@@ -46,8 +50,8 @@
                     <div class="row center-align">
                         <a id="memlogin" class="waves-effect waves-light btn">로그인</a>
                         <a id="memjoin" name="memjoin" class="waves-effect waves-light btn memjoin">회원가입</a>
-                        <a id="memsearchid" name="memsearchid" class="waves-effect waves-light btn">아이디 찾기</a>
-                        <a id="memsearchpass" name="memsearchpass" class="waves-effect waves-light btn">비밀번호 찾기</a>
+                        <a id="memsearchid" href="/memberIdFind.ing" name="memsearchid" class="loadAjax waves-effect waves-light btn">아이디 찾기</a>
+                        <a id="memsearchpass" href="/memberPassFind.ing" name="memsearchpass" class="loadAjax waves-effect waves-light btn">비밀번호 찾기</a>
                     </div>
                 </form>
             </div>
@@ -65,7 +69,6 @@
                 <a id="nonmemsearchpass" name="nonmemsearchpass" class="waves-effect waves-light btn">비밀번호 찾기</a>
             </div>
         </div>
-0
     </div><!-- 비회원로그인 탭 -->
 
 </div><!-- 마테리얼 라이즈 탭 완성 -->

@@ -1,12 +1,10 @@
 package controller;
 
-import model.dao.dao.MemberDAO;
 import model.vo.MemberVO;
 import model.vo.PurchaseVO;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import service.service.MemberService;
 
 import javax.mail.*;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
@@ -104,12 +101,27 @@ public class MemberController {
         return message;
     }
 
+    // focusout/select 이메일 중복확인 검증 (ajax)
+    @RequestMapping(value = "emailCheck.ing")
+    @ResponseBody
+    public String emailCheck(MemberVO vo) {
+
+        int result = memberService.emailCheck(vo);
+
+        String message = "이미 사용 중인 메일주소입니다.";
+        if (result == 0) {
+            message = "사용 가능한 메일주소입니다.";
+        }
+        return message;
+    }
+
     // 회원 정보 수정 form action
     @RequestMapping("/updateok.ing")
     public String updateok(MemberVO vo, Model m) {
         System.out.println(vo.getId() + " / " + vo.getPassword() + " / "  + vo.getTel() + " / " + vo.getName());
 
-        String inputPassword = vo.getPassword();
+        String inputPassword = vo.getPassword().split(",")[0];
+        System.out.println(inputPassword);
         String password = passwordEncoder.encode(inputPassword);
         vo.setPassword(password);
 
@@ -211,8 +223,17 @@ public class MemberController {
     public String memberPassFindOK(MemberVO memberVO) {
         final String user = "bitter.lemonseed@gmail.com";
         final String pass = "java12345!";
+
         MemberVO member = memberService.memberPassFind(memberVO);
-        String password = member.getPassword();
+        String password = "";
+        for (int i = 0; i < 12; i++) {
+            password += (char) ((Math.random()*47) + 97);
+        }
+
+        // 암호화해서 재지정
+        member.setPassword(passwordEncoder.encode(password));
+        memberService.memberUpdate(member);
+
         String email = member.getEmail()+member.getDomain();
         System.out.println(email);
 
@@ -224,19 +245,24 @@ public class MemberController {
         prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
         Session session = Session.getDefaultInstance(prop, new javax.mail.Authenticator(){
-            protected PasswordAuthentication getPasswordAuthentication() {
+            protected PasswordAuthentication getPasswordAuthentication(){
                 return new PasswordAuthentication(user, pass);
             }
         });
 
         try {
             MimeMessage message = new MimeMessage(session);
-            System.out.println("여기까진 오나?");
             message.setFrom(new InternetAddress("admin@booktrain.ing"));
-            System.out.println("여기까진 오나? 22");
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
             message.setSubject("[Booktrain.ing] " + member.getName() + " 회원님의 비밀번호");
-            message.setText("안녕하세요. \n "+member.getName() +" 회원님의 비밀번호는 " + password + "입니다.");
+            String mailTxt = "";
+            mailTxt += "안녕하세요. \n";
+            mailTxt += "Booktrain.ing 입니다. \n";
+            mailTxt += member.getName() + " 회원님의 비밀번호는 \n";
+            mailTxt += password + "로 초기화되었습니다. \n";
+            mailTxt += "변경된 비밀번호로 로그인하시고, 새로운 비밀번호로 변경을 부탁드립니다. \n";
+            mailTxt += "감사합니다. 즐거운 하루 되세요.\n";
+            message.setText(mailTxt);
 
             Transport.send(message);
             System.out.println("메일을 성공적으로 보냈습니다.");

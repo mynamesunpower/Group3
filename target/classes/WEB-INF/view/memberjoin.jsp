@@ -14,7 +14,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
-<script src="../../js/memberjoin.js"></script>
+<%--<script src="../../js/memberjoin.js"></script>--%>
 
 <%--sweetalert css 경고창--%>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

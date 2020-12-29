@@ -26,4 +26,6 @@ public interface MemberDAO {
     public void updateMemberPoint(MemberVO memberVO);
 
     public MemberVO memberPassFind(MemberVO memberVO);
+
+    public int emailCheck(MemberVO vo);
 }
