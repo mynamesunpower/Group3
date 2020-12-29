@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.service.BookService;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -116,7 +117,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookVO> hotBook( String genre) {
+    public List<BookVO> hotBook(String genre) {
         return bookdao.hotBook(genre);
     }
 
@@ -137,5 +138,12 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<BookVO> bookTab() {
         return bookdao.bookTab();
+    }
+
+    //동적 메인 베스트북
+
+    @Override
+    public List<BookVO> memberBook(HttpSession session,String genre) {
+        return bookdao.memberBook(session,genre);
     }
 }

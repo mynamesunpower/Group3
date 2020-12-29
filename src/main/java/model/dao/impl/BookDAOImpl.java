@@ -6,6 +6,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -235,9 +238,95 @@ public class BookDAOImpl implements BookDAO {
     }
 
     //동적 장르별 도서 탭
-
     @Override
     public List<BookVO> bookTab() {
         return mybatis.selectList("BookMapper.bookTab");
+    }
+
+    //동적 메인 베스트북
+
+    @Override
+    public List<BookVO> memberBook(HttpSession session,String genre) {
+        System.out.println("===> Mybatis memberBook() 호출");
+        if(session.getAttribute("memberJumin1") != null){
+            String jumin1 = (String) session.getAttribute("memberJumin1");
+            String jumin2 = (String) session.getAttribute("memberJumin2");
+            String ju1 = jumin1.substring(0,2);
+            String ju2 = jumin2.substring(0,1);
+            int j1 = Integer.parseInt(ju1);
+            int j2 = Integer.parseInt(ju2);
+
+            SimpleDateFormat format = new SimpleDateFormat ( "yyyy");
+            Date time = new Date();
+            String time1 = format.format(time);
+            int time2 = Integer.parseInt(time1);
+
+            HashMap<String,Integer> map = new HashMap<String, Integer>();
+            if(j2==1 || j2==2){
+                int j3 = j1+1900;
+                int ages= time2 - j3 +1;
+                System.out.println("고객의 나이:"+ages);
+                if( ages>=10 && ages<=19){
+                    map.put("member",10);
+                }else if( ages>=20 && ages<=29){
+                    map.put("member",20);
+                }else if(ages>=30 && ages<=39){
+                    map.put("member",30);
+                }else if(ages>=40 && ages<=49){
+                    map.put("member",40);
+                }else {
+                    map.put("member",99);
+                }
+
+                switch (genre) {
+                    case "age":
+                     map.put("genre",1);
+                        System.out.println("age일떄:"+map.get("genre"));
+                    break;
+                    case "genre":
+                        map.put("genre",2);
+                        System.out.println("genre일떄:"+map.get("genre"));
+                    break;
+                    default: // 모두 해당이 안되는 경우
+                             System.out.println("기타");
+                             break;
+                }
+
+                return mybatis.selectList("BookMapper.memberBook",map);
+            }else {
+                int j3= j1+2000;
+                int ages= time2 - j3 +1;
+                System.out.println("고객의 나이:"+ages);
+                if( ages>=10 && ages<=19){
+                    map.put("member",10);
+                }else if( ages>=20 && ages<=29){
+                    map.put("member",20);
+                }else if(ages>=30 && ages<=39){
+                    map.put("member",30);
+                }else if(ages>=40 && ages<=49){
+                    map.put("member",40);
+                }else {
+                    map.put("member",99);
+                }
+
+                switch (genre) {
+                    case "age":
+                        map.put("genre",1);
+                        System.out.println("age일떄:"+map.get("genre"));
+                        break;
+                    case "genre":
+                        map.put("genre",2);
+                        System.out.println("genre일떄:"+map.get("genre"));
+                        break;
+                    default: // 모두 해당이 안되는 경우
+                        System.out.println("기타");
+                        break;
+                }
+
+                return mybatis.selectList("BookMapper.memberBook",map);
+            }
+        }
+
+        return mybatis.selectList("BookMapper.memberBook");
     }
 }

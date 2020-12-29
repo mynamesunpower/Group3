@@ -2,6 +2,7 @@ package model.dao.dao;
 
 import model.vo.BookVO;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,7 @@ public interface BookDAO {
 
      List carouselBook();
      List<BookVO> bestBook();
-     List<BookVO> hotBook(String genre);
+     List<BookVO> hotBook( String genre);
  HashMap<Integer,Integer> ageList();
  HashMap<Integer,Integer> twentypriceList();
  HashMap<Integer, Integer> teenageList(String age);
@@ -43,4 +44,6 @@ public interface BookDAO {
 
     //동적 책 장르별 탭
     List<BookVO> bookTab();
+
+    List<BookVO> memberBook(HttpSession session,String genre);
 }

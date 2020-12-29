@@ -130,14 +130,14 @@ public class MemberController {
             session.setAttribute("memberPassword", result.getPassword());
             session.setAttribute("memberTel", result.getTel());
             session.setAttribute("memberJumin1", result.getJumin1());
-            session.setAttribute("memberJumin2", result.getJumin2()); // 우리 존나 불법 사이트 아니냐ㅋㅋㅋ와 세션 어려
+            session.setAttribute("memberJumin2", result.getJumin2());
             session.setAttribute("memberEmail", result.getEmail());
             session.setAttribute("domain", result.getDomain());
             session.setAttribute("memberAddr1", result.getAddr1());
             session.setAttribute("memberAddr2", result.getAddr2());
             session.setAttribute("memberAddr3", result.getAddr3());
             session.setAttribute("memberPoint", result.getPoint());
-        }//형 근데 저 hot genre는 hello컨트롤에서 넘기는데 book컨트롤에 있는건 뭐죠? 어?
+        }
         return message;
     }//end memberlogin
 

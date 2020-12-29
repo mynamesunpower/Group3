@@ -57,7 +57,6 @@ public class BookController {
         return "book/bookList";
     }
 
-    //페이지 넘김 얘는 또 왜이러지..
     @RequestMapping("/{ing}")
     public String ing(@PathVariable String ing) {
         System.out.println("BookController에서" +ing + "요청");
@@ -195,7 +194,7 @@ public class BookController {
         //-----------------------------------------------------------
         return "book/chartB";
     }
-//??? 형민아 우선 그럼
+
     //최근 30일 매출
     @RequestMapping("/chartC")
     public String daysales(Model model){

@@ -2,6 +2,7 @@ package service.service;
 
 import model.vo.BookVO;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +19,7 @@ public interface BookService {
     List<Map<String, Object>> getGenreList();
     List<BookVO> carouselBook();
     List<BookVO> bestBook();
-    List<BookVO> hotBook( String genre);
+    List<BookVO> hotBook(String genre);
     HashMap<Integer,Integer> salesList();
     HashMap<Integer,Integer> ageList();
     HashMap<Integer,Integer> twentypriceList();
@@ -27,4 +28,5 @@ public interface BookService {
     List<BookVO> bestbookList();
     List<BookVO> newbookList();
     List<BookVO> bookTab();
+    List<BookVO> memberBook(HttpSession session,String genre);
 }
