@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="customerBoard">
+
+
+<!--<select id="customerBoardList" resultType="customerBoard">-->
+<!--select *-->
+<!--from CUSTOMER_SERVICE-->
+<!--</select>-->
+
+    <resultMap id="customerBoard" type="customerBoard">
+        <result column="ARTICLE_ID" property="articleId" />
+        <result column="WRITING_TIME" property="writingTime" />
+        <result column="TITLE" property="title" />
+        <result column="CONTENT" property="content" />
+        <result column="TEL" property="tel" />
+        <result column="ID" property="id" />
+        <result column="READ_COUNT" property="readCount" />
+    </resultMap>
+
+    <select id="customerBoardList" resultMap="customerBoard">
+  	select *
+  	from CUSTOMER_SERVICE
+  	order by ARTICLE_ID desc
+     </select>
+<!--글 목록리스트-->
+
+    <insert id="customerBoardInsert" parameterType="customerBoard">
+insert into customer_service (article_id,writing_time,title,content,tel,read_count)
+values      (seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{readCount})
+    </insert>
+<!--글 등록-->
+
+    <select id="customerBoard" resultMap="customerBoard" parameterType="customerBoard">
+      select *
+      FROM CUSTOMER_SERVICE
+	  WHERE article_Id = #{articleId}
+    </select>
+<!--글내용-->
+
+    <update id="customerBoardUpdate" parameterType="customerBoard">
+    update CUSTOMER_SERVICE
+  set TITLE = #{title},
+  CONTENT =#{content}
+  where article_Id = #{articleId}
+    </update>
+<!--글 수정-->
+
+    <update id="customerBoardReadCount" parameterType="customerBoard">
+        update CUSTOMER_SERVICE
+        set READ_COUNT= READ_COUNT+1
+        where article_Id = #{articleId}
+    </update>
+    <!--조회수증가-->
+
+    <delete id="customerBoardDelete" parameterType="customerBoard">
+        delete from CUSTOMER_SERVICE
+        where ARTICLE_ID = #{articleId}
+    </delete>
+
+</mapper>

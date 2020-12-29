@@ -66,9 +66,4 @@ public class MemberDAOImpl implements MemberDAO {
         System.out.println("===>  MemberMapper memberIdCheck() 호출");
         return mybatis.selectOne("member.memberIdFind", membervo );
     }
-
-    @Override
-    public MemberVO memberPassFind(MemberVO memberVO) {
-        return mybatis.selectOne("member.memberPassFind", memberVO);
-    }
 }

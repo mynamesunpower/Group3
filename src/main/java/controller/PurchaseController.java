@@ -116,6 +116,12 @@ public class PurchaseController {
 
         memberVO.setTel((String)httpSession.getAttribute("memberTel"));
 
+        System.out.println("payOrder() 확인 : " + bookTitle + " / " + bookKind);
+        System.out.println("PurchaseController payOrder Point: " + memberVO.getPoint());
+        System.out.println("PurchaseController payOrder totalPrice: " + purchaseVO.getTotalPrice());
+        System.out.println("받는사람 : " + purchaseVO.getReceiver());
+        System.out.println("받는이 주소 : " +purchaseVO.getShipAddress());
+
         model.addAttribute("bookTitle", bookTitle);
         model.addAttribute("bookKind", bookKind);
         model.addAttribute("purchaseVO", purchaseVO);
@@ -183,48 +189,49 @@ public class PurchaseController {
 
     //주문 조회
     @RequestMapping("orderList.ing")
-    public String orderList(PurchaseVO purchaseVO, Model model){
+    public String orderList(Model model){
         String memberTel = (String)httpSession.getAttribute("memberTel");
+        PurchaseVO purchaseVO = new PurchaseVO();
         purchaseVO.setMemberTel(memberTel);
         // 결제완료된 상품을 불러오기위함
+        purchaseVO.setState("결제완료");
+
         List<List> orderList = new ArrayList<>();
 
-        // 해당 회원의 주문번호들을 리스트에 저장
         List<String> orderNumberList = purchaseService.selectOrderNumber(purchaseVO);
+        System.out.println("orderList() orderNumberList size : " + orderNumberList.size());
 
-        // 각각의 주문번호를 통해 얻은 쿼리값을 orderList에 저장
         for(String orderNumber : orderNumberList){
             purchaseVO.setOrderNumber(orderNumber);
             orderList.add(purchaseService.selectOrderList(purchaseVO));
         }
 
+        for(List<PurchaseVO> list : orderList){
+            for(PurchaseVO result : list){
+                System.out.println("주문번호 : " + result.getOrderNumber());
+            }
+        }
         model.addAttribute("orderList", orderList);
 
         return "purchase/orderList";
     }
 
-
-    /**
-     * 주문 상세조회
-     * @param orderNumber : 해당 주문번호
-     * @param state : 주문 번호의 상태 - '결제완료', '결제취소'로 나뉨
-     */
+    // 주문 상세 조회
     @RequestMapping("detailOrderList.ing")
-    public String detailOrderList(@RequestParam("orderNumber")String orderNumber,
-                                  @RequestParam("state")String state, Model model){
+    public String detailOrderList(@RequestParam("orderNumber")String orderNumber, Model model){
+        System.out.println("detailOrderList() 주문번호 확인 : " + orderNumber);
         PurchaseVO purchaseVO = new PurchaseVO();
         purchaseVO.setOrderNumber(orderNumber);
-        purchaseVO.setState(state);
 //        List<List> detailOrder_List = new ArrayList<>();
 
 
         // 주문 상품과 수량을 가져옴
         List<PurchaseVO> detailOrder_List = purchaseService.selectDetailOrder(purchaseVO);
         purchaseVO = purchaseService.purchaseInfo(purchaseVO);
+        System.out.println("오다넘버 : " + purchaseVO.getOrderNumber() );
 
         model.addAttribute("detailOrder_List", detailOrder_List);
         model.addAttribute("purchaseInfo", purchaseVO);
-
         return "purchase/detailOrderList";
     }
 
@@ -233,20 +240,6 @@ public class PurchaseController {
     public String cancelOrder(PurchaseVO purchaseVO){
         System.out.println("cancelOrder() 오다넘버 : " + purchaseVO.getOrderNumber());
         purchaseVO.setMemberTel((String)httpSession.getAttribute("memberTel"));
-        PurchaseBookVO purchaseBookVO = new PurchaseBookVO();
-        purchaseBookVO.setOrderNumber(purchaseVO.getOrderNumber());
-
-        // Sales_Data 테이블에서 업데이트할 isbn을 얻어옴
-        List<PurchaseBookVO> isbnList = purchaseService.selectIsbn(purchaseVO);
-        for(PurchaseBookVO list : isbnList){
-            purchaseBookVO.setQuantity(list.getQuantity());
-            purchaseBookVO.setIsbn(list.getIsbn());
-            // 각가의 isbn 상품의 총 수량 및 가격 수정
-            purchaseService.insertCancelBook(purchaseBookVO);
-            purchaseService.cancel_salesData(purchaseBookVO);
-        }
-
-        // Purchase_Book & Member Point 수정
         purchaseService.cancelOrder(purchaseVO);
 
         System.out.println("결제 취소 완료");

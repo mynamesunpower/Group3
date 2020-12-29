@@ -2,11 +2,9 @@ package model.dao.impl;
 
 import model.dao.dao.BookDAO;
 import model.vo.BookVO;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
@@ -75,30 +73,34 @@ public class BookDAOImpl implements BookDAO {
         return list;
     }
 
+
     //월별 매출 리스트(총매출))
+
+
     @Override
-    public HashMap<Integer,Integer> salesList() {
-        System.out.println("===> Mybatis salesList() 호출");
-        //int[] result = new int[12];
+    public HashMap<Integer, Integer> salesList() {
+
+            System.out.println("===> Mybatis salesList() 호출");
+            //int[] result = new int[12];
 
 
-        HashMap<String,Integer> list = new HashMap<String, Integer>();
-        HashMap<Integer,Integer> list2 = new HashMap<Integer,Integer>();
-        for(int i=1; i<=12; i++){
-            System.out.println("for문 시작");
+            HashMap<String,Integer> list = new HashMap<String, Integer>();
+            HashMap<Integer,Integer> list2 = new HashMap<Integer,Integer>();
+            for(int i=1; i<=12; i++){
+                System.out.println("for문 시작");
 
-            list.put("month", i); // 맵 "month", 1
-            Integer j = mybatis.selectOne("BookMapper.salesList",list);
-            j = j == null ? j = 0 : j;
+                list.put("month", i); // 맵 "month", 1
+                Integer j = mybatis.selectOne("BookMapper.salesList",list);
+                j = j == null ? j = 0 : j;
 
-            list2.put(i, j);
-            list.remove("month"); // 맵 "month", 1 삭제
+                list2.put(i, j);
+                list.remove("month"); // 맵 "month", 1 삭제
 
-            //result[i-1]= j;
+                //result[i-1]= j;
 
-            //System.out.println("hashMap: "+ list);
-            //System.out.println("hashMap2: "+ list2);
-        }
+                //System.out.println("hashMap: "+ list);
+                //System.out.println("hashMap2: "+ list2);
+            }
 
 //        List<Object> lists =
 //        for(Object a : lists) {
@@ -106,7 +108,8 @@ public class BookDAOImpl implements BookDAO {
 //        } 결과는 저렇게 나오는게 맞아??네
 
 
-        return list2;
+            return list2;
+
     }
 
     //연령별 매출(30대 매출)
@@ -201,6 +204,9 @@ public class BookDAOImpl implements BookDAO {
         return list2;
     }
 
+
+
+
     public List<BookVO> genrebookList(String genre) {
         System.out.println("===> Mybatis genrebookList() 호출");
         return mybatis.selectList("BookMapper.genrebookList",genre);
@@ -211,7 +217,6 @@ public class BookDAOImpl implements BookDAO {
         System.out.println("===> Mybatis carouselBook() 호출");
         return mybatis.selectList("BookMapper.carouselBook");
     }
-
 
     @Override
     public List<BookVO> bestBook() {

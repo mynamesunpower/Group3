@@ -5,10 +5,8 @@ import model.dao.impl.BookDAOImpl;
 import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import service.service.BookService;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,6 +76,7 @@ public class BookServiceImpl implements BookService {
         return bookdao.getGenreSalesList();
     }
 
+
     @Override
     public HashMap<Integer,Integer> salesList() {
         return bookdao.salesList();
@@ -102,6 +101,12 @@ public class BookServiceImpl implements BookService {
     public HashMap<Integer, Integer> daychart() {
         return bookdao.daychart();
     }
+
+    @Override//
+    public List<BookVO> hotBook() {
+        return null;
+    }
+
 
     public List<BookVO> genrebookList(String genre){
         return bookdao.genrebookList(genre);
