@@ -1,6 +1,7 @@
 package model.dao.dao;
 
 import model.vo.BookVO;
+import model.vo.PurchaseBookVO;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.Map;
 
 public interface BookDAO {
 
-    void insertBook(BookVO vo);
+    public void insertBook(BookVO vo);
 
     //public void modifyBook(BookVO vo) ;
 
@@ -17,16 +18,23 @@ public interface BookDAO {
 
      void updateBook(BookVO vo);
 
-    BookVO selectBook(BookVO vo);
+    void deleteBook_stock(PurchaseBookVO purchaseBookVO);
 
-     List<BookVO> bookList(BookVO  vo) ;
+    void cancelBook_stock(PurchaseBookVO purchaseBookVO);
 
+    public BookVO selectBook(BookVO vo);
+
+    public List<BookVO> bookList(BookVO vo);
+
+
+    public List<BookVO> genrebookList(String genre);
 
     List<BookVO> genrebookList(String genre) ;
     List<BookVO> searchBook(Map map);
 
     List<Map<String, Object>> getGenreSalesList();
-    HashMap<Integer,Integer> salesList();
+
+    HashMap<Integer, Integer> salesList();
 
      List carouselBook();
      List<BookVO> bestBook();

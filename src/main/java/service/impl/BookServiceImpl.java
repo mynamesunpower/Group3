@@ -3,6 +3,7 @@ package service.impl;
 
 import model.dao.impl.BookDAOImpl;
 import model.vo.BookVO;
+import model.vo.PurchaseBookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.service.BookService;
@@ -45,6 +46,15 @@ public class BookServiceImpl implements BookService {
         return bookdao.selectBook(vo);
     }
 
+    @Override
+    public void deleteBook_stock(PurchaseBookVO purchaseBookVO) {
+        bookdao.deleteBook_stock(purchaseBookVO);
+    }
+
+    @Override
+    public void cancelBook_stock(PurchaseBookVO purchaseBookVO) {
+        bookdao.cancelBook_stock(purchaseBookVO);
+    }
 
     //도서 정보 삭제
     @Override

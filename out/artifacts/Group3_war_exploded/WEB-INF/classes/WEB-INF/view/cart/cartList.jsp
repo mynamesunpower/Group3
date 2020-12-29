@@ -7,8 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <title>장바구니 목록</title>
@@ -23,6 +23,12 @@
 </head>
 <body>
 <div id="cart" class="row">
+    <c:choose>
+    <c:when test="${fn:length(cart)==0}">
+        장바구니에 상품이 없어용~
+        <a href="/start.ing">메인화면으로</a>
+    </c:when>
+    <c:otherwise>
     <table id="cartTable" , class="highlight centered">
         <thead>
         <tr>
@@ -41,10 +47,11 @@
                     <input type="hidden" class="isbn" name="isbn" value="${cart.isbn}">
                     <td class="checkedBook">
                         <label>
-                            <input class="checkedBook" type="checkbox" name="isbn" value="${cart.isbn}" checked="checked" /><span></span>
+                            <input class="checkedBook" type="checkbox" name="isbn" value="${cart.isbn}"
+                                   checked="checked"/><span></span>
                         </label>
                     </td>
-                    <%--TODO 책 주소 걸어줄것--%>
+                        <%--TODO 책 주소 걸어줄것--%>
                     <input type="hidden" id="title" class="title" name="title" value="${cart.bookVO.title}"/>
                     <td class="bookTitle"><a href="">${cart.bookVO.title}</a></td>
 
@@ -61,7 +68,9 @@
                                 class="minusCount waves-effect waves-light btn-small white black-text btn-flat"><i
                                 class="material-icons">arrow_drop_down</i></button>
                     </td>
-                    <td class="totalPrice"><fmt:formatNumber value="${cart.bookVO.price * cart.quantity}" pattern="#,###"/>원</td>
+                    <td class="totalPrice"><fmt:formatNumber value="${cart.bookVO.price * cart.quantity}"
+                                                             pattern="#,###"/>원
+                    </td>
                     <td>
                         <button type="submit" class="orderBook waves-effect waves-light btn-small white black-text">
                             <i class="material-icons left">credit_card</i>
@@ -80,15 +89,18 @@
 </div>
 <div class="row">
     <div col col s2 offset s2>
-        <button type="button" id = "deleteAll" class="waves-effect waves-light btn-small white black-text">전체삭제
+        <button type="button" id="deleteAll" class="waves-effect waves-light btn-small white black-text">전체삭제
         </button>
     </div>
     <br/>
     <div col col s6 offset-s6>
-        <button type="button" id="checkedBook_order" class="waves-effect waves-light btn-small white black-text" >선택상품
+        <button type="button" id="checkedBook_order" class="waves-effect waves-light btn-small white black-text">선택상품
             주문
         </button>
     </div>
 </div>
+</c:otherwise>
+</c:choose>
+
 </body>
 </html>

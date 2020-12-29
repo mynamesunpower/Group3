@@ -1,6 +1,8 @@
 package service.service;
 
 import model.vo.BookVO;
+import model.vo.PurchaseBookVO;
+import model.vo.SalesDataVO;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -12,6 +14,8 @@ public interface BookService {
     void insertBook(BookVO vo);
     void deleteBook(BookVO vo);
     void updateBook(BookVO vo);
+    void deleteBook_stock(PurchaseBookVO purchaseBookVO);
+    void cancelBook_stock(PurchaseBookVO purchaseBookVO);
     BookVO selectBook(BookVO vo);
     List<BookVO> bookList(BookVO vo);
     List<BookVO> genrebookList(String genre);

@@ -67,12 +67,13 @@ public class PurchaseDAOImpl implements PurchaseDAO {
         return sqlSessionTemplate.selectList("booktrain.purchase.selectIsbn", purchaseVO);
     }
 
-
+    // 취소시 sales_data 테이블의 수량 및 총액 조절
     @Override
     public void cancel_salesData(PurchaseBookVO purchaseBookVO) {
         sqlSessionTemplate.update("booktrain.purchase.cancel_salesData", purchaseBookVO);
     }
 
+    // 주문취소
     @Override
     public void cancelOrder(PurchaseVO purchaseVO) {
         // PURCHASE 테이블 state컬럼 주문취소로 변경
@@ -86,4 +87,6 @@ public class PurchaseDAOImpl implements PurchaseDAO {
     public void insertCancelBook(PurchaseBookVO purchaseBookVO) {
         sqlSessionTemplate.insert("booktrain.purchase.insertCancelBook",purchaseBookVO);
     }
+
+
 }

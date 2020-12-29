@@ -57,7 +57,19 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
         ]]>
     </select>
 
+    <!-- 구매시 책의 재고 빼주기 -->
+    <update id="deleteStock" parameterType="purchaseBook">
+      UPDATE BOOK
+      SET STOCK = STOCK - #{quantity}
+      WHERE ISBN = #{isbn}
+    </update>
 
+    <!-- 취소된 책의 재고 다시 증가-->
+    <update id="cancelStock" parameterType="purchaseBook">
+        UPDATE BOOK
+        SET STOCK = STOCK + #{quantity}
+        WHERE ISBN = #{isbn}
+    </update>
 
     <select id="searchBook" parameterType="hashmap" resultMap="getBook">
         SELECT * FROM BOOK
