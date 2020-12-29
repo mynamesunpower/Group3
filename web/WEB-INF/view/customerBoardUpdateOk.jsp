@@ -14,5 +14,6 @@
 
 글수정이 완료되엇습니다.
 
+<a href="/customerBoardList.ing">글목록으로 돌아가기</a>
 </body>
 </html>

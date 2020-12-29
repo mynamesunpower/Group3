@@ -17,6 +17,9 @@
 </head>
 <body>
 
+<%--${param.articleId}  값이 넘어옴 글번호--%>
+
+
 <form action="/customerBoardUpdateOk.ing">
 <div class="row">
     <div class="input-field col s6 offset-s2">
@@ -31,9 +34,10 @@
         <textarea type="text"  class="materialize-textarea" id="content" name="content"></textarea>
     </div>
 </div>
-    <input type="hidden" id="articleId" name="articleId" value="${customerBoard.articleId}">
+    <input type="hidden" id="articleId" name="articleId" value="${param.articleId}">
 <button class="btn waves-effect waves-light" type="submit" name="action">글수정완료</button>
 </form>
+
 
 </body>
 </html>

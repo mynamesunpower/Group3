@@ -54,16 +54,15 @@ public class CustomerBoardController {
     }//end customerBoard 글제목 눌러서들어가는
 
     @RequestMapping("/customerBoardUpdate.ing")
-    public String customerBoardUpdate(CustomerBoardVO customerBoardvo,HttpServletRequest request){
+    public String customerBoardUpdate(CustomerBoardVO customerBoardvo, HttpServletRequest request){
         customerBoardvo.setArticleId(Integer.parseInt(request.getParameter("articleId")));
         System.out.println("글수정페이지로 이동");
         return "/customerBoardUpdate";
     }//글수정 페이지로 이동
 
     @RequestMapping("/customerBoardUpdateOk.ing")
-    public String customerBoardUpdateOk(CustomerBoardVO customerBoardvo){
-
-//      ,HttpServletRequest request   customerBoardvo.setArticleId(Integer.parseInt(request.getParameter("articleId")));
+    public String customerBoardUpdateOk(CustomerBoardVO customerBoardvo,HttpServletRequest request){
+        customerBoardvo.setArticleId(Integer.parseInt(request.getParameter("articleId")));
         int result = customerBoardService.customerBoardUpdate(customerBoardvo);
         System.out.println("업데이트 됫나???"+result);
         return "/customerBoardUpdateOk";

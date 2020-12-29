@@ -85,9 +85,13 @@
     </c:when>
 </c:choose>
     <form action="/customerBoardSearch.ing">
+        <div class = "row">
+        <div class="input-field col s4">
         <label for="title">글제목을 입력해주세요.</label>
         <input type="text" id="title" name="title">
         <input type="submit" value="검색">
+        </div>
+        </div>
 </form>
 
 

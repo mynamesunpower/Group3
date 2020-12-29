@@ -33,7 +33,7 @@
     <td>${customerBoard.content}</td>
 </tr>
 </table>
-
+<%--폼으로 묵어야댈가요--%>
 <a href="/customerBoardUpdate.ing?articleId=${customerBoard.articleId}">글수정</a> <br/><br/>
 
 <a href="/customerBoardDelete.ing?articleId=${customerBoard.articleId}">글삭제</a> <br/><br/>
