@@ -120,7 +120,7 @@
     <select id="detailOrder" parameterType="purchase" resultMap="purchase">
       <choose>
           <when test="state == '결제완료'">
-              select b.title AS title, b.price AS price, pb.quantity AS quantity
+              select b.title AS title, b.price AS price, pb.quantity AS quantity, pb.ISBN AS isbn
               from purchase p inner join member m on p.membertel = m.tel
                               inner join purchase_book pb on p.order_number = pb.order_number
                               inner join book b on pb.isbn = b.isbn

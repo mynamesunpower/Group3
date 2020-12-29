@@ -220,7 +220,12 @@ public class PurchaseController {
 
         // 주문 상품과 수량을 가져옴
         List<PurchaseVO> detailOrder_List = purchaseService.selectDetailOrder(purchaseVO);
+        for(PurchaseVO result : detailOrder_List){
+            System.out.println("isbn 확인만 하고 빠질게용  : " + result.getPurchaseBookVO().getIsbn());
+        }
         purchaseVO = purchaseService.purchaseInfo(purchaseVO);
+        purchaseVO.setOrderNumber(orderNumber);
+
 
         model.addAttribute("detailOrder_List", detailOrder_List);
         model.addAttribute("purchaseInfo", purchaseVO);
