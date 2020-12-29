@@ -22,23 +22,24 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/Dogfalo/materialize/fc44c862/dist/css/materialize.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="https://cdn.rawgit.com/Dogfalo/materialize/fc44c862/dist/js/materialize.min.js"></script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/pinzon1992/materialize_table_pagination/f9a8478f/js/pagination.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.rawgit.com/pinzon1992/materialize_table_pagination/f9a8478f/js/pagination.js"></script>
 
 
     <script>
-    $(document).ready(function(){
-        $('#List').pageMe({
-            pagerSelector:'#myPager',
-            activeColor: 'blue',
-            prevText:'Anterior',
-            nextText:'Siguiente',
-            showPrevNext:true,
-            hidePageNumbers:false,
-            perPage:10
-        });  //페이징관련 스크립트.
-    });
+        $(document).ready(function () {
+            $('#List').pageMe({
+                pagerSelector: '#myPager',
+                activeColor: 'blue',
+                prevText: 'Anterior',
+                nextText: 'Siguiente',
+                showPrevNext: true,
+                hidePageNumbers: false,
+                perPage: 10
+            });  //페이징관련 스크립트.
+        });
 
-</script>
+    </script>
 
 </head>
 <body>
@@ -78,20 +79,21 @@
 
 <%--회원로그인 해야만 글쓰기 버튼이 보임.--%>
 <c:choose>
-<c:when test="${sessionScope.memberId eq null}">
-</c:when>
+    <c:when test="${sessionScope.memberId eq null}">
+    </c:when>
     <c:when test="${sessionScope.memberName ne null}">
         <a href="/customerBoardInsert.ing"><input type="button" value="글쓰기"></a>
     </c:when>
 </c:choose>
-    <form action="/customerBoardSearch.ing">
-        <div class = "row">
+<form action="/customerBoardSearch.ing">
+    <div class="row">
         <div class="input-field col s4">
-        <label for="title">글제목을 입력해주세요.</label>
-        <input type="text" id="title" name="title">
-        <input type="submit" value="검색">
+            <%-- 검색창 필드 크기 조정.--%>
+            <label for="title">글제목을 입력해주세요.</label>
+            <input type="text" id="title" name="title">
+            <input type="submit" value="검색">
         </div>
-        </div>
+    </div>
 </form>
 
 

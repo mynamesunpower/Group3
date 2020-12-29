@@ -49,4 +49,8 @@ public class CustomerBoardServiceImpl implements CustomerBoardService {
     public List<CustomerBoardVO> customerBoardSearch(CustomerBoardVO customerBoardvo) {
         return customerBoardDao.customerBoardSearch(customerBoardvo);
     }
+
+    public int customerBoardReply(CustomerBoardVO customerBoardvo){
+        return customerBoardDao.customerBoardReply(customerBoardvo);
+    }
 }

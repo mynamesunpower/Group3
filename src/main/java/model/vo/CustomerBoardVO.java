@@ -2,6 +2,9 @@ package model.vo;
 
 public class CustomerBoardVO {
 
+    private  int replyId;
+    private  int originId;
+
     private int articleId;
     private String writingTime;
     private String title;

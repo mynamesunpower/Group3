@@ -19,4 +19,6 @@ public interface CustomerBoardDAO {
     int customerBoardDelete(CustomerBoardVO customerBoardvo);
 
     List<CustomerBoardVO> customerBoardSearch(CustomerBoardVO customerBoardvo);
+
+    int customerBoardReply(CustomerBoardVO customerBoardvo);
 }

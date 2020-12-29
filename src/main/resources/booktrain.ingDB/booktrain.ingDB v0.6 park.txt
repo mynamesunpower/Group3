@@ -1,4 +1,5 @@
 create table customer_service (
+                                replyId number(10) DEFAULT 0,   //답글번호
                                 article_id number(10),
                                 writing_time date,
                                 title VARCHAR2(100) not null,
@@ -12,6 +13,12 @@ create table customer_service (
                                     references manager(id)
 
                                     );
+
+ALTER TABLE customer_service
+ADD (replyId number(10) DEFAULT 0);   //답글번호 칼럼추가
+
+
+
 
 
 create sequence seq_article_id;

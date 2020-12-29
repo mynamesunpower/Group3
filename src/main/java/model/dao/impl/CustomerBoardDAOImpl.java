@@ -50,4 +50,9 @@ public class CustomerBoardDAOImpl implements CustomerBoardDAO {
         return mybatis.selectList("customerBoard.customerBoardSearch", customerBoardvo);
     }
 
+    @Override
+    public int customerBoardReply(CustomerBoardVO customerBoardvo) {
+        return mybatis.update("customerBoard.customerBoardReply",customerBoardvo);
+    }
+
 }

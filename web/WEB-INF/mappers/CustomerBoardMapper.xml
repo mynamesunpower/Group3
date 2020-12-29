@@ -11,19 +11,20 @@
 <!--</select>-->
 
     <resultMap id="customerBoard" type="customerBoard">
+        <result column="ORIGINID" property="originid" />
         <result column="ARTICLE_ID" property="articleId" />
         <result column="WRITING_TIME" property="writingTime" />
         <result column="TITLE" property="title" />
         <result column="CONTENT" property="content" />
         <result column="TEL" property="tel" />
-        <result column="ID" property="id" />
         <result column="READ_COUNT" property="readCount" />
+        <result column="REPLYID" property="replyId" />
     </resultMap>
 
     <select id="customerBoardList" resultMap="customerBoard">
   	select *
   	from CUSTOMER_SERVICE
-  	order by ARTICLE_ID desc
+  	order by ARTICLE_ID desc, REPLYID asc
      </select>
 <!--글 목록리스트-->
 
@@ -31,7 +32,7 @@
     select *
     from CUSTOMER_SERVICE
     where title like '%' || #{title} || '%'
-    order by ARTICLE_ID desc
+    order by ARTICLE_ID desc , REPLYID asc
 
     </select>
     <!-- 글제목검색.-->
@@ -69,6 +70,11 @@ values      (seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{rea
         where ARTICLE_ID = #{articleId}
     </delete>
 
+    <update id="customerBoardReply" parameterType="customerBoard">
+insert into customer_service (article_id,writing_time,title,content,tel,read_count,REPLYID)
+values      (#{articleId},sysdate, #{title}, #{content}, #{tel}, #{readCount},1)
+    </update>
+<!-- 답글아이디 + 1-->
 
 
 </mapper>

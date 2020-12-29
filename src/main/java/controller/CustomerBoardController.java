@@ -75,4 +75,21 @@ public class CustomerBoardController {
         return "/customerBoardDelete";
     }//글수정 페이지로 이동
 
+
+    @RequestMapping("/customerBoardReply.ing")
+    public String customerBoardReply(CustomerBoardVO customerBoardvo){
+
+        System.out.println("답글페이지로 이동");
+        return "/customerBoardReply";
+    }//글수정 페이지로 이동
+
+    @RequestMapping("/customerBoardReplyOk.ing")
+    public String customerBoardReplyOk(CustomerBoardVO customerBoardvo){
+//        int result = customerBoardService.customerBoardInsert(customerBoardvo);
+        System.out.println("답글등록");
+
+        int reply = customerBoardService.customerBoardReply(customerBoardvo);
+        return "/customerBoardReplyOk";
+    }//답글달기.
+
 }

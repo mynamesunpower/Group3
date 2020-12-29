@@ -22,4 +22,5 @@ public interface CustomerBoardService {
 
     List<CustomerBoardVO> customerBoardSearch(CustomerBoardVO customerBoardvo);
 
+    int customerBoardReply(CustomerBoardVO customerBoardvo);//답글 아이디증가
 }
