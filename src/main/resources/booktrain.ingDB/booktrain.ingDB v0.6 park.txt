@@ -1,11 +1,12 @@
 create table customer_service (
+                                ORIGIN_ID number(10),         //글 내부번호.답글달면 증가안함.
                                 replyId number(10) DEFAULT 0,   //답글번호
-                                article_id number(10),
+                                article_id number(10),     //글번호 무조건 증가
                                 writing_time date,
                                 title VARCHAR2(100) not null,
                                 content varchar2(300),
-                                tel varchar2(13),
-                                id varchar2(20),
+                                tel varchar2(13),   //회원 전화번호.
+                                id varchar2(20),   //비회원용 아이디 안쓸듯?
                                 read_count number(10) default 0,
                                 constraint customer_service_fk_tel foreign key(tel)
                                     references member(tel),
@@ -14,12 +15,6 @@ create table customer_service (
 
                                     );
 
-ALTER TABLE customer_service
-ADD (replyId number(10) DEFAULT 0);   //답글번호 칼럼추가
-
-
-
-
-
+create sequence seq_origin_id;
 create sequence seq_article_id;
 이렇게 수정해서 게시판 만들엇습니다.
