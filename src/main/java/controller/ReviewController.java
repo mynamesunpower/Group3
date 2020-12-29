@@ -7,11 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import service.impl.ReviewServiceImpl;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/review/")
@@ -51,33 +47,19 @@ public class ReviewController {
 
         model.addAttribute("reviewVO", reviewVO);
 
-        return "review/registReview";
+        return "redirect:/viewBook.ing?isbn="+reviewVO.getIsbn();
     }
 
-    @RequestMapping("seeReview.ing")
-    public String seeReview(ReviewVO reviewVO, Model model){
-        System.out.println("seeReview() 오다넘버 : " + reviewVO.getOrderNumber());
-        System.out.println("seeReview() isbn : " + reviewVO.getIsbn());
+    /**
+     * 리뷰 삭제 컨트롤러
+     * @param reviewVO 해당 reviewNumber(pk)를 넘겨받아 삭제
+     */
+    @RequestMapping("deleteReview")
+    public String deleteReview(ReviewVO reviewVO){
+        System.out.println("deleteReview() 리뷰번호 : " + reviewVO.getReviewNumber());
 
-        List<ReviewVO> reviewList = reviewService.seeReview(reviewVO);
-        for(ReviewVO list : reviewList){
-            System.out.println("seeReview() name: " + list.getMemberVO().getName());
-            System.out.println("seeReview() content : " + list.getContent());
-            System.out.println("seeReview() writingTime : " + list.getWritingTime());
-            System.out.println("seeReview() score: " + list.getScore());
-        }
+        reviewService.deleteReview(reviewVO);
 
-        Map ratingOptions = new HashMap();
-        ratingOptions.put(0, "☆☆☆☆☆");
-        ratingOptions.put(1, "★☆☆☆☆");
-        ratingOptions.put(2, "★★☆☆☆");
-        ratingOptions.put(3, "★★★☆☆");
-        ratingOptions.put(4, "★★★★☆");
-        ratingOptions.put(5, "★★★★★");
-
-        model.addAttribute("ratingOptions", ratingOptions);
-        model.addAttribute("reviewList", reviewList);
-
-        return "review/seeReview";
+        return  "redirect:/viewBook.ing?isbn="+reviewVO.getIsbn();
     }
 }

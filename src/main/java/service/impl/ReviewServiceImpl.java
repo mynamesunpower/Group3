@@ -23,4 +23,9 @@ public class ReviewServiceImpl implements ReviewService {
     public List<ReviewVO> seeReview(ReviewVO reviewVO) {
         return reviewDAO.seeReview(reviewVO);
     }
+
+    @Override
+    public void deleteReview(ReviewVO reviewVO) {
+        reviewDAO.deleteReview(reviewVO);
+    }
 }

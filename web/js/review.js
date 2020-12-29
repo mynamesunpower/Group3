@@ -13,8 +13,8 @@ $(function () {
             url: '/review/registReview.ing',
             contentType: 'application/x-www-form-urlencoded;charset=utf-8',
             data: {
-                'orderNumber' : $('#purchase_orderNumber').val(),
-                'isbn' : $('#purchaseBook_isbn').val(),
+                'orderNumber': $('#purchase_orderNumber').val(),
+                'isbn': $('#purchaseBook_isbn').val(),
                 'content': $('#review_content').val(),
                 'score': rating
             }, success: (data) => {
@@ -27,5 +27,15 @@ $(function () {
         })
     })
 
+    // 리뷰 페이징 처리
+    $('#review_table').pageMe({
+        pagerSelector: $('#review_page'),
+        activeColor: 'blue',
+        prevText:'Anterior',
+        nextText:'Siguiente',
+        showPrevNext:true,
+        hidePageNumbers:false,
+        perPage:5
+    });
 
 }) // function END

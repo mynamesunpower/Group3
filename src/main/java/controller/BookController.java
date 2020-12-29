@@ -2,6 +2,7 @@ package controller;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import model.vo.BookVO;
+import model.vo.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import service.impl.BookServiceImpl;
+import service.impl.ReviewServiceImpl;
+import service.service.ReviewService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Array;
@@ -20,6 +23,8 @@ public class BookController {
 
     @Autowired
     private BookServiceImpl bookService;
+    @Autowired
+    private ReviewServiceImpl reviewService;
 
     @RequestMapping("showBook.ing")
     public String showBook(HttpServletRequest request, Model model) {
@@ -27,10 +32,32 @@ public class BookController {
         return "showBook";
     }
 
-    //선택한 ISBN의 도서 정보 보기
+    /**
+     * 선택한 ISBN의 도서 정보 보기
+     * @param vo
+     * @param reviewVO 해당 도서의 isbn을저장하여 리뷰정보를 가져오는데 사용
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "viewBook.ing")
-    public String viewBook(BookVO vo, Model model) {
+    public String viewBook(BookVO vo, ReviewVO reviewVO, Model model) {
+        System.out.println("viewBook() 리뷰 isbn : " + reviewVO.getIsbn());
+
+        List<ReviewVO> reviewList = reviewService.seeReview(reviewVO);
+
+        Map ratingOptions = new HashMap();
+        ratingOptions.put(0, "☆☆☆☆☆");
+        ratingOptions.put(1, "★☆☆☆☆");
+        ratingOptions.put(2, "★★☆☆☆");
+        ratingOptions.put(3, "★★★☆☆");
+        ratingOptions.put(4, "★★★★☆");
+        ratingOptions.put(5, "★★★★★");
+
+        model.addAttribute("reviewVO", reviewVO);
+        model.addAttribute("ratingOptions", ratingOptions);
+        model.addAttribute("reviewList", reviewList);
         model.addAttribute("viewBook", bookService.selectBook(vo));
+
         return "book/viewBook";
     }
 

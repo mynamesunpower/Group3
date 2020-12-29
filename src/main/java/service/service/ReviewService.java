@@ -10,4 +10,6 @@ public interface ReviewService {
 
     public List<ReviewVO> seeReview(ReviewVO reviewVO);
 
+    public void deleteReview(ReviewVO reviewVO);
+
 }

@@ -11,13 +11,18 @@
 
     <!-- 해당 isbn의 리뷰 정보를 불러옴-->
     <select id="seeReview" resultMap="review">
-      SELECT substr(m.name,1,1) || lpad('*',length(m.name)-2,'*') || substr(m.name, length(m.name), 1) AS name,
-      TO_CHAR(re.WRITING_TIME,'YYYY-MM-DD HH24:MI') AS writing_time, re.CONTENT AS content, re.SCORE as score
+      SELECT substr(m.name,1,1) || lpad('*',length(m.name)-2,'*') || substr(m.name, length(m.name), 1) AS name, re.REVIEW_NUMBER AS review_number,
+      TO_CHAR(re.WRITING_TIME,'YYYY-MM-DD HH24:MI') AS writing_time, re.CONTENT AS content, re.SCORE AS score, p.MEMBERTEL AS memberTel, re.ISBN AS isbn
       FROM REVIEW re INNER JOIN PURCHASE p on re.ORDER_NUMBER = p.ORDER_NUMBER
                   INNER JOIN MEMBER m on p.MEMBERTEL = m.TEL
       WHERE re.ISBN = #{isbn}
       ORDER BY WRITING_TIME DESC
     </select>
+
+    <delete id="deleteReview" parameterType="review">
+        DELETE FROM REVIEW
+        WHERE REVIEW_NUMBER = ${reviewNumber}
+    </delete>
 
     <resultMap id="review" type="review">
         <result property="reviewNumber" column="review_number"/>
@@ -27,6 +32,7 @@
         <result property="content" column="content"/>
         <result property="score" column="score"/>
         <collection property="memberVO" resultMap="member"/>
+        <collection property="purchaseVO" resultMap="purchase"/>
     </resultMap>
 
     <resultMap id="member" type="member">

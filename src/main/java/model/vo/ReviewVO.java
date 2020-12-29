@@ -1,7 +1,7 @@
 package model.vo;
 
 public class ReviewVO {
-    private String reveiwNumber;
+    private String reviewNumber;
     private String orderNumber;
     private String isbn;
     private String writingTime;
@@ -14,12 +14,12 @@ public class ReviewVO {
     public ReviewVO() {
     }
 
-    public String getReveiwNumber() {
-        return reveiwNumber;
+    public String getReviewNumber() {
+        return reviewNumber;
     }
 
-    public void setReveiwNumber(String reveiwNumber) {
-        this.reveiwNumber = reveiwNumber;
+    public void setReviewNumber(String reviewNumber) {
+        this.reviewNumber = reviewNumber;
     }
 
     public String getOrderNumber() {

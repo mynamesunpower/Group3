@@ -1,5 +1,4 @@
 function execPostCode() {
-    alert('주소찾기')
     new daum.Postcode({
         oncomplete: (data) => {
             let fullRoadAddr = data.roadAddress;
@@ -30,23 +29,10 @@ function execPostCode() {
 }
 
 $(function () {
-    // 장바구니로 돌아가기
-    // $('#returnCart').click(() => {
-    //     $.ajax({
-    //         url: "/cart/cartList.ing",
-    //         contentType: 'application/x-www-form-urlencoded;charset=utf-8',
-    //         success: (data) => {
-    //             alert("장바구니로 돌아갑니다.")
-    //             $('#content').children().remove();
-    //             $('#content').html(data);
-    //         }, error: (error) => {
-    //             alert("장바구니로 돌아갈 수 없습니다.")
-    //             console.log(error)
-    //         }
-    //     })
-    // })
 
-    // 결제버튼
+    /**
+     *  결제확인(payOrder.jsp)로 창으로 넘어가기
+     */
     $('#payOrder').click(() => {
         let shipAddress = '['+$('#addr1').val()+'] ' + $('#addr2').val() +' ' + $('#addr3').val()
         $.ajax({
@@ -67,6 +53,12 @@ $(function () {
                 alert("결제 페이지를 못가~")
             }
         })
+    })
+
+    // 포인트 확인 & 사용
+    $('#check_point').click(()=>{
+        alert('포인트 확인클릭')
+        window.open("/start.ing", '시험')
     })
 
     // 체크박스 한개만 체크되도록 설정
