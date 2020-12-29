@@ -36,5 +36,7 @@
     <input type="submit" value="찾기">
 </form>
 
+<a href="/customerBoardUpdate.ing/">글수정</a>
+
 </body>
 </html>

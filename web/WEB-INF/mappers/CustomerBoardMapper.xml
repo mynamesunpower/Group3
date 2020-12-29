@@ -25,17 +25,39 @@
   	from CUSTOMER_SERVICE
   	order by ARTICLE_ID desc
      </select>
+<!--글 목록리스트-->
 
     <insert id="customerBoardInsert" parameterType="customerBoard">
 insert into customer_service (article_id,writing_time,title,content,tel,read_count)
-values      (seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, 0)
+values      (seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{readCount})
     </insert>
+<!--글 등록-->
 
-    <select id="customerBoard" resultType="customerBoard" parameterType="customerBoard">
+    <select id="customerBoard" resultMap="customerBoard" parameterType="customerBoard">
       select *
       FROM CUSTOMER_SERVICE
-	  WHERE SEQ = #{seq}
+	  WHERE article_Id = #{articleId}
     </select>
+<!--글내용-->
 
+    <update id="customerBoardUpdate" parameterType="customerBoard">
+    update CUSTOMER_SERVICE
+  set TITLE = #{title},
+  CONTENT =#{content}
+  where article_Id = #{articleId}
+    </update>
+<!--글 수정-->
+
+    <update id="customerBoardReadCount" parameterType="customerBoard">
+        update CUSTOMER_SERVICE
+        set READ_COUNT= READ_COUNT+1
+        where article_Id = #{articleId}
+    </update>
+    <!--조회수증가-->
+
+    <delete id="customerBoardDelete" parameterType="customerBoard">
+        delete from CUSTOMER_SERVICE
+        where ARTICLE_ID = #{articleId}
+    </delete>
 
 </mapper>

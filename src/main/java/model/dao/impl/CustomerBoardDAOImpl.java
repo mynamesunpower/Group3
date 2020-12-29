@@ -17,7 +17,7 @@ public class CustomerBoardDAOImpl implements CustomerBoardDAO {
     @Override
     public List<CustomerBoardVO> customerBoardList(CustomerBoardVO customerBoardvo) {
         return mybatis.selectList("customerBoard.customerBoardList", customerBoardvo);
-    }
+    }//고객게시판 리스트 불러오기
 
     @Override
     public int customerBoardInsert(CustomerBoardVO customerBoardvo) {
@@ -26,6 +26,24 @@ public class CustomerBoardDAOImpl implements CustomerBoardDAO {
 
     @Override
     public CustomerBoardVO customerBoard(CustomerBoardVO customerBoardvo) {
-        return mybatis.selectOne("customerBoard.customerBoard", customerBoardvo);
+
+        System.out.println(customerBoardvo.getArticleId());
+        CustomerBoardVO vo = mybatis.selectOne("customerBoard.customerBoard", customerBoardvo);
+        return vo;
     }
+
+    @Override
+    public int customerBoardUpdate(CustomerBoardVO customerBoardvo) {
+        return mybatis.update("customerBoard.customerBoardUpdate", customerBoardvo);
+    }
+
+    @Override
+    public int customerBoardReadCount(CustomerBoardVO customerBoardvo) {
+        return mybatis.update("customerBoard.customerBoardReadCount", customerBoardvo);
+    }//조회수증가
+
+    @Override
+    public int customerBoardDelete(CustomerBoardVO customerBoardvo) {
+        return mybatis.delete("customerBoard.customerBoardDelete", customerBoardvo);
+    }//고객게시판 글 삭제.
 }

@@ -35,7 +35,8 @@
         <tbody>
         <tr>
             <td>${customerBoardList.articleId}</td>
-            <td>${customerBoardList.title}</td>
+            <td><a href="/customerBoard.ing?articleId=${customerBoardList.articleId}">
+                    ${customerBoardList.title}</a></td>
             <td>${customerBoardList.writingTime}</td>
             <td>${customerBoardList.readCount}</td>
         </tr>

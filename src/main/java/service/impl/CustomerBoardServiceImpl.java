@@ -29,5 +29,19 @@ public class CustomerBoardServiceImpl implements CustomerBoardService {
     @Override
     public CustomerBoardVO customerBoard(CustomerBoardVO customerBoardvo) {
         return customerBoardDao.customerBoard(customerBoardvo);
-    }//
+    }
+
+    @Override
+    public int customerBoardUpdate(CustomerBoardVO customerBoardvo) {
+        return customerBoardDao.customerBoardUpdate(customerBoardvo);
+    }
+    @Override
+    public int customerBoardReadCount(CustomerBoardVO customerBoardvo){
+        return customerBoardDao.customerBoardReadCount(customerBoardvo);
+    }
+
+    @Override
+    public int customerBoardDelete(CustomerBoardVO customerBoardvo) {
+        return customerBoardDao.customerBoardDelete(customerBoardvo);
+    }
 }

@@ -13,4 +13,10 @@ public interface CustomerBoardService {
     int customerBoardInsert(CustomerBoardVO customerBoardvo);
 
     CustomerBoardVO customerBoard(CustomerBoardVO customerBoardvo);
+
+    int customerBoardReadCount(CustomerBoardVO customerBoardvo);
+
+    int customerBoardUpdate(CustomerBoardVO customerBoardvo);//조회수증가
+
+    int customerBoardDelete(CustomerBoardVO customerBoardvo);
 }

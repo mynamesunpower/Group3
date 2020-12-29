@@ -12,4 +12,9 @@ public interface CustomerBoardDAO {
 
     CustomerBoardVO customerBoard(CustomerBoardVO customerBoardvo);
 
+    int customerBoardReadCount(CustomerBoardVO customerBoardvo);
+
+    int customerBoardUpdate(CustomerBoardVO customerBoardvo);
+
+    int customerBoardDelete(CustomerBoardVO customerBoardvo);
 }
