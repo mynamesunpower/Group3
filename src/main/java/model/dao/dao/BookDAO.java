@@ -40,4 +40,7 @@ public interface BookDAO {
 
  //출간순서 도서 리스트
     List<BookVO> newbookList();
+
+    //동적 책 장르별 탭
+    List<BookVO> bookTab();
 }

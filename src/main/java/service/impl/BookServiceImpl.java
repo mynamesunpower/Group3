@@ -132,4 +132,10 @@ public class BookServiceImpl implements BookService {
     public List<BookVO> newbookList() {
         return bookdao.newbookList();
     }
+
+    //동적 책 장르 탭
+    @Override
+    public List<BookVO> bookTab() {
+        return bookdao.bookTab();
+    }
 }

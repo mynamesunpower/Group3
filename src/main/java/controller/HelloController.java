@@ -1,10 +1,13 @@
 package controller;
 
+import model.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import service.impl.BookServiceImpl;
+
+import java.util.List;
 
 @Controller
 public class HelloController {
@@ -20,6 +23,7 @@ public class HelloController {
 //    }
 
     //메인페이지 책 이미지 뽑기
+    //메인에 넘기기
     @RequestMapping("/start.ing")
     public String carousel(Model model){
         System.out.println("helloController에서 hello.ing 요청");
@@ -31,7 +35,9 @@ public class HelloController {
         model.addAttribute("genrehotBook",bookService.hotBook(genre));
         System.out.println(bookService.carouselBook().size());
         System.out.println(bookService.bestBook().size());
-        return "hello"; // 어 뭐야저 건 어따쓰는거에요? 너가 처음에 저기다 만ㄷ즐었나본ㄷ엥그랬나?? 지워도될듯
+        List<BookVO> bookkey = bookService.bookTab();
+        model.addAttribute("booktap",bookkey);
+        return "hello";
     }
 
     @RequestMapping("/error.ing")

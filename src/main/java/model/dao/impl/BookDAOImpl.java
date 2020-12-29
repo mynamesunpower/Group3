@@ -229,9 +229,15 @@ public class BookDAOImpl implements BookDAO {
     }
 
     //출간일 순서 도서 리스트
-
     @Override
     public List<BookVO> newbookList() {
         return mybatis.selectList("BookMapper.newbookList");
+    }
+
+    //동적 장르별 도서 탭
+
+    @Override
+    public List<BookVO> bookTab() {
+        return mybatis.selectList("BookMapper.bookTab");
     }
 }

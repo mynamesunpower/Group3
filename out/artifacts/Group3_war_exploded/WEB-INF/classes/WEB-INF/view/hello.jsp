@@ -184,12 +184,14 @@
                     <div class="collapsible-header">　책</div>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a class="loadAjax" href="genrebookList.ing?genre=교육">교육</a></li>
-                            <li><a class="loadAjax" href="genrebookList.ing?genre=참고서">참고서</a></li>
-                            <li><a class="loadAjax" href="genrebookList.ing?genre=EBS">EBS</a></li>
-                            <li><a class="loadAjax" href="genrebookList.ing?genre=어학">어학</a></li>
-                            <li><a class="loadAjax" href="genrebookList.ing?genre=자격증">자격증</a></li>
-                            <li><a class="loadAjax" href="genrebookList.ing?genre=고시">고시</a></li>
+                                        <c:forEach items="${booktap}" var="tap">
+                            <li><a class="loadAjax" href="genrebookList.ing?genre=${tap.genre}">${tap.genre}</a></li>
+                                        </c:forEach>
+                            <%--<li><a class="loadAjax" href="genrebookList.ing?genre=참고서">참고서</a></li>--%>
+                            <%--<li><a class="loadAjax" href="genrebookList.ing?genre=EBS">EBS</a></li>--%>
+                            <%--<li><a class="loadAjax" href="genrebookList.ing?genre=어학">어학</a></li>--%>
+                            <%--<li><a class="loadAjax" href="genrebookList.ing?genre=자격증">자격증</a></li>--%>
+                            <%--<li><a class="loadAjax" href="genrebookList.ing?genre=고시">고시</a></li>--%>
                         </ul>
                     </div>
                 </li>

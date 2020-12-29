@@ -26,4 +26,5 @@ public interface BookService {
     HashMap<Integer,Integer> daychart();
     List<BookVO> bestbookList();
     List<BookVO> newbookList();
+    List<BookVO> bookTab();
 }

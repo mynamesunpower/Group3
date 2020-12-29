@@ -15,7 +15,7 @@
 <div class="row"></div>
 <h5>${result} 건의 검색 결과</h5>
 <h6> 장르: ${genre} </h6>
-<c:forEach items="${bestbookList}" var="book">
+<c:forEach items="${bookList}" var="book">
     <div class="row">
         <div class="col s4 center-align">
             <img src="../../../imgs/book/${book.isbn}.PNG">

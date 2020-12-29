@@ -296,7 +296,12 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
         from book
         order by publication_date desc
 ]]>
+    </select>
 
+    <select id="bookTab" resultType="book">
+        select genre
+        from book
+        group by genre
     </select>
 
     <resultMap id="salesData" type="salesdata">
