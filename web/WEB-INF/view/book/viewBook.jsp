@@ -48,7 +48,7 @@
             <c:if test="${sessionScope.memberName ne null}">
                 <a class="loadAjax btn" href="/cart/addCart.ing?isbn=${viewBook.isbn}">장바구니에 추가</a>
             </c:if>
-            <a class="btn" href="">바로 구매하기</a>
+            <a class="loadAjax btn" href="/purchase/orderBook.ing?isbn=${viewBook.isbn}">바로 구매하기</a>
         </div>
     </div>
 </div>

@@ -31,20 +31,20 @@ function execPostCode() {
 
 $(function () {
     // 장바구니로 돌아가기
-    $('#returnCart').click(() => {
-        $.ajax({
-            url: "/cart/cartList.ing",
-            contentType: 'application/x-www-form-urlencoded;charset=utf-8',
-            success: (data) => {
-                alert("장바구니로 돌아갑니다.")
-                $('#content').children().remove();
-                $('#content').html(data);
-            }, error: (error) => {
-                alert("장바구니로 돌아갈 수 없습니다.")
-                console.log(error)
-            }
-        })
-    })
+    // $('#returnCart').click(() => {
+    //     $.ajax({
+    //         url: "/cart/cartList.ing",
+    //         contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+    //         success: (data) => {
+    //             alert("장바구니로 돌아갑니다.")
+    //             $('#content').children().remove();
+    //             $('#content').html(data);
+    //         }, error: (error) => {
+    //             alert("장바구니로 돌아갈 수 없습니다.")
+    //             console.log(error)
+    //         }
+    //     })
+    // })
 
     // 결제버튼
     $('#payOrder').click(() => {

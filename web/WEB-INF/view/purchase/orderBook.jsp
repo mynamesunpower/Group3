@@ -55,15 +55,28 @@
 
             <c:otherwise>
                 <input type="hidden" id="bookKind" value="1"/>
-                <c:forEach var="cart" items="${cart}">
-                    <tr>
-                        <td>${cart.bookVO.title}</td>
-                            <%--가격에 천단위 가격으로 formatting--%>
-                        <td><fmt:formatNumber value="${cart.bookVO.price * cart.quantity}" pattern="#,###"/>원</td>
-                        <td>${cart.quantity}</td>
-                    </tr>
-                    <c:set var="totalPrice" value="${price+cart.bookVO.price * cart.quantity}"/>
-                </c:forEach>
+                <c:choose>
+                    <c:when test="${cart==null}">
+                        <tr>
+                            <td>${bookVO.title}</td>
+                                <%--가격에 천단위 가격으로 formatting--%>
+                            <td><fmt:formatNumber value="${bookVO.price}" pattern="#,###"/>원</td>
+                            <td>1</td>
+                        </tr>
+                        <c:set var="totalPrice" value="${bookVO.price}"/>
+                    </c:when>
+                    <c:otherwise>
+                        <c:forEach var="cart" items="${cart}">
+                            <tr>
+                                <td>${cart.bookVO.title}</td>
+                                    <%--가격에 천단위 가격으로 formatting--%>
+                                <td><fmt:formatNumber value="${cart.bookVO.price * cart.quantity}" pattern="#,###"/>원</td>
+                                <td>${cart.quantity}</td>
+                            </tr>
+                            <c:set var="totalPrice" value="${price+cart.bookVO.price * cart.quantity}"/>
+                        </c:forEach>
+                    </c:otherwise>
+                </c:choose>
             </c:otherwise>
         </c:choose>
     </table>
@@ -80,9 +93,9 @@
     </div>
     <div class="row">
         <div class="col s4 offset-s6">
-            <button id="returnCart" class="waves-effect waves-light btn-small white black-text" value="장바구니">
+            <a href="/cart/cartList.ing" id="returnCart" class="loadAjax waves-effect waves-light btn-small white black-text">
                 <i class="material-icons left">shopping_cart</i>장바구니로
-            </button>
+            </a>
         </div>
     </div>
     <br/><br/>
