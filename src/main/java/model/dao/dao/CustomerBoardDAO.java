@@ -17,4 +17,6 @@ public interface CustomerBoardDAO {
     int customerBoardUpdate(CustomerBoardVO customerBoardvo);
 
     int customerBoardDelete(CustomerBoardVO customerBoardvo);
+
+    List<CustomerBoardVO> customerBoardSearch(CustomerBoardVO customerBoardvo);
 }

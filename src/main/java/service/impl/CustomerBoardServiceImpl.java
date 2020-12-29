@@ -44,4 +44,9 @@ public class CustomerBoardServiceImpl implements CustomerBoardService {
     public int customerBoardDelete(CustomerBoardVO customerBoardvo) {
         return customerBoardDao.customerBoardDelete(customerBoardvo);
     }
+
+    @Override
+    public List<CustomerBoardVO> customerBoardSearch(CustomerBoardVO customerBoardvo) {
+        return customerBoardDao.customerBoardSearch(customerBoardvo);
+    }
 }

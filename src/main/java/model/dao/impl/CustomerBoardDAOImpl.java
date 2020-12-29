@@ -26,8 +26,6 @@ public class CustomerBoardDAOImpl implements CustomerBoardDAO {
 
     @Override
     public CustomerBoardVO customerBoard(CustomerBoardVO customerBoardvo) {
-
-        System.out.println(customerBoardvo.getArticleId());
         CustomerBoardVO vo = mybatis.selectOne("customerBoard.customerBoard", customerBoardvo);
         return vo;
     }
@@ -46,4 +44,10 @@ public class CustomerBoardDAOImpl implements CustomerBoardDAO {
     public int customerBoardDelete(CustomerBoardVO customerBoardvo) {
         return mybatis.delete("customerBoard.customerBoardDelete", customerBoardvo);
     }//고객게시판 글 삭제.
+
+    @Override
+    public List<CustomerBoardVO> customerBoardSearch(CustomerBoardVO customerBoardvo){
+        return mybatis.selectList("customerBoard.customerBoardSearch", customerBoardvo);
+    }
+
 }

@@ -17,11 +17,16 @@ public class CustomerBoardController {
 
     @RequestMapping(value = "/customerBoardList.ing")
     public String customerBoardList(CustomerBoardVO customerBoardvo, Model model) {
-
-        System.out.println("고객문의게시판이동.");
         model.addAttribute("customerBoardList", customerBoardService.customerBoardList(customerBoardvo));
         return "/customerBoardList";
     }//고객문의 게시판으로 이동.
+
+    @RequestMapping(value = "/customerBoardSearch.ing")
+    public String customerBoardSearch(CustomerBoardVO customerBoardvo, Model model, HttpServletRequest request) {
+        model.addAttribute("customerBoardSearch", customerBoardService.customerBoardSearch(customerBoardvo));
+        return "/customerBoardSearch";
+    }//고객문의 게시판으로 이동.
+
 
     @RequestMapping(value = "/customerBoardInsert.ing")
     public String customerBoardInsert(CustomerBoardVO customerBoardvo){

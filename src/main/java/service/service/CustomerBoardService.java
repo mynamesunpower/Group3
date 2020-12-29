@@ -19,4 +19,7 @@ public interface CustomerBoardService {
     int customerBoardUpdate(CustomerBoardVO customerBoardvo);//조회수증가
 
     int customerBoardDelete(CustomerBoardVO customerBoardvo);
+
+    List<CustomerBoardVO> customerBoardSearch(CustomerBoardVO customerBoardvo);
+
 }

@@ -358,7 +358,7 @@
                     </li>
                     <li>
                         <div class="collapsible-header"><h4>[회원] 성인 인증 제한 나이는 어떻게 되나요?</h4></div>
-                        <div class="collapsible-body"><p>YES24에서는 연19세 이상만 성인인증이 가능합니다.<br /><br />
+                        <div class="collapsible-body"><p>BookTrain.ing에서는 연19세 이상만 성인인증이 가능합니다.<br /><br />
                             "연19세"란 만19세에 도달하는 해에 1월 1일을 맞이한 사람을 의미합니다.<br />
                             예를 들어 2017년에는 1998년 12월 31일 생까지 연19세가 되어 성인으로 간주하게 됩니다.<br />
                             19세 미만은 청소년으로 간주하여 성인인증을 할 수 없으므로 성인물(만화, DVD/Blu-ray등)을 구매할 수 없습니다.<br /><br />
@@ -367,7 +367,6 @@
                     </li>
                 </ul>
             </div><!-- end  회원서비스 네번째 탭 -->
-
         </div><!-- end  <div class="col s8">  -->
     </div><!-- end <div class="row"> -->
 </div><!-- end <div class="col s8">  세로탭 끝-->

@@ -27,6 +27,15 @@
      </select>
 <!--글 목록리스트-->
 
+    <select id="customerBoardSearch" resultMap="customerBoard">
+    select *
+    from CUSTOMER_SERVICE
+    where title like '%' || #{title} || '%'
+    order by ARTICLE_ID desc
+
+    </select>
+    <!-- 글제목검색.-->
+
     <insert id="customerBoardInsert" parameterType="customerBoard">
 insert into customer_service (article_id,writing_time,title,content,tel,read_count)
 values      (seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{readCount})
@@ -59,5 +68,7 @@ values      (seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{rea
         delete from CUSTOMER_SERVICE
         where ARTICLE_ID = #{articleId}
     </delete>
+
+
 
 </mapper>

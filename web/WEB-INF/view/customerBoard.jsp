@@ -38,7 +38,9 @@
 
 <a href="/customerBoardDelete.ing?articleId=${customerBoard.articleId}">글삭제</a> <br/><br/>
 
-<a href="/customerBoardList.ing">글목록으로 돌아가기</a>
+<a href="/customerBoardList.ing">글목록으로 돌아가기</a><br/><br/>
+
+
 
 </body>
 </html>
