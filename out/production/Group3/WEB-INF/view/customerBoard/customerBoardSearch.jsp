@@ -56,7 +56,7 @@
         <tbody>
         <tr>
             <td>${customerBoardSearch.articleId}</td>
-            <td><a href="/customerBoard.ing?articleId=${customerBoardSearch.articleId}">
+            <td><a href="customerBoard/customerBoard.ing?articleId=${customerBoardSearch.articleId}">
                     ${customerBoardSearch.title}</a></td>
             <td>${customerBoardSearch.writingTime}</td>
             <td>${customerBoardSearch.readCount}</td>
@@ -73,7 +73,7 @@
 <%--페이지 넘버--%>
 
 
-<a href="/customerBoardList.ing">글목록으로 돌아가기</a><br/><br/>
+<a href="customerBoard/customerBoardList.ing">글목록으로 돌아가기</a><br/><br/>
 
 </body>
 </html>

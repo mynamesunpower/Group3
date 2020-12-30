@@ -14,8 +14,10 @@
     <!--도서 리스트-->
     <select id="bookList" resultMap="getBook">
         <![CDATA[
-        SELECT *
-        FROM book
+        select b.ISBN isbn, b.PUBLISHER_NUMBER publisher_number, p.PUBLISHER_NAME publisher_name, b.GENRE genre,
+               b.TOTAL_PAGE total_page, b.PRICE price, b.TITLE title, b.STOCK stock, b.AUTHOR author, b.PUBLICATION_DATE publication_date,
+               b.CONTENT content, b.KEYWORD keyword
+        from book b inner join PUBLISHER P on P.PUBLISHER_NUMBER = b.PUBLISHER_NUMBER
         ORDER BY ISBN DESC
         ]]>
     </select>
@@ -23,8 +25,10 @@
     <!--선택한 ISBN의 도서정보-->
     <select id="selectBook" resultMap="getBook">
         <![CDATA[
-        SELECT *
-        FROM book
+        select b.ISBN isbn, b.PUBLISHER_NUMBER publisher_number, p.PUBLISHER_NAME publisher_name, b.GENRE genre,
+               b.TOTAL_PAGE total_page, b.PRICE price, b.TITLE title, b.STOCK stock, b.AUTHOR author, b.PUBLICATION_DATE publication_date,
+               b.CONTENT content, b.KEYWORD keyword
+        from book b inner join PUBLISHER P on P.PUBLISHER_NUMBER = b.PUBLISHER_NUMBER
         WHERE ISBN = #{isbn}
         ]]>
     </select>
@@ -53,7 +57,11 @@
     <!--메뉴에서 선택한 종류의 책정보 리스트-->
     <select id="genrebookList" parameterType="String" resultMap="getBook">
         <![CDATA[
-        SELECT * FROM book WHERE GENRE = #{GENRE}
+        select b.ISBN isbn, b.PUBLISHER_NUMBER publisher_number, p.PUBLISHER_NAME publisher_name, b.GENRE genre,
+               b.TOTAL_PAGE total_page, b.PRICE price, b.TITLE title, b.STOCK stock, b.AUTHOR author, b.PUBLICATION_DATE publication_date,
+               b.CONTENT content, b.KEYWORD keyword
+        from book b inner join PUBLISHER P on P.PUBLISHER_NUMBER = b.PUBLISHER_NUMBER
+        WHERE GENRE = #{GENRE}
         ]]>
     </select>
 
@@ -72,7 +80,10 @@
     </update>
 
     <select id="searchBook" parameterType="hashmap" resultMap="getBook">
-        SELECT * FROM BOOK
+        select b.ISBN isbn, b.PUBLISHER_NUMBER publisher_number, p.PUBLISHER_NAME publisher_name, b.GENRE genre,
+        b.TOTAL_PAGE total_page, b.PRICE price, b.TITLE title, b.STOCK stock, b.AUTHOR author, b.PUBLICATION_DATE publication_date,
+        b.CONTENT content, b.KEYWORD keyword
+        from book b inner join PUBLISHER P on P.PUBLISHER_NUMBER = b.PUBLISHER_NUMBER
         <where>
             <!--
             title like #{keyword} or
@@ -292,21 +303,27 @@
 
     <select id="bestbookList" resultMap="getBook">
         <![CDATA[
-        SELECT *
+        SELECT b.ISBN isbn, b.PUBLISHER_NUMBER publisher_number, p.PUBLISHER_NAME publisher_name, b.GENRE genre,
+            b.TOTAL_PAGE total_page, b.PRICE price, b.TITLE title, b.STOCK stock, b.AUTHOR author, b.PUBLICATION_DATE publication_date,
+            b.CONTENT content, b.KEYWORD keyword, sd.amountquantity amountquantity
         FROM book b
-                 INNER JOIN(select isbn, sum(amount_quantity) amountquantity
-                            from sales_data
-                            group by isbn
-                            order by amountquantity DESC) sd
-                           ON b.isbn=sd.isbn
+        INNER JOIN(select isbn, sum(amount_quantity) amountquantity
+                   from sales_data
+                   group by isbn
+                   order by amountquantity DESC) sd
+        ON b.isbn=sd.isbn
+        INNER JOIN PUBLISHER p
+        ON p.publisher_number = b.publisher_number
 ]]>
     </select>
 
-    <select id="newbookList" resultType="book">
+    <select id="newbookList" resultMap="getBook">
         <![CDATA[
-        select *
-        from book
-        order by publication_date desc
+        select b.ISBN isbn, b.PUBLISHER_NUMBER publisher_number, p.PUBLISHER_NAME publisher_name, b.GENRE genre,
+               b.TOTAL_PAGE total_page, b.PRICE price, b.TITLE title, b.STOCK stock, b.AUTHOR author, b.PUBLICATION_DATE publication_date,
+               b.CONTENT content, b.KEYWORD keyword
+        from book b inner join publisher P on P.PUBLISHER_NUMBER = b.PUBLISHER_NUMBER
+        order by b.publication_date desc
 ]]>
     </select>
 
@@ -380,6 +397,13 @@
         <result property="amountPrice" column="amount_price"/>
     </resultMap>
 
+    <resultMap id="publisher" type="publisher">
+        <result property="publisherNumber" column="publisher_number"/>
+        <result property="publisherName" column="publisher_name"/>
+        <result property="address" column="address"/>
+        <result property="tel" column="tel"/>
+        <result property="url" column="url"/>
+    </resultMap>
 
     <resultMap id="getBook" type="book">
         <result property="isbn" column="isbn"/>
@@ -394,7 +418,17 @@
         <result property="content" column="content"/>
         <result property="keyword" column="keyword"/>
         <collection property="salesDataVO" resultMap="salesData"/>
+        <collection property="publisherVO" resultMap="publisher" />
     </resultMap>
+
+    <select id="getBookAndPublisher" resultMap="getBook">
+        select b.ISBN isbn, b.PUBLISHER_NUMBER publisher_number, p.PUBLISHER_NAME publisher_name, b.GENRE genre,
+               b.TOTAL_PAGE total_page, b.PRICE price, b.TITLE title, b.STOCK stock, b.AUTHOR author, b.PUBLICATION_DATE publication_date,
+               b.CONTENT content, b.KEYWORD keyword
+        from book b inner join PUBLISHER P on P.PUBLISHER_NUMBER = b.PUBLISHER_NUMBER
+    </select>
+
+
 
 
 

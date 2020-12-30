@@ -34,6 +34,10 @@
             <td align="left">${selectBook.publisherNumber}</td>
         </tr>
         <tr>
+            <td bgcolor="#ffebcd">출판사명</td>
+            <td align="left">${selectBook.publisherVO.publisherName} </td>
+        </tr>
+        <tr>
             <td bgcolor="#ffebcd">제목</td>
             <td align="left"><input type="text" name="title" value="${selectBook.title}"></td>
         </tr>
