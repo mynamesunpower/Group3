@@ -72,7 +72,7 @@
 <br/>
 
 <div class="col-md-12 center text-center">
-    <span class="left" id="total_reg"></span>
+    <span class="left" ></span>
     <ul class="pagination pager" id="myPager"></ul>
 </div>
 <%--페이지 넘버--%>
