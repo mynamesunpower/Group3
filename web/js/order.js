@@ -28,6 +28,8 @@
         }).open();
     }
 
+
+
 $(function () {
 
     /**
@@ -59,6 +61,16 @@ $(function () {
     $('#check_point').click(()=>{
         alert('포인트 확인클릭')
         window.open('/purchase/checkPoint.ing','포인트 확인', 'width=400, height=150 resizeable=no')
+    })
+
+    $('#use_pointBtn').click(()=>{
+        alert($('#use_point', opener.document).val())
+        $('#use_point', opener.document).val();
+    })
+
+    $('#cancel_point').click(()=>{
+        alert("포인트 사용취소")
+        window.close()
     })
 
     // 체크박스 한개만 체크되도록 설정

@@ -30,7 +30,7 @@
             <c:forEach var="detailOrder_list" items="${detailOrder_List}">
                 <tr>
                     <th>
-                        <a href="">${detailOrder_list.bookVO.title}</a> ${detailOrder_list.purchaseBookVO.quantity}권
+                        <a class="loadAjax" href="/viewBook.ing?isbn=${detailOrder_list.purchaseBookVO.isbn}">${detailOrder_list.bookVO.title}</a> ${detailOrder_list.purchaseBookVO.quantity}권
                     </th>
                     <td>
                         <c:if test="${purchaseInfo.cancelDate == null}">

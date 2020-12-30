@@ -74,6 +74,12 @@
         where id = #{id} and email=#{email} and domain = #{domain}
     </select>
 
+    <select id="checkPoint" parameterType="String" resultMap="getMember">
+        SELECT POINT
+        FROM MEMBER
+        WHERE TEL = #{tel}
+    </select>
+
     <resultMap id="getMember" type="model.vo.MemberVO">
         <result property="tel" column="tel"/>
         <result property="name" column="name"/>
