@@ -35,6 +35,12 @@
                 hidePageNumbers:false,
                 perPage:10
             });  //페이징관련 스크립트.
+
+            let text = $('span#total_reg').text();
+            alert(text);
+            let articleNumber = text.substring(0, 1);
+            alert(articleNumber);
+*/
         });
 
     </script>
@@ -56,7 +62,7 @@
         <tbody>
         <tr>
             <td>${customerBoardSearch.articleId}</td>
-            <td><a href="customerBoard/customerBoard.ing?articleId=${customerBoardSearch.articleId}">
+            <td><a class="loadAjax" href="customerBoard/customerBoard.ing?articleId=${customerBoardSearch.articleId}">
                     ${customerBoardSearch.title}</a></td>
             <td>${customerBoardSearch.writingTime}</td>
             <td>${customerBoardSearch.readCount}</td>
@@ -73,7 +79,7 @@
 <%--페이지 넘버--%>
 
 
-<a href="customerBoard/customerBoardList.ing">글목록으로 돌아가기</a><br/><br/>
+<a class="loadAjax" href="customerBoard/customerBoardList.ing">글목록으로 돌아가기</a><br/><br/>
 
 </body>
 </html>

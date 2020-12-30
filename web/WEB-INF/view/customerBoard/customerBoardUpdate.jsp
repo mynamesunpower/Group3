@@ -10,17 +10,39 @@
 <html>
 <head>
     <title>Title</title>
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(document).on('click', '#customerModifyBtn', function (evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+
+                let content = $("#content");
+                let queryString = $('#customerModifyForm').serialize();
+                $.ajax({
+                    type : 'post',
+                    url : 'customerBoard/customerBoardUpdateOk.ing',
+                    data : queryString,
+                    success : function (data) {
+                        content.children().remove();
+                        content.html(data);
+                    },
+                    error : function (err) {
+                        console.log("게시판 글쓰기 실패"+err);
+                    }
+                })
+            })
+        });
+    </script>
 </head>
 <body>
 
 <%--${param.articleId}  값이 넘어옴 글번호--%>
 
 
-<form action="customerBoard/customerBoardUpdateOk.ing">
+<form id="customerModifyForm" action="customerBoard/customerBoardUpdateOk.ing">
 <div class="row">
     <div class="input-field col s6 offset-s2">
         <label for="title">글제목</label>
@@ -36,6 +58,9 @@
 </div>
     <input type="hidden" id="articleId" name="articleId" value="${param.articleId}">
 <button class="btn waves-effect waves-light" type="submit" name="action">글수정완료</button>
+    <a class="btn waves-effect waves-light loadAjax blue lighten-4" id="customerModifyBtn">수정하기</a>
+    <a class="btn waves-effect waves-light loadAjax" href="/start.ing">홈으로</a>
+    <a class="btn waves-effect waves-light loadAjax" href="/customerBoard/customerBoardList.ing">목록으로</a>
 </form>
 
 

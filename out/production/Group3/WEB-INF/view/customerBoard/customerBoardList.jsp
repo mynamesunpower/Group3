@@ -16,7 +16,7 @@
 
     <!--Import materialize.css pagination페이징-->
     <link rel="stylesheet" href="https://cdn.rawgit.com/Dogfalo/materialize/fc44c862/dist/css/materialize.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/Dogfalo/materialize/fc44c862/dist/js/materialize.min.js"></script>
     <script type="text/javascript"
             src="https://cdn.rawgit.com/pinzon1992/materialize_table_pagination/f9a8478f/js/pagination.js"></script>
@@ -33,8 +33,34 @@
                 hidePageNumbers: false,
                 perPage: 10
             });  //페이징관련 스크립트.
-        });
 
+
+            $(document).on('click', '#customerSearch', function (evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+
+                let content = $("#content");
+                let query = $('#customerSearchForm').serialize();
+                alert(query);
+                if (!$("label[for='title']").hasClass("active")) {
+                    alert("검색어를 먼저 입력하세요.");
+                    return;
+                }
+                $.ajax({
+                    type : 'post',
+                    url : 'customerBoard/customerBoardSearch.ing',
+                    data : query,
+                    success : function (data) {
+                        content.children().remove();
+                        content.html(data);
+                    },
+                    error : function (err) {
+                        console.log("목록 불러오기 실패"+err);
+                    }
+                })
+            })
+
+        });
     </script>
 
 </head>
@@ -57,7 +83,7 @@
         <tbody>
         <tr>
             <td>${customerBoardList.articleId}</td>
-            <td><a href="customerBoard/customerBoard.ing?articleId=${customerBoardList.articleId}">
+            <td><a class="loadAjax" href="customerBoard/customerBoard.ing?articleId=${customerBoardList.articleId}">
                     ${customerBoardList.title}</a></td>
             <td>${customerBoardList.writingTime}</td>
             <td>${customerBoardList.readCount}</td>
@@ -78,17 +104,18 @@
     <c:when test="${sessionScope.memberId eq null}">
     </c:when>
     <c:when test="${sessionScope.memberName ne null}">
-        <a href="customerBoard/customerBoardInsert.ing"><input type="button" value="글쓰기"></a>
+        <a class="loadAjax btn" href="customerBoard/customerBoardInsert.ing"><input type="button" value="글쓰기"></a>
     </c:when>
 </c:choose>
 
-<form action="customerBoard/customerBoardSearch.ing">
+<form id="customerSearchForm" action="customerBoard/customerBoardSearch.ing">
     <div class="row">
         <div class="input-field col s4">
             <%-- 검색창 필드 크기 조정.--%>
             <label for="title">글제목을 입력해주세요.</label>
-            <input type="text" id="title" name="title">
-            <input type="submit" value="검색">
+            <input type="text" id="title" name="title" value="">
+            <%--<input type="submit" value="검색">--%>
+            <a class="loadAjax btn" id="customerSearch">검색</a>
         </div>
     </div>
 </form>

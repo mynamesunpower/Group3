@@ -46,6 +46,9 @@ public class CustomerBoardController {
         System.out.println("글등록한 후 페이지 이동");
 
         int result = customerBoardService.customerBoardInsert(customerBoardvo);
+        if (result > 0) {
+            System.out.println("글 등록이 성공했습니다.");
+        }
         return "customerBoard/customerBoardInsertOk";
     }//end customerBoardOk 글등록하고 완료햇다는 페이지
 
@@ -56,7 +59,7 @@ public class CustomerBoardController {
 
         int result = customerBoardService.customerBoardReadCount(customerBoardvo);  //조회수증가
 
-        return "/customerBoard";
+        return "customerBoard/customerBoard";
     }//end customerBoard 글제목 눌러서들어가는
 
     @RequestMapping("/customerBoardUpdate.ing")
