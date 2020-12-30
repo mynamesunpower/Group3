@@ -48,7 +48,7 @@ public class BookController {
             System.out.println("sbox null");
             map.put("sbox", null);
         }
-        
+
         List<BookVO> bookList = bookService.searchBook(map);
 
         model.addAttribute("keyword", keyword);
