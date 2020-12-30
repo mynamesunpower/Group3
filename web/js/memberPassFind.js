@@ -62,7 +62,7 @@ $(function(){
 
         $.ajax({
             method: "post",
-            url: "/memberPassFindOk.ing",
+            url: "member/memberPassFindOk.ing",
             data: queryString,
             success : function (data) {
                 let result = data.trim().replaceAll("\"", "");

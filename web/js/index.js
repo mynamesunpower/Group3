@@ -73,7 +73,7 @@ $(document).ready(function(){
       evt.stopPropagation();
       $.ajax({
          method: "post",
-         url: "/memberjoin.ing",
+         url: "member/memberjoin.ing",
          success : function (data) {
             $('#content').children().remove();
             $('#content').html(data);
@@ -104,7 +104,7 @@ $(document).ready(function(){
       evt.stopPropagation();
       $.ajax({
          method: "post",
-         url: "/memberDelete.ing",
+         url: "member/memberDelete.ing",
          success : function (data) {
             $('#content').children().remove();
             $('#content').html(data);
@@ -124,7 +124,7 @@ $(document).ready(function(){
 
          $.ajax({
             method: 'post',
-            url: "/memberlogin.ing",
+            url: "member/memberlogin.ing",
             data: queryString,
             success : function (data) {
                alert(data);
@@ -158,7 +158,7 @@ $(document).ready(function(){
 
       $.ajax({
          method: 'post',
-         url: "/memberlogin.ing",
+         url: "member/memberlogin.ing",
          data: queryString,
          success : function (data) {
             console.log(data);

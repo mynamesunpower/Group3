@@ -58,7 +58,6 @@ $(function () {
     // 포인트 확인 & 사용
     $('#check_point').click(()=>{
         alert('포인트 확인클릭')
-        window.open("/start.ing", '시험')
     })
 
     // 체크박스 한개만 체크되도록 설정

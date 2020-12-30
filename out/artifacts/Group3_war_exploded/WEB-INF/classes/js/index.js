@@ -26,8 +26,11 @@ $(document).ready(function(){
       });
    });
 
-   $('#searchAnchor').click(function () {
+
+   $('#searchAnchor').click(function (event) {
       //$('#searchForm').submit();
+      event.preventDefault();
+      event.stopPropagation();
       let content = $("#content");
       let queryString = $('#searchForm').serialize();
       alert(queryString);
@@ -36,6 +39,7 @@ $(document).ready(function(){
          type : 'get',
          data : queryString,
          success : function (data) {
+            console.log(data);
             content.children().remove();
             content.html(data);
             $('#header').show();
@@ -69,7 +73,7 @@ $(document).ready(function(){
       evt.stopPropagation();
       $.ajax({
          method: "post",
-         url: "/memberjoin.ing",
+         url: "member/memberjoin.ing",
          success : function (data) {
             $('#content').children().remove();
             $('#content').html(data);
@@ -100,7 +104,7 @@ $(document).ready(function(){
       evt.stopPropagation();
       $.ajax({
          method: "post",
-         url: "/memberDelete.ing",
+         url: "member/memberDelete.ing",
          success : function (data) {
             $('#content').children().remove();
             $('#content').html(data);
@@ -120,7 +124,7 @@ $(document).ready(function(){
 
          $.ajax({
             method: 'post',
-            url: "/memberlogin.ing",
+            url: "member/memberlogin.ing",
             data: queryString,
             success : function (data) {
                alert(data);
@@ -154,7 +158,7 @@ $(document).ready(function(){
 
       $.ajax({
          method: 'post',
-         url: "/memberlogin.ing",
+         url: "member/memberlogin.ing",
          data: queryString,
          success : function (data) {
             console.log(data);

@@ -25,7 +25,7 @@ $(document).ready(function () {
         //alert(queryString);
         $.ajax({
             method: 'post',
-            url: "/userok.ing",
+            url: "member/userok.ing",
             data: queryString,
             success : function (data) {
                 for (let key in validation) {
@@ -91,7 +91,7 @@ $(document).ready(function () {
         else {
             $.ajax({
                 type : 'post',
-                url : 'idCheck.ing',
+                url : 'member/idCheck.ing',
                 data : id,
                 success : function (data) {
                     let result = data.substring(1, data.length-1);
@@ -161,7 +161,7 @@ $(document).ready(function () {
         else {
             $.ajax({
                 type : 'post',
-                url : 'telCheck.ing',
+                url : 'member/telCheck.ing',
                 data : tel,
                 success : function (data) {
                     let result = data.substring(1, data.length-1);
@@ -222,7 +222,7 @@ $(document).ready(function () {
         } else {
             $.ajax({
                 type : 'post',
-                url : 'emailCheck.ing',
+                url : 'member/emailCheck.ing',
                 data : "email="+$('#email').val(),
                 success : function (data) {
                     let result = data.substring(1, data.length-1);
@@ -249,7 +249,7 @@ $(document).ready(function () {
         } else {
             $.ajax({
                 type : 'post',
-                url : 'emailCheck.ing',
+                url : 'member/emailCheck.ing',
                 data : "email="+$('#email').val(),
                 success : function (data) {
                     let result = data.substring(1, data.length-1);

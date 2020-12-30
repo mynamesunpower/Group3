@@ -16,7 +16,7 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="../../js/memberupdate.js"></script>
+<script src="../../../js/memberupdate.js"></script>
 <body>
 
 <form action="updateok.ing" name="userinput" id="userinput">

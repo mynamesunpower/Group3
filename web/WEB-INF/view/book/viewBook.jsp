@@ -51,7 +51,7 @@
             </div>
             <div class="col s5 left-align no-padding">
                 ${viewBook.publicationDate}<br/>
-                ${viewBook.publisherName}<br/>
+                ${viewBook.publisherNumber}<br/>
                 ${viewBook.totalPage}p<br/>
                 ${viewBook.keyword}<br/>
             </div>

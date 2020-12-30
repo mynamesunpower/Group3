@@ -3,7 +3,6 @@ package controller;
 import model.vo.MemberVO;
 import model.vo.PurchaseVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +19,7 @@ import java.util.Properties;
 //import org.springframework.mail.javamail.JavaMailSender;
 
 @Controller
+@RequestMapping(value = "/member")
 public class MemberController {
 
     @Autowired
@@ -38,20 +38,20 @@ public class MemberController {
     // 로그인 페이지로 이동
     @RequestMapping("/login.ing")
     public String test() {
-        return "/login";
+        return "member/login";
     } // end login
 
     /// 작업해야할듯 로그아웃
     @RequestMapping("/logout.ing")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "/start";
+        return "redirect:/start.ing";
     } //end logout
 
     // 회원가입 페이지 이동
     @RequestMapping("/memberjoin.ing")
     public String memberjoin() {
-        return "/memberjoin";
+        return "member/memberjoin";
     }
 
     // 회원가입하기 form의 action
@@ -74,7 +74,7 @@ public class MemberController {
         }
         memberlogin(vo, session);
         m.addAttribute("message", message);
-        return "/userok";
+        return "member/userok";
     } //end userok
 
     // focusout 아이디 중복확인 검증 (ajax)
@@ -136,7 +136,7 @@ public class MemberController {
             msgUpdate = vo.getName() + " 님의 회원정보가 수정되지 않았습니다.";
         }
         m.addAttribute("msgupdate", msgUpdate);
-        return "/updateok";
+        return "member/updateok";
 
     }//end  회원정보수정
 
@@ -179,17 +179,22 @@ public class MemberController {
 
     // 주문 확인 페이지로 이동
     @RequestMapping(value = "/orderList.ing")
-    public void orderlist(PurchaseVO purchaseVO, Model model) {
+    public String orderlist(PurchaseVO purchaseVO, Model model) {
         model.addAttribute("memberOrderList", memberService.memberOrderList(purchaseVO));
-//        return "/orderList";
+        return "member/orderList";
     }
 
     @RequestMapping(value = "/memberDelete.ing")
     public String memberDelete(MemberVO membervo, HttpSession session) {
         System.out.println("회원탈퇴하겟습니다.");
         int result = memberService.memberDelete(membervo);
-        session.invalidate();
-        return "/hello";
+        String message = "회원탈퇴가 실패하였습니다.";
+        if (result > 0) {
+            message = "회원탈퇴가 되었습니다. 앞으로는 행복하세요.";
+            session.invalidate();
+        }
+
+        return "redirect:/start.ing";
     }
 
     // ID 찾기 페이지로 이동
@@ -197,7 +202,7 @@ public class MemberController {
     public String memberIdFind(MemberVO membervo) {
 
         System.out.println("아이디찾기 페이지로로 이동");
-        return "/memberIdFind";
+        return "member/memberIdFind";
     }
 
     // ID 찾기 -> JS에서 얼러트 창으로 띄워줌.
@@ -218,7 +223,7 @@ public class MemberController {
     // 비밀번호 찾기 페이지로 이동
     @RequestMapping(value = "/memberPassFind.ing")
     public String memberPassFind(MemberVO memberVO) {
-        return "/memberPassFind";
+        return "member/memberPassFind";
     }
 
     // 비밀번호 찾기 -> 메일로 보내기
@@ -283,13 +288,13 @@ public class MemberController {
     // Q&A 페이지로 이동
     @RequestMapping(value = "/customerCenter.ing")
     public String cutomerCenter() {
-        return "/customerCenter";
+        return "member/customerCenter";
     }
 
     // 고객문의 게시판으로 이동
     @RequestMapping(value = "/customerBoard.ing")
     public String cutomerBoard() {
- return "/customerBoard";
+ return "member/customerBoard";
     }
 
 }//end MemberController
