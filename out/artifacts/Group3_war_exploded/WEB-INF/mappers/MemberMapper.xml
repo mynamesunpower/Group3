@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
     <insert id="memberjoin" parameterType="member">
@@ -11,25 +11,25 @@
     </insert>
 
     <select id="login" parameterType="member" resultMap="getMember">
-      select *
-      from member
-      where id = #{id}
+        select *
+        from member
+        where id = #{id}
         <!--<if test="password != null">
         and password = #{password}
         </if>-->
     </select>
 
     <update id="memberupdate" parameterType="member">
-      update MEMBER
-      set password = #{password},
-          name = #{name},
-          tel = #{tel},
-          email = #{email},
-          domain = #{domain},
-          addr1 = #{addr1},
-      addr2 = #{addr2},
-      addr3 = #{addr3}
-      where id = #{id}
+        update MEMBER
+        set password = #{password},
+        name = #{name},
+        tel = #{tel},
+        email = #{email},
+        domain = #{domain},
+        addr1 = #{addr1},
+        addr2 = #{addr2},
+        addr3 = #{addr3}
+        where id = #{id}
     </update>
 
     <select id="idCheck" parameterType="member" resultType="member">
@@ -54,8 +54,8 @@
     </update>
 
     <select id="memberOrderList" resultType="purchase">
-      select *
-      from PURCHASE
+        select *
+        from PURCHASE
     </select>
 
     <delete id="memberDelete" parameterType="member">
