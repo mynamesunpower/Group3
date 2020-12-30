@@ -19,6 +19,7 @@
 		<typeAlias alias="salesdata" type="model.vo.SalesDataVO"/>
 		<typeAlias alias="purchaseBook" type="model.vo.PurchaseBookVO" />
 		<typeAlias alias="visit" type="model.vo.VisitVo" />
+        <typeAlias alias="review" type="model.vo.ReviewVO"/>
 	</typeAliases>
 
 </configuration>

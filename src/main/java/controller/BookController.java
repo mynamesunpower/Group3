@@ -29,6 +29,7 @@ public class BookController {
     @RequestMapping(value = "viewBook.ing")
     public String viewBook(BookVO vo, Model model) {
         model.addAttribute("viewBook", bookService.selectBook(vo));
+
         return "book/viewBook";
     }
 

@@ -21,9 +21,6 @@
         <welcome-file>start.ing</welcome-file>
     </welcome-file-list>
 
-    <welcome-file-list>
-        <welcome-file>start.ing</welcome-file>
-    </welcome-file-list>
 
     <context-param>
         <param-name>contextConfigLocation</param-name>

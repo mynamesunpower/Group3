@@ -19,9 +19,4 @@ public interface PurchaseDAO {
     public List<PurchaseBookVO> selectIsbn(PurchaseVO purchaseVO);
     public void cancel_salesData(PurchaseBookVO purchaseBookVO);
 
-    public void insertCancelBook(PurchaseBookVO purchaseBookVO);
-
-    public List<PurchaseBookVO> selectIsbn(PurchaseVO purchaseVO);
-
-    public void cancel_salesData(PurchaseBookVO purchaseBookVO);
 }
