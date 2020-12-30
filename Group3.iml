@@ -69,5 +69,6 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.2.3.RELEASE" level="project" />
+    <orderEntry type="library" name="ojdbc6" level="project" />
   </component>
 </module>

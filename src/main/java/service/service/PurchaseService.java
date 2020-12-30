@@ -27,4 +27,5 @@ public interface PurchaseService {
 
     public void cancel_salesData(PurchaseBookVO purchaseBookVO);
 
+    public void usePoint(PurchaseVO purchaseVO);
 }

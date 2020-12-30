@@ -8,18 +8,27 @@
             keyProperty="orderNumber">
         <choose>
             <when test="memberTel != null">
-                INSERT INTO PURCHASE (ORDER_NUMBER, MEMBERTEL,STATE, TOTAL_PRICE, PURCHASE_DATE, RECEIVER, SHIP_ADDRESS)
+                INSERT INTO PURCHASE (ORDER_NUMBER, MEMBERTEL,STATE, TOTAL_PRICE, PURCHASE_DATE, RECEIVER, SHIP_ADDRESS, PAY_POINT)
                 VALUES (SEQ_ORDER_NUMBER.nextval, #{memberTel}, '결제완료', #{totalPrice}, sysdate, #{receiver},
-                #{shipAddress})
+                #{shipAddress}, #{payPoint})
             </when>
             <otherwise>
                 INSERT INTO PURCHASE (ORDER_NUMBER, NONMEMBERTEL, STATE, TOTAL_PRICE, PURCHASE_DATE, RECEIVER,
-                SHIP_ADDRESS)
+                SHIP_ADDRESS, PAY_POINT)
                 VALUES (SEQ_ORDER_NUMBER.nextval, #{nonMemberTel}, '결제완료', #{totalPrice}, sysdate,#{receiver},
-                #{shipAddress})
+                #{shipAddress}, #{payPoint})
             </otherwise>
         </choose>
     </insert>
+
+    <!-- 포인트 사용시 포인트 차감-->
+    <update id="usePoint" parameterType="purchase">
+        UPDATE MEMBER
+        SET POINT = POINT - #{payPoint}
+        WHERE TEL = (SELECT MEMBERTEL
+                    FROM PURCHASE
+                    WHERE ORDER_NUMBER = #{orderNumber})
+    </update>
 
     <!-- SALES_DATA 테이블 정보 가져오기-->
     <select id="selectSalesData" parameterType="purchaseBook" resultType="purchaseBook">
@@ -137,38 +146,6 @@
 
     </select>
 
-    <resultMap id="purchase" type="purchase">
-        <result property="orderNumber" column="order_number"/>
-        <result property="memberTel" column="memberTel"/>
-        <result property="receiver" column="receiver"/>
-        <result property="totalPrice" column="total_price"/>
-        <result property="shipAddress" column="ship_address"/>
-        <result property="state" column="state"/>
-        <result property="purchaseDate" column="purchase_date"/>
-        <result property="cancelDate" column="cancel_date"/>
-        <collection property="memberVO" resultMap="member"/>
-        <collection property="purchaseBookVO" resultMap="purchaseBook"/>
-        <collection property="bookVO" resultMap="book"/>
-    </resultMap>
-
-    <resultMap id="member" type="member">
-        <result property="tel" column="tel"/>
-        <result property="name" column="name"/>
-    </resultMap>
-
-    <resultMap id="purchaseBook" type="purchaseBook">
-        <result property="orderNumber" column="order_number"/>
-        <result property="isbn" column="isbn"/>
-        <result property="quantity" column="quantity"/>
-        <collection property="bookVO" resultMap="book"/>
-    </resultMap>
-
-    <resultMap id="book" type="book">
-        <result property="isbn" column="isbn"/>
-        <result property="title" column="title"/>
-        <result property="price" column="price"/>
-    </resultMap>
-
     <insert id="insertCancelBook" parameterType="purchaseBook">
         INSERT INTO CANCEL_BOOK (ORDER_NUMBER, ISBN, QUANTITY)
         VALUES (#{orderNumber}, #{isbn}, #{quantity})
@@ -185,6 +162,7 @@
     <update id="cancelPoint" parameterType="purchase">
         UPDATE MEMBER
         SET POINT = POINT - (SELECT 0.05*TOTAL_PRICE FROM PURCHASE WHERE ORDER_NUMBER = #{orderNumber})
+                + (SELECT PAY_POINT FROM PURCHASE WHERE ORDER_NUMBER = #{orderNumber})
         WHERE TEL = #{memberTel}
     </update>
 
@@ -209,5 +187,38 @@
         WHERE B.ISBN = #{isbn})
         WHERE ISBN = #{isbn}
     </update>
+
+    <resultMap id="purchase" type="purchase">
+        <result property="orderNumber" column="order_number"/>
+        <result property="memberTel" column="memberTel"/>
+        <result property="receiver" column="receiver"/>
+        <result property="totalPrice" column="total_price"/>
+        <result property="shipAddress" column="ship_address"/>
+        <result property="state" column="state"/>
+        <result property="purchaseDate" column="purchase_date"/>
+        <result property="cancelDate" column="cancel_date"/>
+        <result property="payPoint" column="pay_point"/>
+        <collection property="memberVO" resultMap="member"/>
+        <collection property="purchaseBookVO" resultMap="purchaseBook"/>
+        <collection property="bookVO" resultMap="book"/>
+    </resultMap>
+
+    <resultMap id="member" type="member">
+        <result property="tel" column="tel"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <resultMap id="purchaseBook" type="purchaseBook">
+        <result property="orderNumber" column="order_number"/>
+        <result property="isbn" column="isbn"/>
+        <result property="quantity" column="quantity"/>
+        <collection property="bookVO" resultMap="book"/>
+    </resultMap>
+
+    <resultMap id="book" type="book">
+        <result property="isbn" column="isbn"/>
+        <result property="title" column="title"/>
+        <result property="price" column="price"/>
+    </resultMap>
 
 </mapper>

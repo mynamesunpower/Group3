@@ -82,4 +82,6 @@ public class MemberDAOImpl implements MemberDAO {
         System.out.println("memberDAO로 넘어온 회원전화번호 : " + tel);
         return mybatis.selectOne("member.checkPoint", tel);
     }
+
+
 }

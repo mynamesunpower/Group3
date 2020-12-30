@@ -15,18 +15,20 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <script type="text/javascript" src="../../../js/order.js"></script>
+    <script type="text/javascript" src="../../../js/checkPoint.js"></script>
 
 </head>
 <body>
 <div class="row">
     <table>
         <tr>
-            <th>사용가능 포인트</th>
-            <td>${memberVO.point}</td>
+            <th>내 포인트</th>
+            <td id="member_point">${memberVO.point} Point</td>
         </tr>
         <tr>
             <th>사용 포인트</th>
-            <td><input type="text" id="use_point"></td>
+            <td><input type="" id="use_point"></td>
+            <td id="alert_point"></td>
         </tr>
         <tr>
             <th colspan="2">※ 포인트는 2천점부터 사용가능합니다.</th>
@@ -35,8 +37,8 @@
     <button id="use_pointBtn" class="check_point cols s2 waves-effect waves-light btn-small white black-text">
         사용
     </button>
-        취소
     <button id="cancel_point" class="cancel_point cols s2 waves-effect waves-light btn-small white black-text">
+        취소
     </button>
 </div>
 </body>

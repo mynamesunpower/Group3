@@ -31,4 +31,5 @@ public interface MemberService {
     public int emailCheck(MemberVO vo);
 
     public MemberVO pointCheck(String memberTel);
+
 }

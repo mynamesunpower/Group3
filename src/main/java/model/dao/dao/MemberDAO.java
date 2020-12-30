@@ -32,4 +32,5 @@ public interface MemberDAO {
     public MemberVO pointCheck(String tel);
 
 
+
 }

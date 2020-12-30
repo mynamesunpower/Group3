@@ -19,6 +19,12 @@ public class PurchaseDAOImpl implements PurchaseDAO {
         System.out.println("구매 DB 삽입완료 주문번호 : " + purchaseMap.get("orderNumber"));
         return String.valueOf(purchaseMap.get("orderNumber"));
     }
+
+    @Override
+    public void usePoint(PurchaseVO purchaseVO) {
+        sqlSessionTemplate.update("booktrain.purchase.usePoint", purchaseVO);
+    }
+
     @Override
     public void insertPurchaseBook(PurchaseBookVO purchaseBookVO) {
         sqlSessionTemplate.insert("booktrain.purchase.insertPurchaseBook", purchaseBookVO);

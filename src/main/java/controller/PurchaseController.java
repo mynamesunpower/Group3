@@ -119,7 +119,7 @@ public class PurchaseController {
         // 구매 완료 후, purchase_book 테이블에 저장하기위해 쓰일용도
         httpSession.setAttribute("isbnList", isbnList);
         httpSession.setAttribute("quantityList", quantityList);
-        httpSession.setAttribute("cartOrder","cartOrder");
+        httpSession.setAttribute("cartOrder", "cartOrder");
 
 
         return "purchase/orderBook";
@@ -136,6 +136,7 @@ public class PurchaseController {
                            @RequestParam(value = "bookKind") String bookKind, Model model) {
 
         System.out.println("payOrder() 130line title: " + bookTitle);
+        System.out.println("payOrder() 130line totalPrice: " + purchaseVO.getTotalPrice());
 
         memberVO.setTel((String) httpSession.getAttribute("memberTel"));
 
@@ -159,10 +160,9 @@ public class PurchaseController {
      * 결제 시 사용가능한 포인트 확인
      */
     @RequestMapping("checkPoint")
-    public String checkPoint(Model model){
-        System.out.println("checkPoint() 들어오나");
+    public String checkPoint(Model model) {
 
-        MemberVO memberVO = memberService.pointCheck((String)httpSession.getAttribute("memberTel"));
+        MemberVO memberVO = memberService.pointCheck((String) httpSession.getAttribute("memberTel"));
         System.out.println("checkPoint() 사용가능한 포인트 : " + memberVO.getPoint());
 
         model.addAttribute("memberVO", memberVO);
@@ -172,11 +172,20 @@ public class PurchaseController {
     // TODO 트랜잭션 적용할것
     // 결제 성공시
     @RequestMapping("payComplete.ing")
-    public String payComplete(Model model) {
+    public String payComplete(PurchaseVO purchaseVO, MemberVO memberVO, Model model) {
+        System.out.println("payComplete() 적립 포인트 : " + memberVO.getPoint());
+
         // payOrder()에서 저장한 세션값을 얻어옴
-        MemberVO memberVO = (MemberVO) httpSession.getAttribute("payMember");
-        PurchaseVO purchaseVO = (PurchaseVO) httpSession.getAttribute("payPurchase");
+        MemberVO payMember = (MemberVO) httpSession.getAttribute("payMember");
+        httpSession.removeAttribute("payMember");
+        payMember.setPoint(memberVO.getPoint());
+
+        PurchaseVO payPurchase = (PurchaseVO) httpSession.getAttribute("payPurchase");
         String cartOrder = (String) httpSession.getAttribute("cartOrder");
+
+        // 포인트 결제시 바뀐 구매 금액 & 사용 포인트 설정
+        payPurchase.setTotalPrice(purchaseVO.getTotalPrice());
+        payPurchase.setPayPoint(purchaseVO.getPayPoint());
 
         PurchaseBookVO purchaseBookVO = new PurchaseBookVO();
 
@@ -185,19 +194,23 @@ public class PurchaseController {
 
         // 첫 orderNumber초기화
         purchaseMap.put("orderNumber", 0);
-        purchaseMap.put("memberTel", memberVO.getTel());
-        purchaseMap.put("totalPrice", purchaseVO.getTotalPrice());
-        purchaseMap.put("receiver", purchaseVO.getReceiver());
-        purchaseMap.put("shipAddress", purchaseVO.getShipAddress());
-
-        System.out.println("178라인 확인 : " + cartOrder);
+        purchaseMap.put("memberTel", payMember.getTel());
+        purchaseMap.put("totalPrice", payPurchase.getTotalPrice());
+        purchaseMap.put("receiver", payPurchase.getReceiver());
+        purchaseMap.put("shipAddress", payPurchase.getShipAddress());
+        purchaseMap.put("payPoint", payPurchase.getPayPoint());
 
         // 구매 완료시 생성된 orderNumber를 저장
         purchaseBookVO.setOrderNumber(purchaseService.insertPurchase(purchaseMap));
 
+        // 포인트 사용시 주문번호를 얻어와서 해당 회원의 포인트 차감
+        purchaseVO.setOrderNumber(purchaseBookVO.getOrderNumber());
+        purchaseService.usePoint(purchaseVO);
+
         // 세션으로 저장되어있는 주문하고자 하는 상품의 isbn & 수량
         List<String> isbn = (List<String>) httpSession.getAttribute("isbnList");
         List<Integer> quantity = (List<Integer>) httpSession.getAttribute("quantityList");
+
 
         // 각각의 상품 isbn & 갯수를 purchase_book에 저장
         if (cartOrder.equals("cartOrder")) {
@@ -214,7 +227,7 @@ public class PurchaseController {
                 // 구매상품 장바구니에서 삭제
                 shoppingCartService.deleteCart((String) httpSession.getAttribute("memberTel"), purchaseBookVO.getIsbn());
             }
-        } else if(cartOrder.equals("notCart")){
+        } else if (cartOrder.equals("notCart")) {
             for (int i = 0; i < isbn.size(); i++) {
                 purchaseBookVO.setIsbn(isbn.get(i));
                 purchaseBookVO.setQuantity(quantity.get(i));
@@ -227,11 +240,13 @@ public class PurchaseController {
             }
         }
         // 포인트 적립
-        memberService.updateMemberPoint((MemberVO) httpSession.getAttribute("payMember"));
+        memberService.updateMemberPoint(payMember);
 
 
-        model.addAttribute("purchaseVO", purchaseVO);
+        model.addAttribute("purchaseVO", payPurchase);
         model.addAttribute("purchaseBookVO", purchaseBookVO);
+
+        httpSession.setAttribute("payMember",payMember);
 
         // sales_data 테이블에 저장후 세션 삭제
         httpSession.removeAttribute("isbnList");
@@ -262,7 +277,6 @@ public class PurchaseController {
 
         return "purchase/orderList";
     }
-
 
     /**
      * 주문 상세조회

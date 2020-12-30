@@ -75,4 +75,5 @@ public class MemberServiceImpl implements MemberService {
     public MemberVO pointCheck(String memberTel) {
         return memberDao.pointCheck(memberTel);
     }
+
 }
