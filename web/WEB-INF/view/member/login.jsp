@@ -16,9 +16,9 @@
     이쁜 alert창인데 한페이지에 맨 마지막에 만든 swal만 작동되는듯(?) --%>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
-$(document).ready(function () {
-    $('.tabs').tabs();
-});
+        $(document).ready(function () {
+            $('.tabs').tabs();
+        });
     </script>
 
 </head>

@@ -5,15 +5,15 @@
 
     <!--도서정보입력-->
     <insert id="insertBook" parameterType="book">
-INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock, author, publication_date,
-                         content, keyword)
+        INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock, author, publication_date,
+        content, keyword)
         VALUES (#{isbn}, #{publisherNumber}, #{genre}, #{totalPage}, #{price}, #{title}, #{stock}, #{author},
-                #{publicationDate}, #{content}, #{keyword})
+        #{publicationDate}, #{content}, #{keyword})
     </insert>
 
     <!--도서 리스트-->
     <select id="bookList" resultMap="getBook">
-        	<![CDATA[
+        <![CDATA[
         SELECT *
         FROM book
         ORDER BY ISBN DESC
@@ -22,7 +22,7 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
 
     <!--선택한 ISBN의 도서정보-->
     <select id="selectBook" resultMap="getBook">
-        	<![CDATA[
+        <![CDATA[
         SELECT *
         FROM book
         WHERE ISBN = #{isbn}
@@ -31,7 +31,7 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
 
     <!--선택한 ISBN의 도서정보 삭제-->
     <delete id="deleteBook" parameterType="book">
-         	<![CDATA[
+        <![CDATA[
         DELETE
         FROM book
         WHERE ISBN = #{isbn}
@@ -40,7 +40,7 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
 
     <!--선택한 ISBN의 도서정보 업데이트-->
     <update id="updateBook" parameterType="book">
-       <![CDATA[
+        <![CDATA[
         UPDATE book
         SET PRICE= #{price},
             CONTENT= #{content}
@@ -59,9 +59,9 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
 
     <!-- 구매시 책의 재고 빼주기 -->
     <update id="deleteStock" parameterType="purchaseBook">
-      UPDATE BOOK
-      SET STOCK = STOCK - #{quantity}
-      WHERE ISBN = #{isbn}
+        UPDATE BOOK
+        SET STOCK = STOCK - #{quantity}
+        WHERE ISBN = #{isbn}
     </update>
 
     <!-- 취소된 책의 재고 다시 증가-->
@@ -118,19 +118,19 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
 
         select sum(sd.amount_price) amountprice
         from sales_Data sd
-                 INNER JOIN(SELECT pb.order_number order_number
-                            FROM purchase_book pb
-                                     INNER JOIN (SELECT *
-                                                 FROM purchase
-                                                 WHERE state='결제완료' AND to_char(sysdate,'yy')=substr(purchase_date,1,2) AND
-                                                       substr(purchase_date,3,4)= '/'||#{month}||'/') p
-                                                ON p.order_number = pb.order_number) pb
-                           ON sd.order_number = pb.order_number
+        INNER JOIN(SELECT pb.order_number order_number
+        FROM purchase_book pb
+        INNER JOIN (SELECT *
+        FROM purchase
+        WHERE state='결제완료' AND to_char(sysdate,'yy')=substr(purchase_date,1,2) AND
+        substr(purchase_date,3,4)= '/'||#{month}||'/') p
+        ON p.order_number = pb.order_number) pb
+        ON sd.order_number = pb.order_number
     </select>
 
     <!--30 매출 리스트-->
     <select id="ageList" parameterType="hashmap" resultType="int">
- <![CDATA[
+        <![CDATA[
         SELECT sum(sd.amount_price) amountprice
         FROM sales_data sd
         INNER JOIN(select pb.order_number
@@ -180,22 +180,22 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
 
     </select>
 
-<!--10대 40대 매출리스트-->
+    <!--10대 40대 매출리스트-->
     <select id="teenageList" parameterType="hashmap" resultType="int">
 
         SELECT sum(sd.amount_price) amountprice
         FROM sales_data sd
-                 INNER JOIN(select pb.order_number
-                            from purchase_book pb
-                                     inner join(SELECT p.order_number
-                                                FROM purchase p
-                                                         INNER JOIN (SELECT *
-                                                                     FROM member
-                                                                     WHERE (to_char(sysdate,'yyyy')+1 -(substr(jumin1,0,2)+
-                                                                                                        (case
-                                                                                                             when substr(jumin2,0,1) <![CDATA[<]]>3 then 1900
-                                                                                                             when substr(jumin2,0,1) >=3 then 2000
-                                                                                                            end)))
+        INNER JOIN(select pb.order_number
+        from purchase_book pb
+        inner join(SELECT p.order_number
+        FROM purchase p
+        INNER JOIN (SELECT *
+        FROM member
+        WHERE (to_char(sysdate,'yyyy')+1 -(substr(jumin1,0,2)+
+        (case
+        when substr(jumin2,0,1) <![CDATA[<]]>3 then 1900
+        when substr(jumin2,0,1) >=3 then 2000
+        end)))
         <choose>
             <when test="age != null and age==1">
                 between 10 and 19
@@ -209,12 +209,12 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
         </choose>
 
 
-                                                           ) m
-                                                                    ON p.membertel = m.tel
-                                                WHERE state='결제완료' AND to_char(sysdate,'yy')=substr(purchase_date,1,2) AND
-                                                    substr(purchase_date,3,4)='/'||#{month}||'/')p
-                                               ON p.order_number = pb.order_number) pb
-                           ON sd.order_number = pb.order_number
+        ) m
+        ON p.membertel = m.tel
+        WHERE state='결제완료' AND to_char(sysdate,'yy')=substr(purchase_date,1,2) AND
+        substr(purchase_date,3,4)='/'||#{month}||'/')p
+        ON p.order_number = pb.order_number) pb
+        ON sd.order_number = pb.order_number
 
     </select>
 
@@ -249,10 +249,10 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
 
         SELECT s.isbn isbn, s.amountquantity amountquantity, b.title
         FROM(select isbn, SUM(amount_quantity) amountquantity
-             from sales_Data
-             GROUP BY ISBN
-             ORDER BY SUM(amount_quantity) DESC) s
-                INNER JOIN book b on s.isbn=b.isbn
+        from sales_Data
+        GROUP BY ISBN
+        ORDER BY SUM(amount_quantity) DESC) s
+        INNER JOIN book b on s.isbn=b.isbn
         WHERE rownum <![CDATA[<]]>=3
 
 
@@ -262,36 +262,36 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
 
         SELECT *
         FROM book b
-                 INNER JOIN(SELECT sd.isbn, sum(sd.amount_price) amountprice, sum(sd.amount_quantity) amountquantity
-                            FROM sales_data sd
-                                     INNER JOIN(SELECT pb.order_number
-                                                FROM purchase_book pb
-                                                         INNER JOIN(select p.order_number
-                                                                    from purchase p
-                                                                             inner join(SELECT *
-                                                                                        FROM member
-                                                                                        WHERE (to_char(sysdate,'yyyy')+1 -(substr(jumin1,0,2)+
-                                                                                                                           (case
-                                                                                                                                when substr(jumin2,0,1) <![CDATA[<]]>3 then 1900
-                                                                                                                                when substr(jumin2,0,1) >=3 then 2000
-                                                                                                                               end))) between 30 and 39) m
-                                                                                       ON p.membertel=m.tel) p
-                                                                   ON p.order_number = pb.order_number) pb
-                                               ON pb.order_number = sd.order_number
-                            GROUP BY sd.isbn) sd
-                           ON sd.isbn = b.isbn
+        INNER JOIN(SELECT sd.isbn, sum(sd.amount_price) amountprice, sum(sd.amount_quantity) amountquantity
+        FROM sales_data sd
+        INNER JOIN(SELECT pb.order_number
+        FROM purchase_book pb
+        INNER JOIN(select p.order_number
+        from purchase p
+        inner join(SELECT *
+        FROM member
+        WHERE (to_char(sysdate,'yyyy')+1 -(substr(jumin1,0,2)+
+        (case
+        when substr(jumin2,0,1) <![CDATA[<]]>3 then 1900
+        when substr(jumin2,0,1) >=3 then 2000
+        end))) between 30 and 39) m
+        ON p.membertel=m.tel) p
+        ON p.order_number = pb.order_number) pb
+        ON pb.order_number = sd.order_number
+        GROUP BY sd.isbn) sd
+        ON sd.isbn = b.isbn
 
         ORDER BY
-                <if test="_parameter.equals('age')">
-                    amountquantity DESC
-                </if>
-               <if test="_parameter.equals('genre')">
-                   amountprice DESC
-               </if>
+        <if test="_parameter.equals('age')">
+            amountquantity DESC
+        </if>
+        <if test="_parameter.equals('genre')">
+            amountprice DESC
+        </if>
     </select>
 
     <select id="bestbookList" resultMap="getBook">
-<![CDATA[
+        <![CDATA[
         SELECT *
         FROM book b
                  INNER JOIN(select isbn, sum(amount_quantity) amountquantity
@@ -303,7 +303,7 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
     </select>
 
     <select id="newbookList" resultType="book">
-<![CDATA[
+        <![CDATA[
         select *
         from book
         order by publication_date desc
@@ -352,7 +352,7 @@ INSERT INTO BOOK(isbn, publisher_number, genre, total_page, price, title, stock,
             </otherwise>
         </choose>
 
-          ) m
+        ) m
         ON p.membertel=m.tel) p
         ON p.order_number = pb.order_number) pb
         ON pb.order_number = sd.order_number

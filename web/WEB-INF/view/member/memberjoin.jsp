@@ -122,8 +122,8 @@
     </div>
     <span class="valiText" id="formCheckResult"></span>
     <br/>
-<input class="btn" type="button" name="submit" id="memberSubmit" value="등 록">
-<input class="btn" type="reset" name="reset" id="reset" value="취 소">
+    <input class="btn" type="button" name="submit" id="memberSubmit" value="등 록">
+    <input class="btn" type="reset" name="reset" id="reset" value="취 소">
 
 
 </form>

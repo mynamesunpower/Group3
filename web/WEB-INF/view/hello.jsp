@@ -154,8 +154,8 @@
 
 <!-- 사이드 메뉴 (왼쪽) -->
 <ul id="slide-out" class="sidenav">
-        <li class="no-padding">
-            <ul class="collapsible expandable">
+    <li class="no-padding">
+        <ul class="collapsible expandable">
 
             <c:if test="${sessionScope.memberId.toUpperCase() eq 'ADMIN'}">
                 <li>
@@ -182,163 +182,163 @@
                         </ul>
                     </div>
                 </li>
-                </c:if>
+            </c:if>
 
-                <li>
-                    <div class="collapsible-header">　책</div>
-                    <div class="collapsible-body">
-                        <ul>
-                                        <c:forEach items="${booktap}" var="tap">
+            <li>
+                <div class="collapsible-header">　책</div>
+                <div class="collapsible-body">
+                    <ul>
+                        <c:forEach items="${booktap}" var="tap">
                             <li><a class="loadAjax" href="genrebookList.ing?genre=${tap.genre}">${tap.genre}</a></li>
-                                        </c:forEach>
-                            <%--<li><a class="loadAjax" href="genrebookList.ing?genre=참고서">참고서</a></li>--%>
-                            <%--<li><a class="loadAjax" href="genrebookList.ing?genre=EBS">EBS</a></li>--%>
-                            <%--<li><a class="loadAjax" href="genrebookList.ing?genre=어학">어학</a></li>--%>
-                            <%--<li><a class="loadAjax" href="genrebookList.ing?genre=자격증">자격증</a></li>--%>
-                            <%--<li><a class="loadAjax" href="genrebookList.ing?genre=고시">고시</a></li>--%>
-                        </ul>
-                    </div>
-                </li>
-                <li class="no-padding"><a class="loadAjax" href="bestbookList.ing?">베스트셀러</a></li>
-                <li class="no-padding"><a class="loadAjax" href="newbookList.ing?">새로 들어온 책</a></li>
-                <li class="no-padding"><a class="loadAjax" href="member/customerCenter.ing">FAQ</a></li>
-                <li class="no-padding"><a class="loadAjax" href="member/customerBoard.ing">고객 게시판</a></li>
-            </ul>
-        </li>
-    </ul> <!-- 사이드 메뉴 (왼쪽) 끝 -->
+                        </c:forEach>
+                        <%--<li><a class="loadAjax" href="genrebookList.ing?genre=참고서">참고서</a></li>--%>
+                        <%--<li><a class="loadAjax" href="genrebookList.ing?genre=EBS">EBS</a></li>--%>
+                        <%--<li><a class="loadAjax" href="genrebookList.ing?genre=어학">어학</a></li>--%>
+                        <%--<li><a class="loadAjax" href="genrebookList.ing?genre=자격증">자격증</a></li>--%>
+                        <%--<li><a class="loadAjax" href="genrebookList.ing?genre=고시">고시</a></li>--%>
+                    </ul>
+                </div>
+            </li>
+            <li class="no-padding"><a class="loadAjax" href="bestbookList.ing?">베스트셀러</a></li>
+            <li class="no-padding"><a class="loadAjax" href="newbookList.ing?">새로 들어온 책</a></li>
+            <li class="no-padding"><a class="loadAjax" href="member/customerCenter.ing">FAQ</a></li>
+            <li class="no-padding"><a class="loadAjax" href="member/customerBoard.ing">고객 게시판</a></li>
+        </ul>
+    </li>
+</ul> <!-- 사이드 메뉴 (왼쪽) 끝 -->
 
 <!-- 페이지 컨텐츠 (내용) -->
-    <div class="container">
-        <div class="row center-align">
-            <div id="content" class="col s12"> <!-- 여기부터 내용 -->
+<div class="container">
+    <div class="row center-align">
+        <div id="content" class="col s12"> <!-- 여기부터 내용 -->
 
-                <!-- 새로 들어온 책 캐러셀 -->
-                <div class="row">
-                    <div class="col s12">
-                        <div class="carousel">
-                            <h5>새로 들어온 책</h5>
-                            <c:forEach items="${carouselBook}" var="book">
-                                <a class="loadAjax carousel-item" href="viewBook.ing?isbn=${book.isbn}"><img src="../../imgs/book/${book.isbn}.PNG">${book.title}</a>
+            <!-- 새로 들어온 책 캐러셀 -->
+            <div class="row">
+                <div class="col s12">
+                    <div class="carousel">
+                        <h5>새로 들어온 책</h5>
+                        <c:forEach items="${carouselBook}" var="book">
+                            <a class="loadAjax carousel-item" href="viewBook.ing?isbn=${book.isbn}"><img src="../../imgs/book/${book.isbn}.PNG">${book.title}</a>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div> <!-- 새로 들어온 책 캐러셀 끝 -->
+
+            <div class="row"> <!-- 전체 베스트셀러 (매출액순) -->
+                <div class="col s12">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
+                        <th>전체 베스트셀러</th> <br/><br/>
+                        <tbody>
+                        <tr>
+                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 1</td>
+                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 2</td>
+                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 3</td>
+                        </tr>
+
+                        <tr>
+                            <c:forEach items="${bestBook}" var="bbook">
+                                <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
+                                    <a class="loadAjax" href="viewBook.ing?isbn=${bbook.isbn}">
+                                        <img src="../../imgs/book/${bbook.isbn}.PNG" alt="">
+                                    </a>
+                                </td>
                             </c:forEach>
-                        </div>
-                    </div>
-                </div> <!-- 새로 들어온 책 캐러셀 끝 -->
+                        </tr>
 
-                <div class="row"> <!-- 전체 베스트셀러 (매출액순) -->
-                    <div class="col s12">
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
-                            <th>전체 베스트셀러</th> <br/><br/>
-                            <tbody>
-                                <tr>
-                                    <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 1</td>
-                                    <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 2</td>
-                                    <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 3</td>
-                                </tr>
+                        <tr>
+                            <c:forEach items="${bestBook}" var="bbook">
+                                <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">&lt;${bbook.title}&gt;<a href=""></a></td>
+                            </c:forEach>
+                        </tr>
 
-                                <tr>
-                                <c:forEach items="${bestBook}" var="bbook">
-                                    <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                        <a class="loadAjax" href="viewBook.ing?isbn=${bbook.isbn}">
-                                            <img src="../../imgs/book/${bbook.isbn}.PNG" alt="">
-                                        </a>
-                                    </td>
-                                </c:forEach>
-                                </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div> <!-- 전체 베스트셀러 (매출액순) 끝 -->
 
-                                <tr>
-                                <c:forEach items="${bestBook}" var="bbook">
-                                    <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">&lt;${bbook.title}&gt;<a href=""></a></td>
-                                </c:forEach>
-                            </tr>
+            <div class="row"> <!-- 30대가 가장 많이 구매한 도서 (매출액순) -->
+                <div class="col s12">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
+                        <th>30대가 가장 많이 구매한 도서</th> <br/><br/>
+                        <tbody>
+                        <tr>
+                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 1</td>
+                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 2</td>
+                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 3</td>
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div> <!-- 전체 베스트셀러 (매출액순) 끝 -->
+                        </tr>
 
-                <div class="row"> <!-- 30대가 가장 많이 구매한 도서 (매출액순) -->
-                    <div class="col s12">
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
-                            <th>30대가 가장 많이 구매한 도서</th> <br/><br/>
-                            <tbody>
-                            <tr>
-                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 1</td>
-                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 2</td>
-                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 3</td>
-
-                            </tr>
-
-                            <tr>
-                                <c:forEach items="${hotBook}" var="hot">
-                                    <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                        <a class="loadAjax" href="viewBook.ing?isbn=${hot.isbn}">
-                                            <img src="../../imgs/book/${hot.isbn}.PNG" alt="">
-                                        </a>
-                                    </td>
-                                </c:forEach>
-                            </tr>
-
-                            <tr>
-                                <c:forEach items="${hotBook}" var="hot">
-                                    <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">&lt;${hot.title}&gt;<a href=""></a></td>
-                                </c:forEach>
-                            </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div> <!-- 30대가 가장 많이 구매한 도서 (매출액순) 끝 -->
-
-                <!-- 이번 달의 신작 -->
-                <div class="row">
-                    <div class="col s12">
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
-                            <th>30대 인기 장르</th>
-                            <br/><br/>
-                            <tbody>
-                            <tr>
-                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                    Best 1
+                        <tr>
+                            <c:forEach items="${hotBook}" var="hot">
+                                <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
+                                    <a class="loadAjax" href="viewBook.ing?isbn=${hot.isbn}">
+                                        <img src="../../imgs/book/${hot.isbn}.PNG" alt="">
+                                    </a>
                                 </td>
-                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                    Best 2
+                            </c:forEach>
+                        </tr>
+
+                        <tr>
+                            <c:forEach items="${hotBook}" var="hot">
+                                <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">&lt;${hot.title}&gt;<a href=""></a></td>
+                            </c:forEach>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div> <!-- 30대가 가장 많이 구매한 도서 (매출액순) 끝 -->
+
+            <!-- 이번 달의 신작 -->
+            <div class="row">
+                <div class="col s12">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
+                        <th>30대 인기 장르</th>
+                        <br/><br/>
+                        <tbody>
+                        <tr>
+                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">
+                                Best 1
+                            </td>
+                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">
+                                Best 2
+                            </td>
+                            <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">
+                                Best 3
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <c:forEach items="${genrehotBook}" var="genrehot">
+                                <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
+                                    <a class="loadAjax" href="viewBook.ing?isbn=${genrehot.isbn}">
+                                        <img src="../../imgs/book/${genrehot.isbn}.PNG" alt="">
+                                    </a>
                                 </td>
-                                <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                    Best 3
+                            </c:forEach>
+
+                        </tr>
+
+                        <tr>
+                            <c:forEach items="${genrehotBook}" var="genrehot">
+                                <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">
+                                    &lt;${genrehot.title}&gt;
                                 </td>
+                            </c:forEach>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div> <!-- 이번 달의 신작 끝 -->
 
-                            </tr>
+        </div> <!-- 내용은 이 div 안에 들어갈 것 -->
 
-                            <tr>
-                                <c:forEach items="${genrehotBook}" var="genrehot">
-                                    <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                        <a class="loadAjax" href="viewBook.ing?isbn=${genrehot.isbn}">
-                                            <img src="../../imgs/book/${genrehot.isbn}.PNG" alt="">
-                                        </a>
-                                    </td>
-                                </c:forEach>
-
-                            </tr>
-
-                            <tr>
-                                <c:forEach items="${genrehotBook}" var="genrehot">
-                                    <td width="25%" valign="top" style="text-align:center; padding:5px 9px 0 9px;">
-                                        &lt;${genrehot.title}&gt;
-                                    </td>
-                                </c:forEach>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div> <!-- 이번 달의 신작 끝 -->
-
-            </div> <!-- 내용은 이 div 안에 들어갈 것 -->
-
-        </div>
-
-                <br/><br/><br/>
-        </div>
     </div>
+
+    <br/><br/><br/>
+</div>
+</div>
 </div>
 
 <!-- footer -->

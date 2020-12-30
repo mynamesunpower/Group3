@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="booktrain.purchase">
 
     <!-- PURCHASE 테이블 -->
@@ -34,7 +34,7 @@
         VALUES (#{orderNumber}, #{isbn}, #{quantity})
     </insert>
 
-        <!-- SALES_DATA에 해당ISBN이 없다면 추가-->
+    <!-- SALES_DATA에 해당ISBN이 없다면 추가-->
     <insert id="insertSalesData" parameterType="purchaseBook">
         INSERT INTO SALES_DATA (ISBN, AMOUNT_QUANTITY, AMOUNT_PRICE ) VALUES
         (#{isbn}, #{quantity}, (SELECT #{quantity}*price AS  from book where isbn=#{isbn}) )
@@ -44,8 +44,8 @@
     <update id="updateSalesData" parameterType="purchaseBook">
         UPDATE SALES_DATA
         SET AMOUNT_QUANTITY = AMOUNT_QUANTITY + #{quantity},
-         AMOUNT_PRICE = AMOUNT_PRICE + (SELECT #{quantity}*price from book where isbn=#{isbn})
-         WHERE isbn = #{isbn}
+        AMOUNT_PRICE = AMOUNT_PRICE + (SELECT #{quantity}*price from book where isbn=#{isbn})
+        WHERE isbn = #{isbn}
     </update>
 
     <!-- 해당회원의 주문번호 조회-->
@@ -58,82 +58,82 @@
 
     <!-- 전체 주문내역 조회-->
     <select id="selectOrderList" parameterType="purchase" resultMap="purchase">
-    <choose>
-        <when test="state == '결제완료'">
-            SELECT pur.order_number as order_number,
-                    CASE WHEN COUNT.COUNT >= 1 THEN b2.title||' 외 '||COUNT.count
-                    ELSE b2.title
-                    END AS title,
-                    mem.name AS name, pur.receiver AS receiver, pur.total_price AS total_price,
-                    TO_CHAR(pur.purchase_date,'YYYY-MM-DD HH24:MI') AS purchase_date, pur.STATE AS state
-            FROM purchase pur
-                    INNER JOIN (SELECT COUNT(p.order_number)-1 AS count, p.membertel AS membertel
-                    FROM purchase_book pb INNER JOIN purchase p ON p.order_number = pb.order_number
-                    WHERE p.membertel = #{memberTel} and p.order_number = #{orderNumber}
-                    GROUP BY p.order_number, p.membertel) count
-                    ON pur.membertel = count.membertel
-                    INNER JOIN purchase_book b ON pur.order_number = b.order_number
-                    INNER JOIN book b2 ON b.ISBN = b2.ISBN
-                    INNER JOIN MEMBER mem ON pur.membertel = mem.tel
-            WHERE pur.membertel = #{memberTel} and pur.order_number = #{orderNumber} AND pur.state = #{state} AND rownum = 1
-        </when>
-        <otherwise>
-            SELECT pur.order_number as order_number,
-                    CASE WHEN COUNT.COUNT >= 1 THEN b2.title||' 외 '||COUNT.count
-                    ELSE b2.title
-                    END AS title,
-                    mem.name AS name, pur.receiver AS receiver, pur.total_price AS total_price,
-                    TO_CHAR(pur.cancel_date,'YYYY-MM-DD HH24:MI') AS cancel_date, pur.STATE AS state
-            FROM purchase pur
-                    INNER JOIN (SELECT COUNT(p.order_number)-1 AS count, p.membertel AS membertel
-                    FROM cancel_book cb INNER JOIN purchase p ON p.order_number = cb.order_number
-                    WHERE p.membertel = #{memberTel} and p.order_number = #{orderNumber}
-                    GROUP BY p.order_number, p.membertel) count
-                    ON pur.membertel = count.membertel
-                    INNER JOIN cancel_book b ON pur.order_number = b.order_number
-                    INNER JOIN book b2 ON b.ISBN = b2.ISBN
-                    INNER JOIN MEMBER mem ON pur.membertel = mem.tel
-            WHERE pur.membertel = #{memberTel} and pur.order_number = #{orderNumber} AND pur.state = #{state} AND rownum = 1
-        </otherwise>
-    </choose>
-       </select>
+        <choose>
+            <when test="state == '결제완료'">
+                SELECT pur.order_number as order_number,
+                CASE WHEN COUNT.COUNT >= 1 THEN b2.title||' 외 '||COUNT.count
+                ELSE b2.title
+                END AS title,
+                mem.name AS name, pur.receiver AS receiver, pur.total_price AS total_price,
+                TO_CHAR(pur.purchase_date,'YYYY-MM-DD HH24:MI') AS purchase_date, pur.STATE AS state
+                FROM purchase pur
+                INNER JOIN (SELECT COUNT(p.order_number)-1 AS count, p.membertel AS membertel
+                FROM purchase_book pb INNER JOIN purchase p ON p.order_number = pb.order_number
+                WHERE p.membertel = #{memberTel} and p.order_number = #{orderNumber}
+                GROUP BY p.order_number, p.membertel) count
+                ON pur.membertel = count.membertel
+                INNER JOIN purchase_book b ON pur.order_number = b.order_number
+                INNER JOIN book b2 ON b.ISBN = b2.ISBN
+                INNER JOIN MEMBER mem ON pur.membertel = mem.tel
+                WHERE pur.membertel = #{memberTel} and pur.order_number = #{orderNumber} AND pur.state = #{state} AND rownum = 1
+            </when>
+            <otherwise>
+                SELECT pur.order_number as order_number,
+                CASE WHEN COUNT.COUNT >= 1 THEN b2.title||' 외 '||COUNT.count
+                ELSE b2.title
+                END AS title,
+                mem.name AS name, pur.receiver AS receiver, pur.total_price AS total_price,
+                TO_CHAR(pur.cancel_date,'YYYY-MM-DD HH24:MI') AS cancel_date, pur.STATE AS state
+                FROM purchase pur
+                INNER JOIN (SELECT COUNT(p.order_number)-1 AS count, p.membertel AS membertel
+                FROM cancel_book cb INNER JOIN purchase p ON p.order_number = cb.order_number
+                WHERE p.membertel = #{memberTel} and p.order_number = #{orderNumber}
+                GROUP BY p.order_number, p.membertel) count
+                ON pur.membertel = count.membertel
+                INNER JOIN cancel_book b ON pur.order_number = b.order_number
+                INNER JOIN book b2 ON b.ISBN = b2.ISBN
+                INNER JOIN MEMBER mem ON pur.membertel = mem.tel
+                WHERE pur.membertel = #{memberTel} and pur.order_number = #{orderNumber} AND pur.state = #{state} AND rownum = 1
+            </otherwise>
+        </choose>
+    </select>
 
     <!-- 주문 상세에 띄울 내용 조회-->
     <select id="purchaseInfo" parameterType="purchase" resultMap="purchase">
-    <choose>
-        <when test="state =='결제완료'">
-            select ORDER_NUMBER,RECEIVER, SHIP_ADDRESS,TOTAL_PRICE, TO_CHAR(PURCHASE_DATE,'YYYY-MM-DD HH24:MI') AS purchase_date
-            from PURCHASE
-            where ORDER_NUMBER = #{orderNumber} and STATE = #{state}
-        </when>
-        <otherwise>
-            select ORDER_NUMBER,RECEIVER, SHIP_ADDRESS,TOTAL_PRICE,
-             TO_CHAR(PURCHASE_DATE,'YYYY-MM-DD HH24:MI') AS purchase_date,  TO_CHAR(CANCEL_DATE,'YYYY-MM-DD HH24:MI') AS cancel_date
-            from PURCHASE
-            where ORDER_NUMBER = #{orderNumber} and STATE = #{state}
-        </otherwise>
-    </choose>
+        <choose>
+            <when test="state =='결제완료'">
+                select ORDER_NUMBER,RECEIVER, SHIP_ADDRESS,TOTAL_PRICE, TO_CHAR(PURCHASE_DATE,'YYYY-MM-DD HH24:MI') AS purchase_date
+                from PURCHASE
+                where ORDER_NUMBER = #{orderNumber} and STATE = #{state}
+            </when>
+            <otherwise>
+                select ORDER_NUMBER,RECEIVER, SHIP_ADDRESS,TOTAL_PRICE,
+                TO_CHAR(PURCHASE_DATE,'YYYY-MM-DD HH24:MI') AS purchase_date,  TO_CHAR(CANCEL_DATE,'YYYY-MM-DD HH24:MI') AS cancel_date
+                from PURCHASE
+                where ORDER_NUMBER = #{orderNumber} and STATE = #{state}
+            </otherwise>
+        </choose>
 
     </select>
 
     <!-- 주문 상세에 띄울 상품명, 가격, 수량-->
     <select id="detailOrder" parameterType="purchase" resultMap="purchase">
-      <choose>
-          <when test="state == '결제완료'">
-              select b.title AS title, b.price AS price, pb.quantity AS quantity, pb.ISBN AS isbn
-              from purchase p inner join member m on p.membertel = m.tel
-                              inner join purchase_book pb on p.order_number = pb.order_number
-                              inner join book b on pb.isbn = b.isbn
-              where p.order_number=#{orderNumber} and p.STATE = #{state}
-          </when>
-          <otherwise>
-              select b.title AS title, b.price AS price, pb.quantity AS quantity
-              from purchase p inner join member m on p.membertel = m.tel
-                              inner join cancel_book pb on p.order_number = pb.order_number
-                              inner join book b on pb.isbn = b.isbn
-              where p.order_number=#{orderNumber} and p.STATE = #{state}
-          </otherwise>
-      </choose>
+        <choose>
+            <when test="state == '결제완료'">
+                select b.title AS title, b.price AS price, pb.quantity AS quantity, pb.ISBN AS isbn
+                from purchase p inner join member m on p.membertel = m.tel
+                inner join purchase_book pb on p.order_number = pb.order_number
+                inner join book b on pb.isbn = b.isbn
+                where p.order_number=#{orderNumber} and p.STATE = #{state}
+            </when>
+            <otherwise>
+                select b.title AS title, b.price AS price, pb.quantity AS quantity
+                from purchase p inner join member m on p.membertel = m.tel
+                inner join cancel_book pb on p.order_number = pb.order_number
+                inner join book b on pb.isbn = b.isbn
+                where p.order_number=#{orderNumber} and p.STATE = #{state}
+            </otherwise>
+        </choose>
 
     </select>
 
@@ -205,8 +205,8 @@
         UPDATE SALES_DATA
         SET AMOUNT_QUANTITY = AMOUNT_QUANTITY - #{quantity},
         AMOUNT_PRICE = AMOUNT_PRICE - (SELECT (#{quantity}*B.PRICE)
-                                      FROM BOOK B
-                                      WHERE B.ISBN = #{isbn})
+        FROM BOOK B
+        WHERE B.ISBN = #{isbn})
         WHERE ISBN = #{isbn}
     </update>
 

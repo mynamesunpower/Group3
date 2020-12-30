@@ -16,7 +16,7 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    
+
     <welcome-file-list>
         <welcome-file>start.ing</welcome-file>
     </welcome-file-list>
