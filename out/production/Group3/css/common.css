@@ -1,0 +1,71 @@
+@font-face {
+    font-family: "NotoSansKR";
+    src: url("../fonts/noto-sans-kr-v13-korean-regular.woff") format("woff");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSansKR";
+    src: url("../fonts/OpenSans-SemiBold.woff") format("woff");
+    unicode-range: U+0020-007E;
+    font-style: normal;
+}
+
+* {
+    font-family: "NotoSansKR", 굴림, Gulim, serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#header {
+    border-bottom: 1px solid black;
+    z-index: 2;
+}
+
+#searchBox {
+    display: none;
+    position: relative;
+    top: -10vh;
+    z-index: 100;
+}
+
+i#searchIcon {
+    line-height: 0;
+}
+
+
+input#memberButton {
+    position: relative;
+    background: url("../imgs/ui/group-profile-users.png") no-repeat;
+    left: 900px;
+    display: inline-block;
+    margin-right: 10px;
+    border: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+img {
+    min-width: 150px;
+    min-height: 250px;
+    width: 18vmin;
+    height: 30vmin;
+    object-fit: scale-down;
+}
+
+.valiText {
+    color: #ff0a4c;
+}
+
+
+

@@ -1,28 +1,58 @@
 package controller;
 
+import model.vo.BookVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import service.impl.BookServiceImpl;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class HelloController {
 
-    @RequestMapping("/start.ing")
-    public ModelAndView test(){
-        System.out.println("start 요청");
+    @Autowired
+    private BookServiceImpl bookService;
 
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("hello"); // view 지정
-        // hello -> /WEB-INF/view/ + hello + .jsp
-        mv.addObject("message", "오늘 점심 뭐 먹");
-        return mv;
-    }
+//    @RequestMapping("/start2.ing")
+//    public String test() {
+//
+//        System.out.println("start");
+//        return "hello";
+//    }
 
+    //메인페이지 책 이미지 뽑기
+    //메인에 넘기기
     @RequestMapping("/start.ing")
-    public String test2(){
-        System.out.println("start 요청");
+    public String carousel(HttpSession session, Model model){
+        System.out.println("helloController에서 hello.ing 요청");
+        model.addAttribute("carouselBook",bookService.carouselBook());
+        model.addAttribute("bestBook",bookService.bestBook());
+        List<BookVO> bookkey = bookService.bookTab();
+        model.addAttribute("booktap",bookkey);
+
+        if(session.getAttribute("memberJumin1") !=null){
+            String genre = "age";
+            model.addAttribute("hotBook",bookService.memberBook(session,genre));
+            genre = "genre";
+            model.addAttribute("genrehotBook",bookService.memberBook(session,genre));
+        }else {
+            String genre = "age";
+            model.addAttribute("hotBook",bookService.hotBook(genre));
+            genre = "genre";
+            model.addAttribute("genrehotBook",bookService.hotBook(genre));
+        }
+
 
         return "hello";
+    }
+
+    @RequestMapping("/error.ing")
+    public String error(){
+        System.out.println("에러 발생");
+        return "error";
     }
 
 }
