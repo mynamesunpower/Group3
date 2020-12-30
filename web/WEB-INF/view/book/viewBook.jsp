@@ -57,7 +57,7 @@
                 ${ratingOptions.get(five)} ${scoreAvg}
             </c:otherwise>
         </c:choose>
-        <br/>  
+        <br/>
         <h6 class="no-padding">${viewBook.author}</h6>
         <br/><br/>
         <div class="row">
