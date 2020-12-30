@@ -42,7 +42,7 @@
         <h6 class="no-padding">${viewBook.author}</h6>
         <br/><br/>
         <div class="row">
-            <div class="col s2 left-align no-padding">
+            <div class="col s2 center-align no-padding">
                 출간일<br/>
                 출판사<br/>
                 페이지<br/>
@@ -50,15 +50,15 @@
             </div>
             <div class="col s5 left-align no-padding">
                 ${viewBook.publicationDate}<br/>
-                ${viewBook.publisherNumber}<br/>
+                ${viewBook.publisherVO.publisherName} <br/>
                 ${viewBook.totalPage}p<br/>
                 ${viewBook.keyword}<br/>
             </div>
         </div>
         <hr/>
         <div class="left-align">
-            <h5>내용</h5><br/>
-            <p class="viewBookContent">${viewBook.content}</p>
+            <h5> 내용</h5><br/>
+            <p class="viewBookContent">    ${viewBook.content}</p>
         </div>
         <hr/>
         <div class="row">

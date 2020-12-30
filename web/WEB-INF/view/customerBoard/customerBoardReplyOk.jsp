@@ -13,6 +13,6 @@
 <body>
 답글이 달렷습니다.
 
-<a href="/customerBoardList.ing">글목록으로 돌아가기</a>
+<a href="customerBoard/customerBoardList.ing">글목록으로 돌아가기</a>
 </body>
 </html>

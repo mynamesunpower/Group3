@@ -44,6 +44,7 @@ public class MemberController {
     /// 작업해야할듯 로그아웃
     @RequestMapping("/logout.ing")
     public String logout(HttpSession session) {
+        System.out.println(session.getAttribute("memberName") + "님 로그아웃");
         session.invalidate();
         return "redirect:/start.ing";
     } //end logout
@@ -286,16 +287,5 @@ public class MemberController {
         return password;
     }
 
-    // Q&A 페이지로 이동
-    @RequestMapping(value = "/customerCenter.ing")
-    public String cutomerCenter() {
-        return "member/customerCenter";
-    }
-
-    // 고객문의 게시판으로 이동
-    @RequestMapping(value = "/customerBoard.ing")
-    public String cutomerBoard() {
- return "member/customerBoard";
-    }
 
 }//end MemberController
