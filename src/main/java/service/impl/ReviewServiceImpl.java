@@ -28,4 +28,9 @@ public class ReviewServiceImpl implements ReviewService {
     public void deleteReview(ReviewVO reviewVO) {
         reviewDAO.deleteReview(reviewVO);
     }
+
+    @Override
+    public List<ReviewVO> bookScore(ReviewVO reviewVO) {
+        return reviewDAO.bookScore(reviewVO);
+    }
 }

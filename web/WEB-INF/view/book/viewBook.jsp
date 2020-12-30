@@ -39,6 +39,25 @@
 
         <br/><br/><br/>
         <h4>${viewBook.title}</h4>
+
+        <c:choose>
+            <c:when test="${scoreAvg>=0 && scoreAvg<1.5}">
+                        ${ratingOptions.get(zero)} ${scoreAvg}
+            </c:when>
+            <c:when test="${scoreAvg>=1.5 && scoreAvg<2.5}">
+                ${ratingOptions.get(one)} ${scoreAvg}
+            </c:when>
+            <c:when test="${scoreAvg>=2.5 && scoreAvg<3.5}">
+                ${ratingOptions.get(two)} ${scoreAvg}
+            </c:when>
+            <c:when test="${scoreAvg>=3.5 && scoreAvg<4.5}">
+                ${ratingOptions.get(four)} ${scoreAvg}
+            </c:when>
+            <c:otherwise>
+                ${ratingOptions.get(five)} ${scoreAvg}
+            </c:otherwise>
+        </c:choose>
+        <br/>  
         <h6 class="no-padding">${viewBook.author}</h6>
         <br/><br/>
         <div class="row">

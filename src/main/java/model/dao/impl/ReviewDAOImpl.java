@@ -29,4 +29,9 @@ public class ReviewDAOImpl implements ReviewDAO {
     public void deleteReview(ReviewVO reviewVO) {
         sqlSessionTemplate.delete("booktrain.review.deleteReview", reviewVO);
     }
+
+    @Override
+    public List<ReviewVO> bookScore(ReviewVO reviewVO) {
+        return sqlSessionTemplate.selectList("booktrain.review.bookScore",reviewVO);
+    }
 }
