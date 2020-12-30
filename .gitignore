@@ -10,3 +10,9 @@ workspace.xml
 
 #### Targets ignore ####
 /target/
+target/classes/WEB-INF/mappers/purchaseMapper.xml
+target/classes/WEB-INF/mappers/PublisherMapper.xml
+target/classes/WEB-INF/mappers/NonMemberMapper.xml
+target/classes/WEB-INF/mappers/MemberMapper.xml
+target/classes/WEB-INF/mappers/cartMapper.xml
+target/classes/WEB-INF/mappers/BookMapper.xml
