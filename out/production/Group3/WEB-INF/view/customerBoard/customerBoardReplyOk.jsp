@@ -11,8 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-답글이 달렷습니다.
+답글이 달렸습니다.
 
-<a href="customerBoard/customerBoardList.ing">글목록으로 돌아가기</a>
+<a class="loadAjax btn" href="customerBoard/customerBoardList.ing">목록으로 돌아가기</a>
+<a class="btn waves-effect waves-light loadAjax" href="/start.ing">홈으로</a>
 </body>
 </html>

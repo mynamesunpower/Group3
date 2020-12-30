@@ -8,11 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import service.impl.BookServiceImpl;
 import service.impl.ReviewServiceImpl;
 import service.service.ReviewService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -115,10 +118,21 @@ public class BookController {
     // 도서입력
     @RequestMapping("/insertBook_success.ing")
     public String insertBook_success(BookVO vo) {
-        System.out.println("insertBook_success.ing 요청");
-        System.out.println(vo.getPublicationDate());
+        System.out.println("?");
+        /*@RequestParam(value = "imageFile", required = false) MultipartFile imageFile
+        if (!imageFile.isEmpty()) {
+            File file = new File("E:/Group3/Group3/web/imgs/book/"+vo.getIsbn()+".PNG");
+
+            try {
+                imageFile.transferTo(file);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }*/
+        System.out.println("[관리자] 책 정보 입력 --> " + vo.getPublicationDate() + "/" + vo.getIsbn() + "/" + vo.getGenre() + "/" +
+                vo.getAuthor() + "/" + vo.getTitle() + "/" + vo.getContent());
         bookService.insertBook(vo);
-        System.out.println("성공");
+        System.out.println("[관리자] 책 정보 입력을 완료했습니다.");
         return "book/insertBook_success";
     }
 

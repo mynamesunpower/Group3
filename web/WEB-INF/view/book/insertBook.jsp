@@ -9,13 +9,38 @@
 <html>
 <head>
     <title>insertBook.jsp</title>
+    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--%>
+    <%--<script>
+        $(document).ready(function () {
+            $(document).on('click', '#insertBookBtn', function (evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+
+                let queryString = $('#insertBook').serialize();
+                alert(queryString);
+                $.ajax({
+                    method : 'post',
+                    url : 'insertBook_success.ing',
+                    data : queryString,
+                    success : function (data) {
+                        alert(data);
+                        location.replace("/start.ing");
+                    },
+                    error : function (err) {
+                        console.log("책 입력 실패 ---> " + err);
+                    }
+                });
+
+            })
+        });
+    </script>--%>
 </head>
 <body>
 
 <H5>도서 정보 입력</H5>
 <HR/>
 <div class="col s8 offset-2 center-align">
-<form action="insertBook_success.ing" name="insertBook" id="insertBook" enctype="multipart/form-data">
+<form action="insertBook_success.ing" name="insertBook" id="insertBook" method="post" enctype="multipart/form-data">
 
 <table border="2">
     <tr>
@@ -64,10 +89,10 @@
     <%--</tr>--%>
     <tr>
         <td bgcolor="#fafad2">이미지 업로드</td>
-        <td> <input type="file" name="imageFile" maxlength="60"></td>
+        <td> <input type="file" name="imageFile" maxlength="100"></td>
     </tr>
     <tr>
-        <td colspan="2" align="center"><input type="submit" value="도서 등록" /></td>
+        <td colspan="2" align="center"><input id="insertBookBtn" type="submit" value="도서 등록"></td>
     </tr>
 <%--출판사번호: <input type="text" name="Publisher_number" id="Publisher_number"><br/>--%>
 <%--장르: <input type="text" name="Genre" id="Genre"><br/>--%>

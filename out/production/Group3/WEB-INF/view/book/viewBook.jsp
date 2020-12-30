@@ -47,12 +47,14 @@
                 출판사<br/>
                 페이지<br/>
                 키워드<br/>
+                가격<br/>
             </div>
             <div class="col s5 left-align no-padding">
                 ${viewBook.publicationDate}<br/>
                 ${viewBook.publisherVO.publisherName} <br/>
                 ${viewBook.totalPage}p<br/>
                 ${viewBook.keyword}<br/>
+                ${viewBook.price}<br/>
             </div>
         </div>
         <hr/>

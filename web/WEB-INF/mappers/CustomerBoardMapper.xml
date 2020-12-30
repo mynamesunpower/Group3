@@ -39,7 +39,7 @@
     <!-- 글제목검색.-->
 
     <insert id="customerBoardInsert" parameterType="customerBoard">
-insert into customer_service (ORIGINID,article_id,writing_time,title,content,tel,read_count)
+insert into customer_service (ORIGIN_ID,article_id,writing_time,title,content,tel,read_count)
 values      (seq_ORIGIN_ID.nextval,seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{readCount})
     </insert>
 <!--글 등록-->
