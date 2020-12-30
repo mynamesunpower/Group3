@@ -1,5 +1,0 @@
-insert into member values ('000-000-0000', '운영자', 'admin', '010101', '1011010', 'admin', '@booktrain.ing', '1234', '서울시', '책구', '책동', '운영자', 100000);
-
-commit;
-
-admin / 1234로 들어가야 왼쪽 탭에 관리기능 이씀
