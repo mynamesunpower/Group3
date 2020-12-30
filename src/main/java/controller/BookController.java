@@ -48,7 +48,7 @@ public class BookController {
             System.out.println("sbox null");
             map.put("sbox", null);
         }
-        // 아 이거 망한각인데 ㅋㅋ...ㅋㅋㅋ모르겟다 검색 1회성 ㅋㅋㅋㅋㅋㅋㅋㅋㅋ 왜이렇게도ㅒㅆ재ㅣ;..다른것도 이상해지나 테스트해보자
+        
         List<BookVO> bookList = bookService.searchBook(map);
 
         model.addAttribute("keyword", keyword);
