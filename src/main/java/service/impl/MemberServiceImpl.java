@@ -70,4 +70,9 @@ public class MemberServiceImpl implements MemberService {
     public int emailCheck(MemberVO vo) {
         return memberDao.emailCheck(vo);
     }
+
+    @Override
+    public MemberVO pointCheck(String memberTel) {
+        return memberDao.pointCheck(memberTel);
+    }
 }

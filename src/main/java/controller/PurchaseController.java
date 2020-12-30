@@ -155,6 +155,20 @@ public class PurchaseController {
         return "purchase/payOrder";
     }
 
+    /**
+     * 결제 시 사용가능한 포인트 확인
+     */
+    @RequestMapping("checkPoint")
+    public String checkPoint(Model model){
+        System.out.println("checkPoint() 들어오나");
+
+        MemberVO memberVO = memberService.pointCheck((String)httpSession.getAttribute("memberTel"));
+        System.out.println("checkPoint() 사용가능한 포인트 : " + memberVO.getPoint());
+
+        model.addAttribute("memberVO", memberVO);
+        return "purchase/checkPoint";
+    }
+
     // TODO 트랜잭션 적용할것
     // 결제 성공시
     @RequestMapping("payComplete.ing")

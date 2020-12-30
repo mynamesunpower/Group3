@@ -50,7 +50,7 @@
                         <th>쿠폰 할인금액</th>
                         <td>0원</td>
                         <td>
-                            <button class="returnCart cols s2 waves-effect waves-light btn-small white black-text">
+                            <button class="check_coupone cols s2 waves-effect waves-light btn-small white black-text">
                                 쿠폰 사용
                             </button>
                         </td>

@@ -55,9 +55,10 @@ $(function () {
         })
     })
 
-    // 포인트 확인 & 사용
+    // 포인트 확인 팝업창 띄우기
     $('#check_point').click(()=>{
         alert('포인트 확인클릭')
+        window.open('/purchase/checkPoint.ing','포인트 확인', 'width=400, height=150 resizeable=no')
     })
 
     // 체크박스 한개만 체크되도록 설정
