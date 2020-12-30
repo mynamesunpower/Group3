@@ -11,7 +11,7 @@
 <!--</select>-->
 
     <resultMap id="customerBoard" type="customerBoard">
-        <result column="ORIGINID" property="originId" />
+        <result column="ORIGIN_ID" property="originId" />
         <result column="ARTICLE_ID" property="articleId" />
         <result column="WRITING_TIME" property="writingTime" />
         <result column="TITLE" property="title" />
@@ -25,7 +25,7 @@
   	select *
   	from CUSTOMER_SERVICE
 --   	order by ARTICLE_ID desc, REPLYID asc,ORIGINID asc
-     order by ORIGINID desc , ARTICLE_ID asc, REPLYID asc
+     order by ORIGIN_ID desc , ARTICLE_ID asc, REPLYID asc
      </select>
 <!--글 목록리스트-->
 
@@ -34,7 +34,7 @@
     from CUSTOMER_SERVICE
     where title like '%' || #{title} || '%'
 --     order by ARTICLE_ID desc , REPLYID asc, ORIGINID asc
-     order by ORIGINID desc , ARTICLE_ID asc, REPLYID asc
+     order by ORIGIN_ID desc , ARTICLE_ID asc, REPLYID asc
     </select>
     <!-- 글제목검색.-->
 
@@ -72,7 +72,7 @@ values      (seq_ORIGIN_ID.nextval,seq_article_id.nextval,sysdate, #{title}, #{c
     </delete>
 
     <update id="customerBoardReply" parameterType="customerBoard">
-insert into customer_service (ORIGINID,article_id,writing_time,title,content,tel,read_count,REPLYID)
+insert into customer_service (ORIGIN_ID,article_id,writing_time,title,content,tel,read_count,REPLYID)
 values      (#{originId},seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{readCount},1)
     </update>
 <!-- 답글아이디 + 1-->
