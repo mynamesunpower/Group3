@@ -21,6 +21,10 @@
         <welcome-file>start.ing</welcome-file>
     </welcome-file-list>
 
+    <welcome-file-list>
+        <welcome-file>start.ing</welcome-file>
+    </welcome-file-list>
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/springConfig/common-servlet.xml</param-value>
@@ -34,6 +38,7 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>
                 WEB-INF/springConfig/springMVC-servlet.xml
+                WEB-INF/springConfig/spring-security.xml
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>

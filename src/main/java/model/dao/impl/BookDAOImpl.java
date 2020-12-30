@@ -2,6 +2,9 @@ package model.dao.impl;
 
 import model.dao.dao.BookDAO;
 import model.vo.BookVO;
+
+import model.vo.PurchaseBookVO;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -50,6 +53,17 @@ public class BookDAOImpl implements BookDAO {
     public BookVO selectBook(BookVO vo) {
         System.out.println("===> Mybatis selectBook() 호출");
         return mybatis.selectOne("BookMapper.selectBook",vo);
+    }
+
+    @Override
+    public void deleteBook_stock(PurchaseBookVO purchaseBookVO) {
+        System.out.println("BookDAO 재고 빼주기 완료");
+        mybatis.update("BookMapper.deleteStock",purchaseBookVO);
+    }
+
+    @Override
+    public void cancelBook_stock(PurchaseBookVO purchaseBookVO) {
+        mybatis.update("BookMapper.cancelStock", purchaseBookVO);
     }
 
     @Override
