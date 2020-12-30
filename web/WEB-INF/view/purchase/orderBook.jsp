@@ -30,7 +30,7 @@
         <div id="cart" class="row">
             <table id="orderCartTable" class="centerd col s9">
                 <thead>
-                <tr>
+                <tr class="center-align">
                     <th>상품명</th>
                     <th>가격</th>
                     <th>수량</th>
@@ -44,7 +44,7 @@
                         <input type="hidden" id="bookKind" value="${fn:length(cartList)}"/>
                         <c:forEach var="list" items="${cartList}">
                             <c:forEach var="cart" items="${list}">
-                                <tr>
+                                <tr class="center-align">
                                     <td>${cart.bookVO.title}</td>
                                         <%--가격에 천단위 가격으로 formatting--%>
                                     <td><fmt:formatNumber value="${cart.bookVO.price * cart.quantity}" pattern="#,###"/>원</td>

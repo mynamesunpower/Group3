@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<form action="/customerBoardReplyOk.ing">
+<form action="customerBoard/customerBoardReplyOk.ing">
     <div class="row">
         <div class="input-field col s6 offset-s2">
             <label for="title">글제목</label>

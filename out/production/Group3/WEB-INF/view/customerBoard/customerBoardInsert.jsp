@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-<form action="/customerBoardInsertOk.ing">
+<form action="customerBoard/customerBoardInsertOk.ing">
     <div class="row">
     <div class="input-field col s6 offset-s2">
         <label for="title">글제목</label>

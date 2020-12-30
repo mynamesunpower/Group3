@@ -75,7 +75,7 @@
                         <li><a class="loadAjax" href="/member/login.ing">로그인</a></li>
                         <li class="divider"></li>
                         <li><a class="loadAjax" href="/member/memberjoin.ing">회원가입</a></li>
-                        <li><a class="loadAjax btn-flat tooltipped" href="/member/customerCenter.ing" data-position="bottom"
+                        <li><a class="loadAjax btn-flat tooltipped" href="/customerBoard/customerCenter.ing" data-position="bottom"
                                data-tooltip="고객센터">고객센터</a></li>
                     </ul>
 
@@ -97,13 +97,14 @@
                         <li><a class="loadAjax" href="/purchase/orderList.ing?state=결제완료" class="blue-text">주문목록확인</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a class="loadAjax btn-flat tooltipped" href="/member/customerCenter.ing" data-position="bottom"
+                        <li><a class="loadAjax btn-flat tooltipped" href="/customerBoard/customerCenter.ing" data-position="bottom"
                                data-tooltip="고객센터">고객센터</a></li>
                         <li class="divider"></li>
-                        <li><a href="#!" class="blue-text">
-                            <a class="loadAjax" href="/member/logout.ing" id="logout" name="logout"
+                        <li>
+                            <a class="btn-flat tooltipped" data-position="bottom" data-tooltip="로그아웃" href="/member/logout.ing" id="logout" name="logout"
                                onclick="alert('로그아웃되었습니다.')">로그아웃</a>
-                        </a></li>
+                        </li>
+                        </li>
 
                     </ul>
                     <%--<input type="button" id="mypage" name="mypage" value="MYPAGE" onclick="location.href='/mypage.ing'">--%>
@@ -200,8 +201,8 @@
             </li>
             <li class="no-padding"><a class="loadAjax" href="bestbookList.ing?">베스트셀러</a></li>
             <li class="no-padding"><a class="loadAjax" href="newbookList.ing?">새로 들어온 책</a></li>
-            <li class="no-padding"><a class="loadAjax" href="member/customerCenter.ing">FAQ</a></li>
-            <li class="no-padding"><a class="loadAjax" href="member/customerBoard.ing">고객 게시판</a></li>
+            <li class="no-padding"><a class="loadAjax" href="customerBoard/customerCenter.ing">FAQ</a></li>
+            <li class="no-padding"><a class="loadAjax" href="customerBoard/customerBoardList.ing">고객 게시판</a></li>
         </ul>
     </li>
 </ul> <!-- 사이드 메뉴 (왼쪽) 끝 -->

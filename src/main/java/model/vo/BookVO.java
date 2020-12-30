@@ -22,6 +22,7 @@ public class BookVO {
     private String publicationDate;
     private String content;
     private String keyword;
+    private SalesDataVO salesDataVO;
     private PublisherVO publisherVO;
 
     private MultipartFile imageFile;
@@ -60,7 +61,7 @@ public class BookVO {
         }
     }
 
-    private SalesDataVO salesDataVO;
+
 
     public BookVO() {
     }

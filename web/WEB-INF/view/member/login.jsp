@@ -30,7 +30,6 @@
                     }
 
                     let queryString = $('#memberlogin').serialize();
-                    alert(queryString);
                     $.ajax({
                         method: 'post',
                         url: "member/memberlogin.ing",
