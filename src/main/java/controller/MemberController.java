@@ -151,6 +151,7 @@ public class MemberController {
         // id로만 검색한 vo 객체 (비밀번호는 암호화되어있음)
         MemberVO result = memberService.memberLogin(vo);
 
+        System.out.println(inputPassword + "/" + result.getPassword());
         // 비밀번호 검증
         boolean passwordMatch = passwordEncoder.matches(inputPassword, result.getPassword());
 
