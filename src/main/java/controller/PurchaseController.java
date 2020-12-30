@@ -12,10 +12,8 @@ import service.service.PurchaseService;
 import service.service.ShoppingCartService;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * 상품 주문 컨트롤러
@@ -63,8 +61,6 @@ public class PurchaseController {
             BookVO bookVO = new BookVO();
             bookVO.setIsbn(shoppingCartVO.getIsbn());
             bookVO = bookService.selectBook(bookVO);
-            System.out.println("orderBook() 64line 책 제목 : " + bookVO.getTitle());
-            System.out.println("orderBook() 64line 책 가격 : " + bookVO.getPrice());
             title = bookVO.getTitle();
             isbnList.add(bookVO.getIsbn());
             quantityList.add(1);
@@ -92,8 +88,6 @@ public class PurchaseController {
 
         // 각 상품의 수량을 담을 리스트 생성
         List<Integer> quantityList = new ArrayList<>();
-
-        System.out.println("PurchaseController orderBooks() size  : " + isbnList.size());
 
         ShoppingCartVO shoppingCartVO = new ShoppingCartVO();
         shoppingCartVO.setTel((String) httpSession.getAttribute("memberTel"));
@@ -135,9 +129,6 @@ public class PurchaseController {
                            @RequestParam(value = "bookTitle") String bookTitle,
                            @RequestParam(value = "bookKind") String bookKind, Model model) {
 
-        System.out.println("payOrder() 130line title: " + bookTitle);
-        System.out.println("payOrder() 130line totalPrice: " + purchaseVO.getTotalPrice());
-
         memberVO.setTel((String) httpSession.getAttribute("memberTel"));
 
         model.addAttribute("bookTitle", bookTitle);
@@ -163,7 +154,6 @@ public class PurchaseController {
     public String checkPoint(Model model) {
 
         MemberVO memberVO = memberService.pointCheck((String) httpSession.getAttribute("memberTel"));
-        System.out.println("checkPoint() 사용가능한 포인트 : " + memberVO.getPoint());
 
         model.addAttribute("memberVO", memberVO);
         return "purchase/checkPoint";
@@ -173,7 +163,6 @@ public class PurchaseController {
     // 결제 성공시
     @RequestMapping("payComplete.ing")
     public String payComplete(PurchaseVO purchaseVO, MemberVO memberVO, Model model) {
-        System.out.println("payComplete() 적립 포인트 : " + memberVO.getPoint());
 
         // payOrder()에서 저장한 세션값을 얻어옴
         MemberVO payMember = (MemberVO) httpSession.getAttribute("payMember");
@@ -287,6 +276,9 @@ public class PurchaseController {
     @RequestMapping("detailOrderList.ing")
     public String detailOrderList(@RequestParam("orderNumber") String orderNumber,
                                   @RequestParam("state") String state, Model model) {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh24:mm");
+
         PurchaseVO purchaseVO = new PurchaseVO();
         purchaseVO.setOrderNumber(orderNumber);
         purchaseVO.setState(state);
@@ -299,6 +291,9 @@ public class PurchaseController {
             System.out.println("isbn 확인만 하고 빠질게용  : " + result.getPurchaseBookVO().getIsbn());
         }
         purchaseVO = purchaseService.purchaseInfo(purchaseVO);
+
+        String purchaseDate = purchaseVO.getPurchaseDate();
+
         purchaseVO.setOrderNumber(orderNumber);
 
 

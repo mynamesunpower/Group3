@@ -3,6 +3,13 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="booktrain.purchase">
 
+    <!-- 회원 전화번호로 구매 내역 확인 -->
+    <select id="selectPurchase" parameterType="hashMap" resultMap="purchase">
+        SELECT *
+        FROM PURCHASE P INNER JOIN PURCHASE_BOOK PB on P.ORDER_NUMBER = PB.ORDER_NUMBER
+        WHERE P.MEMBERTEL = #{memberTel} AND PB.ISBN = #{isbn}
+    </select>
+
     <!-- PURCHASE 테이블 -->
     <insert id="insertPurchase" parameterType="hashMap" useGeneratedKeys="true" keyColumn="order_number"
             keyProperty="orderNumber">
@@ -111,13 +118,13 @@
     <select id="purchaseInfo" parameterType="purchase" resultMap="purchase">
         <choose>
             <when test="state =='결제완료'">
-                select ORDER_NUMBER,RECEIVER, SHIP_ADDRESS,TOTAL_PRICE, TO_CHAR(PURCHASE_DATE,'YYYY-MM-DD HH24:MI') AS purchase_date
+                select ORDER_NUMBER,RECEIVER, SHIP_ADDRESS,TOTAL_PRICE, TO_CHAR(PURCHASE_DATE,'YYYY-MM-DD HH24:MI') AS purchase_date, PAY_POINT
                 from PURCHASE
                 where ORDER_NUMBER = #{orderNumber} and STATE = #{state}
             </when>
             <otherwise>
                 select ORDER_NUMBER,RECEIVER, SHIP_ADDRESS,TOTAL_PRICE,
-                TO_CHAR(PURCHASE_DATE,'YYYY-MM-DD HH24:MI') AS purchase_date,  TO_CHAR(CANCEL_DATE,'YYYY-MM-DD HH24:MI') AS cancel_date
+                TO_CHAR(PURCHASE_DATE,'YYYY-MM-DD HH24:MI') AS purchase_date,  TO_CHAR(CANCEL_DATE,'YYYY-MM-DD HH24:MI') AS cancel_date, PAY_POINT
                 from PURCHASE
                 where ORDER_NUMBER = #{orderNumber} and STATE = #{state}
             </otherwise>
@@ -183,8 +190,8 @@
         UPDATE SALES_DATA
         SET AMOUNT_QUANTITY = AMOUNT_QUANTITY - #{quantity},
         AMOUNT_PRICE = AMOUNT_PRICE - (SELECT (#{quantity}*B.PRICE)
-        FROM BOOK B
-        WHERE B.ISBN = #{isbn})
+                                    FROM BOOK B
+                                    WHERE B.ISBN = #{isbn})
         WHERE ISBN = #{isbn}
     </update>
 

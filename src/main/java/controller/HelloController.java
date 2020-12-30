@@ -28,6 +28,11 @@ public class HelloController {
     @RequestMapping("/start.ing")
     public String carousel(HttpSession session, Model model){
         System.out.println("helloController에서 hello.ing 요청");
+        if(session == null){
+            session.setAttribute("memberName","nonMember");
+            session.setAttribute("memberTel","nonMember");
+        }
+        System.out.println("carousel() 회원이름 : " + session.getAttribute("memberName"));
         model.addAttribute("carouselBook",bookService.carouselBook());
         model.addAttribute("bestBook",bookService.bestBook());
         List<BookVO> bookkey = bookService.bookTab();

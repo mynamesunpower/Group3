@@ -9,8 +9,15 @@ import java.util.List;
 import java.util.Map;
 @Repository("purchaseDAO")
 public class PurchaseDAOImpl implements PurchaseDAO {
+
     @Autowired
     SqlSessionTemplate sqlSessionTemplate;
+
+    @Override
+    public List selectPurchase(Map purchaseMap) {
+        return sqlSessionTemplate.selectList("booktrain.purchase.selectPurchase", purchaseMap);
+    }
+
     @Override
     public String insertPurchase(Map purchaseMap) {
         sqlSessionTemplate.insert("booktrain.purchase.insertPurchase", purchaseMap);

@@ -58,7 +58,7 @@
         <hr/>
         <div class="left-align">
             <h5> 내용</h5><br/>
-            <p class="viewBookContent">    ${viewBook.content}</p>
+            <p class="viewBookContent"> ${viewBook.content}</p>
         </div>
         <hr/>
         <div class="row">
@@ -77,8 +77,10 @@
                         <td>${review.content}</td>
                         <td>${review.writingTime}</td>
                         <c:if test="${review.purchaseVO.memberTel eq sessionScope.memberTel}">
-                            <td><a href="/review/deleteReview.ing?isbn=${review.isbn}&reviewNumber=${review.reviewNumber}" class="loadAjax deleteBook waves-effect waves-light btn-small white black-text">
-                                <i class="material-icons left">close</i>삭제</a></td>
+                            <td>
+                                <a href="/review/deleteReview.ing?isbn=${review.isbn}&reviewNumber=${review.reviewNumber}"
+                                   class="loadAjax deleteBook waves-effect waves-light btn-small white black-text">
+                                    <i class="material-icons left">close</i>삭제</a></td>
                         </c:if>
                     </tr>
                 </c:forEach>
@@ -88,7 +90,8 @@
                 <span class="left"></span>
                 <ul class="pagination pager" id="review_page"></ul>
             </div>
-            <c:if test="${sessionScope.memberName != null && reviewVO.orderNumber != null}">
+
+            <c:if test="${writeReview == '구매이력있음'}">
                 <p id="star_rate">
                     <a href="#" value="1">★</a>
                     <a href="#" value="2">★</a>
