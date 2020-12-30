@@ -9,8 +9,8 @@ public class DbSingletone {
 
     // TODO 개인 Db 포트에 맞게 변경할것
     private static final String dbUrl = "jdbc:oracle:thin:@localhost:1521:orcl1";
-    private static final String dbUser = "scott";
-    private static final String dbPass = "tiger";
+    private static final String dbUser = "park";
+    private static final String dbPass = "park";
 
     public DbSingletone() throws Exception {
         Class.forName(dbDriver);

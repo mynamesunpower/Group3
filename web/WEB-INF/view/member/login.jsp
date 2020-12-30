@@ -78,7 +78,7 @@
         <%-- 회원 로그인확인 form --%>
         <div class="row">
             <div class="col s8 offset-s2">
-                <form action="memberlogin.ing" name="memberlogin" id="memberlogin">
+                <form action="member/memberlogin.ing" name="memberlogin" id="memberlogin">
                     <input type="text" id="id" name="id" placeholder="ID 입력">
                     <input type="password" id="pass" name="password" placeholder="비밀번호 입력">
                     <div class="row center-align">
