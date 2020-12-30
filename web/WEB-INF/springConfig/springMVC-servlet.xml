@@ -12,6 +12,7 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+<<<<<<< HEAD
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl1"></property>
         <property name="username" value="park"></property>
         <property name="password" value="park"></property>
@@ -20,6 +21,11 @@
         <!--<property name="username" value="scott"></property>-->
         <!--<property name="password" value="tiger"></property>-->
 <!--&gt;>>>>>> sunny-->
+=======
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"></property>
+        <property name="username" value="scott"></property>
+        <property name="password" value="tiger"></property>
+>>>>>>> parent of cfca0c3... 12:30 점심 홍길동회원가입
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
