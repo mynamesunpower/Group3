@@ -11,58 +11,58 @@ public class PagingVO {
     *  pageScale : 한 페이지에 보여질 페이지 수
     * */
 
-    private int rows = 10;
-    private int page = 1;
-    private int totalPage;
-    private int startPage = 1;
-    private int endPage;
-    private int pageScale = 2;
+    private long rows = 10;
+    private long page = 1;
+    private long totalPage;
+    private long startPage = 1;
+    private long endPage;
+    private long pageScale = 3;
 
-    public int getRows() {
+    public long getRows() {
         return rows;
     }
 
-    public void setRows(int rows) {
+    public void setRows(long rows) {
         this.rows = rows;
     }
 
-    public int getPage() {
+    public long getPage() {
         return page;
     }
 
-    public void setPage(int page) {
+    public void setPage(long page) {
         this.page = page;
     }
 
-    public int getTotalPage() {
+    public long getTotalPage() {
         return totalPage;
     }
 
-    public void setTotalPage(int totalPage) {
+    public void setTotalPage(long totalPage) {
         this.totalPage = totalPage;
     }
 
-    public int getStartPage() {
+    public long getStartPage() {
         return startPage;
     }
 
-    public void setStartPage(int startPage) {
+    public void setStartPage(long startPage) {
         this.startPage = startPage;
     }
 
-    public int getEndPage() {
+    public long getEndPage() {
         return endPage;
     }
 
-    public void setEndPage(int endPage) {
+    public void setEndPage(long endPage) {
         this.endPage = endPage;
     }
 
-    public int getPageScale() {
+    public long getPageScale() {
         return pageScale;
     }
 
-    public void setPageScale(int pageScale) {
+    public void setPageScale(long pageScale) {
         this.pageScale = pageScale;
     }
 }

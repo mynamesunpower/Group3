@@ -64,20 +64,15 @@
         </div>
         <hr/>
         <div class="row">
-            <c:if test="${sessionScope.memberName ne null}">
-                <a class="loadAjax btn" href="/cart/addCart.ing?isbn=${viewBook.isbn}">장바구니에 추가</a>
-            </c:if>
-            <a class="loadAjax btn" href="/purchase/orderBook.ing?isbn=${viewBook.isbn}">바로 구매하기</a>
-        </div>
-        <div class="row">
+            <h5 class="left-align">사용자 리뷰</h5><br/>
             <table id="review_table">
                 <c:forEach var="review" items="${reviewList}">
                     <c:set var="score" value="${review.score}"></c:set>
                     <tr>
-                        <td>${review.memberVO.name}</td>
-                        <td>${ratingOptions.get(score)}</td>
-                        <td>${review.content}</td>
-                        <td>${review.writingTime}</td>
+                        <td class="center-align">${review.memberVO.name}</td>
+                        <td class="center-align">${ratingOptions.get(score)}</td>
+                        <td class="center-align">${review.content}</td>
+                        <td class="center-align">${review.writingTime}</td>
                         <c:if test="${review.purchaseVO.memberTel eq sessionScope.memberTel}">
                             <td><a href="/review/deleteReview.ing?isbn=${review.isbn}&reviewNumber=${review.reviewNumber}" class="loadAjax deleteBook waves-effect waves-light btn-small white black-text">
                                 <i class="material-icons left">close</i>삭제</a></td>
@@ -106,7 +101,12 @@
                 <button type="button" id="regist_review">등록</button>
             </c:if>
         </div>
-
+        <div class="row">
+            <c:if test="${sessionScope.memberName ne null}">
+                <a class="loadAjax btn" href="/cart/addCart.ing?isbn=${viewBook.isbn}">장바구니에 추가</a>
+            </c:if>
+            <a class="loadAjax btn" href="/purchase/orderBook.ing?isbn=${viewBook.isbn}">바로 구매하기</a>
+        </div>
     </div>
 </div>
 </body>

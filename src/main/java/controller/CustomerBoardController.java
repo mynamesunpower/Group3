@@ -2,7 +2,6 @@ package controller;
 
 import model.vo.CustomerBoardPagingVO;
 import model.vo.CustomerBoardVO;
-import model.vo.PagingVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import service.service.CustomerBoardService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,15 +28,13 @@ public class CustomerBoardController {
     }
 
     @RequestMapping(value = "/customerBoardList.ing")
-    public String customerBoardList(CustomerBoardPagingVO pagingVO, ModelMap model) {
+    public String customerBoardList(CustomerBoardPagingVO pagingVO, ModelMap model, HttpServletRequest request) {
         List<Map> pagingList = customerBoardService.selectPagingList(pagingVO);
+        String parsePage = request.getParameter("page");
+        if (parsePage == null) parsePage = "1";
 
-        for (int i = 0; i < pagingList.size(); i++){
-            System.out.println("리스트 순서 " + i + "번째");
-            for (Object elem : pagingList.get(i).keySet()){
-                System.out.println(pagingList.get(i).get((String)elem));
-            }
-        }
+        long initPage = Long.parseLong(parsePage);
+        pagingVO.setPage(initPage);
 
         HashMap pagingListCount = customerBoardService.selectPagingListCount(pagingVO);
 
@@ -48,14 +44,14 @@ public class CustomerBoardController {
         resultMap.put("pageScale", pagingVO.getPageScale());
 
         int pageGroup = (int)Math.ceil((double)pagingVO.getPage()/pagingVO.getPageScale());
-        int startPage = (pageGroup - 1) * pagingVO.getPageScale() + 1;
+        long startPage = (pageGroup - 1) * pagingVO.getPageScale() + 1;
         pagingVO.setStartPage(startPage);
 
-        int endPage = startPage + pagingVO.getPageScale() - 1;
+        long endPage = startPage + pagingVO.getPageScale() - 1;
         pagingVO.setEndPage(endPage);
 
-        int previousPage = (pageGroup - 2) * pagingVO.getPageScale() + 1;
-        int nextPage = pageGroup * pagingVO.getPageScale() + 1;
+        long previousPage = (pageGroup - 2) * pagingVO.getPageScale() + 1;
+        long nextPage = pageGroup * pagingVO.getPageScale() + 1;
         resultMap.put("startPage", pagingVO.getStartPage());
         resultMap.put("endPage", pagingVO.getEndPage());
         resultMap.put("nextPage", nextPage);

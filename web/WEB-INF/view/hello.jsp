@@ -32,6 +32,7 @@
                 fullWidth: true,
                 indicators: true
             });
+
         });
     </script>
 </head>
