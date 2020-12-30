@@ -20,7 +20,7 @@
 <%--${param.articleId}  값이 넘어옴 글번호--%>
 
 
-<form action="/customerBoardUpdateOk.ing">
+<form action="customerBoard/customerBoardUpdateOk.ing">
 <div class="row">
     <div class="input-field col s6 offset-s2">
         <label for="title">글제목</label>

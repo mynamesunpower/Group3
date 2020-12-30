@@ -75,7 +75,7 @@
 <body>
 
 <h3>FAQ : 자주 묻는 질문</h3>
-<h5>직접 문의는 <a class="loadAjax" href="member/customerBoard.ing">고객문의 게시판</a>을 이용해주세요.</h5>
+<h5>직접 문의는 <a class="loadAjax" href="customerBoard/customerBoardList.ing">고객문의 게시판</a>을 이용해주세요.</h5>
 <hr>
 
     <div class="row">
