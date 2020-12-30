@@ -226,7 +226,6 @@ public class BookDAOImpl implements BookDAO {
         return mybatis.selectList("BookMapper.carouselBook");
     }
 
-
     @Override
     public List<BookVO> bestBook() {
         System.out.println("===> Mybatis bestBook() 호출");
