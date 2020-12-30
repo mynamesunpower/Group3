@@ -1,9 +1,12 @@
 package service.service;
 
 
+import model.vo.CustomerBoardPagingVO;
 import model.vo.CustomerBoardVO;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public interface CustomerBoardService {
@@ -23,4 +26,8 @@ public interface CustomerBoardService {
     List<CustomerBoardVO> customerBoardSearch(CustomerBoardVO customerBoardvo);
 
     int customerBoardReply(CustomerBoardVO customerBoardvo);//답글 아이디증가
+
+    List<Map> selectPagingList(CustomerBoardPagingVO pagingVO);
+
+    HashMap selectPagingListCount(CustomerBoardPagingVO pagingVO);
 }

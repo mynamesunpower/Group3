@@ -1,12 +1,15 @@
 package model.dao.impl;
 
 import model.dao.dao.CustomerBoardDAO;
+import model.vo.CustomerBoardPagingVO;
 import model.vo.CustomerBoardVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class CustomerBoardDAOImpl implements CustomerBoardDAO {
@@ -55,4 +58,13 @@ public class CustomerBoardDAOImpl implements CustomerBoardDAO {
         return mybatis.update("customerBoard.customerBoardReply",customerBoardvo);
     }
 
+    @Override
+    public List<Map> selectPagingList(CustomerBoardPagingVO pagingVO) {
+        return mybatis.selectList("customerBoard.selectPagingList", pagingVO);
+    }
+
+    @Override
+    public HashMap selectPagingListCount(CustomerBoardPagingVO pagingVO) {
+        return (HashMap) mybatis.selectMap("selectPagingListCount", pagingVO, "pagingVO");
+    }
 }

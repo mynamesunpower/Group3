@@ -21,6 +21,7 @@
         <result column="REPLYID" property="replyId" />
     </resultMap>
 
+
     <select id="customerBoardList" resultMap="customerBoard">
   	select *
   	from CUSTOMER_SERVICE
@@ -76,6 +77,33 @@ insert into customer_service (ORIGIN_ID,article_id,writing_time,title,content,te
 values      (#{originId},seq_article_id.nextval,sysdate, #{title}, #{content}, #{tel}, #{readCount},1)
     </update>
 <!-- 답글아이디 + 1-->
+
+    <select id="selectPagingList" parameterType="customerBoardPaging" resultType="HashMap">
+        SELECT a.*
+        FROM (SELECT a.*, rownum rnum, floor((rownum - 1) / #{rows} + 1) pageNumber
+              FROM (SELECT origin_id,
+                           replyid,
+                           article_id,
+                           writing_time,
+                           title,
+                           content,
+                           tel,
+                           id,
+                           read_count
+                    FROM customer_service
+                    ORDER BY ORIGIN_ID desc) a
+              ) a
+        WHERE a.pageNumber = #{page}
+        ORDER BY a.rnum
+    </select>
+
+    <select id="selectPagingListCount" parameterType="customerBoardPaging" resultType="hashmap">
+        SELECT count(*) total_count, ceil(count(*) / #{rows}) total_page
+        FROM CUSTOMER_SERVICE
+        WHERE 1 = 1
+        ORDER BY ORIGIN_ID
+    </select>
+
 
 
 </mapper>

@@ -23,7 +23,7 @@
                 let queryString = $('#customerModifyForm').serialize();
                 $.ajax({
                     type : 'post',
-                    url : 'customerBoard/customerBoardUpdateOk.ing',
+                    url : $(this).attr('href'),
                     data : queryString,
                     success : function (data) {
                         content.children().remove();
@@ -57,8 +57,8 @@
     </div>
 </div>
     <input type="hidden" id="articleId" name="articleId" value="${param.articleId}">
-<button class="btn waves-effect waves-light" type="submit" name="action">글수정완료</button>
-    <a class="btn waves-effect waves-light loadAjax blue lighten-4" id="customerModifyBtn">수정하기</a>
+<%--<button class="btn waves-effect waves-light" type="submit" name="action">글수정완료</button>--%>
+    <a class="btn waves-effect waves-light loadAjax blue lighten-4" id="customerModifyBtn" href="customerBoard/customerBoardUpdateOk.ing">수정하기</a>
     <a class="btn waves-effect waves-light loadAjax" href="/start.ing">홈으로</a>
     <a class="btn waves-effect waves-light loadAjax" href="/customerBoard/customerBoardList.ing">목록으로</a>
 </form>

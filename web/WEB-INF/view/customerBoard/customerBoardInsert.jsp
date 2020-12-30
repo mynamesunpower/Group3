@@ -22,12 +22,11 @@
             evt.stopPropagation();
             evt.preventDefault();
 
-            let url = $(this).attr("href");
             let content = $("#content");
             let queryString = $('#customerInsert').serialize();
             $.ajax({
                 type : 'post',
-                url : 'customerBoard/customerBoardInsertOk.ing',
+                url : $(this).attr("href"),
                 data : queryString,
                 success : function (data) {
                     content.children().remove();
@@ -60,7 +59,7 @@
     <%--히든으로 값을 넘겨서 db에 저장시킨다.--%>
     <input type="hidden" id="tel" name="tel" value="${sessionScope.memberTel}">
     <%--<button class="btn waves-effect waves-light" type="submit" name="action">글등록</button>--%>
-    <a class="btn waves-effect waves-light loadAjax" id="boardInsert">글 등록</a>
+    <a class="btn waves-effect waves-light loadAjax" id="boardInsert" href="customerBoard/customerBoardInsertOk.ing">글 등록</a>
     <a class="btn waves-effect waves-light loadAjax" href="/start.ing">홈으로</a>
     <a class="btn waves-effect waves-light loadAjax" href="/customerBoard/customerBoardList.ing">목록으로</a>
 </form>

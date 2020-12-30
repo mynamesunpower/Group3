@@ -1,13 +1,20 @@
 package controller;
 
+import model.vo.CustomerBoardPagingVO;
 import model.vo.CustomerBoardVO;
+import model.vo.PagingVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import service.service.CustomerBoardService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/customerBoard")
@@ -23,8 +30,40 @@ public class CustomerBoardController {
     }
 
     @RequestMapping(value = "/customerBoardList.ing")
-    public String customerBoardList(CustomerBoardVO customerBoardvo, Model model) {
-        model.addAttribute("customerBoardList", customerBoardService.customerBoardList(customerBoardvo));
+    public String customerBoardList(CustomerBoardPagingVO pagingVO, ModelMap model) {
+        List<Map> pagingList = customerBoardService.selectPagingList(pagingVO);
+
+        for (int i = 0; i < pagingList.size(); i++){
+            System.out.println("리스트 순서 " + i + "번째");
+            for (Object elem : pagingList.get(i).keySet()){
+                System.out.println(pagingList.get(i).get((String)elem));
+            }
+        }
+
+        HashMap pagingListCount = customerBoardService.selectPagingListCount(pagingVO);
+
+        HashMap<String, Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("total", pagingListCount.get("totalPage"));
+        resultMap.put("page", pagingVO.getPage());
+        resultMap.put("pageScale", pagingVO.getPageScale());
+
+        int pageGroup = (int)Math.ceil((double)pagingVO.getPage()/pagingVO.getPageScale());
+        int startPage = (pageGroup - 1) * pagingVO.getPageScale() + 1;
+        pagingVO.setStartPage(startPage);
+
+        int endPage = startPage + pagingVO.getPageScale() - 1;
+        pagingVO.setEndPage(endPage);
+
+        int previousPage = (pageGroup - 2) * pagingVO.getPageScale() + 1;
+        int nextPage = pageGroup * pagingVO.getPageScale() + 1;
+        resultMap.put("startPage", pagingVO.getStartPage());
+        resultMap.put("endPage", pagingVO.getEndPage());
+        resultMap.put("nextPage", nextPage);
+        resultMap.put("previousPage", previousPage);
+        resultMap.put("pageGroup", pageGroup);
+
+        model.addAttribute("pagingList", pagingList);
+        model.addAttribute("resultMap", resultMap);
         return "customerBoard/customerBoardList";
     } //고객문의 게시판으로 이동.
 
@@ -98,5 +137,6 @@ public class CustomerBoardController {
         int reply = customerBoardService.customerBoardReply(customerBoardvo);
         return "customerBoard/customerBoardReplyOk";
     }//답글달기.
+
 
 }
