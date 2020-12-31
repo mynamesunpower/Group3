@@ -54,6 +54,10 @@
     </script>
 </head>
 <body>
-<div id="curve_chart" style="width: 900px; height: 500px"></div>
+<div class="row">
+    <div class="col s12">
+      <div id="curve_chart" style="width: 900px; height: 500px"></div>
+    </div>
+</div>
 </body>
 </html>

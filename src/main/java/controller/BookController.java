@@ -97,6 +97,7 @@ public class BookController {
         model.addAttribute("viewBook", bookService.selectBook(vo));
         return "book/viewBook";
     }
+
     //책 검색
     @RequestMapping("/searchBook.ing")
     public String searchBook(String keyword,
@@ -123,24 +124,22 @@ public class BookController {
         return ing;
         //return "book/" + ing;
     }
-    //    @RequestMapping("/hello.ing")
-//    public String carousel(Model model, String genre){
-//        model.addAttribute("carouselBook",bookService.carouselBook());
-//        model.addAttribute("bestBook",bookService.bestBook());
-//        model.addAttribute("hotBook",bookService.hotBook(genre));
-//        return "hello";
-//    }
+
     //도서 등록
     @RequestMapping("/insertBook.ing")
     public String insertBook() {
         return "book/insertBook";
     }
+
     //도서 입력 성공 페이지에서 도서목록보기
     @RequestMapping("/rbookList.ing")
-    public String listBook() {
+    public String listBook(BookVO vo, Model model) {
         System.out.println("listBook.ing 요청");
-        return "redirect:bookList.ing";
+        model.addAttribute("bookList", bookService.bookList(vo));
+
+        return "book/rbookList";
     }
+
     // 도서입력
     @RequestMapping("/insertBook_success.ing")
     public String insertBook_success(BookVO vo) {
@@ -170,7 +169,9 @@ public class BookController {
     //도서정보 수정하기
     @RequestMapping("/updateBook.ing")
     public String updateBook(BookVO vo) {
-        System.out.printf("updateBook.ing");
+        String isbn = vo.getIsbn().split(",")[0];
+        vo.setIsbn(isbn);
+        System.out.printf(vo.getAuthor() + "/" + vo.getIsbn() + vo.getContent());
         bookService.updateBook(vo);
         return "redirect:selectBook.ing?isbn=" + vo.getIsbn();
     }
@@ -180,12 +181,14 @@ public class BookController {
         model.addAttribute("bookList", bookService.bookList(vo));
         return "book/bookList";
     }
+
     //선택한 ISBN의 도서정보 수정페이지
     @RequestMapping("/selectBook.ing")
     public String selectBook(BookVO vo, Model model) {
         model.addAttribute("selectBook", bookService.selectBook(vo));
         return "book/selectBook";
     }
+
     //장르 별 매출 비율
     @RequestMapping(value = "/chartA.ing")
     public String chartA(Model model) throws Exception {
