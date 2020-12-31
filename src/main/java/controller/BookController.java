@@ -77,7 +77,7 @@ public class BookController {
             scoreSum += result.getScore();
         }
 
-        Double scoreAvg = scoreSum / score.size();
+        Double scoreAvg = (Math.round(scoreSum / score.size()*10)/10.0);
         System.out.println("viewBook() 49Line 점수 : " + scoreAvg);
 
         Map ratingOptions = new HashMap();

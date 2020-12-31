@@ -35,6 +35,7 @@ public class PurchaseDAOImpl implements PurchaseDAO {
     @Override
     public void insertPurchaseBook(PurchaseBookVO purchaseBookVO) {
         sqlSessionTemplate.insert("booktrain.purchase.insertPurchaseBook", purchaseBookVO);
+
         if(sqlSessionTemplate.selectOne("booktrain.purchase.selectSalesData",purchaseBookVO) == null){
             System.out.println("insertPurchaseBook() salesData 정보가 없음" +  purchaseBookVO.getIsbn());
             sqlSessionTemplate.insert("booktrain.purchase.insertSalesData", purchaseBookVO);

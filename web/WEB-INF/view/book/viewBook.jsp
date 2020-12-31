@@ -41,14 +41,19 @@
         <h4>${viewBook.title}</h4>
 
         <c:choose>
-            <c:when test="${scoreAvg>=0 && scoreAvg<1.5}">
-                        ${ratingOptions.get(zero)} ${scoreAvg}
+            <c:when test="${scoreAvg==0}">
+            </c:when>
+            <c:when test="${scoreAvg>0.0 && scoreAvg<0.5}">
+                ${ratingOptions.get(zero)} ${scoreAvg}
+            </c:when>
+            <c:when test="${scoreAvg>=0.5 && scoreAvg<1.5}">
+                        ${ratingOptions.get(one)} ${scoreAvg}
             </c:when>
             <c:when test="${scoreAvg>=1.5 && scoreAvg<2.5}">
-                ${ratingOptions.get(one)} ${scoreAvg}
+                ${ratingOptions.get(two)} ${scoreAvg}
             </c:when>
             <c:when test="${scoreAvg>=2.5 && scoreAvg<3.5}">
-                ${ratingOptions.get(two)} ${scoreAvg}
+                ${ratingOptions.get(three)} ${scoreAvg}
             </c:when>
             <c:when test="${scoreAvg>=3.5 && scoreAvg<4.5}">
                 ${ratingOptions.get(four)} ${scoreAvg}
