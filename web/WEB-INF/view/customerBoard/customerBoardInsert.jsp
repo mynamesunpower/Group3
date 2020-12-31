@@ -60,7 +60,7 @@
     <input type="hidden" id="tel" name="tel" value="${sessionScope.memberTel}">
     <%--<button class="btn waves-effect waves-light" type="submit" name="action">글등록</button>--%>
     <a class="btn waves-effect waves-light loadAjax" id="boardInsert" href="customerBoard/customerBoardInsertOk.ing">글 등록</a>
-    <a class="btn waves-effect waves-light loadAjax" href="/start.ing">홈으로</a>
+    <a class="btn waves-effect waves-light loadAjax" href="/booktrain.ing">홈으로</a>
     <a class="btn waves-effect waves-light loadAjax" href="/customerBoard/customerBoardList.ing">목록으로</a>
 </form>
 </body>

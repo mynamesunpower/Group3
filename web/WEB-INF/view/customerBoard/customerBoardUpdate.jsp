@@ -59,7 +59,7 @@
     <input type="hidden" id="articleId" name="articleId" value="${param.articleId}">
 <%--<button class="btn waves-effect waves-light" type="submit" name="action">글수정완료</button>--%>
     <a class="btn waves-effect waves-light loadAjax blue lighten-4" id="customerModifyBtn" href="customerBoard/customerBoardUpdateOk.ing">수정하기</a>
-    <a class="btn waves-effect waves-light loadAjax" href="/start.ing">홈으로</a>
+    <a class="btn waves-effect waves-light loadAjax" href="/booktrain.ing">홈으로</a>
     <a class="btn waves-effect waves-light loadAjax" href="/customerBoard/customerBoardList.ing">목록으로</a>
 </form>
 

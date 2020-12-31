@@ -20,6 +20,7 @@
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <script type="text/javascript" src="../../../js/order.js"></script>
     <script type="text/javascript" src="../../../js/paymentMethod.js"></script>
+
 </head>
 <body>
 <div class="row">
@@ -38,6 +39,8 @@
             <input type="hidden" id="bookKind" value="${bookKind}">
             <input type="hidden" id="receiver" value="${receiver}">
             <input type="hidden" id="totalPrice" name="totalPrice" value="${purchaseVO.totalPrice}">
+            <input type="hidden" id="pay_point" name = "pay_point" value="0">
+
 
             <div class="row">
                 <table id="priceTable">
@@ -50,23 +53,29 @@
                         <th>쿠폰 할인금액</th>
                         <td>0원</td>
                         <td>
-                            <button class="returnCart cols s2 waves-effect waves-light btn-small white black-text">
+                            <button class="check_coupon cols s2 waves-effect waves-light btn-small white black-text">
                                 쿠폰 사용
                             </button>
                         </td>
                     </tr>
                     <tr>
                         <th>포인트 사용금액</th>
-                        <td>0원</td>
+                        <td class="pay_point">0 Point</td>
                         <td>
-                            <button id="check_point" class="check_point cols s2 waves-effect waves-light btn-small white black-text">
+
+                            <button id="check_point" class="check_point cols s2 waves-effect waves-light btn-small white black-text" onclick="checkPoint();">
                                 포인트 확인
                             </button>
                         </td>
                     </tr>
                     <tr>
                         <th>총 결제금액</th>
-                        <td colspan="2"><fmt:formatNumber value="${price}" pattern="#,###"/>원</td>
+                        <input id="price" type="hidden" value="${price}">
+                        <td id="pay_money"colspan="2"><fmt:formatNumber value="${price}" pattern="#,###"/>원</td>
+                    </tr>
+                    <tr>
+                        <th>적립 예정 포인트</th>
+                        <td id="save_point" colspan="2"><fmt:formatNumber value="${price*0.05}" pattern="#,###"/> Point</td>
                     </tr>
                 </table>
             </div>

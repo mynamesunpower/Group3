@@ -18,6 +18,6 @@ ${message}<br/><br/><br/>
 좋은글귀들@@@@@@@@@@@@@@@@@@@<br/><br/>
 
 
-<h4><a href="start.ing">- Booktrain.ing 홈으로 -</a></h4>
+<h4><a href="booktrain.ing">- Booktrain.ing 홈으로 -</a></h4>
 </body>
 </html>

@@ -98,6 +98,7 @@ int five = 5;
         model.addAttribute("three",three);
         model.addAttribute("four",four);
         model.addAttribute("five",five);
+        System.out.println("선택한 책의 평점" + scoreAvg);
         model.addAttribute("scoreAvg", scoreAvg);
         model.addAttribute("reviewVO", reviewVO);
         model.addAttribute("ratingOptions", ratingOptions);

@@ -41,6 +41,9 @@
         <h4>${viewBook.title}</h4>
 
         <c:choose>
+            <c:when test="${scoreAvg == 'NaN'}">
+                ${ratingOptions.get(zero)} 0
+            </c:when>
             <c:when test="${scoreAvg>=0 && scoreAvg<1.5}">
                         ${ratingOptions.get(zero)} ${scoreAvg}
             </c:when>

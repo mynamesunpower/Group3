@@ -18,7 +18,7 @@
 아이디와 비밀번호를 다시 확인해주세요.
 
 <br/>
-<a href="hello.ing">뒤로가기</a>
+<a href="booktrain.ing">홈으로</a>
 
 </body>
 </html>

@@ -65,7 +65,7 @@
         </tbody>
     </table>
     <br/><br/><br/>
-    <a href="/start.ing">메인 화면으로</a>
+    <a href="/booktrain.ing">메인 화면으로</a>
 </div>
 
 </body>

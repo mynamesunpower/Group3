@@ -20,6 +20,6 @@
     홈페이지 URL: <input type="text" name="url" value="${publisher.url}"> <br/>
     <input type="submit" value="출판사 수정">
 </form>
-<a href="/start.ing">홈으로</a>
+<a href="/booktrain.ing">홈으로</a>
 </body>
 </html>

@@ -18,7 +18,7 @@
     </listener>
 
     <welcome-file-list>
-        <welcome-file>start.ing</welcome-file>
+        <welcome-file>booktrain.ing</welcome-file>
     </welcome-file-list>
 
     <context-param>

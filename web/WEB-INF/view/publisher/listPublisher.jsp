@@ -38,7 +38,7 @@
 <br/>
 
 <a class="loadAjax" href="publisher/insertPublisher.ing"><input type="button" value="출판사 등록"/></a> <br/>
-<a href="../start.ing"><input type="button" value="홈으로"/></a>
+<a href="../booktrain.ing"><input type="button" value="홈으로"/></a>
 
 </body>
 </html>

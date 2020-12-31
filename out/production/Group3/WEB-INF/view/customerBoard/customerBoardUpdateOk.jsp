@@ -14,7 +14,7 @@
 
 글 수정이 완료되었습니다.
 
-<a class="btn waves-effect waves-light loadAjax" href="/start.ing">홈으로</a>
+<a class="btn waves-effect waves-light loadAjax" href="/booktrain.ing">홈으로</a>
 <a class="loadAjax" href="customerBoard/customerBoardList.ing">목록으로 돌아가기</a>
 </body>
 </html>

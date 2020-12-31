@@ -37,7 +37,7 @@
                         success : function (data) {
                             console.log(data);
                             if (data.includes("성공")) {
-                                location.replace('/start.ing');
+                                location.replace('/booktrain.ing');
                             }
                             else {
                                 alert("아이디나 비밀번호가 올바르지 않습니다.");
