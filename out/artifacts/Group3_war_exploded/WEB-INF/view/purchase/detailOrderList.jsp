@@ -30,7 +30,7 @@
             <c:forEach var="detailOrder_list" items="${detailOrder_List}">
                 <tr>
                     <th>
-                        <a href="">${detailOrder_list.bookVO.title}</a> ${detailOrder_list.purchaseBookVO.quantity}권
+                        <a class="loadAjax" href="/viewBook.ing?isbn=${detailOrder_list.purchaseBookVO.isbn}">${detailOrder_list.bookVO.title}</a> ${detailOrder_list.purchaseBookVO.quantity}권
                     </th>
                     <td>
                         <c:if test="${purchaseInfo.cancelDate == null}">
@@ -47,6 +47,9 @@
     <p>받는사람 : ${purchaseInfo.receiver}</p>
     <p>배송지 : ${purchaseInfo.shipAddress}</p>
     <p>결제금액 : <fmt:formatNumber value="${purchaseInfo.totalPrice}" pattern="#,###"/>원</p>
+    <c:if test="${purchaseInfo.payPoint != 0}">
+        <p>포인트 사용액 : <fmt:formatNumber value="${purchaseInfo.payPoint}" pattern="#,###"/> Point </p>
+    </c:if>
     <p>구매일 : ${purchaseInfo.purchaseDate}</p>
     <%--취소날짜가 있다면 보이게 설정--%>
     <c:if test="${purchaseInfo.cancelDate != null}">

@@ -29,7 +29,9 @@
                     url: '/purchase/payComplete.ing',
                     contentType: 'application/json; charset=utf-8',
                     data: {
-                        'totalPrice': $('#totalPrice').val(),
+                        'totalPrice' : parseInt($('#totalPrice').val()),
+                        'payPoint' :  parseInt($('#pay_point').val()),
+                        'point' : parseInt($('#totalPrice').val())*0.05
                     }, success: (data) => {
                         $('#content').children().remove();
                         $('#content').html(data);

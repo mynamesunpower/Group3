@@ -28,6 +28,8 @@
         }).open();
     }
 
+
+
 $(function () {
 
     /**
@@ -55,9 +57,11 @@ $(function () {
         })
     })
 
-    // 포인트 확인 & 사용
-    $('#check_point').click(()=>{
-        alert('포인트 확인클릭')
+    // 포인트 확인 팝업창
+    $('#check_point').click((evt)=>{
+        evt.preventDefault();
+        evt.stopPropagation();
+        window.open('/purchase/checkPoint.ing','checkPoint', 'width=450, height=270 resizeable=no')
     })
 
     // 체크박스 한개만 체크되도록 설정
@@ -95,8 +99,11 @@ $(function () {
         $.ajax({
             type: 'post',
             url: '/purchase/payComplete.ing',
-            contentType: 'application/json; charset=utf-8',
+            contentType: 'application/x-www-form-urlencoded;charset=utf-8',
             data: {
+                'totalPrice' : parseInt($('#totalPrice').val()),
+                'payPoint' :  parseInt($('#pay_point').val()),
+                'point' : parseInt($('#totalPrice').val())*0.05
             }, success: (data) => {
                 $('#content').children().remove();
                 $('#content').html(data);
