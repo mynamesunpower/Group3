@@ -73,7 +73,7 @@ $(function(){
                 }
                 else {
                     alert("회원님의 아이디는 " + result + " 입니다. 다시 로그인해주세요.");
-                    location.replace("start.ing");
+                    location.replace("booktrain.ing");
                 }
             },
             error : function (err) {

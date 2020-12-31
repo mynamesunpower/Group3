@@ -65,7 +65,7 @@ public class ShoppingCartController {
     public String deleteCartList() {
         shoppingCartService.deleteCartList((String) httpSession.getAttribute("memberTel"));
 
-        return "redirect:../start.ing";
+        return "redirect:../booktrain.ing";
     }
 
     // 특정 상품 삭제

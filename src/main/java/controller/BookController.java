@@ -46,11 +46,15 @@ public class BookController {
     @RequestMapping(value = "viewBook.ing")
     public String viewBook(BookVO vo, ReviewVO reviewVO, Model model) {
         // 회원이 해당 상품을 샀는지 안샀는지 알아보기 위해 해쉬맵 생성해서 데이터 전송
+        System.out.println(("viewbook() 54line "+ httpSession.getAttribute("memberTel")));
+        System.out.println(("viewbook() 54line "+ vo.getIsbn()));
+
         Map purchaseMap = new HashMap();
         purchaseMap.put("memberTel", (String) httpSession.getAttribute("memberTel"));
         purchaseMap.put("isbn", vo.getIsbn());
         // 해당 회원의 번호와 isbn으로 상품 구매 여부 확인
         List<PurchaseVO> purchaseList = purchaseService.selectPurchase(purchaseMap);
+        System.out.println(("viewbook() 54line "+ purchaseList.size()));
         for (PurchaseVO purchaseVO : purchaseList){
             model.addAttribute("orderNumber", purchaseVO.getOrderNumber());
         }

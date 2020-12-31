@@ -74,7 +74,7 @@ $(function(){
                 }
                 else {
                     alert("회원님의 비밀번호를 이메일로 전송해드렸습니다.");
-                    location.replace("start.ing");
+                    location.replace("booktrain.ing");
                 }
             },
             error : function (err) {

@@ -333,6 +333,6 @@ public class PurchaseController {
         purchaseService.cancelOrder(purchaseVO);
 
         System.out.println("결제 취소 완료");
-        return "redirect:../start.ing";
+        return "redirect:../booktrain.ing";
     }
 }

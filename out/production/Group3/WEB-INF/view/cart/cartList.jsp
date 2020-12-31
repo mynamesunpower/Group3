@@ -26,7 +26,7 @@
     <c:choose>
     <c:when test="${fn:length(cart)==0}">
         장바구니에 상품이 없어용~
-        <a href="/start.ing">메인화면으로</a>
+        <a href="/booktrain.ing">메인화면으로</a>
     </c:when>
     <c:otherwise>
     <table id="cartTable" , class="highlight centered">

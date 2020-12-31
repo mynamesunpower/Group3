@@ -211,7 +211,7 @@ public class MemberController {
             session.invalidate();
         }
 
-        return "redirect:/start.ing";
+        return "redirect:/booktrain.ing";
     }
 
     // ID 찾기 페이지로 이동

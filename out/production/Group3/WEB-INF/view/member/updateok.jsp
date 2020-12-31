@@ -16,7 +16,7 @@
 <h5>${msgupdate}</h5>
 즐거운 하루 되세요! <br/> <br/> <hr/>
 
-<a class="btn pink lighten-4" href="/start.ing">홈으로</a>
+<a class="btn pink lighten-4" href="/booktrain.ing">홈으로</a>
 <a class="btn pink lighten-4" href="/logout.ing">로그아웃</a>
 
 </body>
