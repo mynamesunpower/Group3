@@ -44,13 +44,13 @@
             <c:when test="${scoreAvg>=0 && scoreAvg<1.5}">
                         ${ratingOptions.get(zero)} ${scoreAvg}
             </c:when>
-            <c:when test="${scoreAvg>=1.5 && scoreAvg<2.5}">
+            <c:when test="${scoreAvg>=1 && scoreAvg<2.5}">
                 ${ratingOptions.get(one)} ${scoreAvg}
             </c:when>
-            <c:when test="${scoreAvg>=2.5 && scoreAvg<3.5}">
+            <c:when test="${scoreAvg>=2 && scoreAvg<3.5}">
                 ${ratingOptions.get(two)} ${scoreAvg}
             </c:when>
-            <c:when test="${scoreAvg>=3.5 && scoreAvg<4.5}">
+            <c:when test="${scoreAvg>=3 && scoreAvg<4.5}">
                 ${ratingOptions.get(four)} ${scoreAvg}
             </c:when>
             <c:otherwise>

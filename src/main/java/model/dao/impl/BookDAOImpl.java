@@ -180,7 +180,7 @@ public class BookDAOImpl implements BookDAO {
                 j = j == null ? 0 : j;
                 list2.put(i,j);
             }
-        }//아니구나 타입이 다른가.. Hashmap은 바깥에 있어도 되는거죠? 나 이거 코드 모르겠어 ㅋㅋㅋㅋ전화 가능하신가용ㅋㅇㅋ
+        }
         else if(age=="4"){
 
             for(int i=1;i<=12;i++){

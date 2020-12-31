@@ -40,7 +40,7 @@
             alert(text);
             let articleNumber = text.substring(0, 1);
             alert(articleNumber);
-*/
+
         });
 
     </script>

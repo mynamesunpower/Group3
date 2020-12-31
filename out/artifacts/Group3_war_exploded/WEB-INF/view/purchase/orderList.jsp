@@ -18,6 +18,28 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="../../../js/order.js"></script>
+
+    <!--Import Google Icon Font pagination 페이징-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Import materialize.css pagination페이징-->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Dogfalo/materialize/fc44c862/dist/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/Dogfalo/materialize/fc44c862/dist/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#List').pageMe({
+                pagerSelector: '#myPager',
+                activeColor: 'blue',
+                prevText: 'Anterior',
+                nextText: 'Siguiente',
+                showPrevNext: true,
+                hidePageNumbers: false,
+                perPage: 2
+            }); //페이징관
+        });
+    </script>
 </head>
 <body><br/>
 <div class="row">
@@ -26,7 +48,7 @@
 </div>
 
 <div class="row">
-    <table class="centered">
+    <table class="centered" id="List">
         <thead>
         <tr>
             <th>주문번호</th>
