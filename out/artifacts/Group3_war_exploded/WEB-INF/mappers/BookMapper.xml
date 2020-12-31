@@ -41,6 +41,7 @@
         WHERE ISBN = #{isbn}
         ]]>
     </delete>
+    
 
     <!--선택한 ISBN의 도서정보 업데이트-->
     <update id="updateBook" parameterType="book">

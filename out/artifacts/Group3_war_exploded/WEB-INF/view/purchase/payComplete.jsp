@@ -47,7 +47,8 @@
             <td>${sessionScope.payMember.point}</td>
         </tr>
     </table><br/><br/>
-    <a href="/booktrain.ing">메인 화면으로</a>
+    <a class="btn" href="/purchase/orderList.ing?">주문 목록</a>
+    <a class="btn" href="/booktrain.ing">메인 화면으로</a>
 </div>
 </body>
 </html>

@@ -1718,3 +1718,1139 @@ age일떄:1
 고객의 나이:44
 genre일떄:2
 고객의 나이:44
+31-Dec-2020 14:14:16.995 정보 [RMI TCP Connection(9)-127.0.0.1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+listBook.ing 요청
+===> Mybatis bookList() 호출
+===> Mybatis selectBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+미니 박지우/9791197035234다이어트 할 때도 맛있게 먹어야 성공한다! d===Mybatis updateBook() 호출===> Mybatis selectBook() 호출
+sbox genre
+bookService 68Line : genre
+searchBookDao searchBook() : genre
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis genrebookList() 호출
+sbox genre
+bookService 68Line : genre
+searchBookDao searchBook() : genre
+미니 박지우/9791197035234다이어트 할 때도 맛있게 먹어야 성공한다! 냠냠===Mybatis updateBook() 호출===> Mybatis selectBook() 호출
+sbox title
+bookService 68Line : title
+searchBookDao searchBook() : title
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+sbox null
+bookService 68Line : null
+searchBookDao searchBook() : null
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+viewbook() 54line null
+viewbook() 54line 9791191187533
+viewbook() 54line 0
+viewBook() 49Line 점수 : 0.0
+===> Mybatis selectBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+sbox author
+bookService 68Line : author
+searchBookDao searchBook() : author
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+Controller ID 체크 ->admin
+dao ID 체크 ->admin
+1
+===>  MemberMapper memberlogin() 호출
+11111111a!/$2a$10$t2yNAl4NVzpckMvWk/Mip.yylwB5J16mXuK99mur84H4AP.VW10CC
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+listBook.ing 요청
+===> Mybatis bookList() 호출
+listBook.ing 요청
+===> Mybatis bookList() 호출
+===> Mybatis selectBook() 호출
+미니 박지우/9791197035234다이어트 할 때도 맛있게 먹어야 성공한다! 냠냠===Mybatis updateBook() 호출===> Mybatis selectBook() 호출
+===> Mybatis genrebookList() 호출
+===> Mybatis genrebookList() 호출
+===> Mybatis genrebookList() 호출
+===> Mybatis genrebookList() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+listBook.ing 요청
+===> Mybatis bookList() 호출
+===> Mybatis selectBook() 호출
+미니 박지우/9791197035234다이어트 할 때도 맛있게 먹어야 성공한다! 냠냠===Mybatis updateBook() 호출===> Mybatis selectBook() 호출
+===> Mybatis genrebookList() 호출
+PublisherDAOImpl listPublisher()
+listBook.ing 요청
+===> Mybatis bookList() 호출
+===> Mybatis selectBook() 호출
+===> Mybatis genrebookList() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+listBook.ing 요청
+===> Mybatis bookList() 호출
+===> Mybatis selectBook() 호출
+===> Mybatis genrebookList() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+PublisherDAOImpl listPublisher()
+listBook.ing 요청
+===> Mybatis bookList() 호출
+Controller ID 체크 ->21yearold
+dao ID 체크 ->21yearold
+1
+===> Mybatis selectBook() 호출
+===>  MemberMapper memberlogin() 호출
+11111111a!/$2a$10$4cGr/pyaIuBdumLF2OVsZ.6snCWwGxJk/izWCexMfq00sSgYMSTF6
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 이십일
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:21
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:21
+genre일떄:2
+고객의 나이:21
+최원영/9791196918033IT 시대의 필수 교양서===Mybatis updateBook() 호출===> Mybatis selectBook() 호출
+===> Mybatis genrebookList() 호출
+===> Mybatis genrebookList() 호출
+===> Mybatis genrebookList() 호출
+이십일님 로그아웃
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+deleteBook_success.ing 요청
+===> Mybatis deleteBook() 호출
+Controller ID 체크 ->30yearold
+dao ID 체크 ->30yearold
+1
+listBook.ing 요청
+===> Mybatis bookList() 호출
+===>  MemberMapper memberlogin() 호출
+11111111a!/$2a$10$iU68Jm6ewU./eijcl9UBGuwL58TM9pd.rbgv5Jm2EsCNHD1l4qBWe
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 삼십대
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:31
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:31
+genre일떄:2
+고객의 나이:31
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+viewbook() 54line 0323392209
+viewbook() 54line 9791136007988
+viewbook() 54line 1
+viewBook() 49Line 점수 : 4.0
+===> Mybatis selectBook() 호출
+=====>지금부터 mybatis daychart() 시작
+30
+29
+28
+27
+26
+25
+24
+23
+22
+21
+20
+19
+18
+17
+16
+15
+14
+13
+12
+11
+10
+9
+8
+7
+ShoppingCartDAOImpl insertCart()9791136007988
+6
+5
+4
+3
+2
+1
+0
+=====>여기까지 mybatis daychart() 끝 리턴!
+매출 result : ['30일 전', null],['29일 전', null],['28일 전', null],['27일 전', null],['26일 전', null],['25일 전', null],['24일 전', null],['23일 전', null],['22일 전', null],['21일 전', null],['20일 전', null],['19일 전', 429000],['18일 전', null],['17일 전', null],['16일 전', null],['15일 전', null],['14일 전', null],['13일 전', null],['12일 전', null],['11일 전', null],['10일 전', null],[' 9 일 전', null],[' 8 일 전', null],[' 7 일 전', null],[' 6 일 전', null],[' 5 일 전', null],[' 4 일 전', null],[' 3 일 전', 46000],[' 2 일 전', 46000],[' 1 일 전', 468000],['오늘', 3472200]
+chartA() booktrain 매출 line 차트
+10대 40대 mybatis 시작 1
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대는:{1=0, 2=0, 3=0, 4=0, 5=0, 6=0, 7=0, 8=0, 9=0, 10=0, 11=0, 12=0}
+===> Mybatis ageList() 호출
+10대 40대 mybatis 시작 4
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :134100
+40대는:{1=0, 2=0, 3=0, 4=0, 5=0, 6=0, 7=0, 8=0, 9=0, 10=0, 11=0, 12=134100}
+===> Mybatis salesList() 호출
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+매출 result : ['1', 0,0,0,0,0],['2', 0,0,0,0,0],['3', 0,0,0,0,0],['4', 0,0,0,0,0],['5', 0,0,0,0,0],['6', 0,0,0,0,0],['7', 0,0,0,0,0],['8', 0,0,0,0,0],['9', 0,0,0,0,0],['10', 0,0,0,0,0],['11', 138000,0,0,138000,0],['12', 1485300,0,572000,759400,134100]
+chartA() booktrain 매출 line 차트
+10대 40대 mybatis 시작 1
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대는:{1=0, 2=0, 3=0, 4=0, 5=0, 6=0, 7=0, 8=0, 9=0, 10=0, 11=0, 12=0}
+===> Mybatis ageList() 호출
+10대 40대 mybatis 시작 4
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :134100
+40대는:{1=0, 2=0, 3=0, 4=0, 5=0, 6=0, 7=0, 8=0, 9=0, 10=0, 11=0, 12=134100}
+===> Mybatis salesList() 호출
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+=====>지금부터 mybatis daychart() 시작
+30
+for문 시작
+29
+for문 시작
+28
+for문 시작
+27
+for문 시작
+for문 시작
+26
+25
+for문 시작
+24
+for문 시작
+23
+매출 result : ['1', 0,0,0,0,0],['2', 0,0,0,0,0],['3', 0,0,0,0,0],['4', 0,0,0,0,0],['5', 0,0,0,0,0],['6', 0,0,0,0,0],['7', 0,0,0,0,0],['8', 0,0,0,0,0],['9', 0,0,0,0,0],['10', 0,0,0,0,0],['11', 138000,0,0,138000,0],['12', 1485300,0,572000,759400,134100]
+chartA() booktrain 매출 line 차트
+10대 40대 mybatis 시작 1
+10대 시작
+22
+10대 j :null
+10대 시작
+21
+10대 j :null
+10대 시작
+20
+10대 j :null
+10대 시작
+19
+10대 j :null
+10대 시작
+18
+10대 j :null
+10대 시작
+17
+10대 j :null
+10대 시작
+16
+10대 j :null
+10대 시작
+chartA() booktrain 매출 line 차트
+10대 40대 mybatis 시작 1
+10대 시작
+=====>지금부터 mybatis daychart() 시작
+30
+chartA() booktrain 매출 line 차트
+10대 40대 mybatis 시작 1
+10대 시작
+=====>지금부터 mybatis daychart() 시작
+30
+listBook.ing 요청
+===> Mybatis bookList() 호출
+listBook.ing 요청
+===> Mybatis bookList() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis genrebookList() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+viewbook() 54line null
+viewbook() 54line 9788966262823
+viewbook() 54line 0
+viewBook() 49Line 점수 : 4.0
+===> Mybatis selectBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+Controller ID 체크 ->admin
+dao ID 체크 ->admin
+===> Mybatis bestBook() 호출
+1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+===>  MemberMapper memberlogin() 호출
+11111111a!/$2a$10$t2yNAl4NVzpckMvWk/Mip.yylwB5J16mXuK99mur84H4AP.VW10CC
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+listBook.ing 요청
+===> Mybatis bookList() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+listBook.ing 요청
+===> Mybatis bookList() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+viewbook() 54line 7777777777
+viewbook() 54line 9791162541807
+viewbook() 54line 0
+viewBook() 49Line 점수 : 3.0
+===> Mybatis selectBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+viewbook() 54line 7777777777
+viewbook() 54line 9788966262823
+viewbook() 54line 0
+viewBook() 49Line 점수 : 4.0
+===> Mybatis selectBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+===> Mybatis selectBook() 호출
+listBook.ing 요청
+===> Mybatis bookList() 호출
+deleteBook_success.ing 요청
+===> Mybatis deleteBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+listBook.ing 요청
+===> Mybatis bookList() 호출
+===> Mybatis selectBook() 호출
+===> Mybatis genrebookList() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+listBook.ing 요청
+===> Mybatis bookList() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+listBook.ing 요청
+===> Mybatis bookList() 호출
+listBook.ing 요청
+===> Mybatis bookList() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+listBook.ing 요청
+===> Mybatis bookList() 호출
+Controller ID 체크 ->admin
+dao ID 체크 ->admin
+1
+===>  MemberMapper memberlogin() 호출
+11111111a!/$2a$10$t2yNAl4NVzpckMvWk/Mip.yylwB5J16mXuK99mur84H4AP.VW10CC
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 삼십대
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:31
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:31
+genre일떄:2
+고객의 나이:31
+orderBook() 상세화면에서 받아온 isbn : 9791136007988
+orderBook() title: 영어 단원별 기출&예상 문제집(9급 공무원)(2021)
+listBook.ing 요청
+===> Mybatis bookList() 호출
+===> Mybatis selectBook() 호출
+deleteBook_success.ing 요청
+===> Mybatis deleteBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 삼십대
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:31
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:31
+genre일떄:2
+고객의 나이:31
+orderBook() 상세화면에서 받아온 isbn : 9791136007988
+orderBook() title: 영어 단원별 기출&예상 문제집(9급 공무원)(2021)
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+Using CATALINA_BASE:   "C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb"
+Using CATALINA_HOME:   "E:\plugins\apache-tomcat-9.0.40"
+Using CATALINA_TMPDIR: "E:\plugins\apache-tomcat-9.0.40\temp"
+Using JRE_HOME:        "C:\Users\sunny\.jdks\azul-1.8.0_275"
+Using CLASSPATH:       "E:\plugins\apache-tomcat-9.0.40\bin\bootstrap.jar;E:\plugins\apache-tomcat-9.0.40\bin\tomcat-juli.jar"
+Using CATALINA_OPTS:   ""
+31-Dec-2020 14:36:44.443 정보 [main] org.apache.catalina.core.StandardServer.await 셧다운 포트를 통해 유효한 셧다운 명령을 받았습니다. 서버 인스턴스를 중지시킵니다.
+31-Dec-2020 14:36:44.443 정보 [main] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 일시 정지 중
+31-Dec-2020 14:36:44.503 정보 [main] org.apache.catalina.core.StandardService.stopInternal 서비스 [Catalina]을(를) 중지시킵니다.
+31-Dec-2020 14:36:44.525 정보 [main] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 중지시킵니다.
+31-Dec-2020 14:36:44.549 정보 [main] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 소멸시킵니다.
+Disconnected from server
