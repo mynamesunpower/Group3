@@ -39,6 +39,33 @@
 
         <br/><br/><br/>
         <h4>${viewBook.title}</h4>
+
+        <c:choose>
+            <c:when test="${scoreAvg==0}">
+            </c:when>
+            <c:when test="${scoreAvg>0.0 && scoreAvg<0.5}">
+                ${ratingOptions.get(zero)} ${scoreAvg}
+            </c:when>
+            <c:when test="${scoreAvg>=0.5 && scoreAvg<1.5}">
+                        ${ratingOptions.get(one)} ${scoreAvg}
+            </c:when>
+            <c:when test="${scoreAvg>=1.5 && scoreAvg<2.5}">
+                ${ratingOptions.get(two)} ${scoreAvg}
+            </c:when>
+            <c:when test="${scoreAvg>=2.5 && scoreAvg<3.5}">
+                ${ratingOptions.get(three)} ${scoreAvg}
+            </c:when>
+            <c:when test="${scoreAvg>=2.5 && scoreAvg<3.5}">
+                ${ratingOptions.get(three)} ${scoreAvg}
+            </c:when>
+            <c:when test="${scoreAvg>=3.5 && scoreAvg<4.5}">
+                ${ratingOptions.get(four)} ${scoreAvg}
+            </c:when>
+            <c:otherwise>
+                ${ratingOptions.get(five)} ${scoreAvg}
+            </c:otherwise>
+        </c:choose>
+        <br/>
         <h6 class="no-padding">${viewBook.author}</h6>
         <br/><br/>
         <div class="row">
@@ -47,12 +74,14 @@
                 출판사<br/>
                 페이지<br/>
                 키워드<br/>
+                가격<br/>
             </div>
             <div class="col s5 left-align no-padding">
                 ${viewBook.publicationDate}<br/>
                 ${viewBook.publisherVO.publisherName} <br/>
                 ${viewBook.totalPage}p<br/>
                 ${viewBook.keyword}<br/>
+                ${viewBook.price}<br/>
             </div>
         </div>
         <hr/>
@@ -62,20 +91,15 @@
         </div>
         <hr/>
         <div class="row">
-            <c:if test="${sessionScope.memberName ne null}">
-                <a class="loadAjax btn" href="/cart/addCart.ing?isbn=${viewBook.isbn}">장바구니에 추가</a>
-            </c:if>
-            <a class="loadAjax btn" href="/purchase/orderBook.ing?isbn=${viewBook.isbn}">바로 구매하기</a>
-        </div>
-        <div class="row">
+            <h5 class="left-align">사용자 리뷰</h5><br/>
             <table id="review_table">
                 <c:forEach var="review" items="${reviewList}">
                     <c:set var="score" value="${review.score}"></c:set>
                     <tr>
-                        <td>${review.memberVO.name}</td>
-                        <td>${ratingOptions.get(score)}</td>
-                        <td>${review.content}</td>
-                        <td>${review.writingTime}</td>
+                        <td class="center-align">${review.memberVO.name}</td>
+                        <td class="center-align">${ratingOptions.get(score)}</td>
+                        <td class="center-align">${review.content}</td>
+                        <td class="center-align">${review.writingTime}</td>
                         <c:if test="${review.purchaseVO.memberTel eq sessionScope.memberTel}">
                             <td>
                                 <a href="/review/deleteReview.ing?isbn=${review.isbn}&reviewNumber=${review.reviewNumber}"
@@ -101,13 +125,18 @@
                 </p>
                 <form action="/review/registReview.ing">
                     <input type="hidden" id="purchaseBook_isbn" value="${reviewVO.isbn}"/>
-                    <input type="hidden" id="purchase_orderNumber" value="${reviewVO.orderNumber}"/>
+                    <input type="hidden" id="purchase_orderNumber" value="${orderNumber}"/>
                     <textarea id="review_content" placeholder="리뷰를 작성해주세요 50자이내"></textarea>
                 </form>
                 <button type="button" id="regist_review">등록</button>
             </c:if>
         </div>
-
+        <div class="row">
+            <c:if test="${sessionScope.memberName ne null}">
+                <a class="loadAjax btn" href="/cart/addCart.ing?isbn=${viewBook.isbn}">장바구니에 추가</a>
+            </c:if>
+            <a class="loadAjax btn" href="/purchase/orderBook.ing?isbn=${viewBook.isbn}">바로 구매하기</a>
+        </div>
     </div>
 </div>
 </body>

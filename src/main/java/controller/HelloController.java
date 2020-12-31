@@ -27,7 +27,7 @@ public class HelloController {
 
     //메인페이지 책 이미지 뽑기
     //메인에 넘기기
-    @RequestMapping("/start.ing")
+    @RequestMapping("/booktrain.ing")
     public String carousel(HttpSession session, Model model){
         System.out.println("helloController에서 hello.ing 요청");
         if(session == null){
@@ -112,7 +112,7 @@ public class HelloController {
         }
 
 
-        return "hello";
+        return "booktrain";
     }
 
     @RequestMapping("/error.ing")

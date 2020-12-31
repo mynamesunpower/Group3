@@ -55,6 +55,9 @@
             <c:when test="${scoreAvg>=2.5 && scoreAvg<3.5}">
                 ${ratingOptions.get(three)} ${scoreAvg}
             </c:when>
+            <c:when test="${scoreAvg>=2.5 && scoreAvg<3.5}">
+                ${ratingOptions.get(three)} ${scoreAvg}
+            </c:when>
             <c:when test="${scoreAvg>=3.5 && scoreAvg<4.5}">
                 ${ratingOptions.get(four)} ${scoreAvg}
             </c:when>
