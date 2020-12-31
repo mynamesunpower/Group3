@@ -11,8 +11,9 @@
     <title>삭제</title>
 </head>
 <body>
-삭제되엇습니다.<br/>
+삭제되었습니다.<br/>
+사실 게시판 아무나 삭제 가능합니다<br/>
 
-<a href="customerBoard/customerBoardList.ing">글목록으로 돌아가기</a>
+<a class="loadAjax" href="customerBoard/customerBoardList.ing">목록으로 돌아가기</a>
 </body>
 </html>

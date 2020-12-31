@@ -20,6 +20,7 @@
         <typeAlias alias="purchaseBook" type="model.vo.PurchaseBookVO" />
         <typeAlias alias="review" type="model.vo.ReviewVO"/>
         <typeAlias alias="customerBoard" type="model.vo.CustomerBoardVO" />
+        <typeAlias alias="customerBoardPaging" type="model.vo.CustomerBoardPagingVO"/>
     </typeAliases>
 
 </configuration>

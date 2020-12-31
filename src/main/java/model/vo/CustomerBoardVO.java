@@ -12,6 +12,16 @@ public class CustomerBoardVO {
     private String id;
     private int readCount;
 
+    private CustomerBoardPagingVO customerBoardPagingVO;
+
+    public CustomerBoardPagingVO getCustomerBoardPagingVO() {
+        return customerBoardPagingVO;
+    }
+
+    public void setCustomerBoardPagingVO(CustomerBoardPagingVO customerBoardPagingVO) {
+        this.customerBoardPagingVO = customerBoardPagingVO;
+    }
+
     public int getArticleId() {
         return articleId;
     }

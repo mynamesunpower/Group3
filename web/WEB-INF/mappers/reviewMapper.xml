@@ -19,6 +19,13 @@
       ORDER BY WRITING_TIME DESC
     </select>
 
+    <!--해당 isbn의 별점 불러옴-->
+    <select id="bookScore" parameterType="review" resultType="review">
+        select re.score
+        from book b inner join review re on b.isbn = re.isbn
+        where re.isbn = #{isbn}
+    </select>
+
     <delete id="deleteReview" parameterType="review">
         DELETE FROM REVIEW
         WHERE REVIEW_NUMBER = ${reviewNumber}

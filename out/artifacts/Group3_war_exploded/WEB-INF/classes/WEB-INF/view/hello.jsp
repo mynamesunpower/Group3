@@ -32,6 +32,7 @@
                 fullWidth: true,
                 indicators: true
             });
+
         });
     </script>
 </head>
@@ -261,7 +262,7 @@
             <div class="row"> <!-- 30대가 가장 많이 구매한 도서 (매출액순) -->
                 <div class="col s12">
                     <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
-                        <th>30대가 가장 많이 구매한 도서</th> <br/><br/>
+                        <th>${age}가 가장 많이 구매한 도서</th> <br/><br/>
                         <tbody>
                         <tr>
                             <td width="25%" valign="top" style="color:#33afe9; text-align:center;padding:0 9px;">Best 1</td>
@@ -295,7 +296,7 @@
             <div class="row">
                 <div class="col s12">
                     <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:10px;">
-                        <th>30대 인기 장르</th>
+                        <th>${age} 인기 장르</th>
                         <br/><br/>
                         <tbody>
                         <tr>

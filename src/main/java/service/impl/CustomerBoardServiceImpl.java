@@ -1,12 +1,15 @@
 package service.impl;
 
 import model.dao.impl.CustomerBoardDAOImpl;
+import model.vo.CustomerBoardPagingVO;
 import model.vo.CustomerBoardVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.service.CustomerBoardService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CustomerBoardServiceImpl implements CustomerBoardService {
@@ -52,5 +55,15 @@ public class CustomerBoardServiceImpl implements CustomerBoardService {
 
     public int customerBoardReply(CustomerBoardVO customerBoardvo){
         return customerBoardDao.customerBoardReply(customerBoardvo);
+    }
+
+    @Override
+    public List<Map> selectPagingList(CustomerBoardPagingVO pagingVO) {
+        return customerBoardDao.selectPagingList(pagingVO);
+    }
+
+    @Override
+    public HashMap selectPagingListCount(CustomerBoardPagingVO pagingVO) {
+        return customerBoardDao.selectPagingListCount(pagingVO);
     }
 }

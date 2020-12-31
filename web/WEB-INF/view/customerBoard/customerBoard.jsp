@@ -16,33 +16,35 @@
 
 </head>
 <body>
-${customerBoard.originId}
-<table class="highlight">
-<tr>
-<td>글번호</th>
-<td>${customerBoard.articleId}</td>
-</tr>
+<%--${customerBoard.originId}--%>
+<div class="row">
+    <table class="highlight">
+        <tr>
+            <td>글번호</th>
+            <td>${customerBoard.articleId}</td>
+        </tr>
 
-<tr>
-    <td>제목</th>
-    <td>${customerBoard.title}</td>
-</tr>
+        <tr>
+            <td>제목</th>
+            <td>${customerBoard.title}</td>
+        </tr>
 
-<tr>
-    <td>내용</th>
-    <td>${customerBoard.content}</td>
-</tr>
-</table>
-<%--폼으로 묵어야댈가요--%>
+        <tr>
+            <td>내용</th>
+            <td>${customerBoard.content}</td>
+        </tr>
+    </table>
+    <%--폼으로 묵어야댈가요--%>
+</div>
 
 
-<a href="customerBoard/customerBoardUpdate.ing?articleId=${customerBoard.articleId}">글수정</a> <br/><br/>
+<a class="loadAjax btn indigo lighten-5 grey-text" href="customerBoard/customerBoardUpdate.ing?articleId=${customerBoard.articleId}">글수정</a>
 
-<a href="customerBoard/customerBoardDelete.ing?articleId=${customerBoard.articleId}">글삭제</a> <br/><br/>
+<a class="loadAjax btn red lighten-4 grey-text" href="customerBoard/customerBoardDelete.ing?articleId=${customerBoard.articleId}">글삭제</a>
 
-<a href="customerBoard/customerBoardReply.ing?articleId=${customerBoard.articleId}&originId=${customerBoard.originId}">답글</a> <br/><br/>
+<a class="loadAjax btn teal lighten-4 grey-text" href="customerBoard/customerBoardReply.ing?articleId=${customerBoard.articleId}&originId=${customerBoard.originId}">답글</a>
 
-<a href="customerBoard/customerBoardList.ing">글목록으로 돌아가기</a><br/><br/>
+<a class="loadAjax btn" href="customerBoard/customerBoardList.ing">목록으로 돌아가기</a><br/><br/>
 
 
 

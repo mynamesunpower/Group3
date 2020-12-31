@@ -271,6 +271,35 @@
 
     <select id="hotBook" parameterType="String" resultMap="getBook">
 
+        <!--SELECT *-->
+        <!--FROM book b-->
+        <!--INNER JOIN(SELECT sd.isbn, sum(sd.amount_price) amountprice, sum(sd.amount_quantity) amountquantity-->
+        <!--FROM sales_data sd-->
+        <!--INNER JOIN(SELECT pb.order_number-->
+        <!--FROM purchase_book pb-->
+        <!--INNER JOIN(select p.order_number-->
+        <!--from purchase p-->
+        <!--inner join(SELECT *-->
+        <!--FROM member-->
+        <!--WHERE (to_char(sysdate,'yyyy')+1 -(substr(jumin1,0,2)+-->
+        <!--(case-->
+        <!--when substr(jumin2,0,1) <![CDATA[<]]>3 then 1900-->
+        <!--when substr(jumin2,0,1) >=3 then 2000-->
+        <!--end))) between 30 and 39) m-->
+        <!--ON p.membertel=m.tel) p-->
+        <!--ON p.order_number = pb.order_number) pb-->
+        <!--ON pb.order_number = sd.order_number-->
+        <!--GROUP BY sd.isbn) sd-->
+        <!--ON sd.isbn = b.isbn-->
+
+        <!--ORDER BY-->
+        <!--<if test="_parameter.equals('age')">-->
+            <!--amountquantity DESC-->
+        <!--</if>-->
+        <!--<if test="_parameter.equals('genre')">-->
+            <!--amountprice DESC-->
+        <!--</if>-->
+
         SELECT *
         FROM book b
         INNER JOIN(SELECT sd.isbn, sum(sd.amount_price) amountprice, sum(sd.amount_quantity) amountquantity
@@ -289,9 +318,7 @@
         ON p.membertel=m.tel) p
         ON p.order_number = pb.order_number) pb
         ON pb.order_number = sd.order_number
-        GROUP BY sd.isbn) sd
-        ON sd.isbn = b.isbn
-
+        GROUP BY sd.isbn
         ORDER BY
         <if test="_parameter.equals('age')">
             amountquantity DESC
@@ -299,6 +326,9 @@
         <if test="_parameter.equals('genre')">
             amountprice DESC
         </if>
+        ) sd
+        ON sd.isbn = b.isbn
+        WHERE rownum<![CDATA[<]]>=3
     </select>
 
     <select id="bestbookList" resultMap="getBook">
@@ -373,8 +403,7 @@
         ON p.membertel=m.tel) p
         ON p.order_number = pb.order_number) pb
         ON pb.order_number = sd.order_number
-        GROUP BY sd.isbn) sd
-        ON sd.isbn = b.isbn
+        GROUP BY sd.isbn
 
         ORDER BY
         <choose>
@@ -388,6 +417,9 @@
                 amountquantity DESC
             </otherwise>
         </choose>
+        ) sd
+        ON sd.isbn = b.isbn
+        WHERE rownum<![CDATA[<]]>4
 
     </select>
 

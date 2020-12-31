@@ -181,7 +181,30 @@
         })
 
 
+        $(document).on('click', '#customerSearch', function (evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
 
+            let content = $("#content");
+            let query = $('#customerSearchForm').serialize();
+            alert(query);
+            if (!$("label[for='title']").hasClass("active")) {
+                alert("검색어를 먼저 입력하세요.");
+                return;
+            }
+            $.ajax({
+                type : 'post',
+                url : 'customerBoard/customerBoardSearch.ing',
+                data : query,
+                success : function (data) {
+                    content.children().remove();
+                    content.html(data);
+                },
+                error : function (err) {
+                    console.log("목록 불러오기 실패"+err);
+                }
+            })
+        })
 
 
         /*$(document).on('click', '#memberSubmit', function (evt) {
