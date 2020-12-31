@@ -265,8 +265,6 @@
         ORDER BY SUM(amount_quantity) DESC) s
         INNER JOIN book b on s.isbn=b.isbn
         WHERE rownum <![CDATA[<]]>=3
-
-
     </select>
 
     <select id="hotBook" parameterType="String" resultMap="getBook">
@@ -331,23 +329,19 @@
     </select>
 
     <select id="memberBook" parameterType="hashmap" resultMap="getBook">
-
         SELECT *
         FROM book b
-        INNER JOIN(SELECT sd.isbn, sum(sd.amount_price) amountprice, sum(sd.amount_quantity) amountquantity
-        FROM sales_data sd
-        INNER JOIN(SELECT pb.order_number
-        FROM purchase_book pb
-        INNER JOIN(select p.order_number
-        from purchase p
-        inner join(SELECT *
+        INNER JOIN( select isbn, sum(total_price) totalprice, sum(pb.quantity) quantity
+        from purchase_book pb
+        INNER JOIN(SELECT *
+        FROM purchase p
+        INNER JOIN(  SELECT *
         FROM member
         WHERE (to_char(sysdate,'yyyy')+1 -(substr(jumin1,0,2)+
         (case
-        when substr(jumin2,0,1) <![CDATA[<]]>3 then 1900
+        when substr(jumin2,0,1) <![CDATA[<]]> 3 then 1900
         when substr(jumin2,0,1) >=3 then 2000
         end)))
-
         <choose>
             <when test="member != null and member==10">
                 between 10 and 19
@@ -365,29 +359,25 @@
                 between 30 and 39
             </otherwise>
         </choose>
-
         ) m
-        ON p.membertel=m.tel) p
-        ON p.order_number = pb.order_number) pb
-        ON pb.order_number = sd.order_number
-        GROUP BY sd.isbn
-
-        ORDER BY
+        ON p.membertel = m.tel) p
+        ON pb.order_number = p.order_number
+        GROUP BY ISBN
+        ORDER By
         <choose>
             <when test="genre != null and genre==1">
-                amountquantity DESC
+                quantity DESC
             </when>
             <when test="genre != null and genre==2">
-                amountprice DESC
+                totalprice desc
             </when>
             <otherwise>
-                amountquantity DESC
+                totalprice desc
             </otherwise>
         </choose>
-        ) sd
-        ON sd.isbn = b.isbn
-        WHERE rownum<![CDATA[<]]>4
-
+        )pb
+        ON pb.isbn = b.isbn
+        WHERE rownum <![CDATA[<]]>=3
     </select>
 
     <resultMap id="salesData" type="salesdata">

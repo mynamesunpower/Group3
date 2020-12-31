@@ -27,7 +27,7 @@
                 $.ajax({
                     type: 'post',
                     url: '/purchase/payComplete.ing',
-                    contentType: 'application/json; charset=utf-8',
+                    contentType: 'application/x-www-form-urlencoded;charset=utf-8',
                     data: {
                         'totalPrice' : parseInt($('#totalPrice').val()),
                         'payPoint' :  parseInt($('#pay_point').val()),

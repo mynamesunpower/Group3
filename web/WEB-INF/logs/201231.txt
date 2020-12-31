@@ -4,48 +4,54 @@ Using CATALINA_TMPDIR: "E:\plugins\apache-tomcat-9.0.40\temp"
 Using JRE_HOME:        "C:\Users\sunny\.jdks\azul-1.8.0_275"
 Using CLASSPATH:       "E:\plugins\apache-tomcat-9.0.40\bin\bootstrap.jar;E:\plugins\apache-tomcat-9.0.40\bin\tomcat-juli.jar"
 Using CATALINA_OPTS:   ""
-31-Dec-2020 10:11:17.671 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:    Apache Tomcat/9.0.40
-31-Dec-2020 10:11:17.674 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:  Nov 12 2020 15:35:02 UTC
-31-Dec-2020 10:11:17.674 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:  9.0.40.0
-31-Dec-2020 10:11:17.674 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:     Windows 10
-31-Dec-2020 10:11:17.674 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:     10.0
-31-Dec-2020 10:11:17.674 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          amd64
-31-Dec-2020 10:11:17.674 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:           C:\Users\sunny\.jdks\azul-1.8.0_275\jre
-31-Dec-2020 10:11:17.674 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:          1.8.0_275-b01
-31-Dec-2020 10:11:17.674 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:          Azul Systems, Inc.
-31-Dec-2020 10:11:17.674 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb
-31-Dec-2020 10:11:17.674 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     E:\plugins\apache-tomcat-9.0.40
-31-Dec-2020 10:11:17.675 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.config.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\conf\logging.properties
-31-Dec-2020 10:11:17.675 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-31-Dec-2020 10:11:17.675 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dfile.encoding=UTF-8
-31-Dec-2020 10:11:17.675 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote=
-31-Dec-2020 10:11:17.675 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.port=1099
-31-Dec-2020 10:11:17.675 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.ssl=false
-31-Dec-2020 10:11:17.675 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.password.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\jmxremote.password
-31-Dec-2020 10:11:17.675 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.access.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\jmxremote.access
-31-Dec-2020 10:11:17.675 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.rmi.server.hostname=127.0.0.1
-31-Dec-2020 10:11:17.676 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djdk.tls.ephemeralDHKeySize=2048
-31-Dec-2020 10:11:17.676 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
-31-Dec-2020 10:11:17.676 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dignore.endorsed.dirs=
-31-Dec-2020 10:11:17.676 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.base=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb
-31-Dec-2020 10:11:17.676 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.home=E:\plugins\apache-tomcat-9.0.40
-31-Dec-2020 10:11:17.676 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.io.tmpdir=E:\plugins\apache-tomcat-9.0.40\temp
-31-Dec-2020 10:11:17.681 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 프로덕션 환경들에서 최적의 성능을 제공하는, APR 기반 Apache Tomcat Native 라이브러리가, 다음 java.library.path에서 발견되지 않습니다: [C:\Users\sunny\.jdks\azul-1.8.0_275\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\app\sunny\product\11.2.0\dbhome_2\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Brackets\command;C:\Users\sunny\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\sunny\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3\bin;C:\Users\sunny\AppData\Local\atom\bin;.]
-31-Dec-2020 10:11:17.857 정보 [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 초기화합니다.
-31-Dec-2020 10:11:17.878 정보 [main] org.apache.catalina.startup.Catalina.load [356] 밀리초 내에 서버가 초기화되었습니다.
-31-Dec-2020 10:11:17.899 정보 [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
-31-Dec-2020 10:11:17.899 정보 [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/9.0.40]
-31-Dec-2020 10:11:17.908 정보 [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 시작합니다.
-31-Dec-2020 10:11:17.915 정보 [main] org.apache.catalina.startup.Catalina.start 서버가 [37] 밀리초 내에 시작되었습니다.
+31-Dec-2020 13:38:15.444 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:    Apache Tomcat/9.0.40
+31-Dec-2020 13:38:15.446 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:  Nov 12 2020 15:35:02 UTC
+31-Dec-2020 13:38:15.446 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:  9.0.40.0
+31-Dec-2020 13:38:15.446 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:     Windows 10
+31-Dec-2020 13:38:15.446 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:     10.0
+31-Dec-2020 13:38:15.446 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          amd64
+31-Dec-2020 13:38:15.446 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:           C:\Users\sunny\.jdks\azul-1.8.0_275\jre
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:          1.8.0_275-b01
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:          Azul Systems, Inc.
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     E:\plugins\apache-tomcat-9.0.40
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.config.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\conf\logging.properties
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dfile.encoding=UTF-8
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote=
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.port=1099
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.ssl=false
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.password.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\jmxremote.password
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.access.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\jmxremote.access
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.rmi.server.hostname=127.0.0.1
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djdk.tls.ephemeralDHKeySize=2048
+31-Dec-2020 13:38:15.447 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+31-Dec-2020 13:38:15.448 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dignore.endorsed.dirs=
+31-Dec-2020 13:38:15.448 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.base=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb
+31-Dec-2020 13:38:15.448 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.home=E:\plugins\apache-tomcat-9.0.40
+31-Dec-2020 13:38:15.448 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.io.tmpdir=E:\plugins\apache-tomcat-9.0.40\temp
+31-Dec-2020 13:38:15.452 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 프로덕션 환경들에서 최적의 성능을 제공하는, APR 기반 Apache Tomcat Native 라이브러리가, 다음 java.library.path에서 발견되지 않습니다: [C:\Users\sunny\.jdks\azul-1.8.0_275\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\app\sunny\product\11.2.0\dbhome_2\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Brackets\command;C:\Users\sunny\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\sunny\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3\bin;C:\Users\sunny\AppData\Local\atom\bin;.]
+31-Dec-2020 13:38:15.632 정보 [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 초기화합니다.
+31-Dec-2020 13:38:15.654 정보 [main] org.apache.catalina.startup.Catalina.load [361] 밀리초 내에 서버가 초기화되었습니다.
+31-Dec-2020 13:38:15.674 정보 [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
+31-Dec-2020 13:38:15.674 정보 [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/9.0.40]
+31-Dec-2020 13:38:15.684 정보 [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 시작합니다.
+31-Dec-2020 13:38:15.692 정보 [main] org.apache.catalina.startup.Catalina.start 서버가 [38] 밀리초 내에 시작되었습니다.
 Connected to server
-31-Dec-2020 10:11:18.977 정보 [RMI TCP Connection(3)-127.0.0.1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
+31-Dec-2020 13:38:16.646 정보 [RMI TCP Connection(5)-127.0.0.1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
 log4j:WARN No appenders could be found for logger (org.springframework.web.context.ContextLoader).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
 helloController에서 hello.ing 요청
 carousel() 회원이름 : null
 ===> Mybatis carouselBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
 ===> Mybatis bestBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
 ===> Mybatis hotBook() 호출
 ===> Mybatis hotBook() 호출
 helloController에서 hello.ing 요청
@@ -60,36 +66,15 @@ carousel() 회원이름 : null
 ===> Mybatis bestBook() 호출
 ===> Mybatis hotBook() 호출
 ===> Mybatis hotBook() 호출
-31-Dec-2020 10:11:27.910 정보 [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [E:\plugins\apache-tomcat-9.0.40\webapps\manager]을(를) 배치합니다.
-31-Dec-2020 10:11:28.197 정보 [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
-31-Dec-2020 10:11:28.210 정보 [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [E:\plugins\apache-tomcat-9.0.40\webapps\manager]에 대한 배치가 [298] 밀리초에 완료되었습니다.
 helloController에서 hello.ing 요청
 carousel() 회원이름 : null
 ===> Mybatis carouselBook() 호출
 ===> Mybatis bestBook() 호출
 ===> Mybatis hotBook() 호출
 ===> Mybatis hotBook() 호출
-Controller ID 체크 ->20yearold
-dao ID 체크 ->20yearold
-0
-Controller TEL 체크 ->0320039921
-DAO tel 체크 ->0320039921
-===>  MemberMapper memberInsert() 호출
-===>  MemberMapper memberlogin() 호출
-$2a$10$E92gh2teFpODimdgg1wAyufEjp1NdWY1qdNhz7NmKlxN8P0ko9lru/$2a$10$E92gh2teFpODimdgg1wAyufEjp1NdWY1qdNhz7NmKlxN8P0ko9lru
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-31-Dec-2020 10:21:06.419 정보 [RMI TCP Connection(7)-127.0.0.1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
+31-Dec-2020 13:38:25.688 정보 [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [E:\plugins\apache-tomcat-9.0.40\webapps\manager]을(를) 배치합니다.
+31-Dec-2020 13:38:26.033 정보 [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
+31-Dec-2020 13:38:26.047 정보 [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [E:\plugins\apache-tomcat-9.0.40\webapps\manager]에 대한 배치가 [358] 밀리초에 완료되었습니다.
 helloController에서 hello.ing 요청
 carousel() 회원이름 : null
 ===> Mybatis carouselBook() 호출
@@ -98,15 +83,7 @@ carousel() 회원이름 : null
 ===> Mybatis hotBook() 호출
 Controller ID 체크 ->21yearold
 dao ID 체크 ->21yearold
-0
-Controller TEL 체크 ->0329930092
-DAO tel 체크 ->0329930092
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-===>  MemberMapper memberInsert() 호출
+1
 ===>  MemberMapper memberlogin() 호출
 11111111a!/$2a$10$4cGr/pyaIuBdumLF2OVsZ.6snCWwGxJk/izWCexMfq00sSgYMSTF6
 helloController에서 hello.ing 요청
@@ -120,18 +97,7 @@ age일떄:1
 고객의 나이:21
 genre일떄:2
 고객의 나이:21
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
+===> Mybatis genrebookList() 호출
 helloController에서 hello.ing 요청
 carousel() 회원이름 : 이십일
 ===> Mybatis carouselBook() 호출
@@ -143,277 +109,24 @@ age일떄:1
 고객의 나이:21
 genre일떄:2
 고객의 나이:21
-viewBook() 49Line 점수 : 4.0
+viewbook() 54line 0329930092
+viewbook() 54line 9791191187533
+viewbook() 54line 0
+viewBook() 49Line 점수 : 0.0
 ===> Mybatis selectBook() 호출
-ShoppingCartDAOImpl insertCart()9791136007988
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 이십일
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:21
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:21
-genre일떄:2
-고객의 나이:21
-viewBook() 49Line 점수 : 1.0
+ShoppingCartDAOImpl insertCart()9791191187533
+===> Mybatis genrebookList() 호출
+viewbook() 54line 0329930092
+viewbook() 54line 9788968331718
+viewbook() 54line 0
+viewBook() 49Line 점수 : 0.0
 ===> Mybatis selectBook() 호출
-ShoppingCartDAOImpl insertCart()9788962183672
-구매 DB 삽입완료 주문번호 : 7
-insertPurchaseBook() salesData 정보가 있음9788962183672
-BookDAO 재고 빼주기 완료
-insertPurchaseBook() salesData 정보가 있음9791136007988
-BookDAO 재고 빼주기 완료
-updateMemberPoint 적립완료 : 12000
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 이십일
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:21
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:21
-genre일떄:2
-고객의 나이:21
-BookController에서start요청
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 이십일
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:21
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:21
-genre일떄:2
-고객의 나이:21
-isbn 확인만 하고 빠질게용  : 9788962183672
-isbn 확인만 하고 빠질게용  : 9791136007988
-viewBook() 49Line 점수 : 1.0
-===> Mybatis selectBook() 호출
-registReview() 오다넘버 : 
-registReview() isbn : 9788962183672
-registReview() 별점확인 : 5
-registReview() 내용 : 정말 좋은 책이더라구요 ㅋㅋ 다른 사람에도 추천해주려고 더 구매했습니다. 
-reviewDAO insertReview() : isbn9788962183672
-리뷰 등록 완료
-viewBook() 49Line 점수 : 3.0
-===> Mybatis selectBook() 호출
-BookController에서start요청
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 이십일
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:21
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:21
-genre일떄:2
-고객의 나이:21
-viewBook() 49Line 점수 : 3.0
-===> Mybatis selectBook() 호출
-registReview() 오다넘버 : 
-registReview() isbn : 9788962183672
-registReview() 별점확인 : 3
-registReview() 내용 : 어?
-reviewDAO insertReview() : isbn9788962183672
-리뷰 등록 완료
-viewBook() 49Line 점수 : 3.0
-===> Mybatis selectBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 이십일
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:21
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:21
-genre일떄:2
-고객의 나이:21
-viewBook() 49Line 점수 : NaN
-===> Mybatis selectBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 이십일
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:21
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:21
-genre일떄:2
-고객의 나이:21
-viewBook() 49Line 점수 : 3.0
-===> Mybatis selectBook() 호출
-BookController에서start요청
-BookController에서start요청
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 이십일
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:21
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:21
-genre일떄:2
-고객의 나이:21
-viewBook() 49Line 점수 : 3.0
-===> Mybatis selectBook() 호출
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-BookController에서start요청
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-Controller ID 체크 ->sssw0101
-dao ID 체크 ->sssw0101
-1
-BookController에서start요청
-===>  MemberMapper memberlogin() 호출
-snrnsi2!/$2a$10$DxvrbTIR1Icq1ow73/8J0evoNRJoSa7I9c/HEXpNF7uyFVCKVevTq
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 김용관
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:29
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:29
-genre일떄:2
-고객의 나이:29
-viewBook() 49Line 점수 : 4.0
-===> Mybatis selectBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 김용관
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:29
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:29
-genre일떄:2
-고객의 나이:29
-BookController에서start요청
-viewBook() 49Line 점수 : 3.0
-===> Mybatis selectBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 이십일
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:21
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:21
-genre일떄:2
-고객의 나이:21
-viewBook() 49Line 점수 : 3.0
-===> Mybatis selectBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 김용관
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:29
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:29
-genre일떄:2
-고객의 나이:29
-viewBook() 49Line 점수 : NaN
-===> Mybatis selectBook() 호출
-BookController에서start요청
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 이십일
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:21
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:21
-genre일떄:2
-고객의 나이:21
-registReview() 오다넘버 : 
-registReview() isbn : 1111111111112
-registReview() 별점확인 : 5
-registReview() 내용 : 육아는 역시 힘들군
-reviewDAO insertReview() : isbn1111111111112
-리뷰 등록 완료
-viewBook() 49Line 점수 : 5.0
-===> Mybatis selectBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 김용관
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:29
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:29
-genre일떄:2
-고객의 나이:29
-viewBook() 49Line 점수 : 5.0
-===> Mybatis selectBook() 호출
-BookController에서start요청
-isbn 확인만 하고 빠질게용  : 1111111111112
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 김용관
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:29
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:29
-genre일떄:2
-고객의 나이:29
-viewBook() 49Line 점수 : 5.0
-===> Mybatis selectBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-BookController에서booktain요청
-BookController에서booktain요청
+ShoppingCartDAOImpl insertCart()9788968331718
 Controller ID 체크 ->admin
 dao ID 체크 ->admin
 1
 ===>  MemberMapper memberlogin() 호출
 11111111a!/$2a$10$t2yNAl4NVzpckMvWk/Mip.yylwB5J16mXuK99mur84H4AP.VW10CC
-BookController에서start요청
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-BookController에서start요청
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-viewBook() 49Line 점수 : 4.0
-===> Mybatis selectBook() 호출
-orderBook() 상세화면에서 받아온 isbn : 9791136007988
-orderBook() title: null
-===> Mybatis selectBook() 호출
 helloController에서 hello.ing 요청
 carousel() 회원이름 : 운영자
 ===> Mybatis carouselBook() 호출
@@ -425,475 +138,150 @@ age일떄:1
 고객의 나이:44
 genre일떄:2
 고객의 나이:44
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-글등록하는 페이지 이동
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-글등록한 후 페이지 이동
-글등록한 후 페이지 이동
-글 등록이 성공했습니다.
-글 제목눌러서 들어가는 페이지 이동
-답글페이지로 이동
-Controller ID 체크 ->admin
-dao ID 체크 ->admin
-1
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-답글등록
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-===>  MemberMapper memberlogin() 호출
-1111111111a!/$2a$10$t2yNAl4NVzpckMvWk/Mip.yylwB5J16mXuK99mur84H4AP.VW10CC
-Controller ID 체크 ->admin
-dao ID 체크 ->admin
-1
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-===>  MemberMapper memberlogin() 호출
-1111111111a!/$2a$10$t2yNAl4NVzpckMvWk/Mip.yylwB5J16mXuK99mur84H4AP.VW10CC
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-답글페이지로 이동
-답글페이지로 이동
-Controller ID 체크 ->admin
-dao ID 체크 ->admin
-1
-===>  MemberMapper memberlogin() 호출
-11111111a!/$2a$10$t2yNAl4NVzpckMvWk/Mip.yylwB5J16mXuK99mur84H4AP.VW10CC
-BookController에서start요청
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-답글등록
-답글등록
-답글등록
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-viewBook() 49Line 점수 : 3.0
-===> Mybatis selectBook() 호출
-orderBook() 상세화면에서 받아온 isbn : 9788962183672
-orderBook() title: null
-===> Mybatis selectBook() 호출
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-글 제목눌러서 들어가는 페이지 이동
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-listBook.ing 요청
-===> Mybatis bookList() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-PublisherDAOImpl listPublisher()
-?
-[관리자] 책 정보 입력 --> 2020-08-07/9791164380381/요리/백종원/백종원이 추천하는 집밥 메뉴/대한민국 No.1 베스트셀러 요리책, 믿고 보는 〈백종원이 추천하는 집밥 메뉴〉 시리즈 4권을 한 권으로!
-===> Mybatis insertBook() 호출
-[관리자] 책 정보 입력을 완료했습니다.
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-===> Mybatis genrebookList() 호출
-?
-[관리자] 책 정보 입력 --> 2017-06-28/9788931455625/요리/J. Kenji Lopez-Alt/더 푸드 랩(The Food Lab)/더 나은 요리를 위한 주방 과학의 모든 것! 
-===> Mybatis insertBook() 호출
-[관리자] 책 정보 입력을 완료했습니다.
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-31-Dec-2020 10:47:55.114 정보 [RMI TCP Connection(10)-127.0.0.1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-viewBook() 49Line 점수 : 3.0
-===> Mybatis selectBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-viewBook() 49Line 점수 : 5.0
-===> Mybatis selectBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-viewBook() 49Line 점수 : NaN
-===> Mybatis selectBook() 호출
-?
-[관리자] 책 정보 입력 --> 2020-05-28/9788947545938/경제/경영/존리/엄마, 주식 사주세요/존 리의 미래를 위한 투자 원칙
-===> Mybatis insertBook() 호출
-[관리자] 책 정보 입력을 완료했습니다.
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis genrebookList() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-Controller ID 체크 ->admin
-dao ID 체크 ->admin
-1
-===>  MemberMapper memberlogin() 호출
-11111111a!/$2a$10$t2yNAl4NVzpckMvWk/Mip.yylwB5J16mXuK99mur84H4AP.VW10CC
-BookController에서start요청
-BookController에서start요청
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-===> Mybatis genrebookList() 호출
-31-Dec-2020 10:50:00.094 정보 [RMI TCP Connection(14)-127.0.0.1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-viewBook() 49Line 점수 : 4.0
-선택한 책의 평점4.0
-===> Mybatis selectBook() 호출
-===> Mybatis genrebookList() 호출
-viewBook() 49Line 점수 : NaN
-선택한 책의 평점NaN
-===> Mybatis selectBook() 호출
-?
-[관리자] 책 정보 입력 --> 2020-10-26/9788927811732/요리/윤희정/친정엄마 요리백과/집밥 서툰 딸과 세심한 엄마의 1:1 요리 문답
-===> Mybatis insertBook() 호출
-[관리자] 책 정보 입력을 완료했습니다.
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-viewBook() 49Line 점수 : 3.0
-선택한 책의 평점3.0
-===> Mybatis selectBook() 호출
-Controller ID 체크 ->admin
-dao ID 체크 ->admin
-1
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-Controller ID 체크 ->admin
-dao ID 체크 ->admin
-1
-31-Dec-2020 10:50:49.589 정보 [RMI TCP Connection(18)-127.0.0.1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
-viewBook() 49Line 점수 : 4.0
-선택한 책의 평점4.0
-===> Mybatis selectBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-Controller ID 체크 ->admin
-dao ID 체크 ->admin
-1
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-===>  MemberMapper memberlogin() 호출
-11111111a!/$2a$10$t2yNAl4NVzpckMvWk/Mip.yylwB5J16mXuK99mur84H4AP.VW10CC
-BookController에서start요청
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-viewBook() 49Line 점수 : 4.0
-선택한 책의 평점4.0
-===> Mybatis selectBook() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-viewBook() 49Line 점수 : NaN
-선택한 책의 평점NaN
-===> Mybatis selectBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-?
-[관리자] 책 정보 입력 --> 2018-08-24/9791185473437/요리/월간 수퍼레시피/음식과 요리/진짜 쉽~고 진짜 맛있고 진짜 정확한 기본 레시피 320개
-===> Mybatis insertBook() 호출
-[관리자] 책 정보 입력을 완료했습니다.
-helloController에서 hello.ing 요청
-carousel() 회원이름 : 운영자
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis memberBook() 호출
-고객의 나이:44
-age일떄:1
-===> Mybatis memberBook() 호출
-고객의 나이:44
-genre일떄:2
-고객의 나이:44
-Using CATALINA_BASE:   "C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb"
-Using CATALINA_HOME:   "E:\plugins\apache-tomcat-9.0.40"
-Using CATALINA_TMPDIR: "E:\plugins\apache-tomcat-9.0.40\temp"
-Using JRE_HOME:        "C:\Users\sunny\.jdks\azul-1.8.0_275"
-Using CLASSPATH:       "E:\plugins\apache-tomcat-9.0.40\bin\bootstrap.jar;E:\plugins\apache-tomcat-9.0.40\bin\tomcat-juli.jar"
-Using CATALINA_OPTS:   ""
-31-Dec-2020 10:52:26.841 정보 [main] org.apache.catalina.core.StandardServer.await 셧다운 포트를 통해 유효한 셧다운 명령을 받았습니다. 서버 인스턴스를 중지시킵니다.
-31-Dec-2020 10:52:26.842 정보 [main] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 일시 정지 중
-31-Dec-2020 10:52:26.904 정보 [main] org.apache.catalina.core.StandardService.stopInternal 서비스 [Catalina]을(를) 중지시킵니다.
-31-Dec-2020 10:52:26.924 정보 [main] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 중지시킵니다.
-31-Dec-2020 10:52:26.951 정보 [main] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 소멸시킵니다.
-Disconnected from server
+chartA() booktrain 매출 line 차트
+10대 40대 mybatis 시작 1
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대는:{1=0, 2=0, 3=0, 4=0, 5=0, 6=0, 7=0, 8=0, 9=0, 10=0, 11=0, 12=0}
+===> Mybatis ageList() 호출
+10대 40대 mybatis 시작 4
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대는:{1=0, 2=0, 3=0, 4=0, 5=0, 6=0, 7=0, 8=0, 9=0, 10=0, 11=0, 12=0}
+===> Mybatis salesList() 호출
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+매출 result : ['1', 0,0,0,0,0],['2', 0,0,0,0,0],['3', 0,0,0,0,0],['4', 0,0,0,0,0],['5', 0,0,0,0,0],['6', 0,0,0,0,0],['7', 0,0,0,0,0],['8', 0,0,0,0,0],['9', 0,0,0,0,0],['10', 0,0,0,0,0],['11', 0,0,0,0,0],['12', 0,0,0,0,0]
+chartA() 장르별 매출액 원 차트
+요리
+288600
+IT
+59600
+공무원
+189000
+가정
+173800
+경제/경영
+687000
+chartA() booktrain 매출 line 차트
+10대 40대 mybatis 시작 1
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대 시작
+10대 j :null
+10대는:{1=0, 2=0, 3=0, 4=0, 5=0, 6=0, 7=0, 8=0, 9=0, 10=0, 11=0, 12=0}
+===> Mybatis ageList() 호출
+10대 40대 mybatis 시작 4
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대 시작
+40대 j :null
+40대는:{1=0, 2=0, 3=0, 4=0, 5=0, 6=0, 7=0, 8=0, 9=0, 10=0, 11=0, 12=0}
+===> Mybatis salesList() 호출
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+for문 시작
+매출 result : ['1', 0,0,0,0,0],['2', 0,0,0,0,0],['3', 0,0,0,0,0],['4', 0,0,0,0,0],['5', 0,0,0,0,0],['6', 0,0,0,0,0],['7', 0,0,0,0,0],['8', 0,0,0,0,0],['9', 0,0,0,0,0],['10', 0,0,0,0,0],['11', 0,0,0,0,0],['12', 0,0,0,0,0]
