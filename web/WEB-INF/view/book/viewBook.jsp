@@ -117,7 +117,7 @@
                 </p>
                 <form action="/review/registReview.ing">
                     <input type="hidden" id="purchaseBook_isbn" value="${reviewVO.isbn}"/>
-                    <input type="hidden" id="purchase_orderNumber" value="${reviewVO.orderNumber}"/>
+                    <input type="hidden" id="purchase_orderNumber" value="${orderNumber}"/>
                     <textarea id="review_content" placeholder="리뷰를 작성해주세요 50자이내"></textarea>
                 </form>
                 <button type="button" id="regist_review">등록</button>
