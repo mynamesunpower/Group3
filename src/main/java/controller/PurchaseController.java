@@ -291,8 +291,13 @@ public class PurchaseController {
             System.out.println("isbn 확인만 하고 빠질게용  : " + result.getPurchaseBookVO().getIsbn());
         }
         purchaseVO = purchaseService.purchaseInfo(purchaseVO);
-
-        String purchaseDate = purchaseVO.getPurchaseDate();
+        System.out.println("PurchaseControlelr 구매날짜 : " + purchaseVO.getPurchaseDate());
+        try{
+            Date purchaseDate = dateFormat.parse(purchaseVO.getPurchaseDate());
+            System.out.println("PurchaseController() 날짜변환 : " + purchaseDate);
+        }catch (Exception e){
+            System.out.println("날짜 변환 에러"+ e.toString());
+        }
 
         purchaseVO.setOrderNumber(orderNumber);
 

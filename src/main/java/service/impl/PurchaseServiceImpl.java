@@ -17,12 +17,9 @@ public class PurchaseServiceImpl implements PurchaseService {
     PurchaseDAOImpl purchaseDAO;
 
     @Override
-    public boolean selectPurchase(Map purchaseMap) {
-        List list = purchaseDAO.selectPurchase(purchaseMap);
-        if (list.size() > 0) {
-            return true;
-        }
-        return false;
+    public List<PurchaseVO> selectPurchase(Map purchaseMap) {
+       return purchaseDAO.selectPurchase(purchaseMap);
+
     }
 
     @Override

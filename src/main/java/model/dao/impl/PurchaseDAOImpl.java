@@ -16,15 +16,13 @@ public class PurchaseDAOImpl implements PurchaseDAO {
     SqlSessionTemplate sqlSessionTemplate;
 
     @Override
-    public List selectPurchase(Map purchaseMap) {
+    public List<PurchaseVO> selectPurchase(Map purchaseMap) {
         return sqlSessionTemplate.selectList("booktrain.purchase.selectPurchase", purchaseMap);
     }
 
     @Override
     public String insertPurchase(Map purchaseMap) {
         sqlSessionTemplate.insert("booktrain.purchase.insertPurchase", purchaseMap);
-        // 동시에 purchase_Book 테이블에도 추가해주기
-        //TODO 주문번호까지 동시에 뽑아옴 여기서부터 하기
         System.out.println("구매 DB 삽입완료 주문번호 : " + purchaseMap.get("orderNumber"));
         return String.valueOf(purchaseMap.get("orderNumber"));
     }

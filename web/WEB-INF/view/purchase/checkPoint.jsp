@@ -31,7 +31,7 @@
             <td id="alert_point"></td>
         </tr>
         <tr>
-            <th colspan="2">※ 포인트는 2천점부터 사용가능합니다.</th>
+            <th colspan="2">※ 포인트는 2000 Point부터 사용가능합니다.</th>
         </tr>
     </table>
     <button id="use_pointBtn" class="check_point cols s2 waves-effect waves-light btn-small white black-text">

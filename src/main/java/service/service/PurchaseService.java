@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface PurchaseService {
-    public boolean selectPurchase(Map purchaseMap);
+    public List<PurchaseVO> selectPurchase(Map purchaseMap);
 
     public String insertPurchase(Map purchaseMap);
 

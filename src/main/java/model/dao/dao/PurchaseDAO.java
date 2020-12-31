@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface PurchaseDAO {
 
-    public List selectPurchase(Map purchaseMap);
+    public List<PurchaseVO> selectPurchase(Map purchaseMap);
     public String insertPurchase(Map purchaseMap);
     public void insertPurchaseBook(PurchaseBookVO purchaseBookVO);
     public List<String> selectOrderNumber(PurchaseVO purchaseVO);

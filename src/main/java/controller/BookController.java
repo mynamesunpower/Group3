@@ -52,21 +52,22 @@ public class BookController {
     @RequestMapping(value = "viewBook.ing")
     public String viewBook(BookVO vo, ReviewVO reviewVO, Model model) {
 
-        PurchaseVO purchaseVO = new PurchaseVO();
-        purchaseVO.setMemberTel((String)httpSession.getAttribute("memberTel"));
 
         // 회원이 해당 상품을 샀는지 안샀는지 알아보기 위해 해쉬맵 생성해서 데이터 전송
         Map purchaseMap = new HashMap();
-        purchaseMap.put("memberTel" ,(String)httpSession.getAttribute("memberTel"));
+        purchaseMap.put("memberTel", (String) httpSession.getAttribute("memberTel"));
         purchaseMap.put("isbn", vo.getIsbn());
 
         // 해당 회원의 번호와 isbn으로 상품 구매 여부 확인
-        boolean writeReview = purchaseService.selectPurchase(purchaseMap);
-        if(writeReview == true){
-            model.addAttribute("writeReview", "구매이력있음");
-        }else{
-            model.addAttribute("writeReview", "구매이력없음");
+        List<PurchaseVO> purchaseList = purchaseService.selectPurchase(purchaseMap);
+        for (PurchaseVO purchaseVO : purchaseList){
+            model.addAttribute("orderNumber", purchaseVO.getOrderNumber());
         }
+            if (purchaseList.size() > 0) {
+                model.addAttribute("writeReview", "구매이력있음");
+            } else {
+                model.addAttribute("writeReview", "구매이력없음");
+            }
 
         List<ReviewVO> reviewList = reviewService.seeReview(reviewVO);
         List<ReviewVO> score = reviewService.bookScore(reviewVO);
@@ -86,19 +87,19 @@ public class BookController {
         ratingOptions.put(3, "★★★☆☆");
         ratingOptions.put(4, "★★★★☆");
         ratingOptions.put(5, "★★★★★");
-int zero = 0;
-int  one = 1;
-int two = 2;
-int three = 3;
-int four = 4;
-int five = 5;
-    model.addAttribute("zero",zero);
-        model.addAttribute("one",one);
-        model.addAttribute("two",two);
-        model.addAttribute("three",three);
-        model.addAttribute("four",four);
-        model.addAttribute("five",five);
-        System.out.println("선택한 책의 평점" + scoreAvg);
+
+        int zero = 0;
+        int one = 1;
+        int two = 2;
+        int three = 3;
+        int four = 4;
+        int five = 5;
+        model.addAttribute("zero", zero);
+        model.addAttribute("one", one);
+        model.addAttribute("two", two);
+        model.addAttribute("three", three);
+        model.addAttribute("four", four);
+        model.addAttribute("five", five);
         model.addAttribute("scoreAvg", scoreAvg);
         model.addAttribute("reviewVO", reviewVO);
         model.addAttribute("ratingOptions", ratingOptions);
