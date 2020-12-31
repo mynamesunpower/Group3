@@ -11,4 +11,6 @@ public interface ReviewDAO {
     public List<ReviewVO> seeReview(ReviewVO reviewVO);
 
     public void deleteReview(ReviewVO reviewVO);
+
+    public List<ReviewVO> bookScore(ReviewVO reviewVO);
 }

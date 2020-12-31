@@ -43,6 +43,7 @@ public class BookController {
 
     /**
      * 선택한 ISBN의 도서 정보 보기
+     *
      * @param vo
      * @param reviewVO 해당 도서의 isbn을저장하여 리뷰정보를 가져오는데 사용
      * @param model
@@ -68,6 +69,15 @@ public class BookController {
         }
 
         List<ReviewVO> reviewList = reviewService.seeReview(reviewVO);
+        List<ReviewVO> score = reviewService.bookScore(reviewVO);
+
+        Double scoreSum = 0.0;
+        for (ReviewVO result : score) {
+            scoreSum += result.getScore();
+        }
+
+        Double scoreAvg = scoreSum / score.size();
+        System.out.println("viewBook() 49Line 점수 : " + scoreAvg);
 
         Map ratingOptions = new HashMap();
         ratingOptions.put(0, "☆☆☆☆☆");
@@ -76,7 +86,19 @@ public class BookController {
         ratingOptions.put(3, "★★★☆☆");
         ratingOptions.put(4, "★★★★☆");
         ratingOptions.put(5, "★★★★★");
-
+int zero = 0;
+int  one = 1;
+int two = 2;
+int three = 3;
+int four = 4;
+int five = 5;
+    model.addAttribute("zero",zero);
+        model.addAttribute("one",one);
+        model.addAttribute("two",two);
+        model.addAttribute("three",three);
+        model.addAttribute("four",four);
+        model.addAttribute("five",five);
+        model.addAttribute("scoreAvg", scoreAvg);
         model.addAttribute("reviewVO", reviewVO);
         model.addAttribute("ratingOptions", ratingOptions);
         model.addAttribute("reviewList", reviewList);
@@ -111,7 +133,7 @@ public class BookController {
 
     @RequestMapping("/{ing}")
     public String ing(@PathVariable String ing) {
-        System.out.println("BookController에서" +ing + "요청");
+        System.out.println("BookController에서" + ing + "요청");
         return ing;
         //return "book/" + ing;
     }
@@ -126,7 +148,7 @@ public class BookController {
 
     //도서 등록
     @RequestMapping("/insertBook.ing")
-    public String insertBook(){
+    public String insertBook() {
         return "book/insertBook";
     }
 
@@ -195,13 +217,13 @@ public class BookController {
     public String chartA(Model model) throws Exception {
         System.out.println("chartA() 장르별 매출액 원 차트");
         List<Map<String, Object>> genreList = bookService.getGenreList();
-        Map<String, Integer> maps  = new HashMap<String, Integer>();
+        Map<String, Integer> maps = new HashMap<String, Integer>();
         for (Map<String, Object> map : genreList) {
             System.out.println(map.get("GENRE"));
             System.out.println(map.get("PRICE"));
-            String key = (String)map.get("GENRE");
-            int value = ((BigDecimal)map.get("PRICE")).intValue();
-            maps.put(key,value);
+            String key = (String) map.get("GENRE");
+            int value = ((BigDecimal) map.get("PRICE")).intValue();
+            maps.put(key, value);
         }
 
         String result = "";
@@ -217,30 +239,29 @@ public class BookController {
         model.addAttribute("chartA", result);
 
 
-
         return "book/chartA";
     }
 
     //연령별, 총 매출 차트
     @RequestMapping(value = "/chartB.ing")
-    public String chartB(Model model){
+    public String chartB(Model model) {
         //매출 그래프
         System.out.println("chartA() booktrain 매출 line 차트");
 
         //-----------------------10대
-        String age= "1";
-        HashMap<Integer,Integer> teenage = bookService.teenageList(age);
-        System.out.println("10대는:" +teenage);
+        String age = "1";
+        HashMap<Integer, Integer> teenage = bookService.teenageList(age);
+        System.out.println("10대는:" + teenage);
         //-----------------------20대
-        HashMap<Integer,Integer> twentyprice = bookService.twentypriceList();
+        HashMap<Integer, Integer> twentyprice = bookService.twentypriceList();
         //-----------------------30대 그대로 추가했는데도 오히려 안되는겨?? 좀 바꿔서 추가했는데 안되고있어요
-        HashMap<Integer,Integer> ageprice = bookService.ageList();
+        HashMap<Integer, Integer> ageprice = bookService.ageList();
         //-----------------------40대
-        age= "4";
-        HashMap<Integer,Integer> fortyage = bookService.teenageList(age);
-        System.out.println("40대는:" +fortyage);
+        age = "4";
+        HashMap<Integer, Integer> fortyage = bookService.teenageList(age);
+        System.out.println("40대는:" + fortyage);
         //--------------------총매출
-        HashMap<Integer,Integer> salesprice = bookService.salesList();
+        HashMap<Integer, Integer> salesprice = bookService.salesList();
 
         String result = "";
         Set<Integer> salesKeys = salesprice.keySet();
@@ -248,10 +269,10 @@ public class BookController {
             if (result != "") {
                 result += ",";
             }
-            result += "['" + key + "', " + salesprice.get(key)+","+teenage.get(key)+"," +twentyprice.get(key)+","+ageprice.get(key)+","+fortyage.get(key)+ "]";
+            result += "['" + key + "', " + salesprice.get(key) + "," + teenage.get(key) + "," + twentyprice.get(key) + "," + ageprice.get(key) + "," + fortyage.get(key) + "]";
             //((BigDecimal) hm.get("AGE")).intValue()
         }
-        System.out.println("매출 result : "+result);
+        System.out.println("매출 result : " + result);
         model.addAttribute("chartB", result);
 
         //-----------------------------------------------------------
@@ -260,9 +281,9 @@ public class BookController {
 
     //최근 30일 매출
     @RequestMapping("/chartC")
-    public String daysales(Model model){
+    public String daysales(Model model) {
 
-        HashMap<Integer,Integer> list = bookService.daychart();
+        HashMap<Integer, Integer> list = bookService.daychart();
 
         String result = "";
         Set<Integer> dayKeys = list.keySet(); // [0, 1, 2, ...., 30]
@@ -274,53 +295,51 @@ public class BookController {
                 result += ",";
             }
 
-            if ((int)key >= 10) {
-                result += "['" +(int)key + "일 전', " + list.get((int)key)+ "]";
-            }
-            else if ((int)key == 0) {
-                result += "['오늘', " + list.get((int)key)+ "]";
-            }
-            else {
-                result += "[' " +(int)key + " 일 전', " + list.get((int)key)+ "]";
+            if ((int) key >= 10) {
+                result += "['" + (int) key + "일 전', " + list.get((int) key) + "]";
+            } else if ((int) key == 0) {
+                result += "['오늘', " + list.get((int) key) + "]";
+            } else {
+                result += "[' " + (int) key + " 일 전', " + list.get((int) key) + "]";
             }
 
             //((BigDecimal) hm.get("AGE")).intValue()
         }
 
-        System.out.println("매출 result : "+result);
+        System.out.println("매출 result : " + result);
 
-        model.addAttribute("chartC",result);
+        model.addAttribute("chartC", result);
         return "book/chartC";
     }
 
 
     @RequestMapping("/genrebookList.ing")
-    public String genrebookList(HttpServletRequest request, Model model){
+    public String genrebookList(HttpServletRequest request, Model model) {
         String genre = request.getParameter("genre");
         List<BookVO> list = bookService.genrebookList(genre);
         model.addAttribute("result", list.size());
         model.addAttribute("genre", genre);
         model.addAttribute("bookList", list);
-        return  "book/genrebookList";
+        return "book/genrebookList";
     }
 
     //Best book 리스트 페이지
     @RequestMapping("/bestbookList.ing")
-    public String bestbookList(Model model){
+    public String bestbookList(Model model) {
 
         List<BookVO> best = bookService.bestbookList();
         model.addAttribute("result", best.size());
-        model.addAttribute("bestbookList",best);
+        model.addAttribute("bestbookList", best);
         return "book/bestbookList";
     }
 
     @RequestMapping("/newbookList")
-    public String newbookList(Model model){
+    public String newbookList(Model model) {
 
         List<BookVO> newbook = bookService.newbookList();
 
-        model.addAttribute("result",newbook.size());
-        model.addAttribute("newbookList",newbook);
+        model.addAttribute("result", newbook.size());
+        model.addAttribute("newbookList", newbook);
         return "/book/newbookList";
     }
 
