@@ -47,7 +47,7 @@
             <td>${sessionScope.payMember.point}</td>
         </tr>
     </table><br/><br/>
-    <a href="/start.ing">메인 화면으로</a>
+    <a class="loadAjax" href="/purchase/orderList.ing?memberTel=${sessionScope.memberTel}&state=결제완료">결제내역으로</a>
 </div>
 </body>
 </html>
