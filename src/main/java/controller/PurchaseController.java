@@ -231,7 +231,6 @@ public class PurchaseController {
         // 포인트 적립
         memberService.updateMemberPoint(payMember);
 
-
         model.addAttribute("purchaseVO", payPurchase);
         model.addAttribute("purchaseBookVO", purchaseBookVO);
 
@@ -291,6 +290,8 @@ public class PurchaseController {
             System.out.println("isbn 확인만 하고 빠질게용  : " + result.getPurchaseBookVO().getIsbn());
         }
         purchaseVO = purchaseService.purchaseInfo(purchaseVO);
+
+        // 날짜 계산해주기
         System.out.println("PurchaseControlelr 구매날짜 : " + purchaseVO.getPurchaseDate());
         try{
             Date purchaseDate = dateFormat.parse(purchaseVO.getPurchaseDate());

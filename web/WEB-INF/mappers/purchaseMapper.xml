@@ -52,8 +52,8 @@
 
     <!-- SALES_DATA에 해당ISBN이 없다면 추가-->
     <insert id="insertSalesData" parameterType="purchaseBook">
-        INSERT INTO SALES_DATA (ISBN, AMOUNT_QUANTITY, AMOUNT_PRICE ) VALUES
-        (#{isbn}, #{quantity}, (SELECT #{quantity}*price AS  from book where isbn=#{isbn}) )
+        INSERT INTO SALES_DATA (ORDER_NUMBER,ISBN, AMOUNT_QUANTITY, AMOUNT_PRICE ) VALUES
+        (#{orderNumber}, #{isbn}, #{quantity}, (SELECT #{quantity}*price AS  from book where isbn=#{isbn}) )
     </insert>
 
     <!-- SALES_DATA에 해당ISBN이 있다면 추가-->

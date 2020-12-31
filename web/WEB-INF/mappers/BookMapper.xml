@@ -265,8 +265,6 @@
         ORDER BY SUM(amount_quantity) DESC) s
         INNER JOIN book b on s.isbn=b.isbn
         WHERE rownum <![CDATA[<]]>=3
-
-
     </select>
 
     <select id="hotBook" parameterType="String" resultMap="getBook">

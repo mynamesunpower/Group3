@@ -94,25 +94,25 @@ $(function () {
         }
         // TODO 시연할때는 주석 풀어주고 밑에 AJAX없애기
         // paymentMethos.js의 kakaoPay함수 호출
-        // kakaoPay(data)
+        kakaoPay(data)
 
-        $.ajax({
-            type: 'post',
-            url: '/purchase/payComplete.ing',
-            contentType: 'application/x-www-form-urlencoded;charset=utf-8',
-            data: {
-                'totalPrice' : parseInt($('#totalPrice').val()),
-                'payPoint' :  parseInt($('#pay_point').val()),
-                'point' : parseInt($('#totalPrice').val())*0.05
-            }, success: (data) => {
-                $('#content').children().remove();
-                $('#content').html(data);
-            }, error: (error) => {
-                alert("결제완료창으로 못갑니당~")
-                console.log(error)
-            }
-
-        })
+        // $.ajax({
+        //     type: 'post',
+        //     url: '/purchase/payComplete.ing',
+        //     contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+        //     data: {
+        //         'totalPrice' : parseInt($('#totalPrice').val()),
+        //         'payPoint' :  parseInt($('#pay_point').val()),
+        //         'point' : parseInt($('#totalPrice').val())*0.05
+        //     }, success: (data) => {
+        //         $('#content').children().remove();
+        //         $('#content').html(data);
+        //     }, error: (error) => {
+        //         alert("결제완료창으로 못갑니당~")
+        //         console.log(error)
+        //     }
+        //
+        // })
     })
 
     // 주문내역 & 취소내역 클릭시
