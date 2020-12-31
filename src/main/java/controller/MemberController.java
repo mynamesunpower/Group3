@@ -46,7 +46,7 @@ public class MemberController {
     public String logout(HttpSession session) {
         System.out.println(session.getAttribute("memberName") + "님 로그아웃");
         session.invalidate();
-        return "redirect:/start.ing";
+        return "redirect:/booktrain.ing";
     } //end logout
 
     // 회원가입 페이지 이동

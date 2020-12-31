@@ -4,48 +4,54 @@ Using CATALINA_TMPDIR: "E:\plugins\apache-tomcat-9.0.40\temp"
 Using JRE_HOME:        "C:\Users\sunny\.jdks\azul-1.8.0_275"
 Using CLASSPATH:       "E:\plugins\apache-tomcat-9.0.40\bin\bootstrap.jar;E:\plugins\apache-tomcat-9.0.40\bin\tomcat-juli.jar"
 Using CATALINA_OPTS:   ""
-31-Dec-2020 13:09:52.642 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:    Apache Tomcat/9.0.40
-31-Dec-2020 13:09:52.645 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:  Nov 12 2020 15:35:02 UTC
-31-Dec-2020 13:09:52.645 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:  9.0.40.0
-31-Dec-2020 13:09:52.645 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:     Windows 10
-31-Dec-2020 13:09:52.645 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:     10.0
-31-Dec-2020 13:09:52.645 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          amd64
-31-Dec-2020 13:09:52.645 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:           C:\Users\sunny\.jdks\azul-1.8.0_275\jre
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:          1.8.0_275-b01
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:          Azul Systems, Inc.
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     E:\plugins\apache-tomcat-9.0.40
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.config.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\conf\logging.properties
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dfile.encoding=UTF-8
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote=
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.port=1099
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.ssl=false
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.password.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\jmxremote.password
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.access.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\jmxremote.access
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.rmi.server.hostname=127.0.0.1
-31-Dec-2020 13:09:52.646 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djdk.tls.ephemeralDHKeySize=2048
-31-Dec-2020 13:09:52.647 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
-31-Dec-2020 13:09:52.647 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dignore.endorsed.dirs=
-31-Dec-2020 13:09:52.647 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.base=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb
-31-Dec-2020 13:09:52.647 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.home=E:\plugins\apache-tomcat-9.0.40
-31-Dec-2020 13:09:52.647 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.io.tmpdir=E:\plugins\apache-tomcat-9.0.40\temp
-31-Dec-2020 13:09:52.651 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 프로덕션 환경들에서 최적의 성능을 제공하는, APR 기반 Apache Tomcat Native 라이브러리가, 다음 java.library.path에서 발견되지 않습니다: [C:\Users\sunny\.jdks\azul-1.8.0_275\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\app\sunny\product\11.2.0\dbhome_2\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Brackets\command;C:\Users\sunny\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\sunny\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3\bin;C:\Users\sunny\AppData\Local\atom\bin;.]
-31-Dec-2020 13:09:52.816 정보 [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 초기화합니다.
-31-Dec-2020 13:09:52.836 정보 [main] org.apache.catalina.startup.Catalina.load [342] 밀리초 내에 서버가 초기화되었습니다.
-31-Dec-2020 13:09:52.856 정보 [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
-31-Dec-2020 13:09:52.856 정보 [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/9.0.40]
-31-Dec-2020 13:09:52.865 정보 [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 시작합니다.
-31-Dec-2020 13:09:52.873 정보 [main] org.apache.catalina.startup.Catalina.start 서버가 [36] 밀리초 내에 시작되었습니다.
+31-Dec-2020 13:16:54.487 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:    Apache Tomcat/9.0.40
+31-Dec-2020 13:16:54.489 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:  Nov 12 2020 15:35:02 UTC
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:  9.0.40.0
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:     Windows 10
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:     10.0
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          amd64
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:           C:\Users\sunny\.jdks\azul-1.8.0_275\jre
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:          1.8.0_275-b01
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:          Azul Systems, Inc.
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     E:\plugins\apache-tomcat-9.0.40
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.config.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\conf\logging.properties
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dfile.encoding=UTF-8
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote=
+31-Dec-2020 13:16:54.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.port=1099
+31-Dec-2020 13:16:54.491 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.ssl=false
+31-Dec-2020 13:16:54.491 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.password.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\jmxremote.password
+31-Dec-2020 13:16:54.491 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcom.sun.management.jmxremote.access.file=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb\jmxremote.access
+31-Dec-2020 13:16:54.491 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.rmi.server.hostname=127.0.0.1
+31-Dec-2020 13:16:54.491 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djdk.tls.ephemeralDHKeySize=2048
+31-Dec-2020 13:16:54.491 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+31-Dec-2020 13:16:54.491 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dignore.endorsed.dirs=
+31-Dec-2020 13:16:54.491 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.base=C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb
+31-Dec-2020 13:16:54.491 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.home=E:\plugins\apache-tomcat-9.0.40
+31-Dec-2020 13:16:54.491 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.io.tmpdir=E:\plugins\apache-tomcat-9.0.40\temp
+31-Dec-2020 13:16:54.495 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 프로덕션 환경들에서 최적의 성능을 제공하는, APR 기반 Apache Tomcat Native 라이브러리가, 다음 java.library.path에서 발견되지 않습니다: [C:\Users\sunny\.jdks\azul-1.8.0_275\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\app\sunny\product\11.2.0\dbhome_2\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Brackets\command;C:\Users\sunny\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\sunny\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3\bin;C:\Users\sunny\AppData\Local\atom\bin;.]
+31-Dec-2020 13:16:54.665 정보 [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 초기화합니다.
+31-Dec-2020 13:16:54.686 정보 [main] org.apache.catalina.startup.Catalina.load [341] 밀리초 내에 서버가 초기화되었습니다.
+31-Dec-2020 13:16:54.706 정보 [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
+31-Dec-2020 13:16:54.706 정보 [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/9.0.40]
+31-Dec-2020 13:16:54.715 정보 [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 시작합니다.
+31-Dec-2020 13:16:54.723 정보 [main] org.apache.catalina.startup.Catalina.start 서버가 [37] 밀리초 내에 시작되었습니다.
 Connected to server
-31-Dec-2020 13:09:54.273 정보 [RMI TCP Connection(3)-127.0.0.1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
+31-Dec-2020 13:16:55.716 정보 [RMI TCP Connection(3)-127.0.0.1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
 log4j:WARN No appenders could be found for logger (org.springframework.web.context.ContextLoader).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
 helloController에서 hello.ing 요청
 carousel() 회원이름 : null
 ===> Mybatis carouselBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
 ===> Mybatis bestBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
 ===> Mybatis hotBook() 호출
 ===> Mybatis hotBook() 호출
 helloController에서 hello.ing 요청
@@ -60,146 +66,203 @@ carousel() 회원이름 : null
 ===> Mybatis bestBook() 호출
 ===> Mybatis hotBook() 호출
 ===> Mybatis hotBook() 호출
-viewbook() 54line null
-viewbook() 54line 9788962183672
-viewbook() 54line 0
-viewBook() 49Line 점수 : 3.7
-===> Mybatis selectBook() 호출
-31-Dec-2020 13:10:02.867 정보 [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [E:\plugins\apache-tomcat-9.0.40\webapps\manager]을(를) 배치합니다.
-BookController에서start요청
-31-Dec-2020 13:10:03.168 정보 [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
-31-Dec-2020 13:10:03.178 정보 [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [E:\plugins\apache-tomcat-9.0.40\webapps\manager]에 대한 배치가 [310] 밀리초에 완료되었습니다.
+null님 로그아웃
 helloController에서 hello.ing 요청
 carousel() 회원이름 : null
 ===> Mybatis carouselBook() 호출
 ===> Mybatis bestBook() 호출
 ===> Mybatis hotBook() 호출
 ===> Mybatis hotBook() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
-===> Mybatis genrebookList() 호출
+Controller TEL 체크 ->01055555555
+DAO tel 체크 ->01055555555
 helloController에서 hello.ing 요청
 carousel() 회원이름 : null
 ===> Mybatis carouselBook() 호출
 ===> Mybatis bestBook() 호출
 ===> Mybatis hotBook() 호출
 ===> Mybatis hotBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis bestBook() 호출
-helloController에서 hello.ing 요청
-carousel() 회원이름 : null
-===> Mybatis carouselBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-Controller ID 체크 ->qwer4
-dao ID 체크 ->qwer4
+31-Dec-2020 13:17:04.717 정보 [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [E:\plugins\apache-tomcat-9.0.40\webapps\manager]을(를) 배치합니다.
+31-Dec-2020 13:17:05.030 정보 [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
+31-Dec-2020 13:17:05.040 정보 [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [E:\plugins\apache-tomcat-9.0.40\webapps\manager]에 대한 배치가 [322] 밀리초에 완료되었습니다.
+Controller ID 체크 ->admin
+dao ID 체크 ->admin
 1
-viewbook() 54line null
+===>  MemberMapper memberlogin() 호출
+11111111a!/$2a$10$t2yNAl4NVzpckMvWk/Mip.yylwB5J16mXuK99mur84H4AP.VW10CC
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+viewbook() 54line 7777777777
 viewbook() 54line 9791191187533
 viewbook() 54line 0
 viewBook() 49Line 점수 : 0.0
 ===> Mybatis selectBook() 호출
-===>  MemberMapper memberlogin() 호출
-qwer1234!/$2a$10$aukDC1R1iNuEcpo6u.NVGuG3xkyizVc5dJloAbG8WvzNyotjZoyDO
+===> Mybatis genrebookList() 호출
+===> Mybatis genrebookList() 호출
 helloController에서 hello.ing 요청
-carousel() 회원이름 : 유재석
+carousel() 회원이름 : 운영자
 ===> Mybatis carouselBook() 호출
 ===> Mybatis bestBook() 호출
 ===> Mybatis memberBook() 호출
-고객의 나이:41
+고객의 나이:44
 age일떄:1
 ===> Mybatis memberBook() 호출
-고객의 나이:41
+고객의 나이:44
 genre일떄:2
-고객의 나이:41
+고객의 나이:44
+===> Mybatis genrebookList() 호출
+===> Mybatis genrebookList() 호출
 helloController에서 hello.ing 요청
 carousel() 회원이름 : null
 ===> Mybatis carouselBook() 호출
 ===> Mybatis bestBook() 호출
 ===> Mybatis hotBook() 호출
 ===> Mybatis hotBook() 호출
-viewbook() 54line null
-viewbook() 54line 9791162541807
-viewbook() 54line 0
-viewBook() 49Line 점수 : 3.0
-===> Mybatis selectBook() 호출
 ===> Mybatis genrebookList() 호출
-viewbook() 54line 01044444444
-viewbook() 54line 9791187580409
+viewbook() 54line 7777777777
+viewbook() 54line 9791190020282
 viewbook() 54line 0
 viewBook() 49Line 점수 : 0.0
 ===> Mybatis selectBook() 호출
-orderBook() 상세화면에서 받아온 isbn : 9791187580409
-orderBook() title: null
-===> Mybatis selectBook() 호출
-sbox null
-bookService 68Line : null
-searchBookDao searchBook() : null
-viewbook() 54line null
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+viewbook() 54line 7777777777
 viewbook() 54line 9791162541807
 viewbook() 54line 0
 viewBook() 49Line 점수 : 3.0
 ===> Mybatis selectBook() 호출
-구매 DB 삽입완료 주문번호 : 30
-insertPurchaseBook() salesData 정보가 있음9791187580409
-BookDAO 재고 빼주기 완료
-===> Mybatis genrebookList() 호출
-updateMemberPoint 적립완료 : 790
 helloController에서 hello.ing 요청
-carousel() 회원이름 : 유재석
+carousel() 회원이름 : 운영자
 ===> Mybatis carouselBook() 호출
 ===> Mybatis bestBook() 호출
 ===> Mybatis memberBook() 호출
-고객의 나이:41
+고객의 나이:44
 age일떄:1
 ===> Mybatis memberBook() 호출
-고객의 나이:41
+고객의 나이:44
 genre일떄:2
-고객의 나이:41
-viewbook() 54line null
+고객의 나이:44
+===>  MemberMapper memberInsert() 호출
+에러 발생
+===> Mybatis genrebookList() 호출
+viewbook() 54line 7777777777
+viewbook() 54line 9791190179232
+viewbook() 54line 0
+viewBook() 49Line 점수 : 0.0
+===> Mybatis selectBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+helloController에서 hello.ing 요청
+carousel() 회원이름 : null
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis hotBook() 호출
+===> Mybatis hotBook() 호출
+viewbook() 54line 7777777777
+viewbook() 54line 4444444444444
+viewbook() 54line 0
+viewBook() 49Line 점수 : 0.0
+===> Mybatis selectBook() 호출
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 운영자
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+===> Mybatis genrebookList() 호출
+viewbook() 54line 7777777777
 viewbook() 54line 9791191228366
 viewbook() 54line 0
 viewBook() 49Line 점수 : 0.0
 ===> Mybatis selectBook() 호출
-isbn 확인만 하고 빠질게용  : 9791187580409
-PurchaseControlelr 구매날짜 : 2020-12-31 13:11
-날짜 변환 에러java.text.ParseException: Unparseable date: "2020-12-31 13:11"
-viewbook() 54line 01044444444
-viewbook() 54line 9791187580409
-viewbook() 54line 1
-viewBook() 49Line 점수 : 0.0
-===> Mybatis selectBook() 호출
 helloController에서 hello.ing 요청
-carousel() 회원이름 : null
+carousel() 회원이름 : 운영자
 ===> Mybatis carouselBook() 호출
 ===> Mybatis bestBook() 호출
-===> Mybatis hotBook() 호출
-===> Mybatis hotBook() 호출
-registReview() 오다넘버 : 30
-registReview() isbn : 9791187580409
-registReview() 별점확인 : 5
-registReview() 내용 : 이집 잘하네
-reviewDAO insertReview() : isbn9791187580409
-리뷰 등록 완료
-viewbook() 54line 01044444444
-viewbook() 54line 9791187580409
-viewbook() 54line 1
-viewBook() 49Line 점수 : 5.0
-===> Mybatis selectBook() 호출
-viewbook() 54line null
-viewbook() 54line 9788966262823
+===> Mybatis memberBook() 호출
+고객의 나이:44
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:44
+genre일떄:2
+고객의 나이:44
+Controller ID 체크 ->30yearold
+dao ID 체크 ->30yearold
+1
+===>  MemberMapper memberlogin() 호출
+qwer1234!/$2a$10$iU68Jm6ewU./eijcl9UBGuwL58TM9pd.rbgv5Jm2EsCNHD1l4qBWe
+viewbook() 54line 7777777777
+viewbook() 54line 4444444444444
 viewbook() 54line 0
-viewBook() 49Line 점수 : 4.0
+viewBook() 49Line 점수 : 0.0
 ===> Mybatis selectBook() 호출
+Controller ID 체크 ->30yearold
+dao ID 체크 ->30yearold
+1
+===>  MemberMapper memberlogin() 호출
+11111111a!/$2a$10$iU68Jm6ewU./eijcl9UBGuwL58TM9pd.rbgv5Jm2EsCNHD1l4qBWe
+helloController에서 hello.ing 요청
+carousel() 회원이름 : 삼십대
+===> Mybatis carouselBook() 호출
+===> Mybatis bestBook() 호출
+===> Mybatis memberBook() 호출
+고객의 나이:31
+age일떄:1
+===> Mybatis memberBook() 호출
+고객의 나이:31
+genre일떄:2
+고객의 나이:31
+Using CATALINA_BASE:   "C:\Users\sunny\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\47c3ca61-f05a-4535-bacf-93cf93cfe5eb"
+Using CATALINA_HOME:   "E:\plugins\apache-tomcat-9.0.40"
+Using CATALINA_TMPDIR: "E:\plugins\apache-tomcat-9.0.40\temp"
+Using JRE_HOME:        "C:\Users\sunny\.jdks\azul-1.8.0_275"
+Using CLASSPATH:       "E:\plugins\apache-tomcat-9.0.40\bin\bootstrap.jar;E:\plugins\apache-tomcat-9.0.40\bin\tomcat-juli.jar"
+Using CATALINA_OPTS:   ""
+31-Dec-2020 13:18:43.721 정보 [main] org.apache.catalina.core.StandardServer.await 셧다운 포트를 통해 유효한 셧다운 명령을 받았습니다. 서버 인스턴스를 중지시킵니다.
+31-Dec-2020 13:18:43.722 정보 [main] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 일시 정지 중
+31-Dec-2020 13:18:43.781 정보 [main] org.apache.catalina.core.StandardService.stopInternal 서비스 [Catalina]을(를) 중지시킵니다.
+31-Dec-2020 13:18:43.805 정보 [main] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 중지시킵니다.
+31-Dec-2020 13:18:43.827 정보 [main] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["http-nio-0.0.0.0-8080"]을(를) 소멸시킵니다.
+Disconnected from server
