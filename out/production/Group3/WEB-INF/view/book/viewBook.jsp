@@ -42,16 +42,19 @@
 
         <c:choose>
             <c:when test="${scoreAvg == 'NaN'}">
-                ${ratingOptions.get(zero)} 0
+
             </c:when>
-            <c:when test="${scoreAvg>=0 && scoreAvg<1.5}">
-                        ${ratingOptions.get(zero)} ${scoreAvg}
+            <c:when test="${scoreAvg>=0.0 && scoreAvg<0.5}">
+                ${ratingOptions.get(zero)} ${scoreAvg}
             </c:when>
-            <c:when test="${scoreAvg>=1.5 && scoreAvg<2.5}">
+            <c:when test="${scoreAvg>=0.5 && scoreAvg<1.5}">
                 ${ratingOptions.get(one)} ${scoreAvg}
             </c:when>
-            <c:when test="${scoreAvg>=2.5 && scoreAvg<3.5}">
+            <c:when test="${scoreAvg>=1.5 && scoreAvg<2.5}">
                 ${ratingOptions.get(two)} ${scoreAvg}
+            </c:when>
+            <c:when test="${scoreAvg>=2.5 && scoreAvg<3.5}">
+                ${ratingOptions.get(three)} ${scoreAvg}
             </c:when>
             <c:when test="${scoreAvg>=3.5 && scoreAvg<4.5}">
                 ${ratingOptions.get(four)} ${scoreAvg}
@@ -120,7 +123,7 @@
                 </p>
                 <form action="/review/registReview.ing">
                     <input type="hidden" id="purchaseBook_isbn" value="${reviewVO.isbn}"/>
-                    <input type="hidden" id="purchase_orderNumber" value="${reviewVO.orderNumber}"/>
+                    <input type="hidden" id="purchase_orderNumber" value="${orderNumber}"/>
                     <textarea id="review_content" placeholder="리뷰를 작성해주세요 50자이내"></textarea>
                 </form>
                 <button type="button" id="regist_review">등록</button>
