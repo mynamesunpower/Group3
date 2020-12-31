@@ -56,7 +56,7 @@
     <div class="col s1 m1 l1"></div>
     <div class="col s4 m2 l2">
         <h5>
-            <c:if test="${sessionScope.memberName ne null}">
+            <c:if test="${sessionScope.memberName ne null && sessionScope.memberName ne 'nonMember'}">
                 <a id="shoppingCart" class="loadAjax btn-flat tooltipped" href="/cart/cartList.ing"
                    data-position="bottom" data-tooltip="장바구니">
                     <i class="material-icons black-text">shopping_cart</i>
@@ -68,7 +68,7 @@
             </a>
 
             <c:choose>
-                <c:when test="${sessionScope.memberName eq null}">
+                <c:when test="${sessionScope.memberName == null}">
                     <a id="dropdownbox2" class="dropdown-trigger btn-flat" data-target="dropdown2">
                         <i class="material-icons black-text">account_box</i> </a>
 
@@ -84,7 +84,8 @@
                         <i class="material-icons black-text">account_box</i>
                     </a>--%>
                 </c:when>
-                <c:when test="${sessionScope.memberName ne null}">
+                <c:otherwise>
+                <%--<c:when test="${sessionScope.memberName ne null}">--%>
                     <!-- Dropdown Trigger -->
                     <a id="dropdownbox" class='dropdown-trigger btn blue' data-target='dropdown1'>
                             ${sessionScope.memberName}님</a>
@@ -110,7 +111,8 @@
                     </ul>
                     <%--<input type="button" id="mypage" name="mypage" value="MYPAGE" onclick="location.href='/mypage.ing'">--%>
                     <%--<input type="button" id="logout" name="logout" value="로그아웃" onclick="location.href='/logout.ing'">--%>
-                </c:when>
+                <%--</c:when>--%>
+                </c:otherwise>
             </c:choose>
 
         </h5>

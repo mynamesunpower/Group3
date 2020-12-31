@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface PurchaseService {
+    public boolean selectPurchase(Map purchaseMap);
+
     public String insertPurchase(Map purchaseMap);
 
     public void insertPurchaseBook(PurchaseBookVO purchaseBookVO);
@@ -27,4 +29,5 @@ public interface PurchaseService {
 
     public void cancel_salesData(PurchaseBookVO purchaseBookVO);
 
+    public void usePoint(PurchaseVO purchaseVO);
 }

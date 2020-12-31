@@ -17,6 +17,15 @@ public class PurchaseServiceImpl implements PurchaseService {
     PurchaseDAOImpl purchaseDAO;
 
     @Override
+    public boolean selectPurchase(Map purchaseMap) {
+        List list = purchaseDAO.selectPurchase(purchaseMap);
+        if (list.size() > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public String insertPurchase(Map purchaseMap) {
         return purchaseDAO.insertPurchase(purchaseMap);
     }
@@ -64,5 +73,10 @@ public class PurchaseServiceImpl implements PurchaseService {
     @Override
     public void insertCancelBook(PurchaseBookVO purchaseBookVO) {
         purchaseDAO.insertCancelBook(purchaseBookVO);
+    }
+
+    @Override
+    public void usePoint(PurchaseVO purchaseVO) {
+        purchaseDAO.usePoint(purchaseVO);
     }
 }

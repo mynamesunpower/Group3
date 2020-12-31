@@ -12,6 +12,7 @@ public class PurchaseVO {
     private String cancelDate;
     private String deliveryDate;
     private String shipAddress;
+    private int payPoint;
 
     private MemberVO memberVO;
     private NonMemberVO nonMemberVO;
@@ -108,6 +109,14 @@ public class PurchaseVO {
 
     public void setShipAddress(String shipAddress) {
         this.shipAddress = shipAddress;
+    }
+
+    public int getPayPoint() {
+        return payPoint;
+    }
+
+    public void setPayPoint(int payPoint) {
+        this.payPoint = payPoint;
     }
 
     public MemberVO getMemberVO() {

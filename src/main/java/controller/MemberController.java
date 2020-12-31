@@ -162,6 +162,8 @@ public class MemberController {
             message = "실패";
         }
         else {
+            session.removeAttribute("memberName");
+
             session.setAttribute("memberId", result.getId());
             session.setAttribute("memberName", result.getName());
             session.setAttribute("memberPassword", result.getPassword());

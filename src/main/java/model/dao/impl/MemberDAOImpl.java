@@ -76,4 +76,12 @@ public class MemberDAOImpl implements MemberDAO {
     public int emailCheck(MemberVO vo) {
         return mybatis.selectList("member.emailCheck", vo).size();
     }
+
+    @Override
+    public MemberVO pointCheck(String tel) {
+        System.out.println("memberDAO로 넘어온 회원전화번호 : " + tel);
+        return mybatis.selectOne("member.checkPoint", tel);
+    }
+
+
 }

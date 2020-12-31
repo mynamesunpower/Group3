@@ -9,8 +9,15 @@ import java.util.List;
 import java.util.Map;
 @Repository("purchaseDAO")
 public class PurchaseDAOImpl implements PurchaseDAO {
+
     @Autowired
     SqlSessionTemplate sqlSessionTemplate;
+
+    @Override
+    public List selectPurchase(Map purchaseMap) {
+        return sqlSessionTemplate.selectList("booktrain.purchase.selectPurchase", purchaseMap);
+    }
+
     @Override
     public String insertPurchase(Map purchaseMap) {
         sqlSessionTemplate.insert("booktrain.purchase.insertPurchase", purchaseMap);
@@ -19,6 +26,12 @@ public class PurchaseDAOImpl implements PurchaseDAO {
         System.out.println("구매 DB 삽입완료 주문번호 : " + purchaseMap.get("orderNumber"));
         return String.valueOf(purchaseMap.get("orderNumber"));
     }
+
+    @Override
+    public void usePoint(PurchaseVO purchaseVO) {
+        sqlSessionTemplate.update("booktrain.purchase.usePoint", purchaseVO);
+    }
+
     @Override
     public void insertPurchaseBook(PurchaseBookVO purchaseBookVO) {
         sqlSessionTemplate.insert("booktrain.purchase.insertPurchaseBook", purchaseBookVO);

@@ -28,4 +28,9 @@ public interface MemberDAO {
     public MemberVO memberPassFind(MemberVO memberVO);
 
     public int emailCheck(MemberVO vo);
+
+    public MemberVO pointCheck(String tel);
+
+
+
 }

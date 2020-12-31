@@ -1,6 +1,7 @@
 package controller;
 
 import model.vo.BookVO;
+import model.vo.PurchaseVO;
 import model.vo.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,11 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import service.impl.BookServiceImpl;
+import service.impl.PurchaseServiceImpl;
 import service.impl.ReviewServiceImpl;
+import service.service.PurchaseService;
 import service.service.ReviewService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -26,6 +30,10 @@ public class BookController {
     private BookServiceImpl bookService;
     @Autowired
     private ReviewServiceImpl reviewService;
+    @Autowired
+    private PurchaseServiceImpl purchaseService;
+    @Autowired
+    private HttpSession httpSession;
 
     @RequestMapping("showBook.ing")
     public String showBook(HttpServletRequest request, Model model) {
@@ -42,7 +50,22 @@ public class BookController {
      */
     @RequestMapping(value = "viewBook.ing")
     public String viewBook(BookVO vo, ReviewVO reviewVO, Model model) {
-        System.out.println("viewBook() 리뷰 isbn : " + reviewVO.getIsbn());
+
+        PurchaseVO purchaseVO = new PurchaseVO();
+        purchaseVO.setMemberTel((String)httpSession.getAttribute("memberTel"));
+
+        // 회원이 해당 상품을 샀는지 안샀는지 알아보기 위해 해쉬맵 생성해서 데이터 전송
+        Map purchaseMap = new HashMap();
+        purchaseMap.put("memberTel" ,(String)httpSession.getAttribute("memberTel"));
+        purchaseMap.put("isbn", vo.getIsbn());
+
+        // 해당 회원의 번호와 isbn으로 상품 구매 여부 확인
+        boolean writeReview = purchaseService.selectPurchase(purchaseMap);
+        if(writeReview == true){
+            model.addAttribute("writeReview", "구매이력있음");
+        }else{
+            model.addAttribute("writeReview", "구매이력없음");
+        }
 
         List<ReviewVO> reviewList = reviewService.seeReview(reviewVO);
 
@@ -78,7 +101,6 @@ public class BookController {
             System.out.println("sbox null");
             map.put("sbox", null);
         }
-        // 아 이거 망한각인데 ㅋㅋ...ㅋㅋㅋ모르겟다 검색 1회성 ㅋㅋㅋㅋㅋㅋㅋㅋㅋ 왜이렇게도ㅒㅆ재ㅣ;..다른것도 이상해지나 테스트해보자
         List<BookVO> bookList = bookService.searchBook(map);
 
         model.addAttribute("keyword", keyword);
