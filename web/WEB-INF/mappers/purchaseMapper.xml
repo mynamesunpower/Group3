@@ -150,7 +150,6 @@
                 where p.order_number=#{orderNumber} and p.STATE = #{state}
             </otherwise>
         </choose>
-
     </select>
 
     <insert id="insertCancelBook" parameterType="purchaseBook">
