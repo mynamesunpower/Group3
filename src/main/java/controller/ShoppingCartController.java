@@ -27,8 +27,10 @@ public class ShoppingCartController {
     // 장바구니 목록 불러오기
     @RequestMapping("cartList.ing")
     public String cartList(Model model) {
+        // 세션으로 저장되어있는 회원의 전화번호 변수에 저장
         String memberTel = (String) httpSession.getAttribute("memberTel");
 
+        // 회원 번호가 있다면 리스트 형태로 담아서 모델에 저장
         if (memberTel != null) {
             ShoppingCartVO shoppingCartVO = new ShoppingCartVO();
             shoppingCartVO.setTel(memberTel);
@@ -37,8 +39,7 @@ public class ShoppingCartController {
             return "cart/cartList";
         } else {
             // 비로그인시 홈으로 돌아감
-            //TODO 로그인이 안되어있을시 로그인 하라는 알림 띄워주기
-            return "redirect:../start.ing";
+            return "redirect:../booktrain.ing";
         }
     }
 

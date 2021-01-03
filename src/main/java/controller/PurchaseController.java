@@ -37,8 +37,6 @@ public class PurchaseController {
     // 상품 주문
     @RequestMapping("orderBook.ing")
     public String orderBook(ShoppingCartVO shoppingCartVO, String title, Model model) {
-        System.out.println("orderBook() 상세화면에서 받아온 isbn : " + shoppingCartVO.getIsbn());
-        System.out.println("orderBook() title: " + title);
 
         List<String> isbnList = new ArrayList<>();
         List<Integer> quantityList = new ArrayList<>();
@@ -91,19 +89,16 @@ public class PurchaseController {
 
         ShoppingCartVO shoppingCartVO = new ShoppingCartVO();
         shoppingCartVO.setTel((String) httpSession.getAttribute("memberTel"));
-
         List cartList = new ArrayList();
 
         // 각각의 isbn을 가지고 장바구니에 있는 해당 isbn 책의 정보를 가져옴
         for (String sIsbn : isbnList) {
             shoppingCartVO.setIsbn(sIsbn);
             List<ShoppingCartVO> cart = shoppingCartService.selectCart(shoppingCartVO);
-
             // 각 상품의 수량을 저장
             for (ShoppingCartVO result : cart) {
                 quantityList.add(result.getQuantity());
             }
-
             cartList.add(cart);
         }
         // 장바구니의 주문목록의 상품명 1개를 보냄
@@ -114,7 +109,6 @@ public class PurchaseController {
         httpSession.setAttribute("isbnList", isbnList);
         httpSession.setAttribute("quantityList", quantityList);
         httpSession.setAttribute("cartOrder", "cartOrder");
-
 
         return "purchase/orderBook";
     }
@@ -252,7 +246,7 @@ public class PurchaseController {
         // 결제완료된 상품을 불러오기위함
         List<List> orderList = new ArrayList<>();
 
-        // 해당 회원의 주문번호들을 리스트에 저장
+        // 해당 회원의 번호를 통해 얻은 주문번호들을 리스트에 저장
         List<String> orderNumberList = purchaseService.selectOrderNumber(purchaseVO);
 
         // 각각의 주문번호를 통해 얻은 쿼리값을 orderList에 저장
@@ -268,40 +262,23 @@ public class PurchaseController {
 
     /**
      * 주문 상세조회
-     *
      * @param orderNumber : 해당 주문번호
      * @param state       : 주문 번호의 상태 - '결제완료', '결제취소'로 나뉨
      */
     @RequestMapping("detailOrderList.ing")
     public String detailOrderList(@RequestParam("orderNumber") String orderNumber,
                                   @RequestParam("state") String state, Model model) {
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh24:mm");
 
         PurchaseVO purchaseVO = new PurchaseVO();
         purchaseVO.setOrderNumber(orderNumber);
         purchaseVO.setState(state);
-//        List<List> detailOrder_List = new ArrayList<>();
-
 
         // 주문 상품과 수량을 가져옴
         List<PurchaseVO> detailOrder_List = purchaseService.selectDetailOrder(purchaseVO);
-        for (PurchaseVO result : detailOrder_List) {
-            System.out.println("isbn 확인만 하고 빠질게용  : " + result.getPurchaseBookVO().getIsbn());
-        }
+
+        // 해당 주문번호를 가져와서 리뷰를 작성할때 쓰이기 위함
         purchaseVO = purchaseService.purchaseInfo(purchaseVO);
-
-        // 날짜 계산해주기
-        System.out.println("PurchaseControlelr 구매날짜 : " + purchaseVO.getPurchaseDate());
-        try{
-            Date purchaseDate = dateFormat.parse(purchaseVO.getPurchaseDate());
-            System.out.println("PurchaseController() 날짜변환 : " + purchaseDate);
-        }catch (Exception e){
-            System.out.println("날짜 변환 에러"+ e.toString());
-        }
-
         purchaseVO.setOrderNumber(orderNumber);
-
 
         model.addAttribute("detailOrder_List", detailOrder_List);
         model.addAttribute("purchaseInfo", purchaseVO);

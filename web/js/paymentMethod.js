@@ -1,5 +1,6 @@
 // 결제 방식들을 담아둘 파일
 
+    // 아임포트란 API를 활용한 결제창
     function kakaoPay(data) {
         IMP.init('imp06146117')
         IMP.request_pay({
@@ -16,13 +17,8 @@
             buyer_postcode : data.addr1
         }, (rsp)=> {
             if ( rsp.success ) {
-                // TODO 완성되면 msg 지워주기
                 var msg = '결제가 완료되었습니다.';
-                msg += '고유ID : ' + rsp.imp_uid;
-                msg += '상점 거래ID : ' + rsp.merchant_uid;
                 msg += '결제 금액 : ' + rsp.paid_amount;
-                msg += '카드 승인번호 : ' + rsp.apply_num;
-
                 // 결제가 성공하면 해당 url 요청
                 $.ajax({
                     type: 'post',

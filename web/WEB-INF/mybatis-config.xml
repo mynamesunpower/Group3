@@ -8,7 +8,7 @@
         <setting name="jdbcTypeForNull" value="NULL" />
         <setting name="callSettersOnNulls" value="true"/>
     </settings>
-    <!-- Alias 설정 -->
+
     <typeAliases>
         <typeAlias alias="member" type="model.vo.MemberVO" />
         <typeAlias alias="nonmember" type="model.vo.NonMemberVO" />
