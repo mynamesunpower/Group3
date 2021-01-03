@@ -88,11 +88,6 @@
             </ul>
         </div>
 
-        <%--<li>--%>
-        <%--<div class="collapsible-header"><h4>내용</h4></div>--%>
-        <%--<div class="collapsible-body"><p>내용</p></div>--%>
-        <%--</li>--%>
-
         <div class="col s8">
             <%--배송문의 첫번째 탭--%>
             <div id="test1" class="col tab-content">
