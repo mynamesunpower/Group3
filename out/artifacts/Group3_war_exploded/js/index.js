@@ -1,5 +1,6 @@
     $(document).ready(function(){
 
+        // MaterialCSS functions
         $('.sidenav').sidenav();
         $('.collapsible').collapsible();
         $('.tooltipped').tooltip();
@@ -7,7 +8,7 @@
         $('#dropdownbox').dropdown();
         $('#dropdownbox2').dropdown();
 
-
+        // ajax 페이지 요청 클래스
         $(document).on("click", '.loadAjax', function(event) {
             event.preventDefault();
             let url = $(this).attr("href");

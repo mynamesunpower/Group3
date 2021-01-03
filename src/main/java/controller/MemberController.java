@@ -75,7 +75,6 @@ public class MemberController {
             message = vo.getName() + " 님, Booktrain.ing에서 공부할 준비 되셨나요?";
         }
 
-
         memberlogin(vo, session);
         m.addAttribute("message", message);
         return "member/userok";
@@ -151,7 +150,6 @@ public class MemberController {
 
         // 유저가 입력한 비밀번호
         String inputPassword;
-
         // 일반적인 로그인 시도라면
         if (session.getAttribute("inputPassword") == null) {
             inputPassword = vo.getPassword();
@@ -160,15 +158,11 @@ public class MemberController {
             inputPassword = (String) session.getAttribute("inputPassword");
             session.removeAttribute("inputPassword");
         }
-
-
         // id로만 검색한 vo 객체 (비밀번호는 암호화되어있음)
         MemberVO result = memberService.memberLogin(vo);
-
         System.out.println(inputPassword + "/" + result.getPassword());
         // 비밀번호 검증
         boolean passwordMatch = passwordEncoder.matches(inputPassword, result.getPassword());
-
         String message = "성공";
 
         if (!passwordMatch) {
@@ -300,7 +294,7 @@ public class MemberController {
 
         if (password == null) password = "실패";
         return password;
-    }
+    } // end of memberPassFindOk()
 
 
 }//end MemberController

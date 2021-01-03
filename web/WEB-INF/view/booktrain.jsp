@@ -194,16 +194,11 @@
                         <c:forEach items="${booktap}" var="tap">
                             <li><a class="loadAjax" href="genrebookList.ing?genre=${tap.genre}">${tap.genre}</a></li>
                         </c:forEach>
-                        <%--<li><a class="loadAjax" href="genrebookList.ing?genre=참고서">참고서</a></li>--%>
-                        <%--<li><a class="loadAjax" href="genrebookList.ing?genre=EBS">EBS</a></li>--%>
-                        <%--<li><a class="loadAjax" href="genrebookList.ing?genre=어학">어학</a></li>--%>
-                        <%--<li><a class="loadAjax" href="genrebookList.ing?genre=자격증">자격증</a></li>--%>
-                        <%--<li><a class="loadAjax" href="genrebookList.ing?genre=고시">고시</a></li>--%>
                     </ul>
                 </div>
             </li>
-            <li class="no-padding"><a class="loadAjax" href="bestbookList.ing?">베스트셀러</a></li>
-            <li class="no-padding"><a class="loadAjax" href="newbookList.ing?">새로 들어온 책</a></li>
+            <li class="no-padding"><a class="loadAjax" href="bestbookList.ing">베스트셀러</a></li>
+            <li class="no-padding"><a class="loadAjax" href="newbookList.ing">새로 들어온 책</a></li>
             <li class="no-padding"><a class="loadAjax" href="customerBoard/customerCenter.ing">FAQ</a></li>
             <li class="no-padding"><a class="loadAjax" href="customerBoard/customerBoardList.ing">고객 게시판</a></li>
         </ul>
