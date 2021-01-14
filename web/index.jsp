@@ -9,21 +9,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="shortcut icon" href="../../imgs/favicon.ico">
     <link rel="icon" href="../../imgs/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../css/common.css">
-    <link rel="stylesheet" type="text/css" href="../../css/slide.css">
-    <link rel="stylesheet" type="text/css" href="../../../css/review.css">
+    <link rel="stylesheet" type="text/css" href="../../Group3_war/css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../Group3_war/css/slide.css">
+    <link rel="stylesheet" type="text/css" href="../../Group3_war/css/review.css">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-    <script src="../../js/index.js" type="text/javascript"></script>
-    <script src="../../js/cart.js" type="text/javascript"></script>
-    <script src="../../js/order.js" type="text/javascript"></script>
-    <script src="../../js/login.js" type="text/javascript"></script>
-    <script src="../../js/paymentMethod.js" type="text/javascript"></script>
-    <script src="../../js/memberjoin.js" type="text/javascript"></script>
-    <script src="../../js/review.js" type="text/javascript"></script>
+    <script src="../../Group3_war/js/index.js" type="text/javascript"></script>
+    <script src="../../Group3_war/js/cart.js" type="text/javascript"></script>
+    <script src="../../Group3_war/js/order.js" type="text/javascript"></script>
+    <script src="../../Group3_war/js/login.js" type="text/javascript"></script>
+    <script src="../../Group3_war/js/paymentMethod.js" type="text/javascript"></script>
+    <script src="../../Group3_war/js/memberjoin.js" type="text/javascript"></script>
+    <script src="../../Group3_war/js/review.js" type="text/javascript"></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.carousel');
@@ -50,14 +50,14 @@
     <div class="col s1 m1 l1"></div>
     <div class="col s1 m1 l1"></div>
     <div class="col s4 m4 l4">
-        <a id="title" href="/start.ing" class="black-text"><h5>Booktrain.ing</h5></a>
+        <a id="title" href="Group3_war/start.ing" class="black-text"><h5>Booktrain.ing</h5></a>
     </div>
     <div class="col s1 m1 l1"></div>
     <div class="col s1 m1 l1"></div>
     <div class="col s4 m2 l2">
         <h5>
             <c:if test="${sessionScope.memberName ne null}">
-                <a id="shoppingCart" class="loadAjax btn-flat tooltipped" href="/cart/cartList.ing"
+                <a id="shoppingCart" class="loadAjax btn-flat tooltipped" href="Group3_war/cart/cartList.ing"
                    data-position="bottom" data-tooltip="장바구니">
                     <i class="material-icons black-text">shopping_cart</i>
                 </a>
@@ -73,10 +73,10 @@
                         <i class="material-icons black-text">account_box</i> </a>
 
                     <ul id="dropdown2" class="dropdown-content">
-                        <li><a class="loadAjax" href="/login.ing">로그인</a></li>
+                        <li><a class="loadAjax" href="Group3_war/login.ing">로그인</a></li>
                         <li class="divider"></li>
-                        <li><a class="loadAjax" href="/memberjoin.ing">회원가입</a></li>
-                        <li><a class="loadAjax btn-flat tooltipped" href="customerCenter.ing" data-position="bottom"
+                        <li><a class="loadAjax" href="Group3_war/memberjoin.ing">회원가입</a></li>
+                        <li><a class="loadAjax btn-flat tooltipped" href="Group3_war/customerCenter.ing" data-position="bottom"
                                data-tooltip="고객센터">고객센터</a></li>
                     </ul>
 
@@ -92,17 +92,17 @@
                     <!-- Dropdown Structure -->
                     <ul id='dropdown1' class='dropdown-content'>
                         <li><a href="#!" class="blue-text">
-                            <a class="loadAjax" href="/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
+                            <a class="loadAjax" href="Group3_war/memberupdate.ing" id="mypage" name="mypage">회원정보수정</a>
                         </a></li>
                         <li class="divider"></li>
-                        <li><a class="loadAjax" href="/purchase/orderList.ing?state=결제완료" class="blue-text">주문목록확인</a>
+                        <li><a class="loadAjax" href="Group3_war/purchase/orderList.ing?state=결제완료" class="blue-text">주문목록확인</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a class="loadAjax btn-flat tooltipped" href="customerCenter.ing" data-position="bottom"
+                        <li><a class="loadAjax btn-flat tooltipped" href="Group3_war/customerCenter.ing" data-position="bottom"
                                data-tooltip="고객센터">고객센터</a></li>
                         <li class="divider"></li>
                         <li><a href="#!" class="blue-text">
-                            <a class="loadAjax" href="/logout.ing" id="logout" name="logout"
+                            <a class="loadAjax" href="Group3_war/logout.ing" id="logout" name="logout"
                                onclick="alert('로그아웃되었습니다.')">로그아웃</a>
                         </a></li>
 
@@ -118,7 +118,7 @@
 
 <!-- 검색 박스 -->
 <div id="searchBox" class="searchBox">
-    <form id="searchForm" action="./searchBook.ing">
+    <form id="searchForm" action="Group3_war/searchBook.ing">
         <div class="row">
             <div class="col s12 m12 z-depth-1">
                 <div class="row"></div>
@@ -162,11 +162,11 @@
                     <div class="collapsible-header">책 CRUD</div>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a class="loadAjax" href="insertBook.ing">책 정보 데이터베이스 입력</a></li>
-                            <li><a class="loadAjax" href="rbookList.ing">책 데이터베이스 목록 보기</a></li>
-                            <li><a class="loadAjax" href="chartA.ing">장르별 매출 비율</a></li>
-                            <li><a class="loadAjax" href="chartB.ing">Booktrain 총 매출</a></li>
-                            <li><a class="loadAjax" href="chartC.ing">Booktrain 최근 매출</a></li>
+                            <li><a class="loadAjax" href="Group3_war/insertBook.ing">책 정보 데이터베이스 입력</a></li>
+                            <li><a class="loadAjax" href="Group3_war/rbookList.ing">책 데이터베이스 목록 보기</a></li>
+                            <li><a class="loadAjax" href="Group3_war/chartA.ing">장르별 매출 비율</a></li>
+                            <li><a class="loadAjax" href="Group3_war/chartB.ing">Booktrain 총 매출</a></li>
+                            <li><a class="loadAjax" href="Group3_war/chartC.ing">Booktrain 최근 매출</a></li>
                             <li><a href="#">책 데이터베이스 삭제하기</a></li>
                         </ul>
                     </div>
@@ -175,8 +175,8 @@
                     <div class="collapsible-header">출판사 CRUD</div>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a class="loadAjax" href="publisher/insertPublisher.ing">출판사 정보 데이터베이스 입력</a></li>
-                            <li><a class="loadAjax" href="publisher/listPublisher.ing">출판사 데이터베이스 목록 보기</a></li>
+                            <li><a class="loadAjax" href="Group3_war/publisher/insertPublisher.ing">출판사 정보 데이터베이스 입력</a></li>
+                            <li><a class="loadAjax" href="Group3_war/publisher/listPublisher.ing">출판사 데이터베이스 목록 보기</a></li>
                             <li><a href="#">출판사 데이터베이스 수정하기</a></li>
                             <li><a href="#">출판사 데이터베이스 삭제하기</a></li>
                         </ul>
@@ -189,7 +189,7 @@
                 <div class="collapsible-body">
                     <ul>
                         <c:forEach items="${booktap}" var="tap">
-                            <li><a class="loadAjax" href="genrebookList.ing?genre=${tap.genre}">${tap.genre}</a></li>
+                            <li><a class="loadAjax" href="Group3_war/genrebookList.ing?genre=${tap.genre}">${tap.genre}</a></li>
                         </c:forEach>
                         <%--<li><a class="loadAjax" href="genrebookList.ing?genre=참고서">참고서</a></li>--%>
                         <%--<li><a class="loadAjax" href="genrebookList.ing?genre=EBS">EBS</a></li>--%>
@@ -199,10 +199,10 @@
                     </ul>
                 </div>
             </li>
-            <li class="no-padding"><a class="loadAjax" href="bestbookList.ing?">베스트셀러</a></li>
-            <li class="no-padding"><a class="loadAjax" href="newbookList.ing?">새로 들어온 책</a></li>
-            <li class="no-padding"><a class="loadAjax" href="customerCenter.ing">FAQ</a></li>
-            <li class="no-padding"><a class="loadAjax" href="customerBoard.ing">고객 게시판</a></li>
+            <li class="no-padding"><a class="loadAjax" href="Group3_war/bestbookList.ing?">베스트셀러</a></li>
+            <li class="no-padding"><a class="loadAjax" href="Group3_war/newbookList.ing?">새로 들어온 책</a></li>
+            <li class="no-padding"><a class="loadAjax" href="Group3_war/customerCenter.ing">FAQ</a></li>
+            <li class="no-padding"><a class="loadAjax" href="Group3_war/customerBoard.ing">고객 게시판</a></li>
         </ul>
     </li>
 </ul> <!-- 사이드 메뉴 (왼쪽) 끝 -->
@@ -218,7 +218,7 @@
                     <div class="carousel">
                         <h5>새로 들어온 책</h5>
                         <c:forEach items="${carouselBook}" var="book">
-                            <a class="loadAjax carousel-item" href="viewBook.ing?isbn=${book.isbn}"><img src="../../imgs/book/${book.isbn}.PNG">${book.title}</a>
+                            <a class="loadAjax carousel-item" href="Group3_war/viewBook.ing?isbn=${book.isbn}"><img src="../../Group3_war/imgs/book/${book.isbn}.PNG">${book.title}</a>
                         </c:forEach>
                     </div>
                 </div>
@@ -238,8 +238,8 @@
                         <tr>
                             <c:forEach items="${bestBook}" var="bbook">
                                 <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                    <a class="loadAjax" href="viewBook.ing?isbn=${bbook.isbn}">
-                                        <img src="../../imgs/book/${bbook.isbn}.PNG" alt="">
+                                    <a class="loadAjax" href="Group3_war/viewBook.ing?isbn=${bbook.isbn}">
+                                        <img src="../../Group3_war/imgs/book/${bbook.isbn}.PNG" alt="">
                                     </a>
                                 </td>
                             </c:forEach>
@@ -271,8 +271,8 @@
                         <tr>
                             <c:forEach items="${hotBook}" var="hot">
                                 <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                    <a class="loadAjax" href="viewBook.ing?isbn=${hot.isbn}">
-                                        <img src="../../imgs/book/${hot.isbn}.PNG" alt="">
+                                    <a class="loadAjax" href="Group3_war/viewBook.ing?isbn=${hot.isbn}">
+                                        <img src="../../Group3_war/imgs/book/${hot.isbn}.PNG" alt="">
                                     </a>
                                 </td>
                             </c:forEach>
@@ -312,8 +312,8 @@
                         <tr>
                             <c:forEach items="${genrehotBook}" var="genrehot">
                                 <td width="25%" height="136" valign="bottom" style="color:#33afe9; text-align:center;padding:0 9px;">
-                                    <a class="loadAjax" href="viewBook.ing?isbn=${genrehot.isbn}">
-                                        <img src="../../imgs/book/${genrehot.isbn}.PNG" alt="">
+                                    <a class="loadAjax" href="Group3_war/viewBook.ing?isbn=${genrehot.isbn}">
+                                        <img src="../../Group3_war/imgs/book/${genrehot.isbn}.PNG" alt="">
                                     </a>
                                 </td>
                             </c:forEach>

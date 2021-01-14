@@ -38,6 +38,7 @@
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: javax.mail:mail:1.4.7" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
+          <element id="library" level="project" name="ojdbc6" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="Group3/web/Web" />
